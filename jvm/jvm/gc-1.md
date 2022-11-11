@@ -22,17 +22,15 @@ GC는 생성된 Object가 많을 수록 발생하는 빈도가 늘어난다.&#x2
 
 GC를 줄이기 위해서는, **Object의 생성을 줄이는 작업**이 선행 되어야 한다.
 
-
-
-EX) 🔹 String -> `StringBuilder` & `StringBuffer`로 대체해야 한다.
-
+```
+EX) 
+🔹 String -> StringBuilder & StringBuffer로 대체해야 한다.
 String의 경우 Object를 복사해서 값을 변경하기 때문에 Object의 개수가 늘어나지만.
+StringBuilder & StringBuffer 의 경우 각각의 값만 변경이 된다.
 
-`StringBuilder` & `StringBuffer` 의 경우 각각의 값만 변경이 된다.
-
-🔸 로그를 최대한 적게 쌓도록 하는 것이 좋다.&#x20;
-
+🔸 로그를 최대한 적게 쌓도록 하는 것이 좋다. 
 대용량의 XML 파일의 Parsing은 가장 많은 Memory 사용량을 보인다.
+```
 
 #### 튜닝의 목적 ❔
 
