@@ -105,6 +105,10 @@ NOFOLLOW_LINKS : 링크 파일은 링크 파일만 복사한다
 
 <img src="../../../.gitbook/assets/file.drawing (10).svg" alt="" class="gitbook-drawing">
 
+각각의 Thread가 작업을 마치면 callback은 자동으로 호출되기 때문에,&#x20;
+
+작업 완료후 실행해야할 코드가 있다면 콜백 메소드에 작성하면 됩니다.
+
 ```java
 ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(
@@ -116,7 +120,5 @@ AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(
 
 `Runtime.getRuntime().availableProcessors()` 는 코어의 수를 리턴합니다
 
-각각의 Thread가 작업을 마치면 callback은 자동으로 호출되기 때문에,&#x20;
 
-작업 완료후 실행해야할 코드가 있다면 콜백 메소드에 작성하면 됩니다.
 
