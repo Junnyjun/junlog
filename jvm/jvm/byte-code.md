@@ -98,13 +98,5 @@ _-XX:Tier{version}CompileThreshold={value} 를 지정하여  특정 컴파일 �
 
 <img src="../../.gitbook/assets/file.drawing (9).svg" alt="" class="gitbook-drawing">
 
-### Graal Jit Compiler
 
-새로운 컴파일러 인터페이스인 **JVMCI를 사용합니다**
-
-```
-활성화: -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler
-```
-
-특정 프로그램을 만든 후 `-Dgraal.PrintCompilation=true` 를 이용해 graal 로그를 확인하면 코드 예열(runtime) 시간은 코어의 수와 비례함을 확인 할 수 있습니다.
 
