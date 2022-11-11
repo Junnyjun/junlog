@@ -39,7 +39,7 @@ JVM 내부에 native code로 컴파일된 모든 바이트 코드를 저장하�
 세가지 계층화
 The non-method segment : JVM 내부와 관련된 코드
 The profiled-code segment : 짧은 수명을 가진 C1
-The non-profiled segment : 긴 수명으로 추정된 C2 코
+The non-profiled segment : 긴 수명으로 추정된 C2 
 ```
 
 C2 code는 수명이 길지만 최적화에는 유용하지 않습니다.
@@ -74,7 +74,7 @@ JVM의 전체 프로파일링과 함께 C1 compiler로 코드를 컴파일 합�
 
 아주 단순한 방법이나, 큐가 가득차 있는 경우를 제외하면 대부분 이 단계에서 이뤄집니다.
 
-JVM 내에서 Level 0 - Level 3 컴파일이 가장 일반적니입다.
+JVM 내에서 Level 0 - Level 3 컴파일이 가장 일반적 입니다.
 
 🔵 Level 4 -  C2 compile
 
