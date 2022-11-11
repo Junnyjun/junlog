@@ -108,14 +108,3 @@ _-XX:Tier{version}CompileThreshold={value} 를 지정하여  특정 컴파일 �
 
 특정 프로그램을 만든 후 `-Dgraal.PrintCompilation=true` 를 이용해 graal 로그를 확인하면 코드 예열(runtime) 시간은 코어의 수와 비례함을 확인 할 수 있습니다.
 
-
-
-#### what is different ?
-
-Graal은 [바이트 배열을 다른 바이트 배열](https://chrisseaton.com/truffleruby/jokerconf17/)로 바꿉니다.&#x20;
-
-****[**program-dependence-graph**](https://ssw.jku.at/General/Staff/TW/igv.html) **을 사용하여 적절한 데이터 구조로 종속화 합니다.**
-
-**위의 링크로 graph를 시작할 수 있습니다.**
-
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
