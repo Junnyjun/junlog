@@ -18,7 +18,11 @@ JVM에 -server 가 설정되어 있지 않다.
 Timout 로그와 함께 Transaction이 발생하지 않는다
 ```
 
-GC는 생성된 Object가 많을 수록 발생하는 빈도가 늘어난다. GC를 줄이기 위해서는, **Object의 생성을 줄이는 작업**이 선행 되어야 한다.
+GC는 생성된 Object가 많을 수록 발생하는 빈도가 늘어난다.&#x20;
+
+GC를 줄이기 위해서는, **Object의 생성을 줄이는 작업**이 선행 되어야 한다.
+
+
 
 EX) 🔹 String -> `StringBuilder` & `StringBuffer`로 대체해야 한다.
 
@@ -26,7 +30,9 @@ String의 경우 Object를 복사해서 값을 변경하기 때문에 Object의 
 
 `StringBuilder` & `StringBuffer` 의 경우 각각의 값만 변경이 된다.
 
-🔸 로그를 최대한 적게 쌓도록 하는 것이 좋다. 대용량의 XML 파일의 Parsing은 가장 많은 Memory 사용량을 보인다.
+🔸 로그를 최대한 적게 쌓도록 하는 것이 좋다.&#x20;
+
+대용량의 XML 파일의 Parsing은 가장 많은 Memory 사용량을 보인다.
 
 #### 튜닝의 목적 ❔
 
@@ -34,11 +40,17 @@ Suspend Time 의 감소에 있으며 세부적으로는 Old Area에 넘어가는
 
 **💡 Object 수의 최소화**
 
-G1 GC를 제외한 Java 7 까지의 모든 Hotspot GC는 Gernerational GC이다. `Eden Area`에서 살아남은 Object가 `Survivor Area`를 거쳐 `Old Area` 로 이동하는 방식인데, Old Area의 GC는 Suspend Time이 길어 Old Area로 오는 Object의 수를 줄이면 Full GC의 빈도를 줄일 수 있다.
+G1 GC를 제외한 Java 7 까지의 모든 Hotspot GC는 Gernerational GC이다.&#x20;
+
+`Eden Area`에서 살아남은 Object가 `Survivor Area`를 거쳐 `Old Area` 로 이동하는 방식인데, Old Area의 GC는 Suspend Time이 길어 Old Area로 오는 Object의 수를 줄이면 Full GC의 빈도를 줄일 수 있다.
 
 **💡 FULL GC TIME 단축**
 
-Full GC의 시간은 Minor GC에 비해 매우 오래 걸린다. Suspend Time이 오래(1\~2초) 걸리게 된다면 여러 부분에서 Time Out이 발생할 수 있다 이를 방지하고자, Old Area의 크기를 줄이게 되면, OOM이 발생하거나 Full GC의 횟수가 늘어나게 된다.
+Full GC의 시간은 Minor GC에 비해 매우 오래 걸린다.&#x20;
+
+Suspend Time이 오래(1\~2초) 걸리게 된다면 여러 부분에서 Time Out이 발생할 수 있다.
+
+&#x20;이를 방지하고자, Old Area의 크기를 줄이게 되면, OOM이 발생하거나 Full GC의 횟수가 늘어나게 된다.
 
 **💡 GC를 튜닝하는 옵션**
 
@@ -65,12 +77,24 @@ Full GC의 처리 시간이 1초 이내인 경우
 Full GC의 주기가 10분에 1회 정도로 빈번하지 않은 경우
 ```
 
-**Memory 크기와 GC 상관 관계** 🔸Memory 크기가 크면 GC 발생 횟수는 줄어들고 GC 수행 시간은 증가한다 🔹Memory 크기가 작으면 GC 수행 시간은 줄어들고 GC 발생 횟수는 증가한다.
+**Memory 크기와 GC 상관 관계**&#x20;
+
+🔸Memory 크기가 크면 GC 발생 횟수는 줄어들고 GC 수행 시간은 증가한다&#x20;
+
+🔹Memory 크기가 작으면 GC 수행 시간은 줄어들고 GC 발생 횟수는 증가한다.
+
+
 
 **💡 GC 관련 장애 발생 유형 분석 방법**
 
-JAVA 어플리케이션 환경에서는 흔히 JVM Heap 메모리 관련한 오류들을 흔히 접하게 된다. JVM의 대표적인 오류 장애는 `Out Of Memory` 는 OOM, OOME 라고 하는데 JVM의 메모리 부족으로 발생하는 에러이다.
+JAVA 어플리케이션 환경에서는 흔히 JVM Heap 메모리 관련한 오류들을 흔히 접하게 된다.&#x20;
 
-대표적으로 두가지 유형이 있는데 `Java Heap space` : Heap 공간이 부족이 부족하여 발생한다. 공간 부족의 원인으로 Heap의 크기가 작아서 발생하는 경우와 어플리케이션 로직의 문제로 발생하는 경우가 있다.
+JVM의 대표적인 오류 장애는 `Out Of Memory` 는 OOM, OOME 라고 하는데 JVM의 메모리 부족으로 발생하는 에러이다.
 
-`PermGen space` : String pool, Class Method, 각종 Method data 등을 저장하는 용도로 사용한다. JVM 기동시 로딩되는 Class 또는 String 수가 많은 경우 Classloader Leak에 의해 OOME가 발생될 수 있다.
+대표적으로 두가지 유형이 있는데 `Java Heap space` : Heap 공간이 부족이 부족하여 발생한다.&#x20;
+
+공간 부족의 원인으로 Heap의 크기가 작아서 발생하는 경우와 어플리케이션 로직의 문제로 발생하는 경우가 있다.
+
+`PermGen space` : String pool, Class Method, 각종 Method data 등을 저장하는 용도로 사용한다.&#x20;
+
+JVM 기동시 로딩되는 Class 또는 String 수가 많은 경우 Classloader Leak에 의해 OOME가 발생될 수 있다.
