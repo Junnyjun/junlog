@@ -12,7 +12,7 @@ description: 객체 생성 처리를 서브 클래스로 분리
 스트래티지 패턴, 싱글턴 패턴, 템플릿 메서드 패턴으로 구현한다
 {% endhint %}
 
-<img src="../../.gitbook/assets/file.drawing (7) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (7).svg" alt="" class="gitbook-drawing">
 
 ### How do Code&#x20;
 

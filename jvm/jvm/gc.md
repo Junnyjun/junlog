@@ -40,9 +40,7 @@ JNI 형태로 참조 관계가 있는 Object 인가❔
 
 GC는 메모리의 압박이 있을 때 수행하게 되는데, 메모리가 필요하면 GC를 수행한다는 뜻이다.&#x20;
 
-Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의미 재활용을 위해 해지된 메모리의 자리는 할당한 자리에서 이뤄지기 때문에,&#x20;
-
-메모리는 드문드문 해지된 메모리의 빈공간이 생기게된다.&#x20;
+Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의미 재활용을 위해 해지된 메모리의 자리는 할당한 자리에서 이뤄지기 때문에,  메모리는 드문드문 해지된 메모리의 빈공간(단편화)이 생기게된다.&#x20;
 
 <figure><img src="https://velog.velcdn.com/images/junny8643/post/dc3f5c47-ae81-4fd8-bc77-304746bc6ca1/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -58,9 +56,11 @@ Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의�
 
 <figure><img src="https://velog.velcdn.com/images/junny8643/post/b39a25dc-3a39-4acb-b3a2-38598a909ec8/image.png" alt=""><figcaption></figcaption></figure>
 
-#### **GC 메커니즘은 두가지 가설이 있다.**
+#### **GC 메커니즘은 두가지 가정이 있다.**
 
-🔶 Object는 생성된 후 금방 Garbage가 된다. 🔷 Old Object가 Young Object를 참조할 일은 드물다.
+🔶 Object는 생성된 후 금방 Garbage가 된다.
+
+&#x20;🔷 Old Object가 Young Object를 참조할 일은 드물다.
 
 ```
 새로 할당되는 Object가 모인 곳은 단편화 발생 확률이 높다.
@@ -72,7 +72,11 @@ Memory 할당은 기존 Object의 다움 주소에서 수행하게 되며, 먼�
 GC당시 Live(Marked) 한 Object 들을 피신시키는 `Survivor Area`를 따로 구성한 것이다.
 ```
 
-`Garbage`를 추적하는 부분은 `Tracing 알고리즘`을 사용한다. Root Set에서 Reference 관계를 추적하고 Live Object를 Marking 한다. 이런 Marking 작업도 `Young Gerneration`에 국한 되는데 Marking 작업은 `Memory Suspend`에서만 수행되기 때문이다
+`Garbage`를 추적하는 부분은 `Tracing 알고리즘`을 사용한다.&#x20;
+
+Root Set에서 Reference 관계를 추적하고 Live Object를 Marking 한다.&#x20;
+
+이런 Marking 작업도 `Young Gerneration`에 국한 되는데 Marking 작업은 `Memory Suspend`에서만 수행되기 때문이다
 
 #### Card Table
 
@@ -86,7 +90,9 @@ YGO(`Young Generation의 Object`)를 참조하는 OGO(`Old Generation의 Object`
 
 #### TLAB
 
-GC가 발생하거나 객체가 각 영역에서 다른 영역으로 이동할 때 어플리케이션의 병목이 발생하면서, 성능의 영향을 주게 된다. `Hotspot JVM`은 `Thread Local Allocation Buffer` 를 사용하여 각 스레드별 영향을 주지않는 메모리 할당 작업이 가능하게 된다.
+GC가 발생하거나 객체가 각 영역에서 다른 영역으로 이동할 때 어플리케이션의 병목이 발생하면서, 성능의 영향을 주게 된다.&#x20;
+
+`Hotspot JVM`은 `Thread Local Allocation Buffer` 를 사용하여 각 스레드별 영향을 주지않는 메모리 할당 작업이 가능하게 된다.
 
 ![](https://velog.velcdn.com/images/junny8643/post/bfae0b52-8bc5-49bd-b345-908ca84e4f60/image.png)
 
@@ -96,11 +102,15 @@ GC가 발생하거나 객체가 각 영역에서 다른 영역으로 이동할 �
 
 #### 💡 Serial Collector
 
-Young/Old 모두 하나의 Single CPU만 사용한다. 1개의 Thread 로 GC를 수행한다. **현재는 거의 사용되지 않는다**
+Young/Old 모두 하나의 Single CPU만 사용한다.
+
+&#x20;1개의 Thread 로 GC를 수행한다. **현재는 거의 사용되지 않는다**
 
 #### 💡 Parallel Collector
 
-`CPU 대기상태를 최소화 하는 목적` 을 가지고 탄생 했다. Young Area 에서의 Collection을 병렬로 처리한다. 동시에 작업 되는 만큼 Suspend Time은 줄어들며, PLAB로 Thread간 충돌을 회피한다.
+`CPU 대기상태를 최소화 하는 목적` 을 가지고 탄생 했다.&#x20;
+
+Young Area 에서의 Collection을 병렬로 처리한다. 동시에 작업 되는 만큼 Suspend Time은 줄어들며, PLAB로 Thread간 충돌을 회피한다.
 
 ```
 PLAB?
@@ -116,7 +126,11 @@ TLAB는 4Kb, PLAB는 1Kb 단위이다
 
 #### 💡 CMS Collector
 
-`힙 메모리가 클 때 사용하는 방식` 이다. Suspend Time을 분산하여 응답시간을 개선 하는데, 자원이 여유로운 상태에서 GC의 `Suspend Time`을 줄이는 목적이다. 오래 살아있는 Object가 있는 경우 적합하다.
+`힙 메모리가 클 때 사용하는 방식` 이다.&#x20;
+
+Suspend Time을 분산하여 응답시간을 개선 하는데, 자원이 여유로운 상태에서 GC의 `Suspend Time`을 줄이는 목적이다.&#x20;
+
+오래 살아있는 Object가 있는 경우 적합하다.
 
 ![](https://velog.velcdn.com/images/junny8643/post/7fd4b989-f645-4b64-a2c7-71d64c96563e/image.png)
 
@@ -130,7 +144,9 @@ TLAB는 4Kb, PLAB는 1Kb 단위이다
 
 #### 💡 G1 Collector
 
-`물리적 Generation의 구분은 없애고 Heap을 1Mb단위 Region으로 사용하는 방식` 이다. G1은 가득 찬 Region부터 작업을 진행하고 Remember Set을 이용한다.
+`물리적 Generation의 구분은 없애고 Heap을 1Mb단위 Region으로 사용하는 방식` 이다.&#x20;
+
+G1은 가득 찬 Region부터 작업을 진행하고 Remember Set을 이용한다.
 
 ![](https://velog.velcdn.com/images/junny8643/post/76c14c96-2c75-422c-8ccc-9fd2860c2670/image.png)
 

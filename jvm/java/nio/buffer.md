@@ -6,7 +6,7 @@ description: 데이터 입출력
 
 NIO에서 데이터의 입&출력은 읽고 쓰기가 가능한 메모리 배열인 버퍼를 사용해야 합니다.
 
-<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (3) (1).svg" alt="" class="gitbook-drawing">
 
 ### Buffer의 종류
 
