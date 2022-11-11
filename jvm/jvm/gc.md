@@ -8,7 +8,9 @@
 
 #### 💡 JAVA의 GC
 
-GC의 발달로 인해 프로그래머는 직접 Memory를 핸들링 할 필요가 없었고 `Memory Crash`를 생각하지 않아도 되었지만, GC는 항상 완벽하지 않았다. GC는 명시적인 Memory해제 보다 느렸으며, GC때 발생하는 Suspend Time\*(Stop the World)\* 로 다양한 문제를 야기시켰다.
+GC의 발달로 인해 프로그래머는 직접 Memory를 핸들링 할 필요가 없었고 `Memory Crash`를 생각하지 않아도 되었지만, GC는 항상 완벽하지 않았다.
+
+&#x20;GC는 명시적인 Memory해제 보다 느렸으며, GC때 발생하는 Suspend Time(`Stop the World`**)** 로 다양한 문제를 야기시켰다.
 
 #### 💡 GC의 대상
 
@@ -18,7 +20,9 @@ GC란 Garbage를 모으는 작업이다 ( Garbage= 사용하지 않는 Object ) 
 
 ![](https://velog.velcdn.com/images/junny8643/post/77e6d290-acb8-4eef-a476-f44be58b4b9d/image.png)
 
-🔸 `Root Set`에서 `Reference` 관계과 있다면 `Reachable Object` 가 되고 이는, 사용하고 있는 `Object`가 된다.
+🔸 `Root Set`에서 `Reference` 관계과 있다면 `Reachable Object` 가 되고,&#x20;
+
+사용하고 있는 `Object`가 된다.
 
 🔹 `Root Set` 의 `Reference` 관계 판별법
 
@@ -34,7 +38,13 @@ JNI 형태로 참조 관계가 있는 Object 인가❔
 
 #### 💡 GC의 목적
 
-GC는 메모리의 압박이 있을 때 수행하게 되는데, 메모리가 필요하면 GC를 수행한다는 뜻이다. Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의미 재활용을 위해 해지된 메모리의 자리는 할당한 자리에서 이뤄지기 때문에, 메모리는 드문드문 해지된 메모리의 빈공간이 생기게된다. ![](https://velog.velcdn.com/images/junny8643/post/dc3f5c47-ae81-4fd8-bc77-304746bc6ca1/image.png)
+GC는 메모리의 압박이 있을 때 수행하게 되는데, 메모리가 필요하면 GC를 수행한다는 뜻이다.&#x20;
+
+Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의미 재활용을 위해 해지된 메모리의 자리는 할당한 자리에서 이뤄지기 때문에,&#x20;
+
+메모리는 드문드문 해지된 메모리의 빈공간이 생기게된다.&#x20;
+
+<figure><img src="https://velog.velcdn.com/images/junny8643/post/dc3f5c47-ae81-4fd8-bc77-304746bc6ca1/image.png" alt=""><figcaption></figcaption></figure>
 
 `Free Space` _(해지된 영역)_ 보다 큰 Object를 할당하는 경우 재활용을 의미를 잃게 된다.
 
@@ -42,7 +52,11 @@ GC는 메모리의 압박이 있을 때 수행하게 되는데, 메모리가 필
 
 ### Hotspot JVM의 GC ❔
 
-`Hotspot JVM`은 기본적으로 Gernerational Collection 방식을 사용한다. `Heap` 을 Object 의 Generation 별로 `Young Area` 와 `Old Area` 로 구분하여, `Young Area`는 `Eden Area`와 `Survivor Area` 로 구분된다. ![](https://velog.velcdn.com/images/junny8643/post/b39a25dc-3a39-4acb-b3a2-38598a909ec8/image.png)
+`Hotspot JVM`은 기본적으로 Gernerational Collection 방식을 사용한다.&#x20;
+
+`Heap` 을 Object 의 Generation 별로 `Young Area` 와 `Old Area` 로 구분하여, `Young Area`는 `Eden Area`와 `Survivor Area` 로 구분된다.&#x20;
+
+<figure><img src="https://velog.velcdn.com/images/junny8643/post/b39a25dc-3a39-4acb-b3a2-38598a909ec8/image.png" alt=""><figcaption></figcaption></figure>
 
 #### **GC 메커니즘은 두가지 가설이 있다.**
 
@@ -62,7 +76,11 @@ GC당시 Live(Marked) 한 Object 들을 피신시키는 `Survivor Area`를 따�
 
 #### Card Table
 
-`Old Generation` 의 Memory를 대표하는 구조이다. YGO(`Young Generation의 Object`)를 참조하는 OGO(`Old Generation의 Object`)가 있다면 OGO 의 시작 주소에 카드를 `Dirty`로 표시하고(Dirty Card) 해당 내용을 Card Table에 기록한다. ![](https://velog.velcdn.com/images/junny8643/post/c2c57825-d5f1-43d2-9339-d48b296de232/image.png)
+`Old Generation` 의 Memory를 대표하는 구조이다.&#x20;
+
+YGO(`Young Generation의 Object`)를 참조하는 OGO(`Old Generation의 Object`)가 있다면 OGO 의 시작 주소에 카드를 `Dirty`로 표시하고(Dirty Card) 해당 내용을 Card Table에 기록한다.&#x20;
+
+<figure><img src="https://velog.velcdn.com/images/junny8643/post/c2c57825-d5f1-43d2-9339-d48b296de232/image.png" alt=""><figcaption></figcaption></figure>
 
 이후 Reference가 해제되면 Dirty Card도 사라지게 하여 Reference 관계를 쉽게 파악할 수 있게 해준다. `Hotspot JVM`은 이러한 방법으로 `Minor GC` 중 Dirty Card 만으로 Reference 관계를 파악할 수 있게 된다
 
@@ -102,7 +120,13 @@ TLAB는 4Kb, PLAB는 1Kb 단위이다
 
 ![](https://velog.velcdn.com/images/junny8643/post/7fd4b989-f645-4b64-a2c7-71d64c96563e/image.png)
 
-🔸 Initial Mark : Reachable Object를 판명 한다. 🔹 Concurrent Mark : Mark 된 Object를 추적하여 참조 관계를 확인 한다. 🔸 Remark : Old Generation의 모든 live Object를 Mark한다 🔹 Concurrent Sweep : Suspend Time 해제와 동시에 Collect를 시작한다.
+🔸 Initial Mark : Reachable Object를 판명 한다.&#x20;
+
+🔹 Concurrent Mark : Mark 된 Object를 추적하여 참조 관계를 확인 한다.&#x20;
+
+🔸 Remark : Old Generation의 모든 live Object를 Mark한다&#x20;
+
+🔹 Concurrent Sweep : Suspend Time 해제와 동시에 Collect를 시작한다.
 
 #### 💡 G1 Collector
 
@@ -118,10 +142,20 @@ Minor GC와 동일한 개념으로써, Suspend Time과 Multi Thread 작업이 �
 
 ***
 
-**Concurrent Mark Phase** Stab 알고리즘을 사용하여, GC 시작당시의 reference를 기점으로 모든 live object 의 reference를 추적하는 방식이다.
+**Concurrent Mark Phase**
 
-🔸Mark : Single Thread 전체적으로 Concurrent 이며 이전 단계의 정보로 Marking한다 🔹Remarking : Suspend 와 Thread 작업이 발생, 각 Region 마다 `Reachable Object`를 계산
+&#x20;Stab 알고리즘을 사용하여, GC 시작당시의 reference를 기점으로 모든 live object 의 reference를 추적하는 방식이다.
 
-**Old Region Reclaim Phase** 🔸Remark : Concurrent, Multi-Thread, Live Object의 비율이 낮은 Region을 추려낸다 🔹Evacuation Pause : `Young Area`의 GC와 `Remark` 를 Evacuation 한다.
+🔸Mark : Single Thread 전체적으로 Concurrent 이며 이전 단계의 정보로 Marking한다&#x20;
 
-**Compaction Phase** Concurrent작업을 수행한다. Free Space를 병합해 단편화를 방지하는 것이다.
+🔹Remarking : Suspend 와 Thread 작업이 발생, 각 Region 마다 `Reachable Object`를 계산
+
+**Old Region Reclaim Phase**&#x20;
+
+🔸Remark : Concurrent, Multi-Thread, Live Object의 비율이 낮은 Region을 추려낸다&#x20;
+
+🔹Evacuation Pause : `Young Area`의 GC와 `Remark` 를 Evacuation 한다.
+
+**Compaction Phase**&#x20;
+
+Concurrent작업을 수행한다. Free Space를 병합해 단편화를 방지하는 것이다.
