@@ -10,5 +10,12 @@ description: 조합된 기능이 많은 경우
 
 <img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
+| class          | description |
+| -------------- | ----------- |
+| CreateConfig   | 설정 정보 리턴    |
+| MakeProperties | 설정 정보 설정    |
+| LoggingInform  | 로깅 유무       |
+
 ### How do code?
 
+{% embed url="https://gist.github.com/Junnyjun/bc444ae2c8cbca3b334b427c1c39668e" %}
