@@ -19,3 +19,18 @@ description: 조합된 기능이 많은 경우
 ### How do code?
 
 {% embed url="https://gist.github.com/Junnyjun/bc444ae2c8cbca3b334b427c1c39668e" %}
+
+```
+실행 결과
+----------
+NO LOGGING
+----------
+encoder & only url & no log = ENCODED-dXJs
+
+----------
+LOGGING TO FILE
+CREATE FILE
+WRITE FILE
+----------
+no encode & url,user,password & log = url and user and 1234
+```
