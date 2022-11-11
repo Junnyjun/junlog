@@ -21,7 +21,7 @@ Timout 로그와 함께 Transaction이 발생하지 않는다
 **💡 GC 튜닝이 불필요한 상황**
 
 ```
-Minor GC 처리시간이 50Ms 내외로 빠른 경우
+Minor GC 처리시간이 50ms 내외로 빠른 경우
 Minor GC 주기가 10초 내외로 빈번하지 않은 경우
 Full GC의 처리 시간이 1초 이내인 경우
 Full GC의 주기가 10분에 1회 정도로 빈번하지 않은 경우
