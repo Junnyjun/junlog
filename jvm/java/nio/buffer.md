@@ -71,7 +71,7 @@ ByteBuffer byteBuffer = ByteBuffer.allocateDirect(100);
 뒤쪽 바이트부터 먼저 처리 => Little endian
 ```
 
-<img src="../../../.gitbook/assets/file.drawing (6).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (6) (1).svg" alt="" class="gitbook-drawing">
 
 {% hint style="info" %}
 Little-endian -> Big-endian 변환 ? \
