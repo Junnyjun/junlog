@@ -59,7 +59,7 @@ allocate시 설정한 Buffer의 크기(예제 1000)만큼 읽어 옵니다
 
 ByteBuffer를 이용하여 읽기용 Channel과 쓰기용 Channel이 교대로 작업을 하면 됩니다.
 
-<img src="../../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (2) (3).svg" alt="" class="gitbook-drawing">
 
 allocateDirect는 읽고 바로 쓰기 작업을 하는 경우 유용합니다
 
