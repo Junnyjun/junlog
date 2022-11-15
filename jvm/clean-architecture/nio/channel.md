@@ -291,3 +291,13 @@ public class Callback implements CompletionHandler<Integer, FileInformation> {
     }
 }
 ```
+
+
+
+결과
+
+```basic
+decode :: Welcome to JunnyLand
+Thread :: pool-1-thread-1
+COMPLETE!!!
+```
