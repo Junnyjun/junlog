@@ -118,7 +118,86 @@ AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(
 );
 ```
 
-`Runtime.getRuntime().availableProcessors()` 는 코어의 수를 리턴합니다
+{% hint style="info" %}
+`Runtime.getRuntime().availableProcessors() :` 코어의 수를 리턴합니다
+{% endhint %}
+
+### How do Write?
+
+비동기의  파일 쓰기는 세가지 클래스로 구현했다.
+
+| name            | description            |
+| --------------- | ---------------------- |
+| Main            | 파일에 쓰기위한 구현            |
+| Callback        | 쓰기 성공&실패 유무 핸들링        |
+| FileInformation | 성공시 출력 , 실패시 `FAIL` 출력 |
 
 
 
+#### Main
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        Path temp = Paths.get("./junny.txt");
+        try(AsynchronousFileChannel fileChannel = open(temp, of(CREATE, WRITE), executorService)){
+            fileChannel.write(Charset.defaultCharset().encode("Welcome to JunnyLand"), 0, new FileInformation(fileChannel, temp), new Callback());
+        }
+        executorService.shutdown();
+    }
+}
+```
+
+executorService.shutdown();를 선언해 주지않는다면 executorService가 종료되지 않는다.
+
+
+
+#### FileInformation
+
+```java
+public record FileInformation(AsynchronousFileChannel fileChannel, Path path) {
+    public void check() {
+        try {
+            List<String> strings = Files.readAllLines(path, Charset.defaultCharset());
+            strings.forEach(System.out::println);
+            fileChannel.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void close() {
+        try {
+            System.out.println("FAIL !!!");
+            Files.deleteIfExists(path);
+            fileChannel.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+FileChannel의 작업 시점과 맞춰주기 위해, callback시 file connection을 닫아준다.
+
+
+
+#### Callback
+
+```java
+public class Callback implements CompletionHandler<Integer, FileInformation> {
+    @Override
+    public void completed(Integer result, FileInformation attachment) {
+        attachment.check();
+        System.out.println("COMPLETE!!!");
+    }
+
+    @Override
+    public void failed(Throwable exc, FileInformation attachment) {
+        attachment.close();
+        System.out.println("FAILED!!!");
+    }
+}
+```
+
+callback이 성공인지 실패인지에 따라 특정 메소드를 호출해준다
