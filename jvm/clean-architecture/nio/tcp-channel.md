@@ -120,3 +120,17 @@ socketChannel.write(Charset.defaultCharset().encode("This is junny land"));
 ```
 
 #### Read
+
+전송된 데이터를 읽어오는 것은 Read를 사용한다.
+
+바이트 코드로 들어온 값을 읽으면 된다.
+
+```java
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+socketChannel.read(buffer);
+buffer.flip();
+String result = Charset.defaultCharset().decode(buffer).toString();
+```
+
+read를 호출한 시점부터 상대방이 데이터를 보내주기전 까지는 항상 Blocking사앹이
