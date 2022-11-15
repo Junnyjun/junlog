@@ -161,20 +161,27 @@ public record FileInformation(AsynchronousFileChannel fileChannel, Path path) {
         try {
             List<String> strings = Files.readAllLines(path, Charset.defaultCharset());
             strings.forEach(System.out::println);
-            fileChannel.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-    public void close() {
+    
+    public void fail() {
         try {
             System.out.println("FAIL !!!");
             Files.deleteIfExists(path);
-            fileChannel.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+    
+    public void close(){
+    try {
+        fileChannel.close();
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+
 }
 ```
 
@@ -190,14 +197,89 @@ public class Callback implements CompletionHandler<Integer, FileInformation> {
     public void completed(Integer result, FileInformation attachment) {
         attachment.check();
         System.out.println("COMPLETE!!!");
+        attachment.close();
+    }
+
+    @Override
+    public void failed(Throwable exc, FileInformation attachment) {
+        attachment.fail();
+        System.out.println("FAILED!!!");
+        attachment.close();
+    }
+}
+```
+
+callback이 성공인지 실패인지에 따라 특정 메소드를 호출해준다
+
+
+
+### How do Read?
+
+비동기의 파일 읽기는 세가지 클래스로 구현된다.
+
+| Method          | Description            |
+| --------------- | ---------------------- |
+| Main            | 파일을 읽기 위한 구현           |
+| FileInformation | 버퍼를  읽거나, 채널을 종료하기     |
+| Callback        | 성공시 출력 , 실패시 `FAIL` 출력 |
+
+#### Main
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
+        Path temp = Paths.get("./junny.txt");
+        try (AsynchronousFileChannel fileChannel = open(temp, of(READ), executorService)) {
+            ByteBuffer allocate = allocate(100);
+            fileChannel.read(allocate, 0, new FileInformation(fileChannel, temp, allocate), new Callback());
+        }
+
+        executorService.shutdown();
+    }
+}
+```
+
+읽을 버퍼의 크기를 100으로 지정해 준 후, 위에서 작성한 junny.txt를 읽기 위한 구현
+
+#### FileInformation
+
+```java
+public record FileInformation(AsynchronousFileChannel fileChannel, Path path, ByteBuffer buffer) {
+    public void close() {
+        try {
+            fileChannel.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String read() {
+        buffer.flip();
+        return Charset.defaultCharset().decode(buffer).toString();
+    }
+}
+```
+
+#### Callback
+
+```java
+public class Callback implements CompletionHandler<Integer, FileInformation> {
+    @Override
+    public void completed(Integer result, FileInformation attachment) {
+        String response = attachment.read();
+        System.out.println("decode :: " + response  + "\nThread :: " + Thread.currentThread().getName());
+
+        System.out.println("COMPLETE!!!");
+        attachment.close();
     }
 
     @Override
     public void failed(Throwable exc, FileInformation attachment) {
         attachment.close();
         System.out.println("FAILED!!!");
+        attachment.close();
     }
 }
 ```
-
-callback이 성공인지 실패인지에 따라 특정 메소드를 호출해준다
