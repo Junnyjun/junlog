@@ -10,7 +10,7 @@ ServerSocketChannel : buffer X  blocking 방식
 
 SocketChannel : buffer O, blocking, non-blocking 방식&#x20;
 
-<img src="../../../.gitbook/assets/file.drawing (5).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (10).svg" alt="" class="gitbook-drawing">
 
 ### Connection
 
@@ -41,9 +41,7 @@ SocketChannel accept = serverSocketChannel.accept();
 serverSocketChannel.close();
 ```
 
-
-
-#### client
+#### Client
 
 Socket을 생성한 뒤 blocking으로 설정해줍니다.
 
@@ -66,9 +64,9 @@ if (socketChannel.isConnected()) {
 }
 ```
 
-#### how do code?
+### how do code?
 
-Server
+#### Server
 
 ```java
 public class Main {
@@ -87,7 +85,7 @@ public class Main {
 }
 ```
 
-Client
+#### Client
 
 ```java
 public class Main {
@@ -107,3 +105,18 @@ public class Main {
 
 ### Data Communication
 
+Client의 연결 요청이 Server에서 수락되었다면,  read(), write()를 이용해 통신할 수 있습니다.
+
+모두 버퍼를 가지고 있기 때문에 버퍼를 사용하여 데이터를 교환합니다.
+
+#### Write
+
+데이터 전송은 write를 사용하여 전송한다.
+
+바이트코드로 전송하면된다.
+
+```java
+socketChannel.write(Charset.defaultCharset().encode("This is junny land"));
+```
+
+#### Read
