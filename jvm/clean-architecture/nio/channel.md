@@ -4,13 +4,21 @@ description: Nio의 읽기&쓰기
 
 # Channel
 
-## Synchronized Channel
+NIO의 읽고쓰기는 Channel을 통해 이뤄집니다.
+
+
 
 FileChannel 은 open(), FileInputStream, FileOutputStream의 getChannel()를  사용하여  호출할 수  있습니다.
 
 ```java
 FileChannel fileChannel = FileChannel.open(Paths.get("./junny.txt"), WRITE, READ, CREATE_NEW);
 ```
+
+두번째 파라미터 부터, 읽고 쓰는 여러 옵션을 지정해 주는데, 특정 작업에 특정 권한이 없으면 에러가 납니다.
+
+
+
+## Synchronized Channel
 
 
 
