@@ -137,7 +137,7 @@ LRU, LFU, NUR은 최적 페이지 교체 알고리즘에 근접하는 성능을 
 
 참조 비트가 계속 갱신되다가 가장 참조비트의 수가 낮은 페이지를 내보낸다.
 
-<img src="../../.gitbook/assets/file.drawing (11).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
 기록하기 위한 만큼의 메모리공간이 낭비되는 단점이 있다.
 

@@ -4,4 +4,4 @@
 
 상대 클래스에 의존하지 않으면서 데이터 변경을 알려줄 때 사용한다
 
-<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (6).svg" alt="" class="gitbook-drawing">
