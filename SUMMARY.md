@@ -50,6 +50,7 @@
   * [Factory Method](computer-science/design-pattern/factory-method.md)
   * [Template Method](computer-science/design-pattern/template-method.md)
   * [Decorator](computer-science/design-pattern/decorator.md)
+  * [Observer](computer-science/design-pattern/observer.md)
 
 ## STUDY
 
