@@ -64,7 +64,7 @@ if (socketChannel.isConnected()) {
 }
 ```
 
-### how do code?
+#### how do code?
 
 #### Server
 
@@ -133,4 +133,51 @@ buffer.flip();
 String result = Charset.defaultCharset().decode(buffer).toString();
 ```
 
-read를 호출한 시점부터 상대방이 데이터를 보내주기전 까지는 항상 Blocking사앹이
+read를 호출한 시점부터 상대방이 데이터를 보내주기전 까지는 항상 Blocking상태가 되는데,
+
+블로킹이 해제되고 응답이 오는 경우는 세가지 입니다.
+
+| reason      | response    |
+| ----------- | ----------- |
+| 데이터 전송받음    | 바이트 수       |
+| 상대측 close() | -1          |
+| 비정상적 종료     | IOException |
+
+
+
+### Thread  Pool?
+
+동기 방식의 서버 채널의 read는 응답을 기다리는 동안 blocking되기 때문에 작업이 뎌디다.
+
+이런 문제는병렬 프로그래밍 방식 중 Tread pool을 이용하여 해결할 수 있다.
+
+<img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+
+```java
+this.executorService = newFixedThreadPool(getRuntime().availableProcessors());
+```
+
+executorService에 스레드풀 의 크기를 지정해 준뒤
+
+```java
+Runnable runnable = () -> {
+    CharBuffer answer = Charset.defaultCharset().decode(BUFFER);
+    System.out.println("READ ="+ answer);
+};
+executorService.submit(runnable);
+```
+
+Runnable에 실행할 작업을 작성한 뒤, executorService에 등록해준다
+
+
+
+## Non-Blocking Socket
+
+블로킹 방식은 Client가 연결 요청을 할 때마다 accept()에서 블로킹이 됩니다.
+
+이와 반대로 non-blocking 방식은 connect(), accept(), read(), write()에서 블로킹이 되지 않습니다.
+
+
+
+하지만 Blocking이 되지 않으므로 무한정 read,write를 실행하여 CPU 사용률을 증가 시킬수도 있기 때문에, event Listener인 Selector를 사용하여 특정 이벤트를 감지합니다.
+
