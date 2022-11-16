@@ -6,7 +6,7 @@
 
 <img src="../../.gitbook/assets/file.drawing (11).svg" alt="" class="gitbook-drawing">
 
-학생 성적을 입력할 때 마다 과목별 최고 점수를 호출합니다.
+학생 성적을 추가할 때 마다 과목별 최고 점수를 호출합니다.
 
 
 
