@@ -51,6 +51,7 @@
   * [Template Method](computer-science/design-pattern/template-method.md)
   * [Decorator](computer-science/design-pattern/decorator.md)
   * [Observer](computer-science/design-pattern/observer.md)
+  * [Command](computer-science/design-pattern/command.md)
 
 ## STUDY
 
