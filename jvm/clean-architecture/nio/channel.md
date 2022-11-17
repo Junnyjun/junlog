@@ -93,6 +93,7 @@ try(FileChannel rawFile = FileChannel.open(Paths.get("./junny.txt"),READ);
 
 ```java
  Files.copy(Paths.get("./junny.txt"),Paths.get("./new.txt"));
+ Files.copy(Paths.get("./junny.txt"),Paths.get("./new.txt"), REPLACE_EXISTING,COPY_ATTRIBUTES);
 ```
 
 {% hint style="info" %}
