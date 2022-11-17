@@ -26,8 +26,6 @@ Selector는 일종의 멀티 플렉서 입니다.
 
 
 
-
-
 ### Create Selector
 
 #### 첫 단계로 Channel을 생성해 줍니다.
@@ -73,16 +71,70 @@ selectionKey.interestOps(SelectionKey.OP_WRITE);
 ```
 {% endcode %}
 
-
-
 #### 세번째 단계로 Select를 호출합니다.
 
 등록된 SelectionKey에서 하나 이상의 채널의 작업 준비 응답을 기다립니다.
 
-{% code title="select()는 blocking입니" %}
+{% code title="select()는 blocking입니다" %}
 ```java
 clientSelector.select(); // 응답 대기
 clientSelector.select(1000L); // 1초 대기
 clientSelector.selectNow(); // 즉시 호출 없으면 0
 ```
 {% endcode %}
+
+select()는채널의 준비 완료 응답, Selector의 wakeUp(), Thread Interrupt에 의해 리턴됩니다.
+
+```java
+Selector clientSelector = Selector.open();
+SelectionKey selectionKey = client.register(clientSelector, SelectionKey.OP_CONNECT);
+selectionKey.interestOps(SelectionKey.OP_WRITE);
+clientSelector.wakeup();
+```
+
+
+
+### Channel  Process
+
+키셋에서 SelectionKey들을 받아와 유형별로 작업을 처리합니다.
+
+```java
+public class SelectorWorker extends Thread {
+    private final Selector selector;
+
+    public SelectorWorker(Selector selector) {
+        this.selector = selector;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+                if (isSelectActive()) continue;
+                findOption();
+        }
+    }
+
+    private boolean isSelectActive(){
+        try {
+            if (selector.select() == 0) {
+                return true;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
+
+    private void findOption() {
+        selector.selectedKeys().forEach(selectionKey -> {
+            switch (selectionKey.readyOps()) {
+                case SelectionKey.OP_ACCEPT -> System.out.println("OPTION = OP_ACCEPT");
+                case SelectionKey.OP_CONNECT -> System.out.println("OPTION = OP_CONNECT");
+                case SelectionKey.OP_READ -> System.out.println("OPTION = OP_READ");
+                case SelectionKey.OP_WRITE -> System.out.println("OPTION = OP_WRITE");
+                default -> System.out.println("OPTION = UNKNOWN");
+            }
+        });
+    }
+}
+```
