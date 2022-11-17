@@ -37,9 +37,9 @@
 ## Computer Science
 
 * [⚙ Operating System](information/OS/README.md)
-  * [DeadLock](computer-science/OS/deadlock.md)
   * [printf 함수가 실행되는 방식](information/OS/printf.md)
   * [인터럽트는 어디에 저장하나요?](information/OS/undefined.md)
+  * [Mutex\&Monitor\&Semaphore](computer-science/os/mutex-and-monitor-and-semaphore.md)
   * [BIOS\&UEFI 무슨 차이가 있나요?](information/OS/bios-and-uefi.md)
 * [🛠 Network](computer-science/network/README.md)
   * [네트워크](computer-science/network/chap1.md)
