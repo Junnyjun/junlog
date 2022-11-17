@@ -10,7 +10,7 @@
 
 하지만 Blocking이 되지 않으므로 무한정 read,write를 실행하여 CPU 사용률을 증가 시킬수도 있기 때문에, event Listener인 Selector를 사용하여 특정 이벤트를 감지합니다.
 
-<img src="../../../.gitbook/assets/file.drawing (1) (7).svg" alt="Selector Architecture" class="gitbook-drawing">
+<img src="../../../../.gitbook/assets/file.drawing (1) (7).svg" alt="Selector Architecture" class="gitbook-drawing">
 
 Selector는 일종의 멀티 플렉서 입니다.
 
