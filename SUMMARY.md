@@ -12,7 +12,7 @@
     * [Channel](jvm/clean-architecture/nio/channel.md)
     * [TCP Channel (Blocking)](jvm/clean-architecture/nio/tcp-channel.md)
     * [TCP Channel (Non-Blocking)](jvm/clean-architecture/nio/tcp-channel-non-blocking/README.md)
-      * [Async Chatting Server](jvm/clean-architecture/nio/tcp-channel-non-blocking/async-chatting-server.md)
+      * [TCP Async Chatting Server](jvm/clean-architecture/nio/tcp-channel-non-blocking/tcp-async-chatting-server.md)
   * [Lambda](jvm/java/lambda.md)
   * [try-catch](jvm/java/chap1/README.md)
     * [\[FUN\] Remove resource](jvm/java/chap1/fun-remove-resource.md)
