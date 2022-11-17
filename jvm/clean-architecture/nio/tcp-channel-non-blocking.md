@@ -4,7 +4,7 @@
 
 블로킹 방식은 Client가 연결 요청을 할 때마다 accept()에서 블로킹이 됩니다.
 
-이와 반대로 non-blocking 방식은 connect(), accept(), read(), write()에서 블로킹이 되지 않습니다.
+이와 반대로 Non-blocking 방식은 connect() accept() read() write()에서 블로킹이 되지 않습니다.
 
 
 
@@ -15,7 +15,7 @@
 Selector는 일종의 멀티 플렉서 입니다.
 
 {% hint style="info" %}
-[멀티플렉서](https://ko.wikipedia.org/wiki/%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C) ? : 여러 입력중 하나를 선택
+[멀티플렉서](https://ko.wikipedia.org/wiki/%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C) ?  여러 입력중 하나를 선택
 {% endhint %}
 
 채널이 Selector에 등록 요청을 할때, 작업을 키로 설정한 뒤 관심 키셋(interest key)에 저장 시킵니다
