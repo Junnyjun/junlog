@@ -2,7 +2,7 @@
 description: 자바의 IO와 NIO의 차이점&사용
 ---
 
-# File
+# NIO
 
 ### IO
 
@@ -40,7 +40,7 @@ buffer : 버퍼는 데이터를 모아서 옮겨주는 방식으로 기존 IO에
 
 <img src="../../../.gitbook/assets/file.drawing (3) (1).svg" alt="" class="gitbook-drawing">
 
-## What is difference❔
+## How do Code❔
 
 ### 경로의 정의
 
@@ -83,7 +83,9 @@ Files.createTempFile(path);
 
 상기의 예제 처럼 Files\&Path를 주로 사용한다
 
-## What is New❔
+
+
+## Watch❔
 
 ### Watch Service
 
