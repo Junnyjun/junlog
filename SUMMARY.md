@@ -53,6 +53,7 @@
   * [Decorator](computer-science/design-pattern/decorator.md)
   * [Observer](computer-science/design-pattern/observer.md)
   * [Command](computer-science/design-pattern/command.md)
+  * [Strategy](computer-science/design-pattern/strategy.md)
 
 ## STUDY
 

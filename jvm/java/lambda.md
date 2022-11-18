@@ -42,6 +42,15 @@ public static void main(String[] args) {
 함수형 인터페이스를 만드는 법은 굉장히 간단한데,\
 인터페이스에 명세가 한개, 즉 메소드를 하나만 선언한다면 사용할 수 있다.
 
+```java
+@FunctionalInterface
+public interface Sample {
+    void execute();
+}
+
+Sample sample = () -> 
+```
+
 {% hint style="info" %}
 ```autoit
 @FunctionalInterface : 2개이상의 선언을 방지한다  
