@@ -4,7 +4,7 @@
 
 
 
-<img src="../../.gitbook/assets/file.drawing.svg" alt="command" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (5).svg" alt="command" class="gitbook-drawing">
 
 Client는 상태를 바꿀수 있고,  현재 상태를 출력할 수 있습니
 
