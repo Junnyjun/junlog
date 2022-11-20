@@ -58,7 +58,7 @@ description: 필수장치인 입출력 장치에 대해 알아봅니다.
 
 현재의 입출력 시스템은 CPU의 작업 공간과 DMA 제어기가 데이터를 옮기는 공간을 분리하여 메인 메모리를 운연하는데, 메모리 맵 입출력 이라고 한다.
 
-<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (3).svg" alt="" class="gitbook-drawing">
 
 ### 인터럽트
 
@@ -78,4 +78,5 @@ description: 필수장치인 입출력 장치에 대해 알아봅니다.
 
 #### 인터럽트 백터
 
-시스템 내에는 100개 이상의 인터럽트가 있
+시스템 내에는 100개 이상의 인터럽트가 있고 이를 인터럽트 핸들러로 관리한다.
+
