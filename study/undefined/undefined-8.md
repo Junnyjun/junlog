@@ -55,7 +55,7 @@ PTE 내부에는 페이지번호, 플래그 비트, 프레임 번호가 존재�
 
 프로세스가 페이지를 요청했을 때 그 페이지가 메모리에 없는 상황을 페이지 부재라고 한다.
 
-<img src="../../.gitbook/assets/file.drawing (1) (6).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (6) (1).svg" alt="" class="gitbook-drawing">
 
 페이지 폴트가 발생하면 스왑 영역에서 메모리로 데이터를 옮겨야 한다.
 

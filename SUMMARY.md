@@ -13,6 +13,7 @@
     * [TCP Channel (Blocking)](jvm/clean-architecture/nio/tcp-channel.md)
     * [TCP Channel (Non-Blocking)](jvm/clean-architecture/nio/tcp-channel-non-blocking.md)
     * [UDP Channel](jvm/clean-architecture/nio/udp-channel.md)
+  * [Page 1](jvm/clean-architecture/page-1.md)
   * [Lambda](jvm/java/lambda.md)
   * [try-catch](jvm/java/chap1/README.md)
     * [\[FUN\] Remove resource](jvm/java/chap1/fun-remove-resource.md)
@@ -53,6 +54,7 @@
   * [Decorator](computer-science/design-pattern/decorator.md)
   * [Observer](computer-science/design-pattern/observer.md)
   * [Command](computer-science/design-pattern/command.md)
+  * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
 
 ## STUDY
