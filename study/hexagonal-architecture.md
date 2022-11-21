@@ -1,2 +1,2 @@
-# Hexagonal Architecture
+# ☕ Hexagonal Architecture
 

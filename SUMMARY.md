@@ -70,7 +70,7 @@
   * [요구 페이징](study/undefined/undefined-8.md)
   * [입출력 시스템](study/undefined-1/undefined-9.md)
   * [파일 시스템](study/undefined-1/undefined-10.md)
-* [Hexagonal Architecture](study/hexagonal-architecture.md)
+* [☕ Hexagonal Architecture](study/hexagonal-architecture.md)
 * [☕ Clean Architecture](<clean-architecture/README (1).md>)
   * [설계와 아키텍쳐](<clean-architecture/chap1 (1).md>)
   * [벽돌부터 시작하기](study/readme-1/undefined.md)

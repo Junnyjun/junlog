@@ -138,3 +138,20 @@ public class SelectorWorker extends Thread {
     }
 }
 ```
+
+채널 객체는 selectionKey에서 가져올 수 있습니다.
+
+```java
+ServerSocketChannel channel = (ServerSocketChannel) selectionKey.channel();
+```
+
+채널 객체 외에 다른 객체도 selectionKey에 주입할 수 있는데, 객체를 등록한 뒤 selectionKey에서 꺼내서 사용하면 됩니다.
+
+```java
+SelectionKey selectionKey = client.register(clientSelector, SelectionKey.OP_CONNECT);
+selectionKey.attach(new Attached());
+
+selector.selectedKeys().forEach(selectionKey -> {
+Attached attached = (Attached) selectionKey.attachment();
+});
+```
