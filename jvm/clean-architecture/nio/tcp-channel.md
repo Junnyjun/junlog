@@ -151,7 +151,7 @@ read를 호출한 시점부터 상대방이 데이터를 보내주기전 까지�
 
 이런 문제는병렬 프로그래밍 방식 중 Tread pool을 이용하여 해결할 수 있다.
 
-<img src="../../../.gitbook/assets/file.drawing (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (1) (2).svg" alt="" class="gitbook-drawing">
 
 ```java
 this.executorService = newFixedThreadPool(getRuntime().availableProcessors());

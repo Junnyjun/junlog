@@ -1,3 +1,0 @@
-# Async Chatting Server
-
-##

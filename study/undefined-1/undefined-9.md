@@ -40,7 +40,7 @@ description: 필수장치인 입출력 장치에 대해 알아봅니다.
 
 저속 입출력 버스와 고속 입출력 버스로 운영하여 이러한 문제를 해결한다.,
 
-<img src="../../.gitbook/assets/file.drawing (1) (9).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (1).svg" alt="" class="gitbook-drawing">
 
 다양한 주변 장치는 전송 속도에 따라 저속 주변장치( 1KB 미만) 과 고속 주변장치 (높은 전송률) 로 구분된다.
 
@@ -58,7 +58,7 @@ description: 필수장치인 입출력 장치에 대해 알아봅니다.
 
 현재의 입출력 시스템은 CPU의 작업 공간과 DMA 제어기가 데이터를 옮기는 공간을 분리하여 메인 메모리를 운연하는데, 메모리 맵 입출력 이라고 한다.
 
-<img src="../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
 ### 인터럽트
 
