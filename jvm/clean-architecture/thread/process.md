@@ -22,8 +22,10 @@ Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로
 
 ## Thread
 
-Thread를 run해서 Main -> PrintScheduler -> print ... -> Main -> PrintScheduler -> Main\
-을 실행 하려고 작성한 예제이다.
+Thread를 사용하여 Main -> PrintScheduler -> print ... -> Main -> PrintScheduler -> Main\
+를 구현해보도록 한다다
+
+### Run ?
 
 {% embed url="https://gist.github.com/Junnyjun/5a5fe3f5846266b8af50ecc4735cf238" %}
 Thread
@@ -49,6 +51,5 @@ PRINTER NUMBER ::Thread-0 PRINTING :: E
 PRINTER NUMBER ::Thread-0 PRINTING :: F
 ```
 
+Run&#x20;
 
-
-### How To Fix ?
