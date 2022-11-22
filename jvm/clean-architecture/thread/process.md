@@ -6,11 +6,11 @@ Thread가 둘 이상인 프로그램은 멀티 쓰레드 프로세스라고 한�
 
 
 
-Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로 한다
+Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로 설명할 예정이다.
 
 <img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
-모든 작업은 Expect로 진행 되어야 한다.
+모든 작업은 Expect에 적혀있는 순서로 진행 되어야 한다.
 
 ## Thread
 
