@@ -23,7 +23,7 @@ Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로
 ## Thread
 
 Thread를 사용하여 Main -> PrintScheduler -> print ... -> Main -> PrintScheduler -> Main\
-를 구현해보도록 한다다
+를 구현해보도록 한다
 
 ### Run ?
 
@@ -51,5 +51,8 @@ PRINTER NUMBER ::Thread-0 PRINTING :: E
 PRINTER NUMBER ::Thread-0 PRINTING :: F
 ```
 
-Run&#x20;
+Run() 같은 경우
+
+Thread의 작업을 기다리고 있음을 알 수 있다.\
+
 
