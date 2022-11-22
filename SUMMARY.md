@@ -8,7 +8,7 @@
   * [\[FUN\] New Builder ?](jvm/java/fun-new-builder.md)
   * [Thread](jvm/clean-architecture/thread/README.md)
     * [Runnable](jvm/clean-architecture/thread/runnable.md)
-    * [Thread](jvm/clean-architecture/thread/thread.md)
+    * [Thread](jvm/clean-architecture/thread/process.md)
   * [NIO](jvm/java/nio/README.md)
     * [NIO](jvm/java/nio/file.md)
     * [BUFFER](jvm/java/nio/buffer.md)
