@@ -16,7 +16,7 @@ CPU가 번갈아 가며 Thread들을 실행하여, 여러개가 존재하는 것
 
 Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로 설명할 예정이다.
 
-<img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
 
 모든 작업은 Expect에 적혀있는 순서로 진행 되어야 한다.
 
