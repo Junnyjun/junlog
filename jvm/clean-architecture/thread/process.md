@@ -95,3 +95,36 @@ Printer Size ... 0
 이것을 이용하여 프린트 스케줄러가 종료 되었는지를 확인한다.\
 
 
+#### How do code ?
+
+`PrintScheduler`에 작업을 확인할 수 있도록 Thread의 상태를 받아올 수 있도록 추가\
+`Main`에 상태를 확인한 후 Main을 종료할 수 있도록 추가
+
+{% embed url="https://gist.github.com/Junnyjun/edffebb8b8fb5d5bda93135c0c7a199d" %}
+
+#### Result
+
+```basic
+1. Printer Run
+2. Searching Printer ... 1
+3. Printer Add more
+PRINTER NUMBER ::Thread-1 PRINTING :: A
+PRINTER NUMBER ::Thread-1 PRINTING :: B
+PRINTER NUMBER ::Thread-1 PRINTING :: C
+Printer Status ... RUNNABLE
+Printer Size ... 1
+PRINTER NUMBER ::Thread-1 PRINTING :: 1
+PRINTER NUMBER ::Thread-1 PRINTING :: 2
+PRINTER NUMBER ::Thread-1 PRINTING :: 3
+Printer Status ... RUNNABLE
+Printer Size ... 0
+4. Printer is Empty ...
+5. Printer Stop
+```
+
+정상적으로 Printer가 종료되었음을 알 수있다.
+
+
+
+[View With Git](https://github.com/I-JUNNYLAND-I/KATA/tree/main/fiber/src/main/java)
+
