@@ -10,6 +10,8 @@ Runnable은 기존에 extend된 Thread를 Runnable로 바꿔주기만 하면된�
 Runnable Thread
 {% endembed %}
 
+#### Result
+
 ```basic
 1. Printer Run
 2. Searching Printer ... 1
@@ -71,4 +73,46 @@ PRINTING :: C
 COMPLETE
 COMPLETE
 ```
+
+
+
+### Daemon Thread
+
+다른 일반 쓰레드의 작업을 돕는 보조 쓰레드이다.\
+일반 쓰레드의 작업이 종료되면 데몬쓰레드도 강제 종료되게 된다.\
+PrinterScheduler => Printer (daemon) 으로 수정 하도록 PrintScheduler를 수정해준다.
+
+```java
+public void start(Printer printer){
+new Thread(printer){{
+    setName("Printer :: "+getId());
+    setDaemon(true);
+  }}.start();
+  printers.remove(printer);
+}
+```
+
+#### result
+
+```basic
+1. Printer Run
+2. Searching Printer ... 
+3. Printer Add more
+Printer Status ... RUNNABLE
+Printer Size ... 2
+PRINTER NAME ::Printer :: 24
+PRINTING :: A
+PRINTING :: B
+PRINTING :: C
+COMPLETE
+4. Printer is Empty ...
+5. Printer Stop
+PRINTER NAME ::Printer :: 25
+PRINTING :: 1
+PRINTING :: 2
+PRINTING :: 3
+COMPLETE
+```
+
+위와 같이 작업을 Daemon Thread에서 실행할 수 있게 된다.
 
