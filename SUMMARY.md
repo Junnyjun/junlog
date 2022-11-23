@@ -9,6 +9,7 @@
   * [Thread](jvm/clean-architecture/thread/README.md)
     * [Thread](jvm/clean-architecture/thread/process.md)
     * [Runnable](jvm/clean-architecture/thread/runnable.md)
+    * [Callable](jvm/clean-architecture/thread/callable.md)
     * [Executor](jvm/clean-architecture/thread/executor.md)
   * [NIO](jvm/java/nio/README.md)
     * [NIO](jvm/java/nio/file.md)

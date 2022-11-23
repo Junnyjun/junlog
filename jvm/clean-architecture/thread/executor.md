@@ -42,3 +42,39 @@ Executors.newFixedPoolSize( int ) 로 원하는 poolsize를 지정해준다
 Executors에 submit된 작업들은 Thread Pool에서 계속실행되게 된다.
 
 Executors는 _shutdown()_ , _awaitTermination()_ 등을 사용하여 반드시 종료해주어야 한다
+
+### Scheduled Executor
+
+주기적으로 작업을 수행할 수 있습니다.
+
+Executors를 `Executors.newSingleThreadScheduledExecutor();` 로 바꿔준 뒤, \
+Main => `Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);` 이렇게 수정해 줍니다.
+
+```java
+public class Main {
+    private final static ScheduledExecutorService printExecutor = PrintExecutor.scheduled;
+
+    public static void main(String[] args) {
+        System.out.println("1. Printer Run");
+        System.out.println("2. Start Printer Scheduling ... ");
+
+        PrinterScheduler scheduler = PrinterScheduler.init(Printer.job("A", "B", "C"));
+        Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);
+
+        System.out.println("3. Printer Add more");
+        scheduler.addSchedule(Printer.job("1", "2", "3"));
+
+        while (true){
+            if (scheduler.isEmpty()) {
+                System.out.println("4. Printer is Empty ...");
+                break;
+            }
+        }
+        printExecutor.shutdown();
+        System.out.println("5. Printer Stop");
+    }
+}
+```
+
+
+
