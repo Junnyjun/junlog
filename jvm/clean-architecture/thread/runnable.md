@@ -116,3 +116,47 @@ COMPLETE
 
 위와 같이 작업을 Daemon Thread에서 실행할 수 있게 된다.
 
+
+
+### More Details
+
+```java
+public void start(Printer printer){
+    Thread executor = new Thread(printer) {{
+        setName("Printer :: " + getId());
+    }};
+    executor.start();
+    try {
+        executor.join();
+    } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+    printers.remove(printer);
+}
+```
+
+이렇게 Thread.join을 활용하면
+
+
+
+```basic
+1. Printer Run
+2. Searching Printer ... 
+3. Printer Add more
+Printer Status ... RUNNABLE
+Printer Size ... 2
+PRINTER NAME ::Printer :: 24
+PRINTING :: A
+PRINTING :: B
+PRINTING :: C
+COMPLETE
+PRINTER NAME ::Printer :: 25
+PRINTING :: 1
+PRINTING :: 2
+PRINTING :: 3
+COMPLETE
+4. Printer is Empty ...
+5. Printer Stop
+```
+
+Scheduler가 Printer의 작업 순서를 기다리게 만들수도 있다.
