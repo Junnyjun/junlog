@@ -4,7 +4,7 @@
 
 상태의 역할을 분리하는 패턴
 
-<img src="../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (4).svg" alt="" class="gitbook-drawing">
 
 UserHistory는 User의 값을 저장하고있고 now로 현재의 User를 리턴합니다.
 

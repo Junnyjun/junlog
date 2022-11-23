@@ -22,7 +22,7 @@ description: 데이터를 가져오는 정책에 대해서 알아봅니다.
 
 가상 메모리는 물리 메모리와 스왑 영역을 합친 것이다.
 
-<img src="../../.gitbook/assets/file.drawing (2) (1).svg" alt="swapIn &#x26; swapOut" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (1) (2).svg" alt="swapIn &#x26; swapOut" class="gitbook-drawing">
 
 사용자 프로세스는 물리 메모리와 스왑 영역 둘중 한곳에 있다.
 

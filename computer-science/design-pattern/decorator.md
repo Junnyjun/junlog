@@ -8,7 +8,7 @@ description: 조합된 기능이 많은 경우
 
 객체의 조합으로 더 큰 구조를 만들 때 사용합니다.
 
-<img src="../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
 
 | class          | description |
 | -------------- | ----------- |
