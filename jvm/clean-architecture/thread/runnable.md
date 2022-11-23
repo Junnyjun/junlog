@@ -12,8 +12,7 @@ Runnable Thread
 
 #### Result
 
-```basic
-1. Printer Run
+<pre class="language-basic"><code class="lang-basic">1. Printer Run
 2. Searching Printer ... 1
 Printer Status ... RUNNABLE
 Printer Size ... 1
@@ -30,9 +29,8 @@ PRINTING :: 1
 PRINTING :: 2
 PRINTING :: 3
 COMPLETE
-4. Printer is Empty ...
-5. Printer Stop
-```
+<strong>4. Printer is Empty ...
+</strong>5. Printer Stop</code></pre>
 
 완성 하고 보니 1-2-3-4-5 순서는 맞는데 Thread.sleep()이 굉장히 많고,\
 콘솔이 중구난방으로 찍혀있는 모습을 볼수있다
