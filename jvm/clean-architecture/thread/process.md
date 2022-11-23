@@ -10,13 +10,13 @@ CPU가 번갈아 가며 Thread들을 실행하여, 여러개가 존재하는 것
 
 기본적으로 Thread를 추가하는 방법은 Thread, Runnable을 사용하는 방식이다.
 
-여기서 필자는 ~~extend~~하는 방식은 좋아하지 않기때문에 추천하지는 않는다
+~~extend~~하는 방식은 좋아하지 않기때문에 추천하지는 않는다
 
 
 
 Thread관련 예제는 전부 아래에 있는  프린터 구현을 기반으로 설명할 예정이다.
 
-<img src="../../../.gitbook/assets/file.drawing (13).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (5).svg" alt="" class="gitbook-drawing">
 
 모든 작업은 Expect에 적혀있는 순서로 진행 되어야 한다.
 
@@ -53,6 +53,8 @@ PRINTER NUMBER ::Thread-0 PRINTING :: F
 
 Run() 같은 경우
 
-Thread의 작업을 기다리고 있음을 알 수 있다.\
+Thread의 작업을 기다리고 있다는  것(Blocking)을 알 수 있다.
 
 
+
+Main에 scheduler.run();&#x20;

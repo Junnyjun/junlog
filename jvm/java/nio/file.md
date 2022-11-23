@@ -38,7 +38,7 @@ Thread를 Intterupt 하여 빠져 나올 수 있다는 장점이 있습니다.
 buffer : 버퍼는 데이터를 모아서 옮겨주는 방식으로 기존 IO에서도 BufferedStream을 사용하여 단점을 극복하기도 한다
 {% endhint %}
 
-<img src="../../../.gitbook/assets/file.drawing (3) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (3) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## How do Code❔
 
