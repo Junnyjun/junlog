@@ -78,7 +78,7 @@ COMPLETE
 
 다른 일반 쓰레드의 작업을 돕는 보조 쓰레드이다.\
 일반 쓰레드의 작업이 종료되면 데몬쓰레드도 강제 종료되게 된다.\
-`PrinterScheduler => Printer (daemon)` 으로 수정 하도록 PrintScheduler를 수정해준다.
+PrinterScheduler => Printer (daemon) 으로 수정 하도록 PrintScheduler를 수정해준다.
 
 ```java
 public void start(Printer printer){
