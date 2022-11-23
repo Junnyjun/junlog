@@ -2,6 +2,10 @@
 
 Process는 실행 중인 프로그램이다.
 
+Thread는  하나의 작업 단위이다 \
+지금까지, Java Main을 기준으로 순차적으로 실행되게 코드를 짯다면,\
+Main Thread를 기준으로한 Single Thread Proccess이다
+
 Thread가 둘 이상인 프로그램은 멀티 쓰레드 프로세스라고 한다.
 
 CPU가 번갈아 가며 Thread들을 실행하여, 여러개가 존재하는 것 처럼 보이게 해준다.
