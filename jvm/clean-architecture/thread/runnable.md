@@ -42,7 +42,9 @@ COMPLETE
 스레드는 각각 우선순위를 갖는다. \
 이 우선순위는 쓰레드의 실행시간과 비례하게된다.
 
-<img src="../../../.gitbook/assets/file.drawing.svg" alt="Thread" class="gitbook-drawing">
+priority는 0\~ 10까지 설정할 수 있
+
+<img src="../../../.gitbook/assets/file.drawing (14).svg" alt="Thread" class="gitbook-drawing">
 
 이를 적용하여 sleep을 제거해 보도록 한다.
 
@@ -53,7 +55,7 @@ COMPLETE
 ```basic
 1. Printer Run
 2. Searching Printer ... 
-3. Printer Add more
+3. Printer Add More
 Printer Status ... RUNNABLE
 Printer Size ... 2
 4. Printer is Empty ...
@@ -69,3 +71,4 @@ PRINTING :: C
 COMPLETE
 COMPLETE
 ```
+
