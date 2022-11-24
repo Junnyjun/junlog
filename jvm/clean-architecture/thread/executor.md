@@ -4,7 +4,7 @@
 
 Executors.newFixedPoolSize( int ) 로 원하는 poolsize를 지정해준다
 
-<img src="../../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (2) (3).svg" alt="" class="gitbook-drawing">
 
 Executors에 submit된 작업들은 Thread Pool에서 계속실행되게 된다.
 

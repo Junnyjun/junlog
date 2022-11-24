@@ -40,7 +40,7 @@ description: 필수장치인 입출력 장치에 대해 알아봅니다.
 
 저속 입출력 버스와 고속 입출력 버스로 운영하여 이러한 문제를 해결한다.,
 
-<img src="../../.gitbook/assets/file.drawing (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (1) (3).svg" alt="" class="gitbook-drawing">
 
 다양한 주변 장치는 전송 속도에 따라 저속 주변장치( 1KB 미만) 과 고속 주변장치 (높은 전송률) 로 구분된다.
 
