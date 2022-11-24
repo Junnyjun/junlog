@@ -48,8 +48,7 @@ Executors는 _shutdown()_ , _awaitTermination()_ 등을 사용하여 반드시 �
 Executors를 `Executors.newSingleThreadScheduledExecutor();` 로 바꿔준 뒤, \
 Main => `Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);` 이렇게 수정해 줍니다.
 
-```java
-public class Main {
+<pre class="language-java"><code class="lang-java">public class Main {
     private final static ScheduledExecutorService printExecutor = PrintExecutor.scheduled;
 
     public static void main(String[] args) {
@@ -57,7 +56,7 @@ public class Main {
         System.out.println("2. Start Printer Scheduling ... ");
 
         PrinterScheduler scheduler = PrinterScheduler.init(Printer.job("A", "B", "C"));
-        Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);
+        Future&#x3C;?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);
 
         System.out.println("3. Printer Add more");
         scheduler.addSchedule(Printer.job("1", "2", "3"));
@@ -67,12 +66,11 @@ public class Main {
                 System.out.println("4. Printer is Empty ...");
                 break;
             }
-        }
-        printExecutor.shutdown();
+<strong>        }
+</strong>        printExecutor.shutdown();
         System.out.println("5. Printer Stop");
     }
-}
-```
+}</code></pre>
 
 
 
