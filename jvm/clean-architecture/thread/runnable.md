@@ -72,13 +72,13 @@ COMPLETE
 COMPLETE
 ```
 
-
+프린트 작업이 3 과 4 사이에 들어가면 조금 깔끔할 것 같다.
 
 ### Daemon Thread
 
 다른 일반 쓰레드의 작업을 돕는 보조 쓰레드이다.\
 일반 쓰레드의 작업이 종료되면 데몬쓰레드도 강제 종료되게 된다.\
-`PrinterScheduler => Printer (daemon)` 으로 수정 하도록 PrintScheduler를 수정해준다.
+`PrinterScheduler=>Printer(daemon)`으로 수정 하도록 PrintScheduler를 수정해준다.
 
 ```java
 public void start(Printer printer){
@@ -114,7 +114,7 @@ COMPLETE
 
 위와 같이 작업을 Daemon Thread에서 실행할 수 있게 된다.
 
-
+아직 하나의 작업이 4,5이후에 시작되는것을 알 수 있다.
 
 ### More Details
 
