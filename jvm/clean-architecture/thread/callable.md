@@ -57,9 +57,62 @@ public class Main {
 }
 ```
 
+### Improve Future
 
+향상된 Future엔 CompletableFuture 가 존재한다.
 
-\
+runAsnyc : return X\
+supplyAsync : return 0 \
+두가지로 작업을 실행할 수 있다.
+
+```java
+public class CallbackSupplier implements Supplier<String> {
+    @Override
+    public String get() {
+        return "I'm Supplier";
+    }
+}
+public class CallbackRunnable implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("I'm Runnable");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CompletableFuture<Void> runAsync = CompletableFuture.runAsync(new CallbackRunnable());
+        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(new CallbackSupplier());
+
+        Void noResult = runAsync.get();
+        String result = supplyAsync.get();
+    }
+}
+
+```
+
+추가적으로 CompleteFuture에는 thenApply, thenAccept, thenRun을 사용하여작업을 연결해 줄 수 있다.
+
+```java
+CompletableFuture<Void> runAsync = CompletableFuture.runAsync(new CallbackRunnable())
+        .thenRunAsync(new CallbackRunnable());
+CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(new CallbackSupplier())
+        .thenApply(s -> s + " and thenApply")
+        .completeAsync(() -> "I'm completeAsync")
+        .exceptionallyAsync(throwable -> "I'm exceptionallyAsync");
+
+Void noResult = runAsync.get();
+String result = supplyAsync.get();
+```
+
+thenCompose, thenCombine   으로 작업을 조합할 수도 있다.
+
+```java
+        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(new CallbackSupplier())
+                .thenCombineAsync(CompletableFuture.supplyAsync(new CallbackSupplier()), (s1, s2) -> s1 + s2)
+                .thenComposeAsync(s -> CompletableFuture.supplyAsync(() -> s + " and thenComposeAsync"));
+```
+
 \
 지금 까지와 동일한[ Printer](process.md#thread)를 예제로 사용
 
