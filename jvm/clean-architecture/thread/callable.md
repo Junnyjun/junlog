@@ -17,7 +17,7 @@ Callable은 선언한 객체를 리턴해 줍니다.\
 
 Thread이 시작되면 Callable에 작업 전달을 하고 응답 값은 future나 futrueTask에 전달이 됩니다.
 
-Main Thread에서 값을 꺼낼때는 Callable에서 받아온 Future\&FutureTast의응답값을 주게 됩니다.
+Main Thread에서 값을 꺼낼때는 Callable에서 받아온 Future\&FutureTast의 응답값을 주게 됩니다.
 
 #### Thead
 

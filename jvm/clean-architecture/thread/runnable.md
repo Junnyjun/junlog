@@ -42,7 +42,7 @@ COMPLETE
 스레드는 각각 우선순위를 갖는다. \
 이 우선순위는 쓰레드의 실행시간과 비례하게된다.
 
-priority는 0\~ 10까지 설정할 수 있
+priority는 0\~ 10까지 설정할 수 있다 &#x20;
 
 <img src="../../../.gitbook/assets/file.drawing (14).svg" alt="Thread" class="gitbook-drawing">
 
