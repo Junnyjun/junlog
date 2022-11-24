@@ -51,7 +51,9 @@ REMOVED = 1,2,3
 주기적으로 작업을 수행할 수 있습니다.
 
 Executors를 `Executors.newSingleThreadScheduledExecutor();` 로 바꿔준 뒤, \
-Main => `Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);` 이렇게 수정해 줍니다.
+Main => `Future<?> executors = printExecutor.schedule(scheduler, 1, TimeUnit.SECONDS);` 이렇게 수정해 줍니다.\
+\
+`schedule( {Callable} , {delay} , {Period} )`
 
 <pre class="language-java"><code class="lang-java">public class Main {
     private final static ScheduledExecutorService printExecutor = PrintExecutor.scheduled;
