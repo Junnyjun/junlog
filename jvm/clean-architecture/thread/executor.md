@@ -1,8 +1,19 @@
 # Executor
 
-Thread의 작업이 현재스레드인지 새스레드인지, \
-작업의 실행 흐름을 제어할 수 있게 도와준다.\
+### Exeucutor
+
+Executors.newFixedPoolSize( int ) 로 원하는 poolsize를 지정해준다
+
+<img src="../../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+
+Executors에 submit된 작업들은 Thread Pool에서 계속실행되게 된다.
+
+Executors는 _shutdown()_ , _awaitTermination()_ 등을 사용하여 반드시 종료해주어야 한다
+
+Thread의 작업이 현재스레드인지 새스레드인지, 작업의 실행 흐름을 제어할 수 있게 도와준다.\
 작업실행이 꼭 비동기일 필요는 없다.
+
+
 
 지금 까지와 동일한[ Printer](process.md#thread)를 예제로 사용
 
@@ -33,13 +44,7 @@ REMOVED = 1,2,3
 5. Printer Stop
 ```
 
-Executors.newFixedPoolSize( int ) 로 원하는 poolsize를 지정해준다
 
-<img src="../../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
-
-Executors에 submit된 작업들은 Thread Pool에서 계속실행되게 된다.
-
-Executors는 _shutdown()_ , _awaitTermination()_ 등을 사용하여 반드시 종료해주어야 한다
 
 ### Scheduled Executor
 
