@@ -108,9 +108,9 @@ String result = supplyAsync.get();
 thenCompose, thenCombine   으로 작업을 조합할 수도 있다.
 
 ```java
-        CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(new CallbackSupplier())
-                .thenCombineAsync(CompletableFuture.supplyAsync(new CallbackSupplier()), (s1, s2) -> s1 + s2)
-                .thenComposeAsync(s -> CompletableFuture.supplyAsync(() -> s + " and thenComposeAsync"));
+CompletableFuture<String> supplyAsync = CompletableFuture.supplyAsync(new CallbackSupplier())
+  .thenCombineAsync(CompletableFuture.supplyAsync(new CallbackSupplier()), (s1, s2) -> s1 + s2)
+  .thenComposeAsync(s -> CompletableFuture.supplyAsync(() -> s + " and thenComposeAsync"));
 ```
 
 \
