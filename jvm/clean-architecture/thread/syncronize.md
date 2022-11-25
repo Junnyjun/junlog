@@ -21,3 +21,16 @@ balance >= money과 acc.getBalance() > 0 라는 출금 방지를 이중으로 �
 {% embed url="https://gist.github.com/Junnyjun/b58d2d4fe029c5a5d9f673f3d6151f35" %}
 
 Syncronized를 추가하니 withdraw에  실행에는  단하나의 쓰레드만 접근 할 수 있는것을 확인할 수 있습니다.
+
+
+
+### Precaution
+
+<img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+
+멀티 프로세스 두 가지 이상의 작업이 서로 작업이 끝나기만을 기다리는 상태가 발생할 수 있습니다.
+
+서로가 사용할 수 있는 공유 자원을 임계 영역이라고 합니다.
+
+<img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+

@@ -122,7 +122,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 세그먼 테이션 기법 또한 매핑 테이블을 사용한다
 
-<img src="../../.gitbook/assets/file.drawing (2) (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (2) (3).svg" alt="" class="gitbook-drawing">
 
 세그먼테이션 기법의 limit은 메모리를 보호하는 역할을 한다.  limit보다 큰 메모리를 사용하게 된다면 `trap`이라는 오류가 발생한다
 
