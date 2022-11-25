@@ -5,3 +5,19 @@
 Syncronize로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용합니다.
 
 <img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+
+### How do code?
+
+예제는 극적으로 연출하기 위해 여러개를 실행 했습니다.
+
+{% embed url="https://gist.github.com/Junnyjun/8526a0beb0b8934e2c19a23f0922f992" %}
+
+balance >= money과 acc.getBalance() > 0 라는 출금 방지를 이중으로 막은 조건문이 있음에도 결과는 -1300이 된것을 볼 수있다.
+
+
+
+### With Syncronized
+
+{% embed url="https://gist.github.com/Junnyjun/b58d2d4fe029c5a5d9f673f3d6151f35" %}
+
+Syncronized를 추가하니 withdraw에  실행에는  단하나의 쓰레드만 접근 할 수 있는것을 확인할 수 있습니다.
