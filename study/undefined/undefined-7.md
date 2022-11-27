@@ -16,7 +16,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 가상 메모리의 크기는 시스템의물리메모리의 최대  크기로 맞춰진다.
 
-<img src="../../.gitbook/assets/file.drawing (8) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (8).svg" alt="" class="gitbook-drawing">
 
 하지만 가상 메모리는 프로세스의 메모리가 스왑영역에서 계속 스왑인&아웃되며 메모리를 훨씬 더 넉넉하게 사용할 수 있다.
 
