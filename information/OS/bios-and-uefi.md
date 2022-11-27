@@ -11,7 +11,7 @@ description: what?
 
 ex ) AMI,  ,PHOENIX..
 
-<img src="../../.gitbook/assets/file.drawing (4).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (4) (1).svg" alt="" class="gitbook-drawing">
 
 ### Update
 

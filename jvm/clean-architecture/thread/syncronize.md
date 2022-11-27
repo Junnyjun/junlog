@@ -4,7 +4,7 @@
 
 Syncronize로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용합니다.
 
-<img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
 
 ### How do code?
 

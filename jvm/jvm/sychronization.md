@@ -26,5 +26,25 @@ Object의 Lock은 중복하여 획득할 수 있다.\
 특정 Object의 Critical Section에 진입할 때마다 Lock을 획득하는 작업을 다시 수행할 수 있다는 뜻이다.
 
 Object의 Header에는 Lock Counter를 가지고 있는데, Lock을 획득하면 1씩 증&감 한다.\
+Critical Section은 Object Reference와 연계해 동기화를 수행한다.\
+떠날 때 Lock은 자동으로 해지되며, 명시적인 작업은 불필요 하다.
 
+다른 Thread가 점유된 자원에 접근하려고 할땐 Monitor의 Wait Set에서 대기하게 된다.
 
+### How do Java?
+
+#### synchronized
+
+사용중일 경우 다른 Thread의 접근을 제한 한다.\
+이 경우 다른 접근하려는 모든 Thread는 MONITORENTER, MONITOREXIT라는 바이트 코드 상태를 가진다
+
+```java
+Integer data = 0;
+public synchronized void receive(){
+  data++;
+}
+```
+
+#### Wait& Notify&#x20;
+
+&#x20;
