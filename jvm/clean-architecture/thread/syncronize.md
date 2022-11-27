@@ -26,11 +26,11 @@ Syncronized를 추가하니 withdraw에  실행에는  단하나의 쓰레드만
 
 ### Precaution
 
-<img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
 
 멀티 프로세스 두 가지 이상의 작업이 서로 작업이 끝나기만을 기다리는 상태가 발생할 수 있습니다.
 
 서로가 사용할 수 있는 공유 자원을 임계 영역이라고 합니다.
 
-<img src="../../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
 

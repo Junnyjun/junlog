@@ -52,4 +52,12 @@ public synchronized void receive(){
 <img src="../../.gitbook/assets/file.drawing (7).svg" alt="" class="gitbook-drawing">
 
 Thread가 Entry Set으로 진입하면 Monitor Lock 획득을 시도한다. \
-다른 Thread가 Lock을 획득했을 경우에는, 후발 Thread는 다시 Entry Set에서 대기해야 한다\
+다른 Thread가 Lock을 획득했을 경우에는, 후발 Thread는 다시 Entry Set에서 대기해야 한다
+
+Wait Set에 들어온 Thread가 Critical Section을 벗어나는 방법은 Monitor를 다시 획득해 Lock을 놓고 나가는 방법 이외에는 없다.
+
+### Thread
+
+Thread가&#x20;
+
+<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
