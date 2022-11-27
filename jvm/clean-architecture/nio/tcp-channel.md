@@ -10,7 +10,7 @@ ServerSocketChannel : buffer X  blocking 방식
 
 SocketChannel : buffer O, blocking, non-blocking 방식&#x20;
 
-<img src="../../../.gitbook/assets/file.drawing (10).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (10) (1).svg" alt="" class="gitbook-drawing">
 
 ### Connection
 

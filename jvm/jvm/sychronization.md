@@ -47,4 +47,9 @@ public synchronized void receive(){
 
 #### Wait& Notify&#x20;
 
-&#x20;
+&#x20;wait은 현재 Thread 점유를 멈추고, Notify는 Thread를 점유한다.
+
+<img src="../../.gitbook/assets/file.drawing (7).svg" alt="" class="gitbook-drawing">
+
+Thread가 Entry Set으로 진입하면 Monitor Lock 획득을 시도한다. \
+다른 Thread가 Lock을 획득했을 경우에는, 후발 Thread는 다시 Entry Set에서 대기해야 한다\

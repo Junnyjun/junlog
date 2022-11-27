@@ -44,7 +44,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 페이지와 프레임의 크기는 같다&#x20;
 
-<img src="../../.gitbook/assets/file.drawing (1) (3) (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
 
 가상 메모리 Page가 가르키는 값이 Invalid인 경우 스왑 영역에 있다는 의미이다.
 
