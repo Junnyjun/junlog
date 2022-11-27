@@ -17,4 +17,12 @@ Thread가 공유 자원을 사용할 때, 정합성을 보장하려면 동기화
 
 공유 데이터의 접근은 한번에 한 Thread씩 순차적으로 이루어 져야 한다.
 
-{% embed url="https://runkit.com/junnyjun/6383466cf0d10f000893e4e4" %}
+<img src="../../.gitbook/assets/file.drawing (8).svg" alt="" class="gitbook-drawing">
+
+Object Lock은 한번에 한 Thread만 Object를 사용할 수 있도록 내부적으로 Mutex를 활용한다.\
+JVM이 Class file을 Load 할 때는 Heap에는 Java class의 Instance가 생성되며 Object Lcock은 instance에 동기화 작업을 한다.
+
+Object의 Lock은 중복하여 획득할 수 있다.\
+특정 Object의 Critical Section에 진입할 때마다 Lock을 획득하는 작업을 다시 수행할 수 있다는 뜻이다.
+
+{% embed url="https://codepen.io/Junnyjun/pen/MWXXQNd" %}
