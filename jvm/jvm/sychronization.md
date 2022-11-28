@@ -58,16 +58,6 @@ Wait Set에 들어온 Thread가 Critical Section을 벗어나는 방법은 Monit
 
 ### Thread
 
-Thread는 daemon& non-daemon Thread로 나눌 수 있다.
-
-daemon Thread는 다른 Thread가 없으면 동작을 중지한다.
+Thread가&#x20;
 
 <img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
-
-#### Dump
-
-java에서 동기화 문제를 해결하는 가장 기본적인 방법이다. \
-현재 Thread의 상태와 stack Trace를 출력하고 JVM의 종류에 따라 풍부한 정보를 제공한다.
-
-`jstack [PID]` 확인할 수 있다.
-
