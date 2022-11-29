@@ -2,12 +2,7 @@
 
 둘 이상의 스레드가 하나의 공유자원을 write할 때(경합상태) 발생하는 문제를 해결하는 방식이다.
 
-멀티 프로세스 두 가지 이상의 작업이 서로 작업이 끝나기만을 기다리는 상태가 발생할 수 있습니다.\
-서로가 사용할 수 있는 공유 자원을 임계 영역이라고 합니다.
-
-<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
-
-[Syncronize](../../jvm/sychronization.md)로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용하여 문제를 해결합니다
+[Syncronize](../../jvm/sychronization.md)로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용합니다.
 
 <img src="../../../.gitbook/assets/file.drawing (1) (2).svg" alt="" class="gitbook-drawing">
 
@@ -28,4 +23,12 @@ balance >= money과 acc.getBalance() > 0 라는 출금 방지를 이중으로 �
 Syncronized를 추가하니 withdraw에  실행에는  단하나의 쓰레드만 접근 할 수 있는것을 확인할 수 있습니다.
 
 
+
+### Precaution
+
+멀티 프로세스 두 가지 이상의 작업이 서로 작업이 끝나기만을 기다리는 상태가 발생할 수 있습니다.
+
+서로가 사용할 수 있는 공유 자원을 임계 영역이라고 합니다.
+
+<img src="../../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
 

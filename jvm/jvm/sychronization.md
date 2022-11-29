@@ -69,5 +69,3 @@ daemon Thread는 다른 Thread가 없으면 동작을 중지한다.
 java에서 동기화 문제를 해결하는 가장 기본적인 방법이다. \
 현재 Thread의 상태와 stack Trace를 출력하고 JVM의 종류에 따라 풍부한 정보를 제공한다.
 
-`jstack [PID]` 확인할 수 있다.
-
