@@ -8,7 +8,7 @@ description: 행위를 동적으로 바꿔끼어 봅시다.
 
 규칙이나  방식을 편하게 바꿀수 있도록 해준다
 
-<img src="../../.gitbook/assets/file.drawing (5) (1).svg" alt="StragyJava" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (5) (1) (2).svg" alt="StragyJava" class="gitbook-drawing">
 
 User는 자신의 상태를 조회한다.
 
