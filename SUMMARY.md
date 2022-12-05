@@ -5,6 +5,7 @@
 ## JVM
 
 * [☕ JAVA](clean-architecture/README.md)
+  * [Instance Cache](jvm/clean-architecture/instance-cache.md)
   * [\[FUN\] New Builder ?](jvm/java/fun-new-builder.md)
   * [Thread](jvm/clean-architecture/thread/README.md)
     * [Thread](jvm/clean-architecture/thread/process.md)
@@ -54,7 +55,7 @@
   * [네트워크](computer-science/network/chap1.md)
   * [이더넷, 1계층](computer-science/network/1.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
-  * [Singletone](computer-science/design-pattern/singletone.md)
+  * [Singleton](computer-science/design-pattern/singleton.md)
   * [Composite](computer-science/design-pattern/composite.md)
   * [Abstract Factory](computer-science/design-pattern/abstract-factory.md)
   * [Factory Method](computer-science/design-pattern/factory-method.md)
