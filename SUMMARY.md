@@ -5,6 +5,7 @@
 ## JVM
 
 * [☕ JAVA](clean-architecture/README.md)
+  * [Final](jvm/clean-architecture/final.md)
   * [Instance Cache](jvm/clean-architecture/instance-cache.md)
   * [\[FUN\] New Builder ?](jvm/java/fun-new-builder.md)
   * [Thread](jvm/clean-architecture/thread/README.md)
