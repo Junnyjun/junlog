@@ -2,7 +2,7 @@
 
 자바의 wrapping타입이 값을 초기화 하는 방식에 대해 설명합니다.
 
-Integer.valueof()의 코드를 먼저 살펴봅니다 &#x20;
+Integer.valueof()로 설명을 진행합니다
 
 ```java
 public static Integer valueOf(int i) {
