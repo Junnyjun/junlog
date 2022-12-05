@@ -33,7 +33,7 @@ syncronized 로 접근제한을 할 수도 있습니다.
 
 {% embed url="https://gist.github.com/Junnyjun/800fe277aeb4ad2b629f23df41391983" %}
 
-Joshua
+### Joshua
 
 조슈아 블로크가 제안한 방식입니다.
 
