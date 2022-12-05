@@ -16,7 +16,7 @@
     * [Syncronize](jvm/clean-architecture/thread/syncronize.md)
     * [Volatile](jvm/clean-architecture/thread/volatile.md)
   * [NIO](jvm/java/nio/README.md)
-    * [NIO](jvm/java/nio/file.md)
+    * [NIO\&FILE](jvm/java/nio/file.md)
     * [BUFFER](jvm/java/nio/buffer.md)
     * [Channel](jvm/clean-architecture/nio/channel.md)
     * [TCP Channel (Blocking)](jvm/clean-architecture/nio/tcp-channel.md)
