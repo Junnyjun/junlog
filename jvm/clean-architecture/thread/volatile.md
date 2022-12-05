@@ -10,4 +10,4 @@ CPU는 많은 명령을 수행하기 때문에 RAM에서 가져오지 않고 \
 
 Cpu와 Memory가 데이터를 주고 받는 메모리 구조부터 확인합니다
 
-<img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (16).svg" alt="" class="gitbook-drawing">
