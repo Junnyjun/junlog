@@ -57,6 +57,7 @@
   * [네트워크](computer-science/network/chap1.md)
   * [이더넷, 1계층](computer-science/network/1.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
+  * [Bridge](computer-science/design-pattern/bridge.md)
   * [Singleton](computer-science/design-pattern/singleton.md)
   * [Composite](computer-science/design-pattern/composite.md)
   * [Abstract Factory](computer-science/design-pattern/abstract-factory.md)
