@@ -32,6 +32,7 @@
   * [JVM\&Heap](jvm/jvm/jvm-heap.md)
   * [GC](jvm/jvm/gc.md)
   * [GC Tuning](jvm/jvm/gc-1.md)
+  * [Method area vs Metaspace](jvm/jvm/method-area-vs-metaspace.md)
   * [Sychronization](jvm/jvm/sychronization.md)
 
 ## Spring
