@@ -32,7 +32,6 @@
   * [JVM\&Heap](jvm/jvm/jvm-heap.md)
   * [GC](jvm/jvm/gc.md)
   * [GC Tuning](jvm/jvm/gc-1.md)
-  * [Method area vs Metaspace](jvm/jvm/method-area-vs-metaspace.md)
   * [Sychronization](jvm/jvm/sychronization.md)
 
 ## Spring
@@ -49,6 +48,7 @@
 
 ## Computer Science
 
+* [🖇 Algorithm](computer-science/algorithm.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf 함수가 실행되는 방식](information/OS/printf.md)
   * [인터럽트는 어디에 저장하나요?](information/OS/undefined.md)
