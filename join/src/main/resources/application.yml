@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: WEMpIegzZQGPi+VtO6JWT+ufB7yLE06CSed4dkv5DhkZEtjAowv36EN+uoVePp7v
+    username: WH0aR1G9UMJFUZfLGfDd9g==
+    password: vtYbI6+CxfALyXFHdlCBcw==
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    show-sql: true
+    properties:
+      use_sql_comments: true
+      format_sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+mail:
+  host: ZwRnIoSNJk0Hai8c1PuOtw==
+  username: xlIo0FBQUNw5q5NCP3QJ9BnlPdtFMDDvl7xc1Hwe11g=
+  password: ZJhSLb7uauAw+MuKbpcvVA==
+
+logging:
+  pattern:
+    file: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n"
+  level:
+    root: info
+  file.name: /logs/sign.log
+  logback:
+    rollingPolicy:
+      file-name-pattern: "/logs/sign-%d{yyyy-MM-dd}-%i.log"
+      max-file-size: 100MB
+      max-history: 30
