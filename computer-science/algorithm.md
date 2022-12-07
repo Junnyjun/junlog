@@ -31,3 +31,7 @@
 
 {% endswagger-response %}
 {% endswagger %}
+
+<form>
+<button>Click me</button>
+</form>
