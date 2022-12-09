@@ -17,7 +17,7 @@ jobs:
         java-version: 17
         
     - name: list
-      run: ls -la ./
+      run: ls -la ./join/
       
     - name: Grant execute permission for gradlew
       run: chmod +x ./join/gradlew
