@@ -17,7 +17,7 @@ jobs:
         java-version: 17
         
     - name: execute gradle
-      run: chmod +x ./gradlew
+      run: chmod +x ./join/gradlew
     - name: build java
       run: cd ./join  && ./gradlew clean build
 
