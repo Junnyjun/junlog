@@ -16,6 +16,8 @@ jobs:
       with:
         java-version: 17
         
-    - name: move directory
-      run: cd ./join/ || chmod +x ./gradlew || ./gradlew clean build
+    - name: execute gradle
+      run: chmod +x ./gradlew
+    - name: build java
+      run: cd ./join  && ./gradlew clean build
 
