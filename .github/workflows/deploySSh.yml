@@ -16,8 +16,14 @@ jobs:
       with:
         java-version: 17
         
+    - name: move directory
+      run: cd ./join/
+      
     - name: list
-      run: ls -la ./join/
+      run: ls -la ./
+      
+    - name: pwd
+      run: echo `(pwd)`
       
     - name: Grant execute permission for gradlew
       run: chmod +x ./join/gradlew
