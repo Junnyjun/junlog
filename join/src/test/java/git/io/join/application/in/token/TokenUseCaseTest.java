@@ -8,14 +8,4 @@ import java.util.UUID;
 
 class TokenUseCaseTest {
 
-    @Autowired
-    CacheRepository cacheRepository;
-
-    @Test
-    void 토큰_생성_테스트() {
-        String uuid = UUID.randomUUID().toString();
-
-        cacheRepository.save(uuid);
-
-    }
 }
