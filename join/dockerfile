@@ -1,0 +1,9 @@
+FROM openjdk:17-jdk-alpine
+
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+ARG ACTIVE_PROFILE
+
+COPY ./*.jar deploy.jar
+CMD ["java","-Dspring.profiles.active=$ACTIVE_PROFILE","-jar","deploy.jar"]
