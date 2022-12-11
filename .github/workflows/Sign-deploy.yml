@@ -1,10 +1,13 @@
 
-name: Spring Boot & Gradle CI/CD 
+name: Sign Application Deploy
 
 on:
-  push:
-    branches: [ main ]
-
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "RELEASE"
+        required: true
+        default: "realease v0.1"
 jobs:
   build:
     runs-on: ubuntu-latest   
@@ -20,4 +23,7 @@ jobs:
       run: chmod +x ./join/gradlew
     - name: build java
       run: cd ./join  && ./gradlew clean build
+    - name: echo
+      run: cd ./join/build/libs && ls -la
+
 
