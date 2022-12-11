@@ -23,4 +23,7 @@ jobs:
       run: chmod +x ./join/gradlew
     - name: build java
       run: cd ./join  && ./gradlew clean build
+    - name: echo
+      run: cd ./join && ls -la
+
 
