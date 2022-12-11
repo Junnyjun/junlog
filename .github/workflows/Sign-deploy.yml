@@ -36,7 +36,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           rm: true
-          source: "build/libs/join-0.0.1-SNAPSHOT-plain.jar"
+          source: "join/build/libs/join-0.0.1-SNAPSHOT-plain.jar"
           target: "/home"
           
     - name: deploy dockerfile
