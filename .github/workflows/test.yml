@@ -12,7 +12,13 @@ jobs:
     runs-on: ubuntu-latest   
     steps:
     - uses: actions/checkout@v2
-
+    
+    - name: execute gradle
+      run: cat ${{ secrets.TEST }} > ./test.txt
+      
+    - name: execute gradle
+      run: cat ./test.txt
+      
     - name: Jar output
       uses: appleboy/ssh-action@v0.1.6
       with:
