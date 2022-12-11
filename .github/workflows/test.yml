@@ -14,10 +14,10 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: execute gradle
-      run: cat ${{ secrets.TEST }} > ./test.txt
+      run: cat ${{ secrets.TEST }} > ./junny.txt
       
     - name: execute gradle
-      run: cat ./test.txt
+      run: cat ./junny.txt
       
     - name: Jar output
       uses: appleboy/ssh-action@v0.1.6
