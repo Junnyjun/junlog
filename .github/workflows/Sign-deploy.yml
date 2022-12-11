@@ -27,6 +27,9 @@ jobs:
       
     - name: list
       run: ls -la
+      
+    - name: list
+      run: tree .
     
     - name: Jar output
       uses: appleboy/ssh-action@v0.1.6
