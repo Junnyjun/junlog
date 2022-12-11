@@ -1,0 +1,25 @@
+name: Sign Application Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "RELEASE"
+        required: true
+        default: "release v0.1"
+jobs:
+  build:
+    runs-on: ubuntu-latest   
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Jar output
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+          host: ${{ secrets.DEPLOY_IP }}
+          username: ${{ secrets.ID }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            ls -al
