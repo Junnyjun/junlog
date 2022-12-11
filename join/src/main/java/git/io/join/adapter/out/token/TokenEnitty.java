@@ -1,9 +1,9 @@
-package git.io.join.adapter.out.token;
-
-//@Entity
-public class TokenEnitty {
+//package git.io.join.adapter.out.token;
 //
-//    @Id
-//
-//
-}
+////@Entity
+//public class TokenEnitty {
+////
+////    @Id
+////
+////
+//}

@@ -1,5 +1,6 @@
 package git.io.join.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import java.util.Base64;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+@Slf4j
 @Component
 public class Encrypt {
 
@@ -21,6 +23,9 @@ public class Encrypt {
     public Encrypt(ApplicationArguments arguments) {
         this.iv = arguments.getOptionValues("iv") == null ? "" : arguments.getOptionValues("iv").get(0);
         this.key = arguments.getOptionValues("auth") == null ? "" : arguments.getOptionValues("auth").get(0);
+
+        log.info("iv: {}", iv);
+        log.info("key: {}", key);
     }
 
     public String encryptAES256(String text) {
