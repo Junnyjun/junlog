@@ -34,7 +34,7 @@ jobs:
           port: ${{ secrets.PORT }}
           rm: true
           source: "build/libs/join-0.0.1-SNAPSHOT-plain.jar"
-          target: "/home/ubuntu"
+          target: "../"
           
     - name: deploy dockerfile
       uses: appleboy/scp-action@master  
