@@ -53,4 +53,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            sh /home/ubuntu/join/deploy.sh
+            sh join/deploy.sh
