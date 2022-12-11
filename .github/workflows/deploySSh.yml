@@ -1,5 +1,5 @@
 
-name: Spring Boot & Gradle CI/CD 
+name: Sign Application Deploy
 
 on:
   workflow_dispatch:
