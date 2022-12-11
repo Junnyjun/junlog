@@ -53,4 +53,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo sh sign/join/deploy.sh
+            sudo sh sign/join/deploy.sh ${{ secrets.AUTH }} ${{ secrets.IV }}
