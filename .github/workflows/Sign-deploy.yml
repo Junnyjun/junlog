@@ -44,3 +44,13 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "join/dockerfile"
           target: "/home/ubuntu/sign"
+          
+    - name: deploy sign-app
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+          host: ${{ secrets.DEPLOY_IP }}
+          username: ${{ secrets.ID }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            sudo sh sign/join/deploy.sh
