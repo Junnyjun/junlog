@@ -11,6 +11,6 @@ ARG IV
 RUN echo "auth=${AUTH}"
 RUN echo "iv=${IV}"
 
-COPY ./build/libs/join-0.0.1-SNAPSHOT.jar deploy.jar
+COPY ./join/build/libs/join-0.0.1-SNAPSHOT.jar deploy.jar
 RUN echo "java -jar deploy.jar --auth=$AUTH --iv=$IV" > run.sh && chmod +x run.sh
 CMD ["sh", "run.sh"]
