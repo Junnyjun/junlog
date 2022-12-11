@@ -24,13 +24,7 @@ jobs:
       
     - name: build java
       run: cd ./join  && ./gradlew clean build
-      
-    - name: list
-      run: ls -la
-      
-    - name: list
-      run: tree .
-    
+  
     - name: Jar output
       uses: appleboy/ssh-action@v0.1.6
       with:
