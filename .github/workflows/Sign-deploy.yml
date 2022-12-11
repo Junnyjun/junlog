@@ -28,6 +28,9 @@ jobs:
     - name: echo
       run: cd ./join/build/libs && ls -la
       
+    - name: secrets
+      run: echo ${{ secrets.REMOTE_IP }}
+      
     - name: Jar output
       uses: appleboy/scp-action@master  
       with:
