@@ -59,8 +59,7 @@ jobs:
           username: ${{ secrets.ID }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          source: "dockerfile"
-          strip_components: 1
+          source: "join/dockerfile"
           target: "/home/ubuntu/sign-app/"
 
             
