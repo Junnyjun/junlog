@@ -35,7 +35,6 @@ jobs:
           username: ${{ secrets.ID }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          rm: true
           source: "join/build/libs/join-0.0.1-SNAPSHOT-plain.jar"
           target: "/home"
           
