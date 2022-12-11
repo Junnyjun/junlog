@@ -24,6 +24,6 @@ jobs:
     - name: build java
       run: cd ./join  && ./gradlew clean build
     - name: echo
-      run: cd ./join && ls -la
+      run: cd ./join/build/libs && ls -la
 
 
