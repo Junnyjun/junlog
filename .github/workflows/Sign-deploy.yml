@@ -26,10 +26,10 @@ jobs:
       run: cd ./join  && ./gradlew clean build
       
     - name: list
-      run: ls -la
+      run: tree .
       
     - name: list
-      run: tree .
+      run: whoami && pwd
     
     - name: Jar output
       uses: appleboy/ssh-action@v0.1.6
