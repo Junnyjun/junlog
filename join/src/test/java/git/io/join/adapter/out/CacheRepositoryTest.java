@@ -1,7 +1,7 @@
 package git.io.join.adapter.out;
 
 import git.io.join.IntegrationTestBase;
-import git.io.join.adapter.out.CacheRepository;
+import git.io.join.adapter.out.token.CacheRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ class CacheRepositoryTest implements IntegrationTestBase {
     @Test
     void isHave() {
         cacheRepository.save("test");
-        Boolean test = cacheRepository.isNotHave("test");
+        Boolean test = cacheRepository.isExists("test");
 
         Assertions.assertThat(test).isFalse();
     }

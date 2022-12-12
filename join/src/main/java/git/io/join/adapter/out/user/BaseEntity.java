@@ -1,4 +1,4 @@
-package git.io.join.adapter.out.user.entity;
+package git.io.join.adapter.out.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(value = {AuditingEntityListener.class})
 @Getter
-abstract class BaseEntity{
+public abstract class BaseEntity{
 
     @CreatedDate
     @Column(name = "regDate", updatable = false)

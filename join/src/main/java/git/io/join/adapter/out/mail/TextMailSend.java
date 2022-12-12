@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 public interface TextMailSend {
     void send(Naver.SenderRequest request);
 
-    static Naver.SenderRequest request(String to, String title, String text) {
-        return new Naver.SenderRequest(to, title, text);
+    static Naver.SenderRequest request(String to, String text) {
+        return new Naver.SenderRequest(to, "junnyland token", "junny-token : "  + text);
     }
     @Component
     @RequiredArgsConstructor

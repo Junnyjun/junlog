@@ -1,10 +1,8 @@
 package git.io.join.application.in.user;
 
 import git.io.join.IntegrationTestBase;
-import git.io.join.adapter.out.CacheRepository;
 import git.io.join.adapter.out.FakeCacheRepository;
 import git.io.join.application.in.token.TokenUseCase;
-import git.io.join.application.out.FakeUserOutPort;
 import git.io.join.domain.User;
 import git.io.join.exception.UserException;
 import org.junit.jupiter.api.DisplayName;
@@ -40,29 +38,6 @@ class JoinUserUsecaseTest implements IntegrationTestBase {
         assertThatThrownBy(() -> joinUserUsecase.signUp(user))
                 .isInstanceOf(UserException.class)
                 .hasMessage("토큰이 유효 하지 않습니다.");
-    }
-
-    @Test
-    @DisplayName("토큰이 있을 경우 신청 목록에 저장한다.")
-    void signSave() {
-        //given
-
-        String token = tokenUseCase.makeToken();
-
-        User user = new User(
-                token,
-                "mang-joo",
-                "lsun606@naver.com",
-                13,
-                "010-5576-3376"
-        );
-
-        //when
-        String userToken = joinUserUsecase.signUp(user);
-
-        //then
-        assertThat(userToken).isEqualTo(token);
-
     }
 
 }

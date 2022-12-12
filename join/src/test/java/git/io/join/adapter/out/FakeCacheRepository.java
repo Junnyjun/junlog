@@ -1,8 +1,8 @@
 package git.io.join.adapter.out;
 
-import java.util.ArrayList;
+import git.io.join.adapter.out.token.CacheRepository;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FakeCacheRepository implements CacheRepository {
@@ -11,7 +11,7 @@ public class FakeCacheRepository implements CacheRepository {
 
     @Override
 
-    public Boolean isNotHave(String key) {
+    public Boolean isExists(String key) {
 
         try {
             map.get(key);
