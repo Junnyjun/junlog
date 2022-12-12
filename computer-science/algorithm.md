@@ -5,10 +5,15 @@
 {% swagger method="post" path="/token" baseUrl="junnyland.site" summary="토큰 발급" %}
 {% swagger-description %}
 이메일을 입력해 주세요
+
+\
+
+
+gmail, naver 만 허용됩니다.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="email" required="true" %}
-토큰을 받을 이메일
+토큰을 받을 깃허브이메일
 {% endswagger-parameter %}
 
 {% swagger-response status="201: Created" description="전송되었습니다" %}
