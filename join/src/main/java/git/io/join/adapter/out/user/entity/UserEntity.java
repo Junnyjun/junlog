@@ -46,8 +46,7 @@ public class UserEntity extends BaseEntity {
     public void renew(String uuid) {
         if (this.history >= 5) {
             throw new IllegalArgumentException("차단된 이메일 입니다. 문의해주세요");
-        }
-        this.history++;
+        }this.history++;
         this.uuid = uuid;
     }
 
