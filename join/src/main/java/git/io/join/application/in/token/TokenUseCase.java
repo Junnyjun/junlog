@@ -23,7 +23,8 @@ public interface TokenUseCase {
         @Override
         public String makeToken(EmailRequest emailRequest) {
             if(cacheRepository.isExists(emailRequest.email)){
-                throw new RuntimeException("이미 인증키가 발급되었습니다. 3분 후 다시 요청해 주세요.");
+                Long timer = userRepository.timer(emailRequest.email);
+                throw new RuntimeException("이미 인증키가 발급되었습니다." + timer+ "초 후 다시 요청해 주세요.");
             }
             cacheRepository.save(emailRequest.email);
 

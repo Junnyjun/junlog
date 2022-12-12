@@ -10,8 +10,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.ZoneOffset;
+
 import static jakarta.persistence.GenerationType.AUTO;
-import static jakarta.persistence.GenerationType.IDENTITY;
+import static java.time.LocalDateTime.now;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -42,10 +44,14 @@ public class UserEntity extends BaseEntity {
     }
 
     public void renew(String uuid) {
-        if (this.history > 5) {
+        if (this.history >= 5) {
             throw new IllegalArgumentException("차단된 이메일 입니다. 문의해주세요");
         }
         this.history++;
         this.uuid = uuid;
+    }
+
+    public Long timer() {
+        return Math.abs(now().minusMinutes(3L).toEpochSecond(ZoneOffset.UTC) - super.getModDate().toEpochSecond(ZoneOffset.UTC));
     }
 }

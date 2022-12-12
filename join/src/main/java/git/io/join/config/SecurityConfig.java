@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
-            "/api/v1/**"
+            "/api/v1/token"
     };
 
     @Bean

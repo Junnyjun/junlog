@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.regex.Pattern;
+
 public interface TokenController {
 
     @RestController
@@ -26,7 +28,15 @@ public interface TokenController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new MessageResponse(tokenUseCase.makeToken(request.toUsecase()) + " 메일함을 확인 해주세요"));
         }
-        record Request(String email) { private EmailRequest toUsecase(){return new EmailRequest(email);}}
+        record Request(String email) {
+            Request {
+                if (!Pattern.matches("^[a-zA-Z0-9]+@(naver.com|gmail.com)$", email)) {
+                    throw new IllegalArgumentException("naver.com&gmail.com 만 사용 가능 합니다.");
+                }
+            }
+
+            private EmailRequest toUsecase(){return new EmailRequest(email);}
+        }
     }
 
 }
