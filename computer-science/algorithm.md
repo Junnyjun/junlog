@@ -25,7 +25,7 @@ const axios = require('axios')
 var url = process.env.TOKEN;
 axios.post(url,
 {
-  "email" : "",
+  "email" : "happy@junny.com",
 })
 
 ```
