@@ -30,8 +30,9 @@ public interface TokenController {
         }
         record Request(String email) {
             Request {
-                if (email.endsWith("@gmail.com") || email.endsWith("@naver.com") ) {
-                    throw new IllegalArgumentException("이메일 형식이 아닙니다.");
+                // email ends with "@gmail.com" or "@naver.com"
+                if (!Pattern.matches("^[a-z0-9_\\.-]+@(naver.com|gmail.com)$", email)) {
+                    throw new IllegalArgumentException("NAVER, GMAIL 메일만 사용 가능합니다.");
                 }
             }
 
