@@ -10,10 +10,4 @@ class TextMailSendTest implements IntegrationTestBase {
 
     @Autowired
     TextMailSend textMailSend;
-
-
-    @Test
-    void asdfS(){
-        textMailSend.send(request("chbe5082@naver.com", "asdf"));
-    }
 }
