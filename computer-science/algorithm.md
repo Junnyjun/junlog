@@ -20,15 +20,7 @@
 {% endswagger-response %}
 {% endswagger %}
 
-```runkit  nodeVersion="18.x.x"
-const axios = require('axios')
-var url = process.env.TOKEN;
-axios.post(url,
-{
-  "email" : "",
-})
-
-```
+{% embed url="https://runkit.com/junnyjun/6396c6efa3b4560008bd58d5" %}
 
 {% swagger method="post" path="/algorithm" baseUrl="junnyland.site" summary="참가 희망서" %}
 {% swagger-description %}
