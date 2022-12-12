@@ -20,7 +20,7 @@ public interface TextMailSend {
         @Override
         public void send(SenderRequest request) {
             SimpleMailMessage mimeMessage = new SimpleMailMessage(){{
-                setFrom("ADMIN@junnyland.site");
+                setFrom("chbe5082@naver.com");
                 setTo(request.to);
                 setSubject(request.title);
                 setText(request.text);
