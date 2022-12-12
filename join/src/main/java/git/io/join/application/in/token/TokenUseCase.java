@@ -25,8 +25,8 @@ public interface TokenUseCase {
             if(cacheRepository.isExists(emailRequest.email)){
                 throw new RuntimeException("이미 인증키가 발급되었습니다.\n3분 후 다시 요청해 주세요.");
             }
-
             cacheRepository.save(emailRequest.email);
+
             String uuid = UUID.randomUUID().toString();
 
             textMailSend.send(request(emailRequest.email, uuid));

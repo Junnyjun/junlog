@@ -20,7 +20,7 @@ public interface UserRepository {
                         .renew(uuid);
                 return;
             }
-            repository.save(UserEntity.init(email, uuid));
+            repository.save(UserEntity.init(uuid,email));
         }
     }
 
