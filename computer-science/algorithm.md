@@ -20,7 +20,13 @@
 {% endswagger-response %}
 {% endswagger %}
 
-{% embed url="https://runkit.com/junnyjun/6396c6efa3b4560008bd58d5" %}
+```runkit  nodeVersion="14.x.x"
+const axios = require('axios')
+axios.post('http://sign.junnyland.com/api/v1/token',
+{
+  "email" : "happy@junny.com",
+}).then(res => console.log(res.data))
+```
 
 {% swagger method="post" path="/algorithm" baseUrl="junnyland.site" summary="참가 희망서" %}
 {% swagger-description %}
