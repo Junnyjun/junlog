@@ -1,5 +1,6 @@
 package git.io.join.adapter.in;
 
+import git.io.join.adapter.MessageResponse;
 import git.io.join.application.in.token.TokenUseCase;
 import git.io.join.application.in.token.TokenUseCase.Token.EmailRequest;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +22,11 @@ public interface TokenController {
 
         @PostMapping("/token")
         @ResponseStatus(HttpStatus.CREATED)
-        public ResponseEntity<String> createToken(@RequestBody Request request) {
+        public ResponseEntity<MessageResponse> createToken(@RequestBody Request request) {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(tokenUseCase.makeToken(request.toUsecase()) + " 메일함을 확인 해주세요");
+                    .body(new MessageResponse(tokenUseCase.makeToken(request.toUsecase()) + " 메일함을 확인 해주세요"));
         }
         record Request(String email) { private EmailRequest toUsecase(){return new EmailRequest(email);}}
     }
+
 }

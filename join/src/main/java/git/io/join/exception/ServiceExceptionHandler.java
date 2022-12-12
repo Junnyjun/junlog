@@ -1,5 +1,6 @@
-package git.io.join.config;
+package git.io.join.exception;
 
+import git.io.join.adapter.MessageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +14,11 @@ public class ServiceExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ResponseEntity<String> handleException(Exception ex) {
+    public ResponseEntity<MessageResponse> handleException(Exception ex) {
         ex.getStackTrace();
 
         return ResponseEntity
                 .status(HttpStatus.ALREADY_REPORTED)
-                .body(ex.getMessage());
+                .body(new MessageResponse(ex.getMessage()));
     }
 }
