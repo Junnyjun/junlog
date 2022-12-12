@@ -23,7 +23,7 @@ public interface TokenUseCase {
         @Override
         public String makeToken(EmailRequest emailRequest) {
             if(cacheRepository.isExists(emailRequest.email)){
-                throw new RuntimeException("이미 인증키가 발급되었습니다.\n3분 후 다시 요청해 주세요.");
+                throw new RuntimeException("이미 인증키가 발급되었습니다. 3분 후 다시 요청해 주세요.");
             }
             cacheRepository.save(emailRequest.email);
 
@@ -38,7 +38,7 @@ public interface TokenUseCase {
         public record EmailRequest(String email) {
             public EmailRequest {
                 if (email == null || email.isBlank()) {
-                    throw new IllegalArgumentException("email is null or empty");
+                    throw new IllegalArgumentException("필수값 입니다");
                 }
             }
         }
