@@ -13,7 +13,7 @@ public interface Callable<V> {
 Callable은 선언한 객체를 리턴해 줍니다.\
 `Thead에는 FutureTask`와 함께 사용하고, `Executor`에는 그대로 사용하면 됩니다
 
-<img src="../../../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (2) (1) (3).svg" alt="" class="gitbook-drawing">
 
 Thread이 시작되면 Callable에 작업 전달을 하고 응답 값은 future나 futrueTask에 전달이 됩니다.
 

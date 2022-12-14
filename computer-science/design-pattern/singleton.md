@@ -4,7 +4,7 @@
 
 new를 사용한 객체생성을 딱 한번만 하고 싶은 경우 사용합니다.
 
-<img src="../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (11).svg" alt="" class="gitbook-drawing">
 
 ### Default Singleton ( eger)
 
