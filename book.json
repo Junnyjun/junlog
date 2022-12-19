@@ -1,0 +1,18 @@
+{
+  "plugins": [ "rss" ],
+  "pluginsConfig": {
+    "rss": {
+      "title": "junnyland",
+      "description": "backend blog",
+      "author": "junny",
+      "site_url": "https://www.junnyland.com/til/",
+      "managingEditor": "chbe5082@naver.com",
+      "webMaster": "chbe5082@naver.com",
+      "categories": [
+        "backend",
+        "network",
+        "computer-science"
+      ]
+    }
+  }
+}
