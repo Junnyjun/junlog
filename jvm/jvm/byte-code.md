@@ -96,7 +96,7 @@ Thresholds Level은 method의 단순 호출 횟수입니다.
 
 _-XX:Tier{version}CompileThreshold={value} 를 지정하여  특정 컴파일 단계의 임계값을 지정해 줄 수 있습니다._
 
-<img src="../../.gitbook/assets/file.drawing (9).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (9) (1).svg" alt="" class="gitbook-drawing">
 
 
 
