@@ -50,7 +50,8 @@
 ## Computer Science
 
 * [🖇 Algorithm](computer-science/algorithm.md)
-* [⛓ Data Structure](computer-science/data-structure.md)
+* [⛓ Data Structure](computer-science/data-structure/README.md)
+  * [intro](computer-science/data-structure/intro.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf 함수가 실행되는 방식](information/OS/printf.md)
   * [인터럽트는 어디에 저장하나요?](information/OS/undefined.md)
