@@ -3,7 +3,7 @@
 데이터와 포인트로 구성된 노드간의 연결을 이용하여 리스트를 구현한 자료구조\
 배열의 고정 크기의 단점을 보완하기 위해 만들어 졌으며, 연속적 메모리 공간에 저장되어 있지 않아 연결이 필요하다.
 
-<img src="../../.gitbook/assets/file.drawing (12).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (6).svg" alt="" class="gitbook-drawing">
 
 Head는 리스트의 시작을 의미한다.\
 Next는 다음 노드를 지정해주는 포인터다\
@@ -23,7 +23,4 @@ Next의 다음 노드의 위치를 지정하여 선형 자료구조의 형태이
 
 ### 종류
 
-단순 연결 리스트
-
-<img src="../../.gitbook/assets/file.drawing (12).svg" alt="" class="gitbook-drawing">
-
+<img src="../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">

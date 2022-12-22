@@ -1,0 +1,16 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 524.6665954589844 628.8888854980469" width="524.6665954589844" height="628.8888854980469">
+  <!-- svg-source:excalidraw -->
+  <!-- payload-type:application/vnd.excalidraw+json --><!-- payload-version:2 --><!-- payload-start -->eyJ2ZXJzaW9uIjoiMSIsImVuY29kaW5nIjoiYnN0cmluZyIsImNvbXByZXNzZWQiOnRydWUsImVuY29kZWQiOiJ4nM1WW0/bMFx1MDAxNH7vr6jCKypOYidcdTAwMGVvbVx1MDAwN1x1MDAxM5dNQJk2mHhwXHUwMDEzt7Wa2lns0lx1MDAxNtT/PttldXpjgFx1MDAwNMJcdTAwMGZtfK6fzzmfk8dave6pWUG9w7pHpynJWVaSibdv5Pe0lExwrVxu7F6KcZlay4FShTw8OCBF0egz1Vx1MDAxNWLYSMVo4UZzOqJcXElt+Fvv6/VH+1tJpOhUWVsrdWlcIrQu/C64zVxiQ1x1MDAxMPg48cHSgMkvOpGimdb2SC6p01x1MDAxOJHnd3qtpuJcdTAwMDKf/TlcdTAwMGbg6XG3e5WFLmmP5XlHzfLFcUg6XHUwMDE4l9RppSrFkP5kmVx1MDAxYWi9vyZf+kmhy+W8SjHuXHUwMDBmOJVyxUdcdTAwMTQkZWpmZMDBJ7xvYzjJ1FjgsJFcdTAwMDQo0CdFXHUwMDEwoCBcdTAwMGWXalx1MDAxYiBcdTAwMDRcclxmw1x1MDAxMMVcdTAwMDBHPvYjuIasLXJRXHUwMDFhZHvALoetS9JhX1x1MDAwM+TZ0kaVhMuClLpXzm7y78zQ9WJAWX+gzFx1MDAxODiZpLbyflxmMcBcYlx1MDAwNkuFSVKcZLb7d+uFXHUwMDFikLJ4KpAnzaZcdTAwMDLQYDuqjI5zXHUwMDFlXHUwMDE3XHUwMDE5WTTaj6IkiFx1MDAxMEhcIlgpTc74UCv5OM+dTKTDLbPRXHUwMDEzXFx12IOpfFx1MDAwMFakx2TE8tlK5+yYaqRXJKX1tuBcdTAwMTlTZk4rNZVU56a2cStezZz1zUB7Oe2tTrpimmNLtVx1MDAxMpVcbqRcdTAwMWFcdTAwMDXR4cqTbP00omR9xkl+vVx1MDAxZJE1m++/jmxcdTAwMTjuXCJbXHUwMDAwolx1MDAwMMRhXHUwMDE0vJhsp8PzOL28PkLB+e3DXHUwMDA1Pbv9Ji9mn51sKMZccpT4XHUwMDE4w0hcdTAwMTMrjP1tXFyDmmaBXHUwMDFmhnHyflSr3GrPUVxyQVx1MDAxYycgQviDuVx1MDAxNiZcYn1cdTAwMTjXOjOeloJrt+wzXHUwMDEwrVxu51mWWXhbWOYjsJtmKFxuXHUwMDAyXHUwMDAwXsGzLriJj742f9yIuHU7vZT3ya/2zWfnXHUwMDE5hFHDhzHSTEJxgnCywTM91PpC9/WLXHUwMDBmQv/93mlbaFx1MDAxNlx1MDAwMdzAZiGYYFx1MDAwMKNkg3UhXHUwMDAwIYxBhaMvZp2F9jbW6TtBV+wtrJOKlKrF9KuB99ddKM92aHJcIlVbjEZMaVx1MDAxOFx1MDAxN4JxtW5h4zbLUkxcdTAwMDaUbPBGR96pK0w49zVolnuqu67YzfL5bv//1lx1MDAxYt1z3rXq/7z2XHUwMDE0z9NcdTAwMWasXHUwMDFkpUut0SworLvJsqdbyqH27lx1MDAxOZ20Nsdrr2eXuVxu7EVgXHUwMDE4R83RXHUwMDFl57X5X4VH3SkifQ==<!-- payload-end -->
+  <defs>
+    <style>
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@0.13.0/dist/excalidraw-assets/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@0.13.0/dist/excalidraw-assets/Cascadia.woff2");
+      }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="524.6665954589844" height="628.8888854980469" fill="#ffffff"/><g transform="translate(10 10.7777099609375) rotate(0 72.5 12.5)"><text x="0" y="18" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr">Race Condition</text></g><g transform="translate(404.6665954589844 10.77777099609375) rotate(0 55 12.5)"><text x="0" y="18" font-family="Virgil, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr">Syncronized</text></g><g stroke-linecap="round"><g transform="translate(272.2222290039062 10) rotate(0 0 304.44444274902344)"><path d="M0.58 -0.59 C0.79 101.09, 0.5 507.95, 0.37 609.66 M-0.58 1.72 C-0.41 103.09, -0.31 506.94, -0.39 607.94" stroke="#000000" stroke-width="1" fill="none"/></g></g></svg>
