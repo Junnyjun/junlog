@@ -54,6 +54,7 @@
   * [intro](computer-science/data-structure/intro.md)
   * [Array](computer-science/data-structure/array.md)
   * [Linked List](computer-science/data-structure/linked-list.md)
+  * [Stack](computer-science/data-structure/stack.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf 함수가 실행되는 방식](information/OS/printf.md)
   * [인터럽트는 어디에 저장하나요?](information/OS/undefined.md)
