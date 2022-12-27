@@ -10,7 +10,7 @@ CPU는 많은 명령을 수행하기 때문에 RAM에서 가져오지 않고 \
 
 Cpu와 Memory가 데이터를 주고 받는 메모리 구조부터 확인합니다
 
-<img src="../../../.gitbook/assets/file.drawing (16).svg" alt="Cpu&#x26;Memory" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (16) (1).svg" alt="Cpu&#x26;Memory" class="gitbook-drawing">
 
 여러 로컬 캐시에 저장되는 공유 리소스 데이터의 균일성을 일관되게 동작하게 해야 합니다.\
 프로그램이  모리 캐시를 관리하는 경우 일관성 없는 데이터에 문제가 발생할 수 있으며, 다중 처리 CPU에서는 더욱 두드러집니다.
