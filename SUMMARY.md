@@ -56,6 +56,7 @@
   * [Linked List](computer-science/data-structure/linked-list.md)
   * [Stack](computer-science/data-structure/stack.md)
   * [QUEUE](computer-science/data-structure/queue.md)
+  * [Binary tree](computer-science/data-structure/binary-tree.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf 함수가 실행되는 방식](information/OS/printf.md)
   * [인터럽트는 어디에 저장하나요?](information/OS/undefined.md)

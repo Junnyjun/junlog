@@ -17,7 +17,7 @@
 
 하나의 자료 뒤에 여러개의 자료가 존재할 수 있는 형태를 의미한다. (Tree, Graph)
 
-<img src="../../.gitbook/assets/file.drawing (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (2).svg" alt="" class="gitbook-drawing">
 
 데이터가 계층적으로 연결되어 있다.\
 계층적이기 때문에 단일 실행으로 모든 요소를 순회 할 수 없고, 여러 번 실행해야 한다.\
