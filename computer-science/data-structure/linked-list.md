@@ -23,4 +23,4 @@ Next의 다음 노드의 위치를 지정하여 선형 자료구조의 형태이
 
 ### 종류
 
-<img src="../../.gitbook/assets/file.drawing (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
