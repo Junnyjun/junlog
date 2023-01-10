@@ -80,6 +80,9 @@
 
 ## STUDY
 
+* [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
+  * [설정](study/real-mysql-8.0/undefined.md)
+  * [권한](study/real-mysql-8.0/undefined-1.md)
 * [⚙ 데이터 통신과 컴퓨터 네트워크](study/undefined/README.md)
   * [용어의 정의](study/undefined/undefined.md)
 * [💻 혼자 공부하는 컴퓨터 구조와 운영체제](study/undefined.md)
