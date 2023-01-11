@@ -82,6 +82,7 @@
 
 * [🎁 DDD](study/ddd/README.md)
   * [지식 탐구](study/ddd/undefined.md)
+  * [보편 언어](study/ddd/undefined-1.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
   * [설정](study/real-mysql-8.0/undefined.md)
   * [권한](study/real-mysql-8.0/undefined-1.md)
