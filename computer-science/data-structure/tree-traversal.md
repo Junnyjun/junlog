@@ -2,7 +2,7 @@
 
 트리의 모든 노드를 거쳐가는 방식을 트리 순회라고 합니다.
 
-<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (5).svg" alt="" class="gitbook-drawing">
 
 ### How Do Code?
 
