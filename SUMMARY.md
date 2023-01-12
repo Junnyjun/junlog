@@ -59,7 +59,7 @@
   * [Binary tree](computer-science/data-structure/binary-tree.md)
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙ Operating System](information/OS/README.md)
-  * [printf 함수가 실행되는 방식](information/OS/printf.md)
+  * [printf](information/OS/printf.md)
   * [인터럽트](information/OS/undefined.md)
   * [BIOS\&UEFI](information/OS/bios-and-uefi.md)
 * [🛠 Network](computer-science/network/README.md)
