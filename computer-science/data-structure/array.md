@@ -4,7 +4,7 @@
 대부분 프로그래밍 언어에서는 동일 타입의 데이터를 저장합니다.\
 배열을 구성하는 각각의 값을 `요소`라고 하며, 위치는 `인덱스`라고 한다
 
-<img src="../../.gitbook/assets/file.drawing (3).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (3) (1).svg" alt="" class="gitbook-drawing">
 
 Memory에`FFFF00 FFFF04 FFFF08 ...` 식으로 해당 타입의 Byte크기 만큼 순차적으로 저장된다
 

@@ -6,7 +6,7 @@
 
 자료를 구성하는 원소들을 순차적으로 나열시킨 형태입니다.(List, Stack, Queue, Deque)
 
-<img src="../../.gitbook/assets/file.drawing (1) (4).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (4) (3).svg" alt="" class="gitbook-drawing">
 
 데이터가 순차적으로 배열되어 있다.\
 단일 레벨로 표현되기 때문에 단일 실행으로 모든 요소를 순회할 수 있다.\

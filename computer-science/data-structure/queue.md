@@ -7,4 +7,4 @@ FIFO구조를 가진 선형 자료구조이다.\
 
 ### 종류
 
-<img src="../../.gitbook/assets/file.drawing (9).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (9) (2).svg" alt="" class="gitbook-drawing">

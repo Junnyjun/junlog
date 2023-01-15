@@ -112,7 +112,7 @@ NOFOLLOW_LINKS : 링크 파일은 링크 파일만 복사한다
 
 실직적인 입출력 작업 처리는 스레드 풀의 작업 스레드가 담당하고 있습니다.&#x20;
 
-<img src="../../../.gitbook/assets/file.drawing (3) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (3) (1) (3).svg" alt="" class="gitbook-drawing">
 
 각각의 Thread가 작업을 마치면 callback은 자동으로 호출되기 때문에,&#x20;
 
