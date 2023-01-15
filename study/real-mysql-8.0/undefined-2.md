@@ -27,3 +27,20 @@ Mysql 엔진의 쿼리 실행기에서 데이터를 쓰거나 읽어야 할 때�
 ```
 {% endcode %}
 
+### MYSQL THREADING
+
+MYSQL SERVER는 Thread기반이며 ForeGround, BackGround로 나눌 수 있다.
+
+{% code title="동작중인 Thread 확인" %}
+```sql
+select * from performance_schema.threads ORDER BY TYPE, THREAD_IDs.
+```
+{% endcode %}
+
+총 44개가 실행 중이며 41개는 백그라운드 3개는 포그라운드 스레드이다.\
+`thread/sql/one_connection`만이 사용자 요청을 처리하는 포그라운드 스레드이다.
+
+<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+
+#### ForeGround Thread
+
