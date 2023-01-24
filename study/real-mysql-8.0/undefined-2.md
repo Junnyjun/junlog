@@ -132,4 +132,7 @@ DIRTY PAGE가 쓰기 폭발을 발생시킬 수 있는데, innodb\_max\_dirty\_p
 트랜잭션이 롤백되면 UNDO LOG에 백업해둔 이전 버전의 데이터를 이용해 복구한다.\
 트랜잭션중인 데이터를 UNDO LOG나 RECORD에서 선택하여 읽어올 수 있다.
 
-&#x20;                  &#x20;
+#### Change Buffer
+
+데이터가 변경될 때는, 인덱스도 업데이트 해야되는데 이때 사용하는 임시 메모리 결과이다.\
+Innodb buffer pool의 25%까지 사용할 수 있게 설정 되어있다
