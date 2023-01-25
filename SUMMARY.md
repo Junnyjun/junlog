@@ -89,6 +89,7 @@
   * [권한](study/real-mysql-8.0/undefined-1.md)
   * [아키텍처](study/real-mysql-8.0/undefined-2.md)
   * [트랜잭션과 잠금](study/real-mysql-8.0/undefined-3.md)
+  * [인덱스](study/real-mysql-8.0/undefined-4.md)
 * [⚙ 데이터 통신과 컴퓨터 네트워크](study/undefined/README.md)
   * [용어의 정의](study/undefined/undefined.md)
 * [💻 혼자 공부하는 컴퓨터 구조와 운영체제](study/undefined.md)
