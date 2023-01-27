@@ -28,6 +28,7 @@
     * [Remove resource](jvm/java/chap1/fun-remove-resource.md)
 * [🔮 KOTLIN](jvm/kotlin/README.md)
   * [10분 코틀린 기초떼기](jvm/kotlin/10.md)
+  * [Recursive](jvm/kotlin/recursive.md)
 * [🤖 JVM](jvm/jvm/README.md)
   * [Byte Code](jvm/jvm/byte-code.md)
   * [JVM\&Heap](jvm/jvm/jvm-heap.md)
