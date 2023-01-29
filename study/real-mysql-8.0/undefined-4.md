@@ -16,7 +16,7 @@ primary는 식별자를 기준으로 한 인덱스 방식이며 나머지는 sec
 가장 범용적인 목적으로 사용되는 인덱스 알고리즘 이다.\
 대개 B+ tree와 B- Tree를 사용하며 B- tree로 대부분의 인덱스를 사용할 수 있다.
 
-<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 B-tree는최상위에 루트 노드가 존재하며 브런치 노드, 리프 노드 순으로 관리된다\
 인덱스의 리프노드는 항상 실제 레코드를 찾아가기 위한 주소값을 가지고 있게 된다.

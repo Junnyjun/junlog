@@ -10,7 +10,7 @@ Mysql에서는 Explain으로 쿼리의 실행계획을 확인할 수 있는데, 
 옵티마이저는 DB구조중 가장 복잡한 부분으로 알려져 있고, 실행 계획을 이해하는 것 또한 상당히 어렵고 까다롭다\
 이러한 실행 계획을 이해할 수 있어야, 실행 계획의 불합리한 부분을 찾아내고 쿼리를 좀더 최적화 할 수있다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 Parse Tree 에선  Sql Parser라는 모듈로 문법확인및 서버 Parse tree를 생성한다\
 get data에서는 데이터 및 테이블을 선택한 후 내용을 가져온다
@@ -84,3 +84,6 @@ Group by가 있는곳은 Having을 사용할 수 있는데, Group by의 필터�
 `With select` : 단순 조회의 경우 Select Distinct 의 형태를 사용하며 group by와 동일하게 처리된다.
 
 `With group function` :  조회하는 모든 조합의 유니크한 것들만 가져와 수행한다.
+
+### 최적화
+

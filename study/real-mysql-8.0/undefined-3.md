@@ -5,7 +5,7 @@
 작업의 완전성을 보장해주는 것을 말한다.\
 논리적인 작업 셋을 모두 처리하거나, 처리하지 못할 경우에는 복구해서 일부만 적용되지 않도록 해주는 기능이다.
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 트랜잭션은 개발자가 고민해야 되는 데이터 동시성 문제를 해결해주지만,\
 범위를 작게 유지해 주는편이 좋다
