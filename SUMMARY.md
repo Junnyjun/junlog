@@ -75,6 +75,7 @@
   * [Factory Method](computer-science/design-pattern/factory-method.md)
   * [Template Method](computer-science/design-pattern/template-method.md)
   * [Decorator](computer-science/design-pattern/decorator.md)
+  * [Prototype](computer-science/design-pattern/prototype.md)
   * [Observer](computer-science/design-pattern/observer.md)
   * [Command](computer-science/design-pattern/command.md)
   * [Memento](computer-science/design-pattern/memento.md)
