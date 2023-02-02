@@ -37,7 +37,7 @@ tailrec fun rec(level:Long): Long {
 }
 ```
 
-{% code title="실제 동작하는 코" %}
+{% code title="실제 동작하는 코드" %}
 ```kotlin
 fun recwhile(level:Long): Long {
     var level = level
