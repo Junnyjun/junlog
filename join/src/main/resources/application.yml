@@ -15,6 +15,14 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: none
+  rabbitmq:
+    host: vCeHjfuwxQuKoT5gP1cDzQ==
+    username: psRWWVeqwU0IvDSbXyNXfA==
+    password: psRWWVeqwU0IvDSbXyNXfA==
+    port: 5672
+    template:
+      exchange: junnyland.exchange
+      routing-key: junnyland.mail
 mail:
   host: PDLHLGCVjy1AOCuq/vU2sg==
   username: itilLqVuKih/3fhESJHrUlZiQ02Vzr9uWq4iD4Hb5IE=
