@@ -28,6 +28,6 @@ public interface TextMailSend {
             javaMailSender.send(mimeMessage);
         }
 
-        private record SenderRequest(String to, String title, String text){}
+        public record SenderRequest(String to, String title, String text){}
     }
 }
