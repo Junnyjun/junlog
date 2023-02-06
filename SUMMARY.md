@@ -46,7 +46,8 @@
 
 ## INFRA
 
-* [🎛 LINUX](infra/infra/README.md)
+* [🎛 LINUX](infra/infra.md)
+  * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
 
 ## Computer Science
