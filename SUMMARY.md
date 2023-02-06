@@ -49,6 +49,7 @@
 * [🎛 LINUX](infra/infra.md)
   * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
+* [🔀 Load Balance](infra/load-balance.md)
 
 ## Computer Science
 
