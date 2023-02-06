@@ -46,7 +46,8 @@
 
 ## INFRA
 
-* [INFRA](infra/infra.md)
+* [🎛 LINUX](infra/infra/README.md)
+  * [Swap](infra/infra/swap.md)
 
 ## Computer Science
 
