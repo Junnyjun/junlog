@@ -3,7 +3,7 @@
 객체 생성시 create가 아닌 fork를 사용하여 깊은 복사를 하는 패턴이다.\
 인스턴스 생성시 드는 비용을 줄여주는 장점이 있다
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
 
 ### How do code?
 

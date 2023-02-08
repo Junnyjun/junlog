@@ -63,7 +63,7 @@
   * [Stack](computer-science/data-structure/stack.md)
   * [Queue](computer-science/data-structure/queue.md)
   * [Binary tree](computer-science/data-structure/binary-tree.md)
-  * [BST](computer-science/data-structure/bst.md)
+  * [Binary Searsh Three](computer-science/data-structure/binary-searsh-three.md)
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf](information/OS/printf.md)
