@@ -47,6 +47,7 @@
 
 ## INFRA
 
+* [🔩 K8s](infra/k8s.md)
 * [🎛 LINUX](infra/infra.md)
   * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
