@@ -29,7 +29,7 @@ kubeadm join {PUBLIC IP}:6443 --token {TOKEN} \
 ```bash
 > kubectl cluster-info
 Kubernetes control plane is running at https://IP:6443
-CoreDNS is running at https://IP:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+CoreDNS is running at https://IP:6443 ... 
 > kubectl get nodes
 NAME                     STATUS     ROLES           AGE     VERSION
 instance-20230125-1513   NotReady   <none>          2m43s   v1.26.1
