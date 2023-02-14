@@ -32,7 +32,7 @@ Kubernetes control plane is running at https://IP:6443
 CoreDNS is running at https://IP:6443 ... 
 > kubectl get nodes
 NAME                     STATUS     ROLES           AGE     VERSION
-instance-20230125-1513   NotReady   <none>          2m43s   v1.26.1
-instance-20230130-1315   NotReady   control-plane   4m1s    v1.26.1
+instance-20230125-1513   Ready   <none>          2m43s   v1.26.1
+instance-20230130-1315   Ready   control-plane   4m1s    v1.26.1
 
 ```
