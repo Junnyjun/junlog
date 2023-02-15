@@ -47,7 +47,7 @@
 
 ## INFRA
 
-* [🔩 K8s](infra/k8s/README.md)
+* [🔩 K8s](infra/k8s.md)
   * [8080 refuse](infra/k8s/8080-refuse.md)
   * [Network CNI Error](infra/k8s/network-cni-error.md)
 * [🎛 LINUX](infra/infra.md)

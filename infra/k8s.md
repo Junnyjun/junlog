@@ -36,3 +36,14 @@ instance-20230125-1513   Ready      <none>          2m43s   v1.26.1
 instance-20230130-1315   Ready      control-plane   4m1s    v1.26.1
 
 ```
+
+
+
+### 확인
+
+```bash
+> kubectl describe nodes
+Name:               Junnyland
+Roles:              control-plane
+Labels:            ...
+```
