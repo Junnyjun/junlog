@@ -11,8 +11,8 @@ admin, client 설정&#x20;
 [script](https://github.com/Junnyjun/infra-base/blob/master/default/kube\_client\_installer.sh)
 
 ```bash
-kubeadm join {PUBLIC IP}:6443 --token {TOKEN} \
-        --v=10 \
+kubeadm join {PUBLIC IP}:6443 --token {TOKEN} \ 
+        --v=5 \
         --discovery-token-ca-cert-hash sha256:{HASH}
 ```
 
@@ -22,8 +22,9 @@ kubeadm join {PUBLIC IP}:6443 --token {TOKEN} \
 
 ```bash
 > kubeadm init --apiserver-cert-extra-sans={PUBLIC IP} \
---control-plane-endpoint "{PUBLIC IP}:6443" \
---v=10 
+       --pod-network-cidr 10.244.0.0/16 \ ## flannel cidr
+       --control-plane-endpoint "{PUBLIC IP}:6443" \
+       --v=10 
 ```
 
 ```bash
@@ -46,17 +47,14 @@ instance-20230130-1315   Ready      control-plane   4m1s    v1.26.1
 ```bash
 > kubectl get pods --all-namespaces
 NAMESPACE              NAME                                             READY   STATUS                  RESTARTS         AGE
-kube-system            calico-kube-controllers-56dd5794f-6xtfs          0/1     ContainerCreating       0                6m27s
-kube-system            calico-node-pxlnf                                0/1     Init:ImagePullBackOff   0                6m27s
-kube-system            coredns-787d4945fb-7rm8w                         0/1     ContainerCreating       0                8m51s
-kube-system            coredns-787d4945fb-8kq2t                         0/1     ContainerCreating       0                8m51s
-kube-system            etcd-instance-20230125-1513                      1/1     Running                 319 (8m6s ago)   6m53s
-kube-system            kube-apiserver-instance-20230125-1513            1/1     Running                 308 (9m3s ago)   9m35s
-kube-system            kube-controller-manager-instance-20230125-1513   0/1     CrashLoopBackOff        343 (59s ago)    6m53s
-kube-system            kube-proxy-55p8q                                 1/1     Running                 5 (2m46s ago)    8m52s
-kube-system            kube-scheduler-instance-20230125-1513            0/1     CrashLoopBackOff        330 (39s ago)    9m35s
-kubernetes-dashboard   dashboard-metrics-scraper-7bc864c59-ptll2        0/1     Pending                 0                4m53s
-kubernetes-dashboard   kubernetes-dashboard-6c7ccbcf87-8wspv            0/1     Pending                 0                4m53s
+kube-flannel   kube-flannel-ds-mmb4h                            1/1     Running   2 (35s ago)      52s
+kube-system    coredns-787d4945fb-l98gc                         1/1     Running   0                51s
+kube-system    coredns-787d4945fb-xvkk7                         1/1     Running   0                51s
+kube-system    etcd-instance-20230125-1513                      1/1     Running   325 (101s ago)   9s
+kube-system    kube-apiserver-instance-20230125-1513            1/1     Running   314 (71s ago)    68s
+kube-system    kube-controller-manager-instance-20230125-1513   1/1     Running   1 (101s ago)     104s
+kube-system    kube-proxy-mp69j                                 1/1     Running   2 (38s ago)      52s
+kube-system    kube-scheduler-instance-20230125-1513            1/1     Running   336 (101s ago)   103s
 ```
 
 ```bash
