@@ -66,4 +66,5 @@ dirty read라고도 부르며 정합성에 문제가 있어 자주 사용되지 
 `READ COMMITTED` : 대부분 서비스에서 가장 많이 사용한다. COMMIT된 데이터만 조회할 수 있다\
 시점의 차이로 REPEATEAABLE READ시 정합성이 안맞을 수 있다
 
-`REPEATABLE READ` : INNODB 기본 설정값이다. 반복 조회시 생긴 정합성 문제가 해결되며 UNDO공간에 백업을 예상하고 레코드값을 변경한다.
+`REPEATABLE READ` : INNODB 기본 설정값이다. \
+반복 조회시 생긴 정합성 문제가 해결되며 UNDO공간에 백업을 예상하고 레코드값을 변경한다.
