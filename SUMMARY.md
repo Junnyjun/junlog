@@ -95,6 +95,7 @@
 * [🎐 HTTP 완벽가이드](study/http/README.md)
   * [http](study/http/http.md)
   * [URL & RESOURCE](study/http/url-and-resource.md)
+  * [HTTP Message](study/http/http-message.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
