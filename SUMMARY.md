@@ -52,6 +52,7 @@
   * [Argo](infra/ci-and-cd/argo.md)
 * [🔩 K8s](infra/k8s.md)
   * [Helm](infra/k8s/helm/README.md)
+    * [jenkins](infra/k8s/helm/jenkins.md)
     * [mysql](infra/k8s/helm/mysql.md)
   * [Error](infra/k8s/error/README.md)
     * [8080 refuse](infra/k8s/8080-refuse.md)
