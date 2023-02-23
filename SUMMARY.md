@@ -106,6 +106,7 @@
   * [URL & RESOURCE](study/http/url-and-resource.md)
   * [HTTP Message](study/http/http-message.md)
   * [Connection 관리](study/http/connection.md)
+  * [웹 서버](study/http/undefined.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
