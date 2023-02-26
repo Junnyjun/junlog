@@ -61,7 +61,8 @@
   * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
 * [🔀 Load Balance](infra/load-balance/README.md)
-  * [Page 2](infra/load-balance/page-2.md)
+  * [haproxy](infra/load-balance/haproxy.md)
+  * [nginx](infra/load-balance/nginx.md)
 
 ## Computer Science
 
