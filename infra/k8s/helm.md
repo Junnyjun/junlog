@@ -1,7 +1,28 @@
-# mysql
+---
+description: 설치
+---
 
-my sql 검색 : [https://artifacthub.io/](https://artifacthub.io/)&#x20;
+# Helm
 
+```bash
+> curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+> helm version
+version.BuildInfo{Version:"v3.11.1", GitCommit:"293b50c65d4d56187cd4e2f390f0ada46b4c4737", GitTreeState:"clean", GoVersion:"go1.18.10"}
+```
+
+## Jenkins
+
+```bash
+> helm repo add jenkins https://charts.jenkins.io
+> helm repo update
+
+> kubectl create namespace jenkins
+> helm install jenkins -n jenkins jenkins/jenkins
+```
+
+## MYSQL
+
+{% code title="https://artifacthub.io/ " %}
 ```bash
 # Repo 등록
 > helm repo add my-repo https://charts.bitnami.com/bitnami
@@ -35,3 +56,4 @@ my-release-mysql            LoadBalancer   10.105.163.179   <pending>     3306:3
 my-release-mysql-headless   ClusterIP      None             <none>        3306/TCP         9m33s
 
 ```
+{% endcode %}
