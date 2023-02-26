@@ -2,7 +2,7 @@
 
 HTTP통신은 TCP/IP내에서 이루어진다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
 Tcp는 신뢰할 수 있는 통신 방식을 제공한다.\
 각 데이터들이 세그먼트로 나뉘어 IP패킷을 통해 전송된다

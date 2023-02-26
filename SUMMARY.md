@@ -52,7 +52,7 @@
   * [Jenkins](infra/ci-and-cd/jenkins.md)
   * [Argo](infra/ci-and-cd/argo.md)
 * [🔩 K8s](infra/k8s.md)
-  * [Helm](infra/k8s/helm.md)
+  * [Helm](infra/k8s/helm/README.md)
   * [Error](infra/k8s/error/README.md)
     * [8080 refuse](infra/k8s/8080-refuse.md)
     * [Network CNI Error](infra/k8s/network-cni-error.md)
@@ -62,7 +62,7 @@
   * [Swap](infra/infra/swap.md)
 * [🔀 Load Balance](infra/load-balance/README.md)
   * [haproxy](infra/load-balance/haproxy.md)
-  * [nginx](infra/load-balance/nginx.md)
+  * [nginx](infra/load-balance/page-2.md)
 
 ## Computer Science
 
