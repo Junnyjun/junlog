@@ -45,7 +45,7 @@ jobs:
           source: "join/dockerfile"
           target: "/home/ubuntu/sign"
           
-    - name: deploy sign-app
+    - name: deploy sign-app12
       uses: appleboy/ssh-action@v0.1.6
       with:
           host: ${{ secrets.DEPLOY_IP }}
