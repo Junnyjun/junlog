@@ -4,7 +4,7 @@
 
 상대 클래스에 의존하지 않으면서 데이터 변경을 알려줄 때 사용한다
 
-<img src="../../.gitbook/assets/file.drawing (11) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (11).svg" alt="" class="gitbook-drawing">
 
 학생 성적을 추가할 때 마다 과목별 최고 점수를 호출합니다.
 
