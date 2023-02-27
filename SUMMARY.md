@@ -55,7 +55,6 @@
   * [Default set](infra/infra/default-set.md)
   * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
-* [Page 3](infra/page-3.md)
 * [🔀 Load Balance](infra/load-balance/README.md)
   * [haproxy](infra/load-balance/haproxy.md)
   * [nginx](infra/load-balance/page-2.md)
