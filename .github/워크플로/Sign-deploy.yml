@@ -53,4 +53,14 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            sudo mkdir ${{ secrets.YACHO_BABO }}
+          
+    - name: deploy sign-app
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+          host: ${{ secrets.DEPLOY_IP }}
+          username: ${{ secrets.ID }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
             sudo sh sign/join/deploy.sh ${{ secrets.AUTH }} ${{ secrets.IV }}
