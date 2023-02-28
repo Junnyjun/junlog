@@ -49,7 +49,7 @@
 ## INFRA
 
 * [💾 Storage](infra/storage/README.md)
-  * [Page 2](infra/storage/page-2.md)
+  * [Minio](infra/storage/minio.md)
 * [🧩 CI\&CD](infra/ci-and-cd/README.md)
   * [Jenkins](infra/ci-and-cd/jenkins.md)
   * [Argo](infra/ci-and-cd/argo.md)
