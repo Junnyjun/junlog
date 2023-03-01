@@ -6,7 +6,7 @@ MYSQL 서버에 추가할 수 있다
 
 #### Mysql Engine
 
-<img src="../../.gitbook/assets/file.drawing (1) (4).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (4).svg" alt="" class="gitbook-drawing">
 
 Mysql은 대부분의 프로그래밍 언어로 부터 접근 드라이버를 모두 지원한다\
 클라이언트로부터의 접속 및 쿼리 요청을 처리하는 Connection Handler,SQL Parser,전 처리기, 쿼리 최적화된 실행을 위한 옵티마이저가 중심을 이룬다
@@ -40,7 +40,7 @@ select * from performance_schema.threads ORDER BY TYPE, THREAD_IDs.
 총 44개가 실행 중이며 41개는 백그라운드 3개는 포그라운드 스레드이다.\
 `thread/sql/one_connection`만이 사용자 요청을 처리하는 포그라운드 스레드이다.
 
-<img src="../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing.svg" alt="" class="gitbook-drawing">
 
 `ForeGround Thread`\
 접속한 클라이언트 수만큼 존새하며, 각 클라이언트가 요청하는 쿼리를 처리한다.\
@@ -66,7 +66,7 @@ innodb\_write\_io & innodb\_read\_threads로 스레드 개수를 설정할 수 �
 
 MYSQL의 쿼리는 대부분 Mysql엔진에서 처리되고, 데이터 읽기&쓰기만 스토리지 엔진에 의해 처리된다.
 
-<img src="../../.gitbook/assets/file.drawing (1).svg" alt=" " class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1).svg" alt=" " class="gitbook-drawing">
 
 #### 실행 구조
 
@@ -111,12 +111,12 @@ MVCC기술로 잠금을 걸지 않고 읽기 작업을 수행할 수 있다.\
 버퍼풀은 기본적으로 메모리의 페이징 기법과 유사하다.\
 LRU, FLUSH, FREE 유형인 3개의 자료구조로 관리한다
 
-LRU는 한번 읽어온 페이지를 오랫동안 유지하여 디스크 읽기를 줄이는 방식으로, [메모리의 LRU Cache](../undefined/undefined-7.md)와 유사하다.
+LRU는 한번 읽어온 페이지를 오랫동안 유지하여 디스크 읽기를 줄이는 방식으로, [메모리의 LRU Cache](../../undefined/undefined-7.md)와 유사하다.
 
 Flush는 동기화 되지 않은 데이터를 가진 페이지의 변경 시점 기준으로 페이지 목록을 관리한다.\
 데이터 변경이 없다면 플러시 목록에서 제외되지만 변경이 되면 디스크에 기록하는 작업을 거쳐야 한다.
 
-<img src="../../.gitbook/assets/file.drawing (9).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (9).svg" alt="" class="gitbook-drawing">
 
 들어온 데이터가 자주 사용되면 사용 될 수록 NEW에 가까워져 오래동안 메모리에 상주하며, OLD쪽 데이터들은 밀려나며 점차 제거된다.
 
