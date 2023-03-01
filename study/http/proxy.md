@@ -3,7 +3,7 @@
 웹 프락시 서버는 클라이언트 입장에서 트랜잭션을 수행하는 중개인이다.\
 Cient는 HTTP 서버와 통신하지 않고 Proxy와 통신한다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 하나의 클라이언트만을 위한 프록시를 개인 프록시라고 부르며, 여러 클라이언트가 사용하는 프록시를 공용 프록시라고 부른다.
 

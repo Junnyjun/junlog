@@ -113,6 +113,7 @@
   * [Proxy](study/http/proxy.md)
   * [Cache](study/http/cache.md)
   * [Gateway](study/http/gateway.md)
+  * [Web Robot](study/http/web-robot.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)

@@ -6,7 +6,7 @@
 리소스를 받기 위한 경로를 안내하는 역할을 하는 게이트웨이를 고안했다\
 게이트웨이는 리소스와 어플리케이션을 연결하는 역할을 한
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 #### 프로토콜 게이트웨이
 
@@ -70,7 +70,7 @@ CONNECT 메서드는 터널 게이트웨이가 임의의 목적 서버와 포트
 
 웹 터널은 원래 방화벽을 통해서 암호화된 SSL 트래픽을 전달하려고 개발되었다\
 원래는 많은 회사가 보안을 위해서 모든 트래픽이 패킷을 필터링하는 라우터와 프락시를 지나도록 했는데,\
-ssl 같은 프로토콜은 낡은 방식읭 프락시에게 처리가안되어서 통과가 안되었다\
+ssl 같은 프로토콜은 낡은 방식의의 프락시에게 처리가안되어서 통과가 안되었다\
 터널링을 통해서 ssl 트래픽을 http만 허용하는 방식으로 통과하도록 변경
 
 #### SSL 터널링 vs HTTP/HTTPS 게이트웨이
