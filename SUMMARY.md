@@ -116,6 +116,7 @@
   * [Web Robot](study/http/web-robot.md)
   * [http 2.0](study/http/http-2.0.md)
   * [Client\&Cookie](study/http/client-and-cookie.md)
+  * [Authentication](study/http/authentication.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
