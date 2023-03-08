@@ -117,6 +117,8 @@
   * [http 2.0](study/http/http-2.0.md)
   * [Client\&Cookie](study/http/client-and-cookie.md)
   * [Authentication](study/http/authentication.md)
+  * [Digest](study/http/digest.md)
+  * [보안 HTTP](study/http/http-1.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
