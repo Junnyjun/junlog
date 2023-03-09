@@ -4,7 +4,7 @@ Web server는 Http 요청을 처리하고 응답을 제공한다.\
 웹서버는 Http\&TCP 처리를 구현한 것이다.\
 Http 프로토콜을 구현하고, 웹 리소스를 관리한다
 
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (3).svg" alt="" class="gitbook-drawing">
 
 웹서버는 역방향 DNS를 사용하여 클라이언트의 IP 주소를 클라이언트의 호스트 명으로 변환하도록 설정되어있다.
 

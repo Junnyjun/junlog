@@ -25,7 +25,7 @@ Tcp는 신뢰할 수 있는 통신 방식을 제공한다.\
 
 ### HTTP 네트워크 지연
 
-<img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (4) (2).svg" alt="" class="gitbook-drawing">
 
 TCP 커넥션을 설정하고 요청하고 응답을 보내는것 보다 트랜잭션을 처리하는 시간은 상당히 짧다.\
 그럼에도 지연이 발생하는데 아래와 같은 이유가 원인이다.
