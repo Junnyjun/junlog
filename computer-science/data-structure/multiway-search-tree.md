@@ -15,3 +15,5 @@ h 높이를 낮춤으로써 작업 속도를 높일 수 있습니다. \
 <img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 다원 검색 트리는 이진 검색 트리보다 많은 요소를 저장할 수 있어 낮은 높이를 유지할 수 있습니다.
+
+대표적인 활용 예시로 b-tree가 있습니다
