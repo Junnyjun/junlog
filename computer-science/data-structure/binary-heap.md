@@ -36,5 +36,6 @@ heapify는 이진트리에서 힙 속성을 유지하는 작업을 합니다. �
 힙 속성이 유지 될 때까지 1,2번 과정을 반복합니다.
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
-
+{% hint style="info" %}
+e.g ) 우선순위 큐, Dijkstra 알고리즘, 힙 정렬
+{% endhint %}
