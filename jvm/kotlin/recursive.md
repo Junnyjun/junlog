@@ -22,7 +22,7 @@ fun sum(n:Int, sum:Int = n):Int=
     else sum(n-1, sum+n-1)
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (2).svg" alt="" class="gitbook-drawing">
 
 재귀함수는 일반적으로 루프문과 다르게 계속 스택이 쌓이는것을 볼 수 있다.
 
