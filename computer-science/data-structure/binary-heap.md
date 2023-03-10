@@ -9,10 +9,10 @@
 키값 대소관계는 오로지 부모자식 간에만 성립되며 형제사이에는 대소관계가 정해지지 않았
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (4).svg" alt="" class="gitbook-drawing">
 
 Root node는 가장 끝(최대|최소)값이다.\
-항상자식노드는 부모노드보다 기준을따른다 ( 작거나, 크다)
+항상자식노드는 부모노드보다 기준을따른다 (작거나, 크다)
 
 ### 특징
 
@@ -35,6 +35,8 @@ heapify는 이진트리에서 힙 속성을 유지하는 작업을 합니다. �
 만약 자식 노드 값이 크다면 왼쪽 오른쪽 자식 중 가장 큰 값으로 교환합니다.
 힙 속성이 유지 될 때까지 1,2번 과정을 반복합니다.
 ```
+
+<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
 {% hint style="info" %}
 e.g ) 우선순위 큐, Dijkstra 알고리즘, 힙 정렬
