@@ -48,6 +48,7 @@
 
 ## INFRA
 
+* [LOGGER](infra/logger.md)
 * [💾 Storage](infra/storage/README.md)
   * [Minio](infra/storage/minio.md)
 * [🧩 CI\&CD](infra/ci-and-cd/README.md)
