@@ -1,4 +1,4 @@
-# Chiper
+# Ciper
 
 Java Cipher는 Java에서 제공하는 암호화 기능으로, 데이터의 기밀성과 무결성을 보호하기 위해 사용됩니다. Java Cipher는 다양한 암호화 알고리즘을 지원하며, 대표적으로 AES, DES, RSA 등이 있습니다.
 
