@@ -64,6 +64,7 @@
   * [nginx](infra/load-balance/page-2.md)
 * [🔩 K8s](infra/k8s.md)
   * [K8s?](infra/k8s/k8s/README.md)
+    * [Kubelet](infra/k8s/k8s/kubelet.md)
     * [Kubeadm](infra/k8s/k8s/kubeadm.md)
   * [Helm](infra/k8s/helm/README.md)
   * [Error](infra/k8s/error/README.md)
