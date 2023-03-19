@@ -129,6 +129,7 @@
   * [엔티티&인코딩](study/http/and.md)
   * [국제화](study/http/undefined.md)
   * [내용 협상& 트랜스 코딩](study/http/and-1.md)
+  * [웹 호스팅](study/http/undefined-1.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
