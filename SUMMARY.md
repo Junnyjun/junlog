@@ -126,6 +126,7 @@
   * [Authentication](study/http/authentication.md)
   * [Digest](study/http/digest.md)
   * [보안 HTTP](study/http/http-1.md)
+  * [엔티티&인코딩](study/http/and.md)
 * [🎁 DDD](study/ddd/README.md)
   * [후기](study/ddd/undefined.md)
 * [🗂 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
