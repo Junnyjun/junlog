@@ -41,6 +41,8 @@
 
 ## Spring
 
+* [🔩 Netty](spring/netty/README.md)
+  * [Page 2](spring/netty/page-2.md)
 * [WebFlux](spring/db.md)
 
 ## DB
