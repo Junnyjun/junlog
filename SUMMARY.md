@@ -42,7 +42,7 @@
 ## Spring
 
 * [🔩 Netty](spring/netty/README.md)
-  * [Page 2](spring/netty/page-2.md)
+  * [TCP](spring/netty/tcp.md)
 * [WebFlux](spring/db.md)
 
 ## DB
