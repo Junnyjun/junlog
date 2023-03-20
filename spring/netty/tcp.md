@@ -110,3 +110,24 @@ val server = TcpServer.create()
 
 ## Client
 
+구현체만 TcpClient로 바뀌고 Server랑 동일하게 사용이 가능하다.
+
+```kotlin
+val connetor = TcpClient.create()
+            .doOnConnect { println("Connected :: ${it.remoteAddress().get()}") }
+            .doOnDisconnected { println("Disconnected :: ${it.address()}") }
+            .host("localhost")
+            .port(9988)
+            .handle{ inbound, outbound ->
+                outbound.sendString(Mono.just("Im client"))
+                inbound.receive()
+                    .asString()
+                    .doOnNext { println(it) }
+                    .then()
+            }
+            .connectNow();
+
+        connetor.onDispose()
+            .block()
+```
+
