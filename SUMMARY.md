@@ -42,6 +42,7 @@
 ## Spring
 
 * [🔩 Netty](spring/netty/README.md)
+  * [UDP](spring/netty/udp.md)
   * [TCP](spring/netty/tcp.md)
 * [WebFlux](spring/db.md)
 
