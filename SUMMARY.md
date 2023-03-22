@@ -90,6 +90,7 @@
   * [AVL Tree](computer-science/data-structure/avl-tree.md)
   * [Multiway search tree](computer-science/data-structure/multiway-search-tree.md)
   * [Binary Heap](computer-science/data-structure/binary-heap.md)
+  * [Hash Table](computer-science/data-structure/hash-table.md)
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙ Operating System](information/OS/README.md)
   * [printf](information/OS/printf.md)

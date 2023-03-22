@@ -9,7 +9,7 @@
 키값 대소관계는 오로지 부모자식 간에만 성립되며 형제사이에는 대소관계가 정해지지 않았
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (2).svg" alt="" class="gitbook-drawing">
 
 Root node는 가장 끝(최대|최소)값이다.\
 항상자식노드는 부모노드보다 기준을따른다 (작거나, 크다)
