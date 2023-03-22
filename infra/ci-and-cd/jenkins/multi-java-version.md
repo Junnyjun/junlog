@@ -3,7 +3,7 @@
 jenkins 관리 - Global Tool Configuration - JDK에 `JDK installations` 버튼을 눌러 활성화 시킨다
 
 ADD JDK 후 Installer를 Extract \*.zip/\*.tar.gz로 변경해준뒤 아래와 같이 설정해준다.\
-※ 아래는 Linux 예시입니
+※ 아래는 Linux 예시
 
 {% code title="JAVA 8" overflow="wrap" %}
 ```
