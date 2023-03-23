@@ -60,6 +60,7 @@
     * [Multi Java version](infra/ci-and-cd/jenkins/multi-java-version.md)
   * [Argo](infra/ci-and-cd/argo.md)
 * [🎛 LINUX](infra/infra.md)
+  * [Command](infra/infra/command.md)
   * [Default set](infra/infra/default-set.md)
   * [Too many open files](infra/infra/too-many-open-files.md)
   * [Swap](infra/infra/swap.md)
