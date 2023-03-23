@@ -5,6 +5,7 @@
 ## JVM
 
 * [☕ JAVA](clean-architecture/README.md)
+  * [SOAP](jvm/clean-architecture/soap.md)
   * [Ciper](jvm/clean-architecture/ciper.md)
   * [Enhanced java beans](jvm/clean-architecture/enhanced-java-beans.md)
   * [Final](jvm/clean-architecture/final.md)
