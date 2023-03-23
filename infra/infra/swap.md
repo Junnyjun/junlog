@@ -1,6 +1,6 @@
 # Swap
 
-Docker 내부에 띄워둔 배치서비스가 처리할 사이즈가 커지면 종종 메모리문제를 뱉곤한다.
+처리할 사이즈가 커지면 종종 메모리문제를 뱉곤한다.
 
 ```
 OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000e7380000, 17825792, 0) failed; error='Cannot allocate memory' (errno=12)
