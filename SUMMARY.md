@@ -63,7 +63,7 @@
   * [Command](infra/infra/command/README.md)
     * [Resources](infra/infra/command/resources.md)
     * [Nohup](infra/infra/command/nohup.md)
-    * [Curl](infra/infra/command/curl.md)
+    * [http call](infra/infra/command/http-call.md)
     * [Default set](infra/infra/default-set.md)
     * [Swap](infra/infra/swap.md)
   * [Too many open files](infra/infra/too-many-open-files.md)
