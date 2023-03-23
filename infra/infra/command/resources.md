@@ -1,5 +1,7 @@
 # Resources
 
+
+
 리눅스에서 메모리 사용량을 확인하는 방법이다.
 
 ```bash
@@ -63,6 +65,14 @@ $ dstat --time --cpu --mem --net --disk
 ```
 
 
+
+#### 기타 유용한 명령어
+
+```bash
+$ top
+$ ps 
+$ df -h
+```
 
 #### &#x20;Modern
 
