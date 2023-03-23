@@ -10,6 +10,8 @@ coverY: 0
 junny-land organization
 {% endembed %}
 
+[IntellijSetting](https://github.com/Junnyjun/JunnyJun/raw/main/settings.zip)
+
 {% hint style="info" %}
 여러분의 도우미 주니의 블로그 입니다
 {% endhint %}
