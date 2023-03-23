@@ -61,6 +61,7 @@
   * [Argo](infra/ci-and-cd/argo.md)
 * [🎛 LINUX](infra/infra.md)
   * [Command](infra/infra/command/README.md)
+    * [awk](infra/infra/command/awk.md)
     * [Resources](infra/infra/command/resources.md)
     * [Nohup](infra/infra/command/nohup.md)
     * [http call](infra/infra/command/http-call.md)
