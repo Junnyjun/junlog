@@ -64,7 +64,7 @@
     * [awk](infra/infra/command/awk.md)
     * [Resources](infra/infra/command/resources.md)
     * [Nohup](infra/infra/command/nohup.md)
-    * [http call](infra/infra/command/http-call.md)
+    * [url call](infra/infra/command/url-call.md)
     * [Default set](infra/infra/default-set.md)
     * [Swap](infra/infra/swap.md)
   * [Too many open files](infra/infra/too-many-open-files.md)

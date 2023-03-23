@@ -1,4 +1,4 @@
-# http call
+# url call
 
 ## curl, wget 사용법
 
