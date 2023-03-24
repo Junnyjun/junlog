@@ -1,6 +1,9 @@
 # Table of contents
 
 * [👻 JUNNYLAND BLOG](README.md)
+  * [Rust](readme/rust/README.md)
+    * [Grammar](readme/rust/grammar/README.md)
+      * [variable](readme/rust/grammar/variable.md)
 
 ## JVM
 
