@@ -9,6 +9,10 @@
 ## JVM
 
 * [☕ JAVA](clean-architecture/README.md)
+  * [🔩 Netty](jvm/clean-architecture/netty/README.md)
+    * [Page 3](jvm/clean-architecture/netty/page-3/README.md)
+      * [UDP](jvm/clean-architecture/netty/page-3/udp.md)
+      * [TCP](jvm/clean-architecture/netty/page-3/tcp.md)
   * [SOAP](jvm/clean-architecture/soap.md)
   * [Ciper](jvm/clean-architecture/ciper.md)
   * [Enhanced java beans](jvm/clean-architecture/enhanced-java-beans.md)
@@ -46,9 +50,6 @@
 
 ## Spring
 
-* [🔩 Netty](spring/netty/README.md)
-  * [UDP](spring/netty/udp.md)
-  * [TCP](spring/netty/tcp.md)
 * [WebFlux](spring/db.md)
 
 ## DB
