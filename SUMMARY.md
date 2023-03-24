@@ -3,7 +3,7 @@
 * [👻 JUNNYLAND BLOG](README.md)
   * [Rust](readme/rust/README.md)
     * [Grammar](readme/rust/grammar/README.md)
-      * [variable](readme/rust/grammar/variable.md)
+      * [Variable](readme/rust/grammar/variable.md)
       * [Page 2](readme/rust/grammar/page-2.md)
 
 ## JVM
