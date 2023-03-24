@@ -4,7 +4,7 @@
 
 키 값을 배열의 인덱스로 환산해서 데이터에 접근하는 자료이다
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
 
 Table의 크기는 전체 키들의 숫자와 같습니다.\
 사용하지 않는 키는 비워둡니다.
