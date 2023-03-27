@@ -132,6 +132,7 @@
 
 ## STUDY
 
+* [📫 Atomic kotlin](study/atomic-kotlin.md)
 * [🎐 HTTP 완벽가이드](study/http/README.md)
   * [http](study/http/http.md)
   * [URL & RESOURCE](study/http/url-and-resource.md)

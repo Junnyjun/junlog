@@ -6,7 +6,7 @@
 리소스를 받기 위한 경로를 안내하는 역할을 하는 게이트웨이를 고안했다\
 게이트웨이는 리소스와 어플리케이션을 연결하는 역할을 한
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 #### 프로토콜 게이트웨이
 
