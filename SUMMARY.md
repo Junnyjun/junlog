@@ -50,6 +50,7 @@
 
 ## Spring
 
+* [testing](spring/testing.md)
 * [WebFlux](spring/db.md)
 
 ## DB
