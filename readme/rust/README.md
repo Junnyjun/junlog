@@ -10,3 +10,5 @@ IDE : intellij -> plugin -> rust 설치 -> new project -> rust -> binary(applica
 {% hint style="danger" %}
 window인 경우 cmd-`rustup default stable-x86_64-pc-windows-gnu`
 {% endhint %}
+
+![](../../.gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg)

@@ -137,3 +137,5 @@ fn main() {
 
 Rust의 제네릭을 사용하면 다양한 타입에 동작하는 함수나 구조체를 만들 수 있습니다. \
 제네릭은 타입에 대한 일반화를 가능하게 하여 코드의 중복을 줄이고 재사용성을 높이는 데 도움이 됩니다.
+
+![](../../../.gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg)

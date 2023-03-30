@@ -16,4 +16,4 @@ junny-land organization
 여러분의 도우미 주니의 블로그 입니다
 {% endhint %}
 
-/
+![](.gitbook/assets/Written-By-Human-Not-By-AI-Badge-white.svg)![](.gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg)
