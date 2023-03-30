@@ -110,12 +110,12 @@ val server = TcpServer.create()
 
 ## Client
 
-구현체만 UdpClient로 바뀌고 Server랑 동일하게 사용이 가능하다.
+구현체만 TcpClient로 바뀌고 Server랑 동일하게 사용이 가능하다.
 
-```kotlin
-val connetor =  UdpClient.create()
-        .port(9988)
+<pre class="language-kotlin"><code class="lang-kotlin"><strong>val connetor =  TcpClient.create()
+</strong>        .port(9988)
         .host("localhost")
         .connectNow()
-```
+</code></pre>
 
+![](../../../../.gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg)

@@ -55,3 +55,14 @@ Peer들간 트래픽을 확인하기 위한 로깅은 `.wiretap(true)`  로 설�
 
 
 ## Client
+
+구현체만 UdpClient로 바뀌고 Server랑 동일하게 사용이 가능하다.
+
+```kotlin
+val connetor =  TcpClient.create()
+        .port(9988)
+        .host("localhost")
+        .connectNow()
+```
+
+![](../../../../.gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg)
