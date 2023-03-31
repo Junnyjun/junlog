@@ -54,9 +54,7 @@ cssCopy codewsimport [options] <WSDL_URI>
 * `-keep`: 생성된 소스 파일과 함께 클래스 파일도 유지하도록 지시합니다.
 * `-verbose`: 도구의 실행 과정에서 자세한 정보를 출력하도록 지시합니다.
 
-#### 사용 예제
-
-다음은 `wsimport`를 사용하여 웹 서비스 클라이언트 스텁을 생성하는 예제입니다.
+#### E.g
 
 ```javascript
 javascriptCopy codewsimport -d generated_classes -s generated_sources -p com.example.webservice -keep -verbose http://example.com/yourwebservice?wsdl
@@ -64,11 +62,11 @@ javascriptCopy codewsimport -d generated_classes -s generated_sources -p com.exa
 
 위 명령어는 다음과 같은 동작을 수행합니다:
 
-1. `-d generated_classes`: 생성된 클래스 파일을 `generated_classes` 디렉토리에 저장합니다.
-2. `-s generated_sources`: 생성된 소스 파일을 `generated_sources` 디렉토리에 저장합니다.
-3. `-p com.example.webservice`: 생성된 클래스 파일의 패키지 이름을 `com.example.webservice`로 지정합니다.
-4. `-keep`: 생성된 소스 파일과 클래스 파일을 모두 유지합니다.
-5. `-verbose`: 실행 과정에서 자세한 정보를 출력합니다.
-6. `http://example.com/yourwebservice?wsdl`: 웹 서비스의 WSDL 문서 URL을 지정합니다.
-
-이렇게 생성된 클라이언트 스텁을 사용하여 개발자는 손쉽게 웹 서비스와 통신할 수 있는 Java 코드를 작성할 수 있습니다.
+```
+-d generated_classes: 생성된 클래스 파일을 generated_classes 디렉토리에 저장합니다.
+-s generated_sources: 생성된 소스 파일을 generated_sources 디렉토리에 저장합니다.
+-p com.example.webservice: 생성된 클래스 파일의 패키지 이름을 com.example.webservice로 지정합니다.
+-keep: 생성된 소스 파일과 클래스 파일을 모두 유지합니다.
+-verbose: 실행 과정에서 자세한 정보를 출력합니다.
+http://example.com/yourwebservice?wsdl: 웹 서비스의 WSDL 문서 URL을 지정합니다.
+```
