@@ -10,7 +10,7 @@ NIO에서 데이터의 입&출력은 읽고 쓰기가 가능한 메모리 배열
 
 ### Buffer의 종류
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 &#x20;버퍼 클래스의 이름으로 어떤 데이터를 옮기는 버퍼인지 유추할 수 있다.
 
@@ -49,7 +49,8 @@ CharBuffer charBuffer = CharBuffer.allocate(100);
 
 <pre class="language-java"><code class="lang-java"><strong>// 100Byte를 저장하는 CharBuffer
 </strong><strong>char[] bytes = new char[100];
-</strong>CharBuffer charBuffer = CharBuffer.wrap(bytes);</code></pre>
+</strong>CharBuffer charBuffer = CharBuffer.wrap(bytes);
+</code></pre>
 
 > Direct Buffer -> allocateDirect()
 

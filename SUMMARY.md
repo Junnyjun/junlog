@@ -60,7 +60,7 @@
 ## DB
 
 * [DB](db/db/README.md)
-  * [default](db/db/default/README.md)
+  * [default](db/db/default.md)
     * [Covering Index](db/db/default/covering-index.md)
 
 ## INFRA
