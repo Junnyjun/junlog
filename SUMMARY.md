@@ -48,7 +48,7 @@
 
 ## Spring
 
-* [Tools](spring/tools/README.md)
+* [Tools](spring/tools.md)
   * [API CALL](spring/tools/api-call.md)
 * [Testing](spring/testing.md)
 * [WebFlux](spring/db/README.md)
@@ -59,7 +59,8 @@
 
 ## DB
 
-* [DB](db/db.md)
+* [DB](db/db/README.md)
+  * [default](db/db/default.md)
 
 ## INFRA
 
