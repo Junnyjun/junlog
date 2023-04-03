@@ -37,7 +37,7 @@ String dayOfWeek = switch (day) {
     case 2 -> "Tuesday";
     case 3 -> "Wednesday";
     case 4 -> "Thursday";
-    case 5 -> "Friday";aa
+    case 5 -> "Friday";
     default -> "Weekend";
 };
 
