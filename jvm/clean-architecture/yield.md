@@ -7,7 +7,7 @@ Java 13에서 도입된 switch 표현식은 기존의 switch 문보다 코드를
 예를 들어, 아래의 코드는 Java 12 이전 버전에서 사용할 수 있는 switch 문의 예입니다.
 
 ```java
-csharpCopy codeswitch (day) {
+switch (day) {
     case 1:
         System.out.println("Monday");
         break;
@@ -32,7 +32,7 @@ csharpCopy codeswitch (day) {
 하지만 Java 13에서는 switch 표현식이 도입되면서, yield 문을 사용하여 각 분기에서 값을 반환할 수 있습니다.
 
 ```java
-arduinoCopy codeString dayOfWeek = switch (day) {
+String dayOfWeek = switch (day) {
     case 1 -> "Monday";
     case 2 -> "Tuesday";
     case 3 -> "Wednesday";
@@ -45,7 +45,7 @@ System.out.println(dayOfWeek);
 ```
 
 ```java
-arduinoCopy codeString dayOfWeek = switch (day) {
+String dayOfWeek = switch (day) {
     case 1 :
         yield "Monday";
     case 2 :
