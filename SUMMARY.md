@@ -181,6 +181,7 @@
   * [명령어](study/undefined-1/undefined-2.md)
   * [CPU의 작동 원리](study/undefined-1/cpu.md)
   * [CPU 성능 향상 기법](study/undefined-1/cpu-1.md)
+  * [메모리와 캐시 메모리](study/undefined-1/undefined-3.md)
 * [💻 쉽게 배우는 운영체제](computer-science/undefined/README.md)
   * [운영체제](computer-science/undefined/undefined.md)
   * [컴퓨터 구성](computer-science/undefined/undefined-1.md)
