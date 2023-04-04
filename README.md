@@ -6,7 +6,6 @@ coverY: 0
 
 # 👻 JUNNYLAND BLOG
 
-
 {% embed url="https://github.com/I-JUNNYLAND-I" %}
 junny-land organization
 {% endembed %}
