@@ -1,4 +1,4 @@
-# JVM과 Heap
+# JVM\&Heap
 
 ## JVM이란
 

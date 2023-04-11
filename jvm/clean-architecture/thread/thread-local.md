@@ -51,4 +51,4 @@ public class UserContext {
 
 위의 코드에서는 UserContext 클래스 내부에서 Thread Local을 이용하여 로그인한 사용자 정보를 저장합니다. 각 요청마다 UserContext.setUser() 메소드를 호출하여 로그인한 사용자 정보를 저장하면, 해당 요청에서는 UserContext.getUser() 메소드를 호출하여 로그인한 사용자 정보를 얻을 수 있습니다.
 
-Java Thread Local은 멀티스레드 환경에서 공유 변수에 대한 동시 접근 문제를 해결하기 위한 유용한 기능입니다. Thread Local을 적극적으로 활용하여 안정적이고 효율적인 멀티스레드 애플리케이션을 개발하는 것이 중요합니다.
+Java Thread Local은 멀티스레드 환경에서 공유 변수에 대한 동시 접근 문제를 해결에에 유용
