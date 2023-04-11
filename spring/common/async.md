@@ -136,13 +136,15 @@ Coroutine은 코루틴 스케줄러(Coroutine Scheduler)를 사용하여 비동�
 @Component
 class AsyncComponent(
     private val repository: AsyncRepository,
-    private val transactionManager: ReactiveTransactionManager
 ) {
-    suspend fun doResponse(): String = transactionManager.suspendTransaction {
-        println("${Thread.currentThread()}:: start")
-        repository.saveAll() // error!
-        println("${Thread.currentThread()}:: end")
-        throw RuntimeException("test")
-    }
+    @Transactional
+    suspend fun doSomething(): String =
+        try {
+            repository.saveAll()
+            "COMPLETE"
+        } catch (e: Exception) {
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()
+            throw e
+        }
 }
 ```
