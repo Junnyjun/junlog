@@ -7,7 +7,7 @@
 
 <img src="../../../.gitbook/assets/file.drawing (1) (3) (2).svg" alt="" class="gitbook-drawing">
 
-[Syncronize](../../jvm/sychronization.md)로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용하여 문제를 해결합니다
+[Syncronize](../../jvm/core/sychronization.md)로 되어있는 부분은 한번에  하나의 스레드만 접근을 허용하여 문제를 해결합니다
 
 <img src="../../../.gitbook/assets/file.drawing (1) (2) (2).svg" alt="" class="gitbook-drawing">
 

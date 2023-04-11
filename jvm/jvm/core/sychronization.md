@@ -17,7 +17,7 @@ Thread가 공유 자원을 사용할 때, 정합성을 보장하려면 동기화
 
 공유 데이터의 접근은 한번에 한 Thread씩 순차적으로 이루어 져야 한다.
 
-<img src="../../.gitbook/assets/file.drawing (12).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (12).svg" alt="" class="gitbook-drawing">
 
 Object Lock은 한번에 한 Thread만 Object를 사용할 수 있도록 내부적으로 Mutex를 활용한다.\
 JVM이 Class file을 Load 할 때는 Heap에는 Java class의 Instance가 생성되며 Object Lcock은 instance에 동기화 작업을 한다.
@@ -49,7 +49,7 @@ public synchronized void receive(){
 
 &#x20;wait은 현재 Thread 점유를 멈추고, Notify는 Thread를 점유한다.
 
-<img src="../../.gitbook/assets/file.drawing (7).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (7).svg" alt="" class="gitbook-drawing">
 
 Thread가 Entry Set으로 진입하면 Monitor Lock 획득을 시도한다. \
 다른 Thread가 Lock을 획득했을 경우에는, 후발 Thread는 다시 Entry Set에서 대기해야 한다
@@ -62,7 +62,7 @@ Thread는 daemon& non-daemon Thread로 나눌 수 있다.
 
 daemon Thread는 다른 Thread가 없으면 동작을 중지한다.
 
-<img src="../../.gitbook/assets/file.drawing (15).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (15).svg" alt="" class="gitbook-drawing">
 
 #### Dump
 

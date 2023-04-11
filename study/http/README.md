@@ -2,5 +2,5 @@
 description: 람쥐 썬더책
 ---
 
-# 🎐 HTTP 완벽가이드
+# 📕 HTTP 완벽가이드
 
