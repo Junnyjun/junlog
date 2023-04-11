@@ -34,7 +34,7 @@ PTE 내부에는 페이지번호, 플래그 비트, 프레임 번호가 존재�
 
 이 프레임 번호는 주소 필드 라고도 한다.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 이 PTE에는 여러 플래그 비트들이 존재한다.
 
