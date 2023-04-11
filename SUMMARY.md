@@ -59,15 +59,15 @@
 
 ## Spring
 
-* [Core](spring/common/README.md)
+* [🗝 Core](spring/common/README.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
-* [GateWay](spring/tools.md)
+* [🚪 GateWay](spring/tools.md)
   * [Socket](spring/page-4.md)
   * [HTTP CALL](spring/tools/api-call.md)
-* [Testing](spring/testing.md)
-* [WebFlux](spring/db/README.md)
+* [⁉ Testing](spring/testing.md)
+* [🪙 WebFlux](spring/db/README.md)
 
 ## DB
 
@@ -199,6 +199,9 @@
   * [보조 기억 장치](study/undefined-1/undefined-4.md)
   * [입출력 장치](study/undefined-1/undefined-5.md)
   * [운영체제](study/undefined-1/undefined-6.md)
+  * [프로세스와 스레드](study/undefined-1/undefined-7.md)
+  * [CPU 스케줄링](study/undefined-1/cpu-2.md)
+  * [프로세스 동기화](study/undefined-1/undefined-8.md)
 * [📕 쉽게 배우는 운영체제](computer-science/undefined/README.md)
   * [운영체제](computer-science/undefined/undefined.md)
   * [컴퓨터 구성](computer-science/undefined/undefined-1.md)
