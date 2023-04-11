@@ -138,13 +138,10 @@ class AsyncComponent(
     private val repository: AsyncRepository,
 ) {
     @Transactional
-    suspend fun doSomething(): String =
-        try {
-            repository.saveAll()
-            "COMPLETE"
-        } catch (e: Exception) {
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()
-            throw e
-        }
+    suspend fun doSomething(): String {
+        repository.saveAll() // error!
+        "COMPLETE"
+        // -> TransactionAspectSupport.currentTransactionStatus().setRollbackOnly()
+    }   
 }
 ```
