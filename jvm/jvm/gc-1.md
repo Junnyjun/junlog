@@ -1,4 +1,4 @@
-# GC 튜닝
+# GC Tuning
 
 ### GC 튜닝
 
@@ -75,7 +75,7 @@ Heap의 초기 크기를 제어하는 `-Xms , -Xmx`, `New`:`Old`의 비율 설�
 
 가장 쉬운 모니터링 방법은 jstat 명령어를 활용하는 방법이다. `-verbosegc` (GC를 출력하는 옵션) 과 `-Xloggc:<FILE_PATH>` (GC 내역 저장하는 옵션) 을 사용하여 로그를 파일화하는 방법이다
 
-****
+
 
 **Memory 크기와 GC 상관 관계**&#x20;
 
