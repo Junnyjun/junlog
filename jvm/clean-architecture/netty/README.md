@@ -1,4 +1,4 @@
-# 🔩 Netty
+# Netty
 
 ## Java Netty?
 
