@@ -78,7 +78,7 @@
 
 ## INFRA
 
-* [LOGGER](infra/logger.md)
+* [📄 LOGGER](infra/logger.md)
 * [💾 Storage](infra/storage/README.md)
   * [Minio](infra/storage/minio.md)
 * [🧩 CI\&CD](infra/ci-and-cd/README.md)
@@ -111,6 +111,7 @@
 
 ## Computer Science
 
+* [🔒 SECURITY](computer-science/security.md)
 * [🖇 Algorithm](computer-science/algorithm.md)
 * [⛓ Data Structure](computer-science/data-structure/README.md)
   * [intro](computer-science/data-structure/intro.md)
