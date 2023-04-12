@@ -111,7 +111,8 @@
 
 ## Computer Science
 
-* [🔒 SECURITY](computer-science/security.md)
+* [🔒 SECURITY](computer-science/security/README.md)
+  * [CIA Triad](computer-science/security/cia-triad.md)
 * [🖇 Algorithm](computer-science/algorithm.md)
 * [⛓ Data Structure](computer-science/data-structure/README.md)
   * [intro](computer-science/data-structure/intro.md)
