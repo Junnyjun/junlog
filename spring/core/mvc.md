@@ -81,22 +81,6 @@ Spring MVC Framework는 MVC 패턴을 따르면서 Spring 만의 독자적인 Cl
 
 Spring Project를 생성하면 src 밑에 web.xml, servlet-context.xml, root-context.xml이 존재한다.
 
-<figure><img src="https://blog.kakaocdn.net/dn/bng5gZ/btqyD76ntC3/Rgc3hRDR9JimpWpfurTV7k/img.png" alt=""><figcaption></figcaption></figure>
-
-1. Servlet은 웹 프로그래밍에서 Client의 요청을 처리하고 그 결과를 Client에게 전송하는 기술이다. Java를 이용하여 Web을 만들기 위해서 필요한 기술이다.\
-   \
-   Servlet은 다음과 같은 특징을 가지고 있다.\
-   \
-   \- Client의 요청에 대해 동적으로 작동한다.\
-   \- HTML을 사용하여 요청에 응답한다.\
-   \- Java Thread를 이용하여 동작한다.\
-   \- MVC 패턴에서 Controller로 이용된다.\
-   \
-   Spring Framework에선 Servlet을 DispatcherServlet을 이용한다. DispatcherServlet은 Front Controller를 담당하며 모든 HTTP 요청을 받아들여 다른 객체들 사이의 흐름을 제어한다. Servlet의 요청에 관련된 객체를 정의하는 곳이 servlet-context.xml이 된다. 즉 Controller나 Annotation, ViewResolver 등을 설정해준다.
-2. servlet 별칭을 통해 DispatcherServlet을 mapping 해준다. url-pattern를 '/' 설정하였기에 Root 경로로 들어온 모든 요청을 처리할 수 있게 된다.
-3. 모든 Servlet 및 Filter가 공유하는 Root Spring Container를 정의한다. ContextConfigLocation라는 파라미터를 이용함으로써 ContextLoader가 호출할 수 있는 설정 파일을 여러 개 쓸 수 있다. 여기서 사용되는 XML은 root-context.xml로 Root Context를 구성한다. 주로 Service나 Repository(DAO), DB 등 Business Logic과 관련된 설정을 해준다.
-4. 모든 Servlet 및 Filter가 공유하는 Spring Container를 생성한다.
-
 ContextLoaderLoaderListener와 DispatcherServlet은 각자 WebApplicationContext를 생성한다. ContextLoaderListener가 생성한 Context가 Root Context가 되고 DispatcherServlet이 생성한 인스턴스는 Root Context를 부모로 하는 자식 Context가 된다.
 
 자식 Context들은 Root Context의 설정 Bean을 사용할 수 있다. \
@@ -113,12 +97,5 @@ ContextLoaderLoaderListener와 DispatcherServlet은 각자 WebApplicationContext
 &#x20;
 
 <figure><img src="https://blog.kakaocdn.net/dn/dhBug2/btqyAbJcnMY/K5RZcbosen3kRYtEPGE9D0/img.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="https://blog.kakaocdn.net/dn/Afj3J/btqyEAHhifB/auMRpffilBZrKL2XZGUqW1/img.png" alt=""><figcaption></figcaption></figure>
-
-1. 적합한 Controller Annotation을 인식하도록 \<annotation-driven />을 사용한다. HandlerMapping 역할을 한다.
-2. HTTP GET 요청을 통해 Spring에서 정적인 리소스 인 CSS, HTML 등 파일들을 처리할 수 있도록 등록한다.
-3. Controller가 반환한 View name을 기반으로 적합한 View(JSP)를 찾을 수 있도록 경로를 지정한다. ViewResolver 역할을 한다.
-4. component-scan은 XML에 각 Bean을 일일이 지정하지 않고 @Component를 통해 자동으로 Bean을 등록시켜준다. base-package 경로를 기반으로 탐색하여 Annotation을 식별하여 Bean을 생성한다.
 
 <figure><img src="https://blog.kakaocdn.net/dn/z4j6X/btqyBzWRGmf/KckWH9keSUSUOXXywOanMK/img.png" alt=""><figcaption></figcaption></figure>
