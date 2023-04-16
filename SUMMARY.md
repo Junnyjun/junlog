@@ -228,3 +228,4 @@
 * [📗 Clean code](study/clean-code.md)
 * [📕 Modern Java in Action](study/modern-java-in-action/README.md)
   * [자바 8, 9, 10, 11](study/modern-java-in-action/8-9-10-11.md)
+  * [동작 파라미터화 코드 전달하기](study/modern-java-in-action/undefined.md)
