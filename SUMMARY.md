@@ -206,6 +206,7 @@
   * [프로세스 동기화](study/undefined-1/undefined-8.md)
   * [교착 상태](<study/undefined-1/undefined-9 (1).md>)
   * [가상 메모리](study/undefined-1/undefined-10.md)
+  * [파일시스템](study/undefined-1/undefined-11.md)
 * [📕 쉽게 배우는 운영체제](computer-science/undefined/README.md)
   * [운영체제](computer-science/undefined/undefined.md)
   * [컴퓨터 구성](computer-science/undefined/undefined-1.md)
