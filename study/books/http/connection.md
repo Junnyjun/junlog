@@ -2,7 +2,7 @@
 
 HTTP통신은 TCP/IP내에서 이루어진다.
 
-<img src="../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="" class="gitbook-drawing">
 
 Tcp는 신뢰할 수 있는 통신 방식을 제공한다.\
 각 데이터들이 세그먼트로 나뉘어 IP패킷을 통해 전송된다
@@ -25,7 +25,7 @@ Tcp는 신뢰할 수 있는 통신 방식을 제공한다.\
 
 ### HTTP 네트워크 지연
 
-<img src="../../.gitbook/assets/file.excalidraw (4) (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (4) (2).svg" alt="" class="gitbook-drawing">
 
 TCP 커넥션을 설정하고 요청하고 응답을 보내는것 보다 트랜잭션을 처리하는 시간은 상당히 짧다.\
 그럼에도 지연이 발생하는데 아래와 같은 이유가 원인이다.
@@ -34,7 +34,7 @@ DNS 이름 분석을 하는 시간이 걸린다.\
 서버의 커넥션 허가 응답을 기다린다.\
 서버가 데이터를 처리하는 시간에 의해 지연된다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2) (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2) (2).svg" alt="" class="gitbook-drawing">
 
 확인 응답의 크기는 작기 때문에 같은 방향으로 송출되는 확인 응답을 편승 시킨다.\
 많은 TCP 스택은 송출데이터+확인응답을 하나로 묶어 확인 응답 지연 알고리즘을 구현한다.
@@ -71,7 +71,7 @@ Http 어플리케이션이 현재 맺고 있는 커넥션에만 적용될 옵션
 
 #### 성능 개선
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (3) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (3) (1).svg" alt="" class="gitbook-drawing">
 
 ※브라우저는 대부분 4개의 병렬 커넥션만 허용한다.
 

@@ -81,7 +81,7 @@ OSI 7 계층 모델에 따르면, 7개의 계층으로 모듈화된 전송 기�
 각 계층은 정해진 방식과 절차에 따라 통신하는데, 이과정에서 필요한\
 규칙을 프로토콜 이라고 한다.
 
-<img src="../../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (2) (1).svg" alt="" class="gitbook-drawing">
 
 네트워크와 네트워크의 연결은 인터 네트워킹이라 한다.
 
