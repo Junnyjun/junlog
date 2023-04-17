@@ -45,6 +45,7 @@
   * [Basic](jvm/kotlin/basic/README.md)
     * [Recursive](jvm/kotlin/recursive.md)
     * [Functional Interface](jvm/kotlin/basic/functional-interface.md)
+    * [Type Alias](jvm/kotlin/basic/type-alias.md)
     * [Grammer](jvm/kotlin/basic/grammer/README.md)
       * [Variable](jvm/kotlin/basic/grammer/variable.md)
       * [Array](jvm/kotlin/basic/grammer/array.md)
