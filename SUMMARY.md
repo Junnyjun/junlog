@@ -236,3 +236,5 @@
 * [📗 Java bible](study/java-bible.md)
 * [📕 Clean agile](study/clean-agile.md)
 * [📙 Clean software](study/clean-software.md)
+* [📓 Refactoring 3e](study/refactoring-3e.md)
+* [📘 Effective kotlin](study/effective-kotlin.md)
