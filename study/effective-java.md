@@ -1,2 +1,2 @@
-# Effective java
+# 📘 Effective java
 

@@ -232,4 +232,5 @@
   * [람다 표현식](study/modern-java-in-action/undefined-1.md)
 * [📙 Object](study/object.md)
 * [📓 객체지향 사실과오해](study/undefined-3.md)
-* [Effective java](study/effective-java.md)
+* [📘 Effective java](study/effective-java.md)
+* [📗 Java bible](study/java-bible.md)
