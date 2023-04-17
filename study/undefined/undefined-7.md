@@ -16,7 +16,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 가상 메모리의 크기는 시스템의물리메모리의 최대  크기로 맞춰진다.
 
-<img src="../../../.gitbook/assets/file.drawing (8) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (8) (1).svg" alt="" class="gitbook-drawing">
 
 하지만 가상 메모리는 프로세스의 메모리가 스왑영역에서 계속 스왑인&아웃되며 메모리를 훨씬 더 넉넉하게 사용할 수 있다.
 
@@ -44,7 +44,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 페이지와 프레임의 크기는 같다&#x20;
 
-<img src="../../../.gitbook/assets/file.drawing (1) (3) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (3) (1).svg" alt="" class="gitbook-drawing">
 
 가상 메모리 Page가 가르키는 값이 Invalid인 경우 스왑 영역에 있다는 의미이다.
 
@@ -122,7 +122,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 세그먼 테이션 기법 또한 매핑 테이블을 사용한다
 
-<img src="../../../.gitbook/assets/file.drawing (2) (2) (3).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (2) (3).svg" alt="" class="gitbook-drawing">
 
 세그먼테이션 기법의 limit은 메모리를 보호하는 역할을 한다.  limit보다 큰 메모리를 사용하게 된다면 `trap`이라는 오류가 발생한다
 

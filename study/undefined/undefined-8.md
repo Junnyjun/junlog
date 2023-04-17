@@ -22,7 +22,7 @@ description: 데이터를 가져오는 정책에 대해서 알아봅니다.
 
 가상 메모리는 물리 메모리와 스왑 영역을 합친 것이다.
 
-<img src="../../../.gitbook/assets/file.drawing (2) (1) (2).svg" alt="swapIn &#x26; swapOut" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (2) (1) (2).svg" alt="swapIn &#x26; swapOut" class="gitbook-drawing">
 
 사용자 프로세스는 물리 메모리와 스왑 영역 둘중 한곳에 있다.
 
@@ -34,7 +34,7 @@ PTE 내부에는 페이지번호, 플래그 비트, 프레임 번호가 존재�
 
 이 프레임 번호는 주소 필드 라고도 한다.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 이 PTE에는 여러 플래그 비트들이 존재한다.
 
@@ -55,7 +55,7 @@ PTE 내부에는 페이지번호, 플래그 비트, 프레임 번호가 존재�
 
 프로세스가 페이지를 요청했을 때 그 페이지가 메모리에 없는 상황을 페이지 부재라고 한다.
 
-<img src="../../../.gitbook/assets/file.drawing (1) (6) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (6) (1).svg" alt="" class="gitbook-drawing">
 
 페이지 폴트가 발생하면 스왑 영역에서 메모리로 데이터를 옮겨야 한다.
 
@@ -137,7 +137,7 @@ LRU, LFU, NUR은 최적 페이지 교체 알고리즘에 근접하는 성능을 
 
 참조 비트가 계속 갱신되다가 가장 참조비트의 수가 낮은 페이지를 내보낸다.
 
-<img src="../../../.gitbook/assets/file.drawing (1) (8) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.drawing (1) (8) (1).svg" alt="" class="gitbook-drawing">
 
 기록하기 위한 만큼의 메모리공간이 낭비되는 단점이 있다.
 
