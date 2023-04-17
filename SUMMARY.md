@@ -216,6 +216,7 @@
     * [람다 표현식](study/modern-java-in-action/undefined-1.md)
     * [STREAM](study/books/modern-java-in-action/stream.md)
     * [STREAM2](study/books/modern-java-in-action/stream2.md)
+    * [Collector](study/books/modern-java-in-action/collector.md)
   * [📙 Object](study/books/object.md)
   * [📓 객체지향 사실과오해](study/books/undefined-3.md)
   * [📘 Effective java](study/books/effective-java.md)
