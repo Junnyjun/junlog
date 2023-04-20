@@ -1,3 +1,3 @@
-# 📓 Java web을 다루는 기술
+# git
 
 [https://github.com/Junnyjun/JavaWebSkill](https://github.com/Junnyjun/JavaWebSkill)
