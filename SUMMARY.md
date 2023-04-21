@@ -159,7 +159,12 @@
 
 * [Books](study/books/README.md)
   * [📘 Atomic kotlin](study/atomic-kotlin.md)
-  * [📗 Kotlin in Action](study/kotlin-in-action.md)
+  * [📗 Kotlin in Action](study/books/kotlin-in-action/README.md)
+    * [코틀린이란](study/books/kotlin-in-action/undefined.md)
+    * [기초](study/books/kotlin-in-action/undefined-1.md)
+    * [함수](study/books/kotlin-in-action/undefined-2.md)
+    * [클래스, 객체, 인터페이스](study/books/kotlin-in-action/undefined-3.md)
+    * [람다](study/books/kotlin-in-action/undefined-4.md)
   * [📙 DDD](study/ddd/README.md)
     * [후기](study/ddd/undefined.md)
   * [📘 데이터 통신과 컴퓨터 네트워크](study/undefined/README.md)
