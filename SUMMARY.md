@@ -4,7 +4,6 @@
   * [Rust](readme/rust/README.md)
     * [Grammar](readme/rust/grammar/README.md)
       * [Variable](readme/rust/grammar/variable.md)
-      * [Page 2](readme/rust/grammar/page-2.md)
 
 ## JVM
 
@@ -27,7 +26,6 @@
     * [Callable](jvm/clean-architecture/thread/callable.md)
     * [Syncronize](jvm/clean-architecture/thread/syncronize.md)
     * [Volatile](jvm/clean-architecture/thread/volatile.md)
-    * [Page 3](jvm/clean-architecture/thread/page-3.md)
     * [Thread Local](jvm/clean-architecture/thread/thread-local.md)
   * [NIO](jvm/java/nio/README.md)
     * [NIO\&FILE](jvm/java/nio/file.md)
@@ -77,7 +75,6 @@
   * [default](db/db/default.md)
     * [UUID](db/db/default/uuid.md)
     * [Covering Index](db/db/default/covering-index.md)
-    * [Page 4](db/db/default/page-4.md)
 
 ## INFRA
 
@@ -138,8 +135,7 @@
   * [Interrupt](information/OS/undefined.md)
   * [BIOS\&UEFI](information/OS/bios-and-uefi.md)
 * [🛠 Network](computer-science/network/README.md)
-  * [네트워크](computer-science/network/chap1/README.md)
-    * [Page 5](computer-science/network/chap1/page-5.md)
+  * [네트워크](computer-science/network/chap1.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
   * [Flyweight](computer-science/design-pattern/flyweight.md)
   * [Bridge](computer-science/design-pattern/bridge.md)
@@ -185,7 +181,6 @@
       * [데이터 압축](study/real-mysql-8.0/undefined-4.md)
       * [인덱스](study/real-mysql-8.0/undefined-5.md)
       * [옵티마이저와 힌트](study/real-mysql-8.0/undefined-6.md)
-      * [Page 1](<study/real-mysql-8.0/page-1 (1).md>)
   * [📗 혼자 공부하는 컴퓨터 구조와 운영체제](study/undefined.md)
     * [컴퓨터 구조 시작하기](study/undefined-1/undefined.md)
     * [데이터](study/undefined-1/undefined-1.md)
@@ -219,7 +214,11 @@
     * [설계 원칙](study/readme-1/undefined-1.md)
     * [컴포넌트](study/readme-1/undefined-2.md)
   * [📙 Hexagonal Architecture](study/hexagonal-architecture.md)
-  * [📘 Toby Spring](study/toby-spring.md)
+  * [📘 Toby Spring](study/books/toby-spring/README.md)
+    * [오브젝트와 의존관계](study/books/toby-spring/undefined.md)
+    * [Page 3](study/books/toby-spring/page-3.md)
+    * [Page 4](study/books/toby-spring/page-4.md)
+    * [Page 1](study/books/toby-spring/page-1.md)
   * [📗 Clean code](study/clean-code.md)
     * [의미있는 이름](study/books/clean-code/undefined.md)
     * [함수](study/books/clean-code/undefined-1.md)
