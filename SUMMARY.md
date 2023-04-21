@@ -169,6 +169,7 @@
     * [관례](study/books/kotlin-in-action/undefined-5.md)
     * [고차함수](study/books/kotlin-in-action/undefined-6.md)
     * [제너릭](study/books/kotlin-in-action/undefined-7.md)
+    * [어노테이션](study/books/kotlin-in-action/undefined-8.md)
   * [📙 DDD](study/ddd/README.md)
     * [후기](study/ddd/undefined.md)
   * [📘 데이터 통신과 컴퓨터 네트워크](study/undefined/README.md)
