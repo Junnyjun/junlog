@@ -1,6 +1,6 @@
 # 애자일
 
-### 클린 애자일 1장 애자일 소개[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-1%EC%9E%A5-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%86%8C%EA%B0%9C) <a href="#1" id="1"></a>
+### 1장 <a href="#1" id="1"></a>
 
 애자일의 탄생은? 선사시대. 작은 목표를 세우고 그 진행 상황을 측정하여 다음 목표를 세워 실행한다. 측정 가능한 작은 단계!
 
@@ -20,9 +20,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
 
 그렇다면 애자일은 폭포수 모델과 무엇이 다른가? 찍먹 애자일은 작은 반복주기(1\~2주 단위)로 나눠 업무 속도와 진행률을 측정한다. 이것이 애자일의 데이터다. 이렇게 4\~5 사이클을 반복하면 프로젝트를 언제쯤 끝낼 수 있을지 알 수 있다. “희망을 없애는 것이 애자일의 주요 목표다”(p31) “애자일은 우리가 얼마나 망했는지를 최대한 빨리 아는 것이다”(p31) 이 데이터를 사용하여 관리자는 프로젝트를 가능한 한 최선의 결과로 이끈다. 데이터를 기반으로 의사결정을 하기에, 합리적인 조직이라면 프로젝트를 조정할 수 있다. 마감일은 못 바꾸더라도, 필수적인 기능부터 개발하고, 불필요한 기능은 뺄 수 있다.
 
-***
-
-### 클린 애자일 제2장 왜 애자일인가[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C2%EC%9E%A5-%EC%99%9C-%EC%95%A0%EC%9E%90%EC%9D%BC%EC%9D%B8%EA%B0%80) <a href="#2" id="2"></a>
+### 2장 <a href="#2" id="2"></a>
 
 왜 애자일을 선택해야 하나? 직업의식과 (고객, 동료, 이해관계자)의 당연한 기대 때문이다
 
@@ -51,9 +49,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
 
 애자일 권리장전이 지켜지면? 개발자는 멋진 개발자가 되고, 고객은 만족한다. 애자일은 방법론이 아니다. 소프트웨어 윤리 규범이다.
 
-***
-
-### 클린 애자일 제3장 비즈니스 실천 방법[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C3%EC%9E%A5-%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4-%EC%8B%A4%EC%B2%9C-%EB%B0%A9%EB%B2%95) <a href="#3" id="3"></a>
+### 3장 <a href="#3" id="3"></a>
 
 애자일 실천 방법 중 비즈니스와 관련된 것들을 알아보자
 
@@ -108,9 +104,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
 * 결론
   * 사업 부서와 개발 부서의 의사소통을 단순하고 명확히 하여 갈등을 줄이고 신뢰를 쌓자.
 
-***
-
-### 클린 애자일 제4장 팀 실천 방법[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C4%EC%9E%A5-%ED%8C%80-%EC%8B%A4%EC%B2%9C-%EB%B0%A9%EB%B2%95) <a href="#4" id="4"></a>
+### 4장 <a href="#4" id="4"></a>
 
 * 팀 구성원 사이의 관계, 팀원과 팀이 만드는 제품 사이의 관계를 다룬다.
 * 메타포
@@ -142,9 +136,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
 * 결론
   * 작은 팀이 진짜 팀으로 일하는 법을 알아봤다. 위 설명이 의사소통의 언어, 서로를 어찌 대할지, 프로젝트를 어찌 대할지에 도움이 될 것.
 
-***
-
-### 클린 애자일 제5장 기술 실천 방법[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C5%EC%9E%A5-%EA%B8%B0%EC%88%A0-%EC%8B%A4%EC%B2%9C-%EB%B0%A9%EB%B2%95) <a href="#5" id="5"></a>
+### 5장 <a href="#5" id="5"></a>
 
 이번 장은 실천하기 어렵다. 그래도 빼놓을 수 없는 애자일의 핵심이다.
 
@@ -185,9 +177,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
   * 어렵지만 필수적
   * 테스트, 짝 프로그래밍, 리팩터링을 해도 되냐고 허락을 구하지 말라. 니가 전문가니 니가 결정해라.
 
-***
-
-### 클린 애자일 제6장 애자일해지기[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C6%EC%9E%A5-%EC%95%A0%EC%9E%90%EC%9D%BC%ED%95%B4%EC%A7%80%EA%B8%B0) <a href="#6" id="6"></a>
+### 6장 <a href="#6" id="6"></a>
 
 왜 애자일이 실패하나? 애자일이 아니라 그렇다.
 
@@ -220,7 +210,7 @@ pre-agile v.s. waterfall의 대결. 분명 워터폴의 우위가 30년 간 지�
 
 ***
 
-### 클린 애자일 제7장 장인 정신[Permalink](https://lovemewithoutall.github.io/it/clean-agile/#%ED%81%B4%EB%A6%B0-%EC%95%A0%EC%9E%90%EC%9D%BC-%EC%A0%9C7%EC%9E%A5-%EC%9E%A5%EC%9D%B8-%EC%A0%95%EC%8B%A0) <a href="#7" id="7"></a>
+### 7장 <a href="#7" id="7"></a>
 
 애자일 전환 시대가 되었다. 하지만?
 
