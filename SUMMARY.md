@@ -250,6 +250,8 @@
     * [CompletableFuture와 리액티브 프로그래밍](study/books/modern-java-in-action/completablefuture.md)
     * [CompletableFuture](study/books/modern-java-in-action/completablefuture-1.md)
     * [리액티브 프로그래밍](study/books/modern-java-in-action/undefined-7.md)
+    * [함수형](study/books/modern-java-in-action/undefined-8.md)
+    * [함수형 프로그래밍](study/books/modern-java-in-action/undefined-9.md)
   * [📙 Object](study/books/object.md)
     * [1장 객체,설계](study/books/object/1.md)
     * [2장 객체지향](study/books/object/2.md)
