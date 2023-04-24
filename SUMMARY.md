@@ -319,6 +319,7 @@
   * [📙 Clean software](study/books/clean-software.md)
   * [📘 JPA 완벽가이드](study/books/jpa.md)
   * [📗 운영체제 세가지 이야기](study/books/undefined-4.md)
-  * [📕 클린 코더](study/books/undefined-5.md)
+  * [📕 클린 코더](study/books/undefined-5/README.md)
+    * [서평](study/books/undefined-5/undefined.md)
   * [📙 Practical Java utility](study/books/practical-java-utility/README.md)
     * [서평](study/books/practical-java-utility/undefined.md)
