@@ -177,7 +177,7 @@
     * [네트워크 관련 기초 용어](study/books/undefined/undefined.md)
     * [네트워크 개념](study/books/undefined/undefined-1.md)
     * [네트워크 기술](study/books/undefined/undefined-2.md)
-  * [Page 2](study/books/page-2.md)
+    * [데이터 전송 기초](study/books/undefined/undefined-3.md)
   * [📓 REAL MYSQL 8.0](study/real-mysql-8.0/README.md)
     * [2권](study/real-mysql-8.0/2.md)
     * [1권](study/real-mysql-8.0/1/README.md)
