@@ -139,7 +139,7 @@
   * [Interrupt](information/OS/undefined.md)
   * [BIOS\&UEFI](information/OS/bios-and-uefi.md)
 * [🛠 Network](computer-science/network/README.md)
-  * [네트워크](computer-science/network/chap1/README.md)
+  * [Internet?](computer-science/network/chap1/README.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
   * [Flyweight](computer-science/design-pattern/flyweight.md)
   * [Bridge](computer-science/design-pattern/bridge.md)
