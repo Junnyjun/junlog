@@ -41,4 +41,4 @@ TLD의 전체 목록은 ICANN에서 관리합니다 .
 4.  이제 컴퓨터가 요청된 IP 주소를 알고 있으므로 브라우저가 웹 서버와 콘텐츠를 협상할 수 있습니다.
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw (7).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
