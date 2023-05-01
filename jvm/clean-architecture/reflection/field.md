@@ -49,3 +49,37 @@ data1.set(sample, "New");
 System.out.println(sample.data1());
 // New
 ```
+
+```java
+public class Sample {
+    private String data1;
+    private String data2;
+
+    public Sample() {
+    }
+
+    public Sample(String data1, String data2) {
+        this.data1 = data1;
+        this.data2 = data2;
+    }
+    public String data1() {
+        return data1;
+    }
+    public String data1(String raw) {
+        return data1 + raw;
+    }
+}
+```
+
+### Field
+
+get Field
+
+```java
+Sample sample = new Sample("1", "2");
+Class<? extends Sample> clazz = sample.getClass();
+Field[] fields = clazz.getFields();
+Field data1 = clazz.getField("data1");
+Field[] declaredFields = clazz.getDeclaredFields();
+Field data11 = clazz.getDeclaredField("data1");
+```
