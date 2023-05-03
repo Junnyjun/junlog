@@ -234,7 +234,7 @@
     * [오브젝트와 의존관계](study/books/toby-spring/undefined.md)
     * [테스트](study/books/toby-spring/undefined-1.md)
     * [템플릿](study/books/toby-spring/undefined-2.md)
-    * [Page 1](study/books/toby-spring/page-1.md)
+    * [예외](study/books/toby-spring/undefined-3.md)
   * [📗 Clean code](study/clean-code.md)
     * [의미있는 이름](study/books/clean-code/undefined.md)
     * [함수](study/books/clean-code/undefined-1.md)
