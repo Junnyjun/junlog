@@ -343,4 +343,4 @@
   * [📓 JAVA 에서 KOTLIN으로](study/books/java-kotlin/README.md)
     * [Page 1](study/books/java-kotlin/page-1.md)
   * [📕 Spring5를 활용한 리액티브 스트림](study/books/spring5/README.md)
-    * [git](study/books/spring5/git.md)
+    * [왜 리액티브인가?](study/books/spring5/undefined.md)
