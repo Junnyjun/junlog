@@ -145,6 +145,8 @@
   * [DNS ?](computer-science/network/dns.md)
   * [IP ?](computer-science/network/ip.md)
   * [Browser ?](computer-science/network/browser.md)
+* [🎁 Architectural Patterns](computer-science/architectural-patterns/README.md)
+  * [Layered pattern](computer-science/architectural-patterns/layered-pattern.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
   * [Flyweight](computer-science/design-pattern/flyweight.md)
   * [Bridge](computer-science/design-pattern/bridge.md)
