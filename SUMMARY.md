@@ -375,4 +375,6 @@
     * [개요](study/books/undefined-6/undefined.md)
     * [스레드 안정성](study/books/undefined-6/undefined-1.md)
     * [Page 2](study/books/undefined-6/page-2.md)
-  * [📘 PRO GIT](study/books/pro-git.md)
+  * [📘 PRO GIT](study/books/pro-git/README.md)
+    * [버전관리](study/books/pro-git/undefined.md)
+    * [Git 기술](study/books/pro-git/git.md)
