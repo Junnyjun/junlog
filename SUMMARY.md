@@ -89,6 +89,7 @@
   * [Jenkins](infra/ci-and-cd/jenkins.md)
     * [Multi Java version](infra/ci-and-cd/jenkins/multi-java-version.md)
     * [Feestyle Job](infra/ci-and-cd/jenkins/feestyle-job.md)
+    * [Github](infra/ci-and-cd/jenkins/github.md)
   * [Argo](infra/ci-and-cd/argo.md)
 * [🎛 LINUX](infra/infra.md)
   * [error](infra/infra/error/README.md)

@@ -3,7 +3,7 @@
 프로세스는 시스템 내에서 독립적으로 실행되기도 하고 데이터를 주고받으며 협업하기도 한다.\
 프로세스가 다른 프로세스와 데이터를 주고받는 통신에는 같은 컴퓨터뿐만 아니라 다른 컴퓨터와의 통신도 포함된다.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 🔴 프로세스 내부 데이터 통신 : 하나의 프로세스 내에 2개 이상의 스레드가 존재하는 경우이다.\
 전역 변수나 파일을 이용하여 데이터를 주고받는다\
