@@ -374,7 +374,7 @@
   * [📗 자바 병렬 프로그래밍](study/books/undefined-6/README.md)
     * [개요](study/books/undefined-6/undefined.md)
     * [스레드 안정성](study/books/undefined-6/undefined-1.md)
-    * [Page 2](study/books/undefined-6/page-2.md)
+    * [객체 공유](study/books/undefined-7/undefined-2.md)
   * [📘 PRO GIT](study/books/pro-git.md)
     * [버전관리](study/books/pro-git/undefined.md)
     * [Git 기술](study/books/pro-git/git.md)
