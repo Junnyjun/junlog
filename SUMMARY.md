@@ -375,6 +375,7 @@
     * [개요](study/books/undefined-6/undefined.md)
     * [스레드 안정성](study/books/undefined-6/undefined-1.md)
     * [객체 공유](study/books/undefined-7/undefined-2.md)
+    * [객체 구성](study/books/undefined-6/undefined-3.md)
   * [📘 PRO GIT](study/books/pro-git.md)
     * [버전관리](study/books/pro-git/undefined.md)
     * [Git 기술](study/books/pro-git/git.md)
