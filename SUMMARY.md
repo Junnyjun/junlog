@@ -377,6 +377,7 @@
     * [객체 공유](study/books/undefined-7/undefined-2.md)
     * [객체 구성](study/books/undefined-6/undefined-3.md)
     * [구성 단위](study/books/undefined-6/undefined-4.md)
+    * [작업 실행](study/books/undefined-6/undefined-5.md)
   * [📘 PRO GIT](study/books/pro-git.md)
     * [버전관리](study/books/pro-git/undefined.md)
     * [Git 기술](study/books/pro-git/git.md)
