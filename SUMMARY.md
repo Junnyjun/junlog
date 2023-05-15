@@ -75,7 +75,8 @@
 
 ## DB
 
-* [🗒 DB](db/db/README.md)
+* [MONGO](db/mongo.md)
+* [🗒 RDB](db/db/README.md)
   * [default](db/db/default.md)
     * [UUID](db/db/default/uuid.md)
     * [Covering Index](db/db/default/covering-index.md)
