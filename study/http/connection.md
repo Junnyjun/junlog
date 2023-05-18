@@ -34,7 +34,7 @@ DNS 이름 분석을 하는 시간이 걸린다.\
 서버의 커넥션 허가 응답을 기다린다.\
 서버가 데이터를 처리하는 시간에 의해 지연된다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2) (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (2) (1).svg" alt="" class="gitbook-drawing">
 
 확인 응답의 크기는 작기 때문에 같은 방향으로 송출되는 확인 응답을 편승 시킨다.\
 많은 TCP 스택은 송출데이터+확인응답을 하나로 묶어 확인 응답 지연 알고리즘을 구현한다.
