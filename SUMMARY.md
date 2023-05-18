@@ -75,7 +75,8 @@
 
 ## DB
 
-* [🥭 MONGO](db/mongo.md)
+* [🧮 NOSQL](db/nosql/README.md)
+  * [🥭 MONGO](db/nosql/mongo.md)
 * [🗒 RDB](db/db/README.md)
   * [default](db/db/default.md)
     * [UUID](db/db/default/uuid.md)
