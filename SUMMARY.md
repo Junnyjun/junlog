@@ -386,6 +386,7 @@
     * [스레드 풀 활용](study/books/undefined-6/undefined-7.md)
     * [활동성을 최대로 높이기](study/books/undefined-6/undefined-8.md)
     * [성능, 확장성](study/books/undefined-6/undefined-9.md)
+    * [명시적인 락](study/books/undefined-6/undefined-10.md)
   * [📘 PRO GIT](study/books/pro-git.md)
     * [버전관리](study/books/pro-git/undefined.md)
     * [Git 기술](study/books/pro-git/git.md)
