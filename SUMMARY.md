@@ -388,6 +388,7 @@
     * [성능, 확장성](study/books/undefined-6/undefined-9.md)
     * [명시적인 락](study/books/undefined-6/undefined-10.md)
     * [단일 연산 변수와 넌블로킹 동기화](study/books/undefined-6/undefined-11.md)
+    * [메모리 모델](study/books/undefined-6/undefined-12.md)
   * [📘 PRO GIT](study/books/pro-git.md)
     * [버전관리](study/books/pro-git/undefined.md)
     * [Git 기술](study/books/pro-git/git.md)
