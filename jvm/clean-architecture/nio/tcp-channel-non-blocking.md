@@ -10,7 +10,7 @@
 
 하지만 Blocking이 되지 않으므로 무한정 read,write를 실행하여 CPU 사용률을 증가 시킬수도 있기 때문에, event Listener인 Selector를 사용하여 특정 이벤트를 감지합니다.
 
-<img src="../../../../.gitbook/assets/file.drawing (1) (7).svg" alt="Selector Architecture" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.drawing (1) (7).svg" alt="Selector Architecture" class="gitbook-drawing">
 
 Selector는 일종의 멀티 플렉서 입니다.
 
@@ -52,12 +52,7 @@ Selector selector = Selector.open();
 SelectionKey selectionKey = open.register(selector, {OPTION});
 ```
 
-| Option                                       | Description                                                  |
-| -------------------------------------------- | ------------------------------------------------------------ |
-| <mark style="color:green;">OP\_ACCEPT</mark> | <mark style="color:green;">ServerSocketChannel의 연결 수락</mark> |
-| OP\_CONNECT                                  | SocketChannel의 서버 연결                                         |
-| OP\_READ                                     | SocketChannel의 데이터 읽기                                        |
-| OP\_WRITE                                    | SocketChannel의 데이터 쓰기                                        |
+<table><thead><tr><th width="210">Option</th><th>Description</th></tr></thead><tbody><tr><td><mark style="color:green;">OP_ACCEPT</mark></td><td><mark style="color:green;">ServerSocketChannel의 연결 수락</mark></td></tr><tr><td>OP_CONNECT</td><td>SocketChannel의 서버 연결</td></tr><tr><td>OP_READ</td><td>SocketChannel의 데이터 읽기</td></tr><tr><td>OP_WRITE</td><td>SocketChannel의 데이터 쓰기</td></tr></tbody></table>
 
 동일한 소켓 채널은 한가지의 작업 유형(option)만 처리할 수 있습니다.
 

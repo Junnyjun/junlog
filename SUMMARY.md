@@ -380,7 +380,7 @@
   * [📗 자바 병렬 프로그래밍](study/books/undefined-6/README.md)
     * [개요](study/books/undefined-6/undefined.md)
     * [스레드 안정성](study/books/undefined-6/undefined-1.md)
-    * [객체 공유](study/books/undefined-7/undefined-2.md)
+    * [객체 공유](<study/books/undefined-7/undefined-2 (1).md>)
     * [객체 구성](study/books/undefined-6/undefined-3.md)
     * [구성 단위](study/books/undefined-6/undefined-4.md)
     * [작업 실행](study/books/undefined-6/undefined-5.md)
@@ -400,3 +400,4 @@
     * [신뢰할 수 있고 확장 가능한](study/books/undefined-7/undefined.md)
     * [데이터 모델과 질의 언어](study/books/undefined-7/page-2.md)
     * [저장소와 검색](study/books/undefined-7/undefined-1.md)
+    * [부호화와 발전](study/books/undefined-7/undefined-2.md)

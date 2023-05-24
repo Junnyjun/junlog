@@ -81,14 +81,7 @@ Printer Size ... 0
 모든 작업(Thread)는 상태(state)를 가지고 있다.\
 `Thread.currentThread().getState()` 로 현재 구동중인 ( 작업중인 ) Thread의 상태를 가져 올 수있다.
 
-| TYPE         | DESCRIPTION            |
-| ------------ | ---------------------- |
-| NEW          | Thread가 생성된 후, 작업 대기상태 |
-| RUNNABLE     | 작업 진행중인 상태             |
-| BLOCKED      | 락이되어 있는 상태             |
-| WAITING      | 다른 스레드의통지를기다리는 상태      |
-| TIME\_WATING | 시간 만큼을 대기              |
-| TERMINATED   | 작을 마친 상태               |
+<table><thead><tr><th width="234">TYPE</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>NEW</td><td>Thread가 생성된 후, 작업 대기상태</td></tr><tr><td>RUNNABLE</td><td>작업 진행중인 상태</td></tr><tr><td>BLOCKED</td><td>락이되어 있는 상태</td></tr><tr><td>WAITING</td><td>다른 스레드의통지를기다리는 상태</td></tr><tr><td>TIME_WATING</td><td>시간 만큼을 대기</td></tr><tr><td>TERMINATED</td><td>작을 마친 상태</td></tr></tbody></table>
 
 이것을 이용하여 프린트 스케줄러가 종료 되었는지를 확인한다.\
 

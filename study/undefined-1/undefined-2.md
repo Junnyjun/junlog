@@ -42,7 +42,4 @@
 
 ### 스택과 큐 <a href="#undefined" id="undefined"></a>
 
-| 종류 | 설명                                                                                                    |
-| -- | ----------------------------------------------------------------------------------------------------- |
-| 스택 | <p>후입선출(LIFO, Last In First Out) 구조이다. <br>데이터를 넣는 것을 푸시(push), 데이터를 꺼내는 것을 팝(pop)이라고 한다.</p>         |
-| 큐  | <p>선입선출(FIFO, First In First Out) 구조이다. <br>데이터를 넣는 것을 인큐(enqueue), 데이터를 꺼내는 것을 디큐(dequeue)라고 한다.</p> |
+<table><thead><tr><th width="109">종류</th><th>설명</th></tr></thead><tbody><tr><td>스택</td><td>후입선출(LIFO, Last In First Out) 구조이다. <br>데이터를 넣는 것을 푸시(push), 데이터를 꺼내는 것을 팝(pop)이라고 한다.</td></tr><tr><td>큐</td><td>선입선출(FIFO, First In First Out) 구조이다. <br>데이터를 넣는 것을 인큐(enqueue), 데이터를 꺼내는 것을 디큐(dequeue)라고 한다.</td></tr></tbody></table>

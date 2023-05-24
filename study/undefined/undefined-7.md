@@ -136,10 +136,7 @@ description: 컴퓨터가 메모리를 일관되게 실행하는 방법에 대�
 
 특정 번지에 저장된 데이터를 사용할 수 있는 권한이다.&#x20;
 
-| space | description                 |
-| ----- | --------------------------- |
-| Code  | 자기 자신 수정 불가 \| Read Execute |
-| Date  | Read Writre Execute         |
+<table><thead><tr><th width="105">space</th><th>description</th></tr></thead><tbody><tr><td>Code</td><td>자기 자신 수정 불가 | Read Execute</td></tr><tr><td>Date</td><td>Read Writre Execute</td></tr></tbody></table>
 
 읽기, 쓰기, 실행, 추가 권한으로 나누어 지게 되며 특정 권한은 다른 권한을 포함하고 있다 ( 추가 권한은 쓰기 권한을 포함, 쓰기  권한은 읽기 권한을 포함 )
 

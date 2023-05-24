@@ -135,11 +135,7 @@ AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(
 
 비동기의  파일 쓰기는 세가지 클래스로 구현했다.
 
-| name            | description            |
-| --------------- | ---------------------- |
-| Main            | 파일에 쓰기위한 구현            |
-| Callback        | 쓰기 성공&실패 유무 핸들링        |
-| FileInformation | 성공시 출력 , 실패시 `FAIL` 출력 |
+<table><thead><tr><th width="165">name</th><th>description</th></tr></thead><tbody><tr><td>Main</td><td>파일에 쓰기위한 구현</td></tr><tr><td>Callback</td><td>쓰기 성공&#x26;실패 유무 핸들링</td></tr><tr><td>FileInformation</td><td>성공시 출력 , 실패시 <code>FAIL</code> 출력</td></tr></tbody></table>
 
 
 
@@ -226,11 +222,7 @@ callback이 성공인지 실패인지에 따라 특정 메소드를 호출해준
 
 비동기의 파일 읽기는 세가지 클래스로 구현된다.
 
-| Method          | Description            |
-| --------------- | ---------------------- |
-| Main            | 파일을 읽기 위한 구현           |
-| FileInformation | 버퍼를  읽거나, 채널을 종료하기     |
-| Callback        | 성공시 출력 , 실패시 `FAIL` 출력 |
+<table><thead><tr><th width="182">Method</th><th>Description</th></tr></thead><tbody><tr><td>Main</td><td>파일을 읽기 위한 구현</td></tr><tr><td>FileInformation</td><td>버퍼를  읽거나, 채널을 종료하기</td></tr><tr><td>Callback</td><td>성공시 출력 , 실패시 <code>FAIL</code> 출력</td></tr></tbody></table>
 
 #### Main
 

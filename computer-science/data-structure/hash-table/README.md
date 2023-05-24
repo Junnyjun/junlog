@@ -43,11 +43,7 @@ String hased(String raw) throws NoSuchAlgorithmException {
 
 </details>
 
-| hash key         | key       |
-| ---------------- | --------- |
-| bc72337a7af5 ... | firstKey  |
-| 0b41b20f3772 ... | secondKey |
-| 4c44f766cb3c ... | thirdKey  |
+<table><thead><tr><th width="264">hash key</th><th>key</th></tr></thead><tbody><tr><td>bc72337a7af5 ...</td><td>firstKey</td></tr><tr><td>0b41b20f3772 ...</td><td>secondKey</td></tr><tr><td>4c44f766cb3c ...</td><td>thirdKey</td></tr></tbody></table>
 
 해시 테이블은 해시함수를 사용하여 배열 인덱스의 범위를 줄일 수 있기 때문에 전체 테이블의 크기가 줄어듭니다
 
