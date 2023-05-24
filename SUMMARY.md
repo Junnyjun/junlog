@@ -399,3 +399,4 @@
   * [📙 데이터 중심 어플리케이션 설계](study/books/undefined-7/README.md)
     * [신뢰할 수 있고 확장 가능한](study/books/undefined-7/undefined.md)
     * [데이터 모델과 질의 언어](study/books/undefined-7/page-2.md)
+    * [저장소와 검색](study/books/undefined-7/undefined-1.md)
