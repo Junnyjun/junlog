@@ -361,7 +361,7 @@
     * [7장](study/books/refactoring-2e/7.md)
     * [8장](study/books/refactoring-2e/8.md)
   * [📙 Clean software](study/books/clean-software.md)
-  * [📘 JPA 완벽가이드](study/books/jpa/README.md)
+  * [📘 JPA 완벽가이드](study/books/jpa.md)
     * [JPA 소개](study/books/jpa/jpa.md)
   * [📗 운영체제 세가지 이야기](study/books/undefined-4/README.md)
     * [운영체제 개요](study/books/undefined-4/undefined.md)
