@@ -134,6 +134,7 @@
   * [Binary Heap](computer-science/data-structure/binary-heap.md)
   * [Hash Table](computer-science/data-structure/hash-table/README.md)
     * [Hash Function](computer-science/data-structure/hash-table/hash-function.md)
+    * [Hash Collision](computer-science/data-structure/hash-table/hash-collision.md)
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙ Operating System](information/OS/README.md)
   * [Top Half& Bottom Half](computer-science/os/top-half-and-bottom-half.md)

@@ -42,5 +42,26 @@ Target = 2^n 인 경우는 피해야 합니다.
 
 
 
+### 이동 접기
 
+해시 테이블 크기의 자릿수로 키를 분해한다.\
+분해된 키들을 더한다.\
+더한 값이 테이블 크기를 초과한다면 초과한 자릿수는 버린다.
 
+<img src="../../../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
+
+### 경계 접기
+
+해시테이블 크기의 자릿수로 키를 분해한다.\
+나누어진 각 부분의 경계 부분 값을 역으로 정렬한다.\
+분해된 키들을 더한다.\
+더한 값이 테이블 자릿수를 초과한다면 초과한 자릿수는 버린다.
+
+<img src="../../../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
+
+### 중간 제곱법
+
+키 값을 제곱한 후 결과 값의 중간 부분에 있는 몇 비트만 선택하여 해시로 사용하는 방법입니다.\
+테이블 크기의 자릿수만큼 중간값을 가져옵니다.
+
+<img src="../../../.gitbook/assets/file.excalidraw (9).svg" alt="" class="gitbook-drawing">
