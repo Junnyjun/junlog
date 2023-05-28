@@ -403,3 +403,4 @@
     * [데이터 모델과 질의 언어](study/books/undefined-7/page-2.md)
     * [저장소와 검색](study/books/undefined-7/undefined-1.md)
     * [부호화와 발전](study/books/undefined-7/undefined-2.md)
+    * [복제](study/books/undefined-7/undefined-3.md)
