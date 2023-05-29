@@ -77,6 +77,7 @@
 
 * [🧮 NOSQL](db/nosql/README.md)
   * [🥭 MONGO](db/mongo.md)
+* [ELASTIC](db/elastic.md)
 * [🗒 RDB](db/db/README.md)
   * [default](db/db/default.md)
     * [Covering Index](db/db/default/covering-index.md)
