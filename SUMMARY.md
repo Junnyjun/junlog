@@ -400,6 +400,7 @@
     * [Git Server](study/books/pro-git/undefined-1.md)
     * [분산 환경 GIT](study/books/pro-git/page-1.md)
     * [Git tool](study/books/pro-git/git-tool.md)
+    * [Git 맞춤](study/books/pro-git/git-1.md)
   * [📙 데이터 중심 어플리케이션 설계](study/books/undefined-7/README.md)
     * [신뢰할 수 있고 확장 가능한](study/books/undefined-7/undefined.md)
     * [데이터 모델과 질의 언어](study/books/undefined-7/page-2.md)
