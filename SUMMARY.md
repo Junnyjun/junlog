@@ -412,4 +412,4 @@
     * [저장소와 검색](study/books/undefined-7/undefined-1.md)
     * [부호화와 발전](study/books/undefined-7/undefined-2.md)
     * [복제](study/books/undefined-7/undefined-3.md)
-    * [Page 1](study/books/undefined-7/page-1.md)
+    * [파티셔닝](study/books/undefined-7/undefined-4.md)
