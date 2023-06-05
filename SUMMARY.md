@@ -413,3 +413,4 @@
     * [부호화와 발전](study/books/undefined-7/undefined-2.md)
     * [복제](study/books/undefined-7/undefined-3.md)
     * [파티셔닝](study/books/undefined-7/undefined-4.md)
+    * [Page 1](study/books/undefined-7/page-1.md)
