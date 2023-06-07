@@ -57,7 +57,7 @@ cssCopy codewsimport [options] <WSDL_URI>
 #### E.g
 
 ```javascript
-javascriptCopy codewsimport -d generated_classes -s generated_sources -p com.example.webservice -keep -verbose http://example.com/yourwebservice?wsdl
+wsimport -d generated_classes -s generated_sources -p com.example.webservice -keep -verbose http://example.com/yourwebservice?wsdl
 ```
 
 위 명령어는 다음과 같은 동작을 수행합니다:
