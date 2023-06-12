@@ -389,6 +389,7 @@
   * [📘 JPA 완벽가이드](study/books/jpa.md)
     * [Set up](study/books/jpa/set-up.md)
     * [JPA 소개](study/books/jpa/jpa.md)
+    * [JPA 시작](study/books/jpa/jpa-1.md)
   * [📗 운영체제 세가지 이야기](study/books/undefined-4/README.md)
     * [운영체제 개요](study/books/undefined-4/undefined.md)
     * [프로세스의 개념](study/books/undefined-4/undefined-1.md)
