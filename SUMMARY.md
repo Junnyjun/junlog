@@ -31,6 +31,7 @@
     * [Syncronize](jvm/clean-architecture/thread/syncronize.md)
     * [Volatile](jvm/clean-architecture/thread/volatile.md)
     * [Thread Local](jvm/clean-architecture/thread/thread-local.md)
+    * [LifeCycle](jvm/clean-architecture/thread/lifecycle.md)
   * [NIO](jvm/java/nio/README.md)
     * [NIO\&FILE](jvm/java/nio/file.md)
     * [BUFFER](jvm/java/nio/buffer.md)

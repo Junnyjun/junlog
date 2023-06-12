@@ -16,7 +16,7 @@
 설정에 따라 shell, gradle, maven 등이 있다\
 그중, 자유도가 높은 excuteShell로 예시
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt="" width="201"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt="" width="201"><figcaption></figcaption></figure>
 
 ### Build 후 조치
 
