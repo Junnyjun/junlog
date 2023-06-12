@@ -12,7 +12,7 @@
 
 동일 slot에 연결 리스트로 저장하는 방법
 
-<img src="../../../.gitbook/assets/file.excalidraw (10).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (10) (1).svg" alt="" class="gitbook-drawing">
 
 각 해시 테이블 slot T\[j]는 해시 값이 j인 모든 키를 연결 리스트로 저장하여 충돌을 해결합니다.
 

@@ -71,7 +71,7 @@ Http 어플리케이션이 현재 맺고 있는 커넥션에만 적용될 옵션
 
 #### 성능 개선
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (3) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (3) (1).svg" alt="" class="gitbook-drawing">
 
 ※브라우저는 대부분 4개의 병렬 커넥션만 허용한다.
 
