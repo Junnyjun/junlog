@@ -120,6 +120,8 @@
   * [Error](infra/k8s/error/README.md)
     * [8080 refuse](infra/k8s/8080-refuse.md)
     * [Network CNI Error](infra/k8s/network-cni-error.md)
+* [🗯 GIT](infra/git/README.md)
+  * [gitignore](infra/git/gitignore.md)
 
 ## Computer Science
 
