@@ -99,6 +99,7 @@
   * [Argo](infra/ci-and-cd/argo.md)
 * [🎛 LINUX](infra/infra.md)
   * [error](infra/infra/error/README.md)
+    * [No child processes](infra/infra/error/no-child-processes.md)
     * [Too many open files](infra/infra/error/too-many-open-files.md)
   * [Command](infra/infra/command/README.md)
     * [awk](infra/infra/command/awk.md)
