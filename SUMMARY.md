@@ -122,6 +122,7 @@
     * [Network CNI Error](infra/k8s/network-cni-error.md)
 * [🗯 GIT](infra/git/README.md)
   * [gitignore](infra/git/gitignore.md)
+  * [Author 변경](infra/git/author.md)
 
 ## Computer Science
 
