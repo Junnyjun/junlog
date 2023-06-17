@@ -6,7 +6,7 @@
 
 엔티티 매니저 팩토리는 여러 스레드가 동시에 접근해도 안전하므로 서로 다른 스레드 간에 공유해도 되지만, 엔티티 매니저는 여러 스레드가 동시에 접근하면 동시성 문제가 발생하므로 스레드 간에 절대 공유하면 안 된다.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### 영속성 컨텍스트란?
 
@@ -29,7 +29,7 @@ em.persist(member);
 * 준영속(detacked): 영속성 컨텍스트에 저장되었다가 분리된 상태
 * 삭제(removed): 삭제된 상태
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 #### 비영속
 
@@ -96,7 +96,7 @@ em.remove(member);
 3. 조회한 데이터로 member2 엔티티를 생성해서 1차 캐시에 저장한다.
 4. 조회한 엔티티를 반환한다.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 #### 영속 엔티티의 동일성 보장
 
@@ -201,7 +201,7 @@ em.persist()를 호출해서 엔티티들을 영속 상태로 만든 후에, JPQ
 
 merge() 메소드는 준영속 상태의 엔티티를 받아서 그 정보로 새로운 영속 상태의 엔티티를 반환한다.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 1. merge()를 실행한다.
 2.  파라미터로 넘어온 준영속 엔티티의 식별자 값으로 1차 캐시에서 엔티티를 조회한다.
