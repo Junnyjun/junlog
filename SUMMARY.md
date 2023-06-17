@@ -444,5 +444,7 @@
     * [부호화와 발전](study/books/undefined-7/undefined-2.md)
     * [복제](study/books/undefined-7/undefined-3.md)
     * [파티셔닝](study/books/undefined-7/undefined-4.md)
+    * [트랜잭션](study/books/undefined-7/undefined-5.md)
     * [분산 시스템의 골칫거리](study/books/undefined-7/page-1.md)
-    * [일관성과 합의](study/books/undefined-7/undefined-5.md)
+    * [일관성과 합의](study/books/undefined-7/undefined-6.md)
+    * [파생데이터](study/books/undefined-7/undefined-7.md)
