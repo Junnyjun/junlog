@@ -448,3 +448,5 @@
     * [분산 시스템의 골칫거리](study/books/undefined-7/page-1.md)
     * [일관성과 합의](study/books/undefined-7/undefined-6.md)
     * [일괄 처리](study/books/undefined-7/undefined-7.md)
+  * [📓 운영체제](study/books/undefined-8/README.md)
+    * [Page 1](study/books/undefined-8/page-1.md)
