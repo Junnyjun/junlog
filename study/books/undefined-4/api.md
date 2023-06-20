@@ -1,49 +1,55 @@
-# 프로세스 API
+# CPU 가상화 구현 - 제한적 직접 실행
 
-#### fork() 시스템 콜
+### 1. CPU 가상화 구현
 
-<figure><img src="https://blog.kakaocdn.net/dn/Sm8TL/btrhNph5yTh/cLGW0PTr6jWZorK4z6kQ0K/img.png" alt="" width="479"><figcaption></figcaption></figure>
+CPU 가상화를 구현하기 위해서 Time sharing 방식을 이용한다. 프로세스들이 일정한 시간마다 CPU를 나눠쓰는 방식이다.\
+이러한 Time sharing 방식을 빠르고 효율적으로 진행시키기 위해 운영체제 개발자들은 _제한적 직접 실행(Limited Direct Execution)_ 이라는 기법을 개발했다. 이에 대해 자세히 알아보자.
 
-fork()로 생성된 프로세스는 호출한 프로세스의 복사본이다.\
-자식 프로세스는 main()에서 시작하지 않고, fork()를 호출한 시점에서 시작한다.&#x20;
+먼저 _직접실행_ 은 간단하다. 단순히 CPU가 프로세스를 실행한다는 것을 의미한다. 하지만 여기서 2가지 문제가 발생한다.
 
-자식 프로세스는 부모 프로세스와 완전히 동일하지는 않다.\
-자식 프로세스는 자신의 주소 공간, 자신의 레지스터, 자신의 PC값을 갖는다.
+1. 프로세스가 특수한 종류의 연산을 수행하길 원한다면 어떻게 할 것인가?
+2. 어떤 프로세스를 다음에 실행시킬 것인가?
 
-또한 fork() 시스템 콜의 반환 값이 서로 다르다.\
-fork()로부터 부모 프로세스는 생성된 자식의 프로세스의 PID를 반환받고, 자식 프로세스는 0을 반환받는다.
+### 2. 문제1 : 제한된 연산
 
-<figure><img src="https://blog.kakaocdn.net/dn/smQBZ/btrhMmzeOlt/VdmvoKlF9qWBqEjEb2VK90/img.png" alt="" width="375"><figcaption></figcaption></figure>
+#### 2.1 사용자모드와 커널모드
 
-단일 CPU 시스템에서 이 프로그램을 실행하면 프로세스가 생성되는 시점에 2개의 프로세스 중 하나가 실행된다.
+프로세스가 아무 파일에 접근하고, 메모리를 수정한다면 심각한 오류가 발생할 것이다. 따라서 OS는 모드를 2가지로 나눴다.
 
-위와 같이 실행 순서가 달라질 수 있다.\
-CPU 스케줄러(Scheduler)는 실행할 프로세스를 선택한다.
+1. 사용자 모드(user mode)
+2. 커널 모드(kernel mode)
 
-스케줄러의 동작은 복잡하고 상황에 따라 다른 선택이 이루어지기 때문에,\
-어느 프로세스가 먼저 실행된다라고 단정하기 어렵다.
+사용자 모드에서는 실행할 수 있는 코드가 제한되도록 하고 커널모드에서 중요한 코드를 실행하도록 하는 것이다.
 
-이 비결정성(Nondeterminism)으로 인해 멀티 쓰레드 프로그램 실행 시 다양한 문제가 발생한다.&#x20;
+그렇다면 사용자가 특권 명령어를 실행하고 싶다면 어떻게 해야할까?\
+이를 해결하기 위해 OS는 _시스템콜_ 을 제공한다. 시스템콜을 실행하기 위해서는 `trap`이라는 특수 명령어를 실행해야 한다. 이 명령어를 실행하면, 권한을 커널모드로 상향시킨다. 그리고 프로세스가 커널모드에서 처리해야할 작업을 마치면 `return-from-trap` 명령어를 호출에 다시 사용자 모드로 권한을 하향시킨다.
 
-#### wait() 시스템 콜
+#### 2.2 trap과 interrupt
 
-<figure><img src="https://blog.kakaocdn.net/dn/ppuIi/btrhMJAWnsC/7I9OT8SwiGt4Armdkl4F10/img.png" alt="" width="375"><figcaption></figcaption></figure>
+우리는 이전에 프로세스의 상태에 대한 그림에서 `running` 에서 `ready` 상태가 되는 것은 `interrupt`로 인해 발생한다고 그렸다. 여기서 `interrupt`의 의미를 살펴보면, `interrupt`는 CPU의 정상 진행을 방해한다는 의미로, CPU의 진행을 멈추게 하는 역할을 한다. 이러한 `interrupt`는 크게 2가지로 나뉜다. 오류, 에러등으로 인해 발생하는 내부 인터럽트와 타이머 인터럽트(일정 시간의 간격마다 지속적으로 인터럽트를 발생시키는 것) 혹은 I/O 에 의해 발생하는 외부 인터럽트이다.\
+`trap`과 매우 비슷한 의미로 보이지만 다소 차이점이 있다. `interrupt`는 하드웨어에 의해서 발생하고, `trap`은 소프트웨어에 의해 발생한다는 점이다.
 
-<figure><img src="https://blog.kakaocdn.net/dn/cWxUZ2/btrhOIgZSiG/cK6abYKaswj8BYAqtSsiBk/img.png" alt="" width="375"><figcaption></figcaption></figure>
+### 3. 문제2 : 프로세스간 전환
 
-부모 프로세스는 wait() 시스템 콜을 호출하여 자식 프로세스 종료 시점까지 \
-자신의 실행을 잠시 중지시킨다.
+이제 2번째 문제에 대해 살펴보자. 프로세스를 어떤 기준으로 전환할 것인가.\
+2가지 방식이 있다.
 
-자식 프로세스가 종료되면 wait()는 리턴한다.
+1. 협조 방식(cooperative) : 시스템콜 기다리기\
+   말그대로 진행중인 프로세스가 스스로 시스템콜을 보내, 운영체제가 다시 CPU의 제어권을 갖게 하는 것이다. 하지만 이 방식이 제대로 작동하려면, 프로세스를 신뢰할 수 있어야 한다는 전제가 필요하다.
+2. 비협조 방식 : 운영체제가 전권을 행사\
+   위에서 언급한 `Timer interrupt`를 이용해 일정 시간마다 `interrupt`를 발생시켜 운영체제가 CPU의 제어권을 얻는 방식이다. `interrupt`가 발생하면 현재 수행중인 프로세스는 중단되고 미리 구성된 운영체제의 인터럽트 핸들러가 실행된다. 이 시점에 운영체제는 CPU 제어권을 얻게되는 것이다.
 
-#### exec() 시스템 콜
+### 4. 부팅 \~ 타이머 인터럽트를 통한 프로세스 전환까지의 과정
 
-exec() 시스템 콜은 자기 자신이 아닌 다른 프로그램을 실행해야 할 때 사용한다.
+> (부팅중)
+>
+> 1. 운영체제 : 트랩테이블 초기화, 인터럽트 타이머 시작시키기
+> 2. 하드웨어 : 타이머 시작
 
-<figure><img src="https://blog.kakaocdn.net/dn/2KvkB/btrhNojcZvs/87xakLV0sT6APQaFYEAAKk/img.png" alt="" width="375"><figcaption></figcaption></figure>
-
-<figure><img src="https://blog.kakaocdn.net/dn/ldJH4/btrhLSr2iEi/kKRv1LEwxX92DKkUAehXpk/img.png" alt="" width="375"><figcaption></figcaption></figure>
-
-wc는 파일의 line 수, 단어 수, 바이트를 세는 프로그램이다.
-
-&#x20;
+> (부팅완료)
+>
+> 3. 사용자모드 : 프로세스 A 실행
+> 4. 하드웨어 : `Timer interrupt` 발생, 프로세스 A 레지스터를 커널 스택에 저장, 커널모드 이동, 트랩핸들러 분기
+> 5. 운영체제 : `Trap`처리, 프로세스 B로 전환, `return-from-trap` 실행
+> 6. 하드웨어 : B의 커널스택을 B의 레지스터로 저장, 사용자모드로 이동
+> 7. 사용자모드 : 프로세스 B 실행
