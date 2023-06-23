@@ -6,7 +6,7 @@
 
 JSP와 비슷하지만 JSP는 HTML 문서 안에 Java코드를 포함하는 반면, 서블릿은 자바코드안에 HTML을 포함하고 있다는 점에서 차이점이 있다.
 
-<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (3) (2).svg" alt="" class="gitbook-drawing">
 
 Servlet Life-Sycle
 
