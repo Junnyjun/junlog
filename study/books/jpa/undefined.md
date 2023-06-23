@@ -29,7 +29,7 @@ em.persist(member);
 * 준영속(detacked): 영속성 컨텍스트에 저장되었다가 분리된 상태
 * 삭제(removed): 삭제된 상태
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
 #### 비영속
 
@@ -96,7 +96,7 @@ em.remove(member);
 3. 조회한 데이터로 member2 엔티티를 생성해서 1차 캐시에 저장한다.
 4. 조회한 엔티티를 반환한다.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 #### 영속 엔티티의 동일성 보장
 
