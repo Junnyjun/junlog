@@ -86,7 +86,7 @@ Peer들간 트래픽을 확인하기 위한 로깅은 `.wiretap(true)`  로 설�
 
 ## Event Loop
 
-<img src="../../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 이벤트 루프는 Netty의 핵심 요소 중 하나입니다. 이벤트 루프는 Netty의 비동기 처리 및 다중 스레드 모델의 핵심입니다.
 

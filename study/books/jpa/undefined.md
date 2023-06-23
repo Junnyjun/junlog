@@ -96,7 +96,7 @@ em.remove(member);
 3. 조회한 데이터로 member2 엔티티를 생성해서 1차 캐시에 저장한다.
 4. 조회한 엔티티를 반환한다.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 #### 영속 엔티티의 동일성 보장
 
@@ -201,7 +201,7 @@ em.persist()를 호출해서 엔티티들을 영속 상태로 만든 후에, JPQ
 
 merge() 메소드는 준영속 상태의 엔티티를 받아서 그 정보로 새로운 영속 상태의 엔티티를 반환한다.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 1. merge()를 실행한다.
 2.  파라미터로 넘어온 준영속 엔티티의 식별자 값으로 1차 캐시에서 엔티티를 조회한다.

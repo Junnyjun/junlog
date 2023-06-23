@@ -3,7 +3,12 @@
 운영체제는 프로그램이 실행되는 환경을 제공해준다.\
 운영체제가 제공하는 서비스, 인터페이스, 관점에 대해 살펴본다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 ## 운영체제 서비스
 
+운영체제는 프로그램과 사용자에게 특정 서비스를 제공한다.
+
+**사용자 인터페이스** : GUI나 터치스크린 CLI같은 사용자 인터페이슬르 제공한다\
+**프로그램 수행** : 메모리에 프로그램을 적재하여 실행할 수 있어야 한다\
+**입출력 연산 :** 대한 연연산을 지원해야 한다&#x20;
