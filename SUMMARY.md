@@ -451,3 +451,4 @@
   * [📓 운영체제](study/books/undefined-8/README.md)
     * [서론](study/books/undefined-8/undefined.md)
     * [운영체제 구조](study/books/undefined-8/undefined-1.md)
+    * [프로세스](study/books/undefined-8/undefined-2.md)
