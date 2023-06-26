@@ -70,6 +70,7 @@
 * [☁ Cloud](spring/cloud/README.md)
   * [Eureka](spring/cloud/eureka/README.md)
     * [Service discovery](spring/cloud/eureka/service-discovery.md)
+    * [Eureka setting](spring/cloud/eureka/eureka-setting.md)
 * [🗝 Core](spring/common/README.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)

@@ -28,4 +28,4 @@ Secret Text에 차례로  Token, Git Id, desc를 작성후 Test connection로 �
 Git repository 설정에 들어가 add web hook을 선택한뒤 차례대로\
 {jenkins\_path}/github-webhook 를 작성후 , push event를 선택하여 추가한다
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="466"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt="" width="466"><figcaption></figcaption></figure>
