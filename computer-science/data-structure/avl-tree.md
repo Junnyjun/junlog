@@ -24,7 +24,7 @@ BF가 0이면 왼쪽 서브트리와 오른쪽 서브트리의 높이가 같다�
 BF가 -1이면 왼쪽 서브트리가 오른쪽 서브트리보다 높이가 한단계 낮다는 것을 의미합니다.
 ```
 
-<img src="../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (1) (2).svg" alt="" class="gitbook-drawing">
 
 ### Rotation
 

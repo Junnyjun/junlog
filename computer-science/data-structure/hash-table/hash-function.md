@@ -2,7 +2,7 @@
 
 임의의 길이의 키값을 고정된 길이의 해시로 변환해주는 맵핑 함수입니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 <pre><code>Key 
 <strong>- 자연수로 가정 ( 만약 자연수가 아닌 character나 string의 형태라면 자연수 형태로 변형하여 사용합니다. )
