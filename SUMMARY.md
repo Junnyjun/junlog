@@ -456,6 +456,8 @@
     * [서론](study/books/undefined-8/undefined.md)
     * [운영체제 구조](study/books/undefined-8/undefined-1.md)
     * [프로세스](study/books/undefined-8/undefined-2.md)
+    * [쓰레드](study/books/undefined-8/undefined-3.md)
+    * [Page 1](study/books/undefined-8/page-1.md)
   * [📕 쿠버네티스 완벽가이드](study/books/undefined-9/README.md)
     * [도커 복습과 Kubernetes](study/books/undefined-9/kubernetes.md)
     * [왜 쿠버네티스가 필요할까?](study/books/undefined-9/undefined.md)
