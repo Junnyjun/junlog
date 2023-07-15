@@ -63,7 +63,7 @@
     * [GC](jvm/jvm/gc.md)
 * [🆙 Testing](jvm/testing/README.md)
   * [Junit](jvm/testing/junit/README.md)
-    * [Page 2](jvm/testing/junit/page-2.md)
+    * [소개](jvm/testing/junit/page-2.md)
 
 ## Spring
 
