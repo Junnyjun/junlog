@@ -145,7 +145,7 @@ Stream<int[]> pythagoreanTriples = IntStream.rangeClose(1, 100).boxed()
       .filter(t -> t[2] % 1 == 0));
 ```
 
-***
+
 
 #### 5.8 스트림 만들기
 

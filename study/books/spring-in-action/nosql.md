@@ -12,7 +12,7 @@ MongoDB : 오픈소스 도큐먼트 데이터(비정규화 된  구조의 정보
 
 스프링 데이터 JPA와 달리, 스프링 데이터 MongoDB는 자바 객체를 도큐먼트에 매핑하기 위한 애너테이션을 제공. 또한 MongoDB는 다수의 일반 도큐먼트 처리 태스크를 위한 템플릿 기반 데이터 액세스를 제공
 
-***
+
 
 **MongoDB 활성화**
 
@@ -48,7 +48,7 @@ public Mongo mongo() throws Exception {
 }
 ```
 
-***
+
 
 **MongoDB 퍼시스턴트를  위한 애너테이션 모델 타입**
 
@@ -94,7 +94,7 @@ MongoDB는 객체-도큐먼트 매핑 애너테이션을 가지지  않으며, �
 
 <figure><img src="https://blog.kakaocdn.net/dn/ZPWjv/btqz8YVj9UB/50EOMw3DTeIHyoyOPzjiEk/img.png" alt=""><figcaption><p>데이터 관계는 가지지만, 비정규화 되어있음</p></figcaption></figure>
 
-***
+
 
 **MongoTemplate을 사용하여 MongoDB 액세스**
 
@@ -140,7 +140,7 @@ List<Order> chucksWebOrders = mongo.find(Query.query(
 mongo.remove(order);
 ```
 
-***
+
 
 **MongoDB 저장소 작성**
 
@@ -167,7 +167,7 @@ List\<Order> findByCustomer(String c) - 등
 
 <figure><img src="https://blog.kakaocdn.net/dn/baMqnP/btqz8xwU0KE/c6y2DcSiLEOZqPc03k3uNK/img.png" alt=""><figcaption></figcaption></figure>
 
-***
+
 
 쿼리 지정 하기
 
@@ -180,7 +180,7 @@ List<Order> findChucksOrders(String t);
 
 \-> JPA와 동일
 
-***
+
 
 맞춤형 저장소 혼합
 
@@ -220,7 +220,7 @@ public interface OrderRepository
 
 &#x20;
 
-***
+
 
 #### Neo4j로 그래프 데이터 사용하기
 
@@ -228,7 +228,7 @@ Neo4j : 그래프 데이터베이스 - 관계를 저장하고 탐색하도록 �
 
 \* MongoDB와 JPA와 동일한 기능을 제공한다
 
-***
+
 
 **스프링으로 Neo4j 설정하기**
 
@@ -260,7 +260,7 @@ public class Neo4jConfig extends Neo4jConfiguration {
 }
 ```
 
-***
+
 
 #### 그래프 엔티티 애너테이션
 
@@ -371,7 +371,7 @@ lineItem.setQuantity(5);
 neo4j.save(lineItem);
 ```
 
-***
+
 
 #### 자동 저장소 만들기
 
@@ -393,7 +393,7 @@ public interface OrderRepository extends GraphRepository<Order> {}
 
 \* Order saveOrder = orderRepository.save(order) 등, 간단하게 사용 가능
 
-***
+
 
 **맞춤형 쿼리 메소드**
 
@@ -416,7 +416,7 @@ public interface OrderRepository extends GraphRepository<Order> {
 List<Order> findSiAOrders();
 ```
 
-***
+
 
 **맞춤형 저장소 동작 혼합**
 
@@ -465,7 +465,7 @@ public class OrderRepositoryImpl implements OrderOperations {
 }
 ```
 
-***
+
 
 #### Redis에서 키-값 데이터 사용
 
@@ -475,7 +475,7 @@ public class OrderRepositoryImpl implements OrderOperations {
 
 \* 스프링 데이터 Redis는, 데이터베이스에서  데이터를 가져오고, 저장하기 위한 템플릿을 구현
 
-***
+
 
 **Redis에 연결하기**
 
@@ -496,7 +496,7 @@ public RedisConnectionFactory redisCF() {
 }
 ```
 
-***
+
 
 **RedisTemplate 사용하기**
 
@@ -587,7 +587,7 @@ cart.rightPush(product2);
 
 <figure><img src="https://blog.kakaocdn.net/dn/7nnen/btqz9t8869a/qkFrZXSa4V912lidx1NKkK/img.png" alt=""><figcaption><p>redisTemplate의 다양한  메소드</p></figcaption></figure>
 
-***
+
 
 **키와 값의 직렬 변환 설정**
 

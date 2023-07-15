@@ -74,7 +74,7 @@ Map<String, Integer> ageOfFrieds = Map.ofEntries(
   entry("Thibaut", 26));
 ```
 
-***
+
 
 #### 8.2 리스트와 집합 처리
 
@@ -158,7 +158,7 @@ for(ListIterator<String> iterator = referenceCodes.listIterator(); iterator.hasN
 referenceCodes.replaceAll(code -> Character.toUpperCase(code.charAt(0)) + code.subString(1));
 ```
 
-***
+
 
 #### 8.3 맵 처리
 
@@ -275,7 +275,7 @@ friends.forEach((k, v) ->
   everyone.merge(k, v, (movie1, movie2) -> movie1 + " & " + movie2));
 ```
 
-***
+
 
 #### 8.4 개선된 ConcurrentHashMap
 

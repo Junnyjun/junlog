@@ -9,7 +9,7 @@
 * 커맨드라인 인터페이스 - 스프링 어플리케이션 개발을 더 간단하게 해주기 위해, 자동 설정에서 그루비 프로그래밍 언어의 장점 활용
 * 액추에이터  - 스프링 부트 어플리케이션에 특정 관리 기능 추가
 
-***
+
 
 #### 1.1 스타터 의존 추가
 
@@ -52,7 +52,7 @@ dependencies {
 
 <figure><img src="https://blog.kakaocdn.net/dn/cRSKUn/btqAY7D3yyO/tyVupUgFKwk4j2qngMEym0/img.png" alt=""><figcaption><p>스프링 부트의 다양한 스타터들</p></figcaption></figure>
 
-***
+
 
 #### 1.2 자동 설정
 
@@ -64,7 +64,7 @@ dependencies {
 
 \* 스프링 MVC를 사용하기 위해, 웹 스타터를 추가하면 되며 마찬가지로 자동으로 필요한 빈을 생성해준다 => 남은 것은 요청을 처리하는 컨트롤러 클래스 작성 뿐
 
-***
+
 
 #### 1.3 스프링 부트 CLI
 
@@ -82,7 +82,7 @@ class Hi {
 
 \* 해당 그루비 스크립트를, CLI가 깔려있다면 \[$ spring run.Hi.groovy ] 라는 명령어로, 실행할 수 있다.
 
-***
+
 
 #### 1.4 액추에이터
 
@@ -93,7 +93,7 @@ class Hi {
 * 어플리케이션의 정보를 전달하는 /info 엔드포인트
 * 스프링 시큐리티가 동작할 때 검증 이벤트 프레임워크
 
-***
+
 
 ### 2. 스프링 부트로 애플리케이션 만들기
 
@@ -171,7 +171,7 @@ task wrapper(type: Wrapper) {
 
 <figure><img src="https://blog.kakaocdn.net/dn/bALoSm/btqA2bSWBPk/YhZ59kMjH06ZJHLUjbIfr1/img.png" alt=""><figcaption><p>어플리케이션의 구조는 다음과  같다</p></figcaption></figure>
 
-***
+
 
 #### 2.1 요청 처리하기
 
@@ -244,7 +244,7 @@ public class Contact {
 
 \=> 남은 것은 home 뷰를 정의하는 것
 
-***
+
 
 2.2 뷰 만들기
 
@@ -306,7 +306,7 @@ compile("org.thymeleaf:thymeleaf-spring4")
 
 \=> Thymeleaf는 클래스패스의 루트인 templates 디렉터리에서 검색하므로, 반드시 src/main/resources/templates 하위에 있어야함
 
-***
+
 
 #### 2.3 정적 아티팩트 추가하기
 
@@ -333,7 +333,7 @@ label {
 }
 ```
 
-***
+
 
 #### 2.4 데이터 보존하기
 
@@ -413,7 +413,7 @@ create table contacts (
 );
 ```
 
-***
+
 
 ### 2.5 실행하기
 
@@ -449,13 +449,13 @@ war {		// WAR파일로 빌드
 
 ### &#x20;
 
-***
+
 
 ### 3. 그루비 사용
 
 ~~**=> 그루비는 쓸 때, 찾아보아도 될 것 같아 생략**~~
 
-***
+
 
 ### 4. 액추에이터로 애플리케이션 파악하기
 
