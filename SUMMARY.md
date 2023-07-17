@@ -467,4 +467,5 @@
   * [📗 코틀린 동시성 프로그래밍](study/books/undefined-10/README.md)
     * [Concurrent ?](study/books/undefined-10/concurrent.md)
     * [Thread ?](study/books/undefined-10/thread.md)
-    * [Page 2](study/books/undefined-10/page-2.md)
+    * [lifecycle ?](study/books/undefined-10/lifecycle.md)
+    * [suspend ?](study/books/undefined-10/suspend.md)
