@@ -475,4 +475,4 @@
     * [mutex ?](study/books/undefined-10/mutex.md)
   * [아파치 카프카 애플리케이션 프로그래밍 with 자바](study/books/with/README.md)
     * [카프카란?](study/books/with/undefined.md)
-    * [Page 1](study/books/with/page-1.md)
+    * [SETTING](study/books/with/setting.md)
