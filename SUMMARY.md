@@ -67,6 +67,8 @@
 
 ## Spring
 
+* [🌫 Data](spring/data/README.md)
+  * [GraphQl](spring/data/graphql.md)
 * [☁ Cloud](spring/cloud/README.md)
   * [Eureka](spring/cloud/eureka/README.md)
     * [Service discovery](spring/cloud/eureka/service-discovery.md)
@@ -86,7 +88,7 @@
 
 * [🧮 NOSQL](db/nosql/README.md)
   * [🥭 MONGO](db/mongo.md)
-* [💎 ELASTIC](db/elastic.md)
+  * [💎 ELASTIC](db/nosql/elastic.md)
 * [🗒 RDB](db/db/README.md)
   * [default](db/db/default.md)
     * [Covering Index](db/db/default/covering-index.md)
