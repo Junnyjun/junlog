@@ -68,7 +68,8 @@
 ## Spring
 
 * [🌫 Data](spring/data/README.md)
-  * [GraphQl](spring/data/graphql.md)
+  * [GraphQL](spring/data/graphql/README.md)
+    * [Setting](spring/data/graphql/setting.md)
 * [☁ Cloud](spring/cloud/README.md)
   * [Eureka](spring/cloud/eureka/README.md)
     * [Service discovery](spring/cloud/eureka/service-discovery.md)

@@ -66,7 +66,7 @@ eureka:
 
 을 지정해 준뒤  실행하면&#x20;
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### CLIENT SETTING
 

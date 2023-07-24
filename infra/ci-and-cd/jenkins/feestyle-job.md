@@ -7,7 +7,7 @@
 수동 & 자동이 있다.
 
 수동으로 빌드하는 방법은 해당 버튼을 사용하면 된다.\
-![](<../../../.gitbook/assets/image (8).png>)
+![](<../../../.gitbook/assets/image (8) (1).png>)
 
 자동으로 빌드하는 방법중 깃웹훅과 Build periodically 를 가장 자주 사용한다.
 
@@ -16,7 +16,7 @@
 설정에 따라 shell, gradle, maven 등이 있다\
 그중, 자유도가 높은 excuteShell로 예시
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt="" width="201"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt="" width="201"><figcaption></figcaption></figure>
 
 ### Build 후 조치
 
