@@ -23,4 +23,4 @@ Servlet Life-Sycle
 | 장점 | <p>간단한 데이터를 빠르게 전송<br>form tag뿐만 아니자 직접 URL에 입력하여 전송가능</p> | <p>데이터의 제한이 없음.<br>최소한의 보안유지 효과를 볼 수 있음</p>                |
 | 단점 | <p>데이터양에 제한이 있다<br>(URL창만큼)<br>보안상의 문제</p>                 | <p>전달 데이터의 양이 같은 경우 GET보다 느리다<br>(전송패킷을 body에 구성해야하므로)</p> |
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>

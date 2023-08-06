@@ -482,5 +482,6 @@
     * [iterator ?](study/books/undefined-10/iterator.md)
     * [mutex ?](study/books/undefined-10/mutex.md)
   * [📙 아파치 카프카 애플리케이션 프로그래밍 with 자바](study/books/with/README.md)
-    * [카프카란?](study/books/with/undefined.md)
-    * [SETTING](study/books/with/setting.md)
+    * [들어가며](study/books/with/undefined.md)
+    * [카프카 빠르게 시작해보기](study/books/with/undefined-1.md)
+    * [카프카 기본 개념 설명](study/books/with/undefined-2.md)

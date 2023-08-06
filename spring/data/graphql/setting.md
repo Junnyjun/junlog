@@ -15,7 +15,7 @@
 
 옵션을 선택 `Environment Variable`하고 `PG_DATABASE_URL`환경 변수 이름으로 입력
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. setup demmy
 
