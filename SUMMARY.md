@@ -68,9 +68,10 @@
 ## Spring
 
 * [🌫 Data](spring/data/README.md)
-  * [Page 1](spring/data/page-1.md)
+  * [Neo4j](spring/data/neo4j.md)
   * [GraphQL](spring/data/graphql/README.md)
     * [Setting](spring/data/graphql/setting.md)
+  * [MongoDB](spring/data/mongodb.md)
 * [☁ Cloud](spring/cloud/README.md)
   * [Eureka](spring/cloud/eureka/README.md)
     * [Service discovery](spring/cloud/eureka/service-discovery.md)
@@ -108,7 +109,7 @@
     * [Github](infra/ci-and-cd/jenkins/github.md)
   * [Argo](infra/ci-and-cd/argo.md)
 * [🎛 LINUX](infra/infra.md)
-  * [error](infra/infra/error/README.md)
+  * [Troubleshooting](infra/infra/error/README.md)
     * [No child processes](infra/infra/error/no-child-processes.md)
     * [Too many open files](infra/infra/error/too-many-open-files.md)
   * [Command](infra/infra/command/README.md)
