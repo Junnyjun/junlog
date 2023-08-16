@@ -129,6 +129,8 @@
     * [Kubelet](infra/k8s/k8s/kubelet.md)
     * [Kubeadm](infra/k8s/k8s/kubeadm.md)
   * [Helm](infra/k8s/helm/README.md)
+  * [Tip](infra/k8s/tip/README.md)
+    * [Control node schedule](infra/k8s/tip/control-node-schedule.md)
   * [Error](infra/k8s/error/README.md)
     * [8080 refuse](infra/k8s/8080-refuse.md)
     * [Network CNI Error](infra/k8s/network-cni-error.md)
