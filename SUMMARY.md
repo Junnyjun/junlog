@@ -491,5 +491,6 @@
     * [들어가며](study/books/with/undefined.md)
     * [카프카 빠르게 시작해보기](study/books/with/undefined-1.md)
     * [카프카 기본 개념 설명](study/books/with/undefined-2.md)
-  * [📘 이펙티브 코틀린](study/books/undefined-11.md)
-  * [가변성을 제한하라](study/books/undefined-12.md)
+  * [📘 이펙티브 코틀린](study/books/undefined-11/README.md)
+    * [가변성을 제한하라](study/books/undefined-11/undefined.md)
+    * [Page 1](study/books/undefined-11/page-1.md)
