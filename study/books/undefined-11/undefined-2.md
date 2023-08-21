@@ -24,3 +24,18 @@ val users: List<User> = UserRepo().users!!.filterNotNull()
 코틀린이 디폴트로 모든 타입을 nullable로 다룬다면, 이를 사용할 때 이러한 리스트와 리스트 내부의 User 객체들이 널 아니라는 것을 알아야 함
 
 그래서 코틀린은 자바 등의 다른 프로그래밍 언어에서 넘어온 타입들을 특수하게 다루고 이러한 타입을 플랫폼 타입이라고 부름
+
+```kotlin
+val repo = UserRepo()
+val user1 = repo.user // user1의 타입 User!
+val user2: User = repo.user // User
+val user3: User? = repo     // User?
+
+val users: List<User> = UserRepo().users
+val users: List<List<User>> = UserRepo().groupedUsers
+```
+
+코틀린에서는 플랫폼 타입은 타입 뒤에 ! 기호를 붙여서 표기함
+
+그러나 문제는 null이 아니라고 생각되는 것이 null일 가능성이 있으므로 여전히 위험하기 때문에 항상 주의를 기울여야 하고 설계자가 명시적으로 어노테이션으로 표기하거나 주석으로 달아두어야함
+
