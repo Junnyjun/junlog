@@ -493,4 +493,5 @@
     * [카프카 기본 개념 설명](study/books/with/undefined-2.md)
   * [📘 이펙티브 코틀린](study/books/undefined-11/README.md)
     * [가변성을 제한하라](study/books/undefined-11/undefined.md)
-    * [Page 1](study/books/undefined-11/page-1.md)
+    * [변수의 스코프를 최소화하라](study/books/undefined-11/undefined-1.md)
+    * [최대한 플랫폼 타입을 사용하지 마라](study/books/undefined-11/undefined-2.md)
