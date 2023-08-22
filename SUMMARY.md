@@ -495,3 +495,5 @@
     * [가변성을 제한하라](study/books/undefined-11/undefined.md)
     * [변수의 스코프를 최소화하라](study/books/undefined-11/undefined-1.md)
     * [최대한 플랫폼 타입을 사용하지 마라](study/books/undefined-11/undefined-2.md)
+    * [inferred 타입으로 리턴하지 말라](study/books/undefined-11/inferred.md)
+    * [Page 1](study/books/undefined-11/page-1.md)
