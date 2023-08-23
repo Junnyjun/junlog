@@ -496,4 +496,8 @@
     * [변수의 스코프를 최소화하라](study/books/undefined-11/undefined-1.md)
     * [최대한 플랫폼 타입을 사용하지 마라](study/books/undefined-11/undefined-2.md)
     * [inferred 타입으로 리턴하지 말라](study/books/undefined-11/inferred.md)
+    * [예외를 활용해 코드에 제한을 걸어라](study/books/undefined-11/undefined-3.md)
+    * [사용자 정의 오류보다는 표준 오류를 사용하라](study/books/undefined-11/undefined-4.md)
+    * [결과 부족이 발생할 경우 null과 failure를 사용하라](study/books/undefined-11/null-failure.md)
+    * [적절하게 null을 처리하라](study/books/undefined-11/null.md)
     * [Page 1](study/books/undefined-11/page-1.md)
