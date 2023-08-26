@@ -500,4 +500,6 @@
     * [사용자 정의 오류보다는 표준 오류를 사용하라](study/books/undefined-11/undefined-4.md)
     * [결과 부족이 발생할 경우 null과 failure를 사용하라](study/books/undefined-11/null-failure.md)
     * [적절하게 null을 처리하라](study/books/undefined-11/null.md)
+    * [use를 사용하여 리소스를 닫아라](study/books/undefined-11/use.md)
+    * [단위 테스트를 만들어라](study/books/undefined-11/undefined-5.md)
     * [Page 1](study/books/undefined-11/page-1.md)
