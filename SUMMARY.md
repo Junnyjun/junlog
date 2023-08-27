@@ -502,4 +502,6 @@
     * [적절하게 null을 처리하라](study/books/undefined-11/null.md)
     * [use를 사용하여 리소스를 닫아라](study/books/undefined-11/use.md)
     * [단위 테스트를 만들어라](study/books/undefined-11/undefined-5.md)
+    * [가독성을 목표로 설계하라](study/books/undefined-11/undefined-6.md)
+    * [연산자 오버로드를 할 때는 의미에 맞게 사용하라](study/books/undefined-11/undefined-7.md)
     * [Page 1](study/books/undefined-11/page-1.md)
