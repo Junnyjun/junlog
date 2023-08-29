@@ -507,3 +507,4 @@
     * [Unit?을 리턴하지 말라](study/books/undefined-11/unit.md)
     * [변수 타입이 명확하지 않은 경우 확실하게 지정하라](study/books/undefined-11/undefined-8.md)
     * [리시버를 명시적으로 참조하라](study/books/undefined-11/undefined-9.md)
+    * [프로퍼티는 동작이 아니라 상태를 나타내야 한다.](study/books/undefined-11/untitled.md)
