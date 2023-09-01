@@ -94,6 +94,7 @@
   * [💎 ELASTIC](db/nosql/elastic.md)
 * [🗒 RDB](db/db/README.md)
   * [default](db/db/default.md)
+    * [Cardinality](db/db/default/cardinality.md)
     * [Covering Index](db/db/default/covering-index.md)
 
 ## INFRA
