@@ -510,3 +510,4 @@
     * [리시버를 명시적으로 참조하라](study/books/undefined-11/undefined-9.md)
     * [프로퍼티는 동작이 아니라 상태를 나타내야 한다.](study/books/undefined-11/untitled.md)
     * [Page 1](study/books/undefined-11/page-1.md)
+    * [Page 2](study/books/undefined-11/page-2.md)
