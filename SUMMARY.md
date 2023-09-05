@@ -514,3 +514,4 @@
     * [knowledge를 반복하여 사용하지 말라](study/books/undefined-11/knowledge.md)
     * [일반적인 알고리즘을 반복해서 구현하지 말라](study/books/undefined-11/undefined-12.md)
     * [일반적인 프로퍼티 패턴은 프로퍼티 위임으로 만들어라](study/books/undefined-11/undefined-13.md)
+    * [Page 1](study/books/undefined-11/page-1.md)
