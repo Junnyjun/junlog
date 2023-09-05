@@ -514,4 +514,8 @@
     * [knowledge를 반복하여 사용하지 말라](study/books/undefined-11/knowledge.md)
     * [일반적인 알고리즘을 반복해서 구현하지 말라](study/books/undefined-11/undefined-12.md)
     * [일반적인 프로퍼티 패턴은 프로퍼티 위임으로 만들어라](study/books/undefined-11/undefined-13.md)
+    * [일반적인 알고리즘 구현 시 제네릭을 써라](study/books/undefined-11/undefined-14.md)
+    * [타입 파라미터의 섀도잉을 피하라](study/books/undefined-11/undefined-15.md)
+    * [제네릭 타입과 variance 한정자를 활용하라](study/books/undefined-11/variance.md)
+    * [공통 모듈을 추출해서 여러 플랫폼에서 재사용하라](study/books/undefined-11/undefined-16.md)
     * [Page 1](study/books/undefined-11/page-1.md)
