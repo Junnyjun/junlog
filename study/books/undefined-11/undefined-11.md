@@ -19,7 +19,7 @@
 
 코틀린에서 많은 파라미터를 갖고있는 클래스, 함수는 각각의 파라미터를 한 줄씩 작성하는 방법을 사용한다
 
-```
+```kotlin
 class Person(
     val id: Int =0,
     val name: String ="",
