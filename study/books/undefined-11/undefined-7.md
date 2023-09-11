@@ -25,7 +25,7 @@ infix를 활용한 확장 함수를 사용하자
   3 timeRepeated { print("Hello")}
 ```
 
-톱 레벨 함수를 사용하자
+#### 톱 레벨 함수를 사용하자
 
 #### 규칙을 무시해도 되는 경우
 
@@ -34,7 +34,7 @@ DSL를 설계할 때는 연산자 오버로딩 규칙을 무시해도 된다.
 ```kotlin
 body{
   div{
-+"Some text"
-}
+   +"Some text"
+  }
 }
 ```

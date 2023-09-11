@@ -15,7 +15,7 @@ var list: MutableList<Int> = mutableListOf()
 
 _상태를 가지는 클래스 예시_
 
-```
+```kotlin
 class BankAccount {
     var balance = 0.0
         private set

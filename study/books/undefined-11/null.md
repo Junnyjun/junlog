@@ -24,8 +24,7 @@
 
 #### 의심 없는 nullability 피하기
 
-nullability를 안전하게 처리할 수 있는 함수 사용\
-&#x20; List getOrNull
+nullability를 안전하게 처리할 수 있는 함수 사용 -> `List getOrNull`
 
 어떤 값이 클래스 생성 이후 확실하게 설정된다는 보장이 있으면 lateinit 프로퍼티와 notqnull 델리게이트를 사용
 
@@ -38,7 +37,7 @@ nullability를 안전하게 처리할 수 있는 함수 사용\
 lateinit 한정자는 프로퍼티가 이후에 설정될 것임을 명시하는 한정자\
 lateinit 선언이 되어있는데 초기화 안하고 사용시 예외발생
 
-장점
+#### 장점
 
 ```
 언팩 하지 않아도 된다
@@ -46,7 +45,7 @@ lateinit 선언이 되어있는데 초기화 안하고 사용시 예외발생
 프로퍼티가 초기화된 이후에는 초기화되지 않은 상태로 돌아갈 수 없다.
 ```
 
-단점
+#### 단점
 
 ```
 Int,Long,Double,Boolean과 같은 기본 타입에 사용 불가
