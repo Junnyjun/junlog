@@ -72,7 +72,7 @@ fun main() {
 
 프로퍼티 위임이 어떻게 동작하는지 이해하려면, by가 어떻게 컴파일되는지 보는 것이 좋다. 위와 같은 코드는 아래와 비슷하게 컴파일된다.
 
-```
+```kotlin
 @JvmField
 private val 'token$delegate' =
         LoggingProperty<String?>(null)
@@ -90,7 +90,7 @@ var token: String?
 
 코틀린 stdlib에서 알아 두면 좋은 프로퍼티 델리게이터
 
-```
+```kotlin
 lazy -> 지연 초기화
 Delegates.observable -> 프로퍼티의 데이터가 변할 때마다 callback을 받을 수 있다.
 Delegates.vetoable -> observable과 거의 유사하지만 반환 값이 있다
