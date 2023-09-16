@@ -527,5 +527,6 @@
     * [추상화 규약을 지켜라](study/books/undefined-11/undefined-21.md)
     * [생성자 대신 팩토리 함수를 사용하라](study/books/undefined-11/undefined-22.md)
     * [기본 생성자에 이름 있는 옵션 아규먼트를 사용하라](study/books/undefined-11/undefined-23.md)
-    * [Page 1](study/books/undefined-11/page-1.md)
-    * [Page 2](study/books/undefined-11/page-2.md)
+    * [복잡한 객체를 생성하기 위한 DSL을 정의하라](study/books/undefined-11/dsl.md)
+    * [상속보다는 컴포지션을 사용하라](study/books/undefined-11/undefined-24.md)
+    * [데이터 집합 표현에 data 한정자를 사용하라](study/books/undefined-11/data.md)
