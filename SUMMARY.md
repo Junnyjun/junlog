@@ -532,3 +532,5 @@
     * [데이터 집합 표현에 data 한정자를 사용하라](study/books/undefined-11/data.md)
     * [연산 또는 액션을 전달할 때는 인터페이스 대신 함수 타입을 사용하라](study/books/undefined-11/undefined-25.md)
     * [태그 클래스보다는 클래스 계층을 사용하라](study/books/undefined-11/undefined-26.md)
+    * [equals의 규약을 지켜라](study/books/undefined-11/equals.md)
+    * [Page 1](study/books/undefined-11/page-1.md)
