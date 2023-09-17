@@ -530,3 +530,5 @@
     * [복잡한 객체를 생성하기 위한 DSL을 정의하라](study/books/undefined-11/dsl.md)
     * [상속보다는 컴포지션을 사용하라](study/books/undefined-11/undefined-24.md)
     * [데이터 집합 표현에 data 한정자를 사용하라](study/books/undefined-11/data.md)
+    * [연산 또는 액션을 전달할 때는 인터페이스 대신 함수 타입을 사용하라](study/books/undefined-11/undefined-25.md)
+    * [태그 클래스보다는 클래스 계층을 사용하라](study/books/undefined-11/undefined-26.md)

@@ -4,7 +4,7 @@
 
 DSL을 만들려면 리시버 개념을 이해해야 한다.
 
-```
+```kotlin
 val myPlus: Int.(Int) -> Int = fun Int.(other:Int) = this + other
 
 fun main() {
@@ -18,7 +18,7 @@ fun main() {
 
 위 개념을 사용해 DSL을 구성해보면
 
-```
+```kotlin
 fun createTable(): TableBuilder = table {
     tr {
         for (i in 1..2) {
