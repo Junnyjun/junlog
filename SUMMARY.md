@@ -535,4 +535,8 @@
     * [연산 또는 액션을 전달할 때는 인터페이스 대신 함수 타입을 사용하라](study/books/undefined-11/undefined-25.md)
     * [태그 클래스보다는 클래스 계층을 사용하라](study/books/undefined-11/undefined-26.md)
     * [equals의 규약을 지켜라](study/books/undefined-11/equals.md)
+    * [hashCode의 규약을 지켜라](study/books/undefined-11/hashcode.md)
+    * [compareTo의 규약을 지켜라](study/books/undefined-11/compareto.md)
+    * [필수적이지 않은 부분을 확장 함수로 추출](study/books/undefined-11/undefined-27.md)
+    * [불필요한 객체 생성을 피하라](study/books/undefined-11/undefined-28.md)
     * [Page 1](study/books/undefined-11/page-1.md)
