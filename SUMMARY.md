@@ -43,6 +43,8 @@
     * [base](spring/db/netty/base/README.md)
       * [UDP](spring/db/netty/base/udp.md)
       * [TCP](spring/db/netty/base/tcp.md)
+  * [JNI](jvm/clean-architecture/jni/README.md)
+    * [Register](jvm/clean-architecture/jni/register.md)
 * [🔮 KOTLIN](jvm/kotlin/README.md)
   * [Basic](jvm/kotlin/basic/README.md)
     * [Recursive](jvm/kotlin/recursive.md)
