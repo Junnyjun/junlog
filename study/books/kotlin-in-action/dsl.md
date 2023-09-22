@@ -109,7 +109,7 @@ project.dependencies.add("compile", "com.google.inject:guice:4.1.0")
 
 DSLs에 구조를 만들기 위해 사용하는 다른 방법은 Chained method calls(연속적인 코드 줄에서 개체의 Method를 반복적으로 호출하는 것)이다.
 
-```reasonml
+```kotlin
 //kotlintest 
 str should startWith("kot")
 //JUnit APIs
@@ -120,7 +120,7 @@ assertTrue(str.startsWith("kot"))
 
 이 섹션에서는 internal DSL로 HTML 구축하는 법을 좀 더 자세하게 배운다.
 
-```dts
+```kotlin
 //kotlinx.html library
 fun createSimpleTable() = createHTML().
 table {
@@ -138,7 +138,7 @@ table {
 
 `createSimpleTable` 함수는 HTML 조각을 가지고 있는 string을 반환한다. 그런데 왜 직접 작성하는 것이 아니라 코틀린을 통해 HTML을 작성해야 할까? 그 이유는 코틀린은 `type-safe`하기 때문이다. 코틀린에서는 `tr` 태그 안에만 `td` 태그를 작성할 수 있다. 또 다른 이유는 코틀린은 다른 어떤 언어도 내부에 구축할 수 있다는 점이다. 이 말은 목표하던 데이터를 포함하고 있는 HTML 조각을 동적으로 생성 가능하다는 뜻이다.
 
-```dts
+```kotlin
 //kotlinx.html library
 fun createAnotherTable() = createHTML().table {
 	val numbers = mapOf(1 to "one", 2 to "two")
@@ -378,13 +378,13 @@ infix fun <T> T.should(matcher: Matcher<T>) = matcher.test(this)
 
 kotlintest DSL에서 연쇄적인 호출을 사용하면, 다음과 같이 만들 수도 있다.
 
-```livecodeserver
+```kts
 "kotlin" should start with "kot"
 ```
 
 이 문장은 코틀린처럼 보이지 않는다. 이 문장이 어떻게 작동하는지 보기 위해서는 중위 호출을 일반적인 것으로 고쳐야 한다.
 
-```livecodeserver
+```kts
 "kotlin".should(start).with("kot")
 ```
 
@@ -394,14 +394,14 @@ kotlintest DSL에서 연쇄적인 호출을 사용하면, 다음과 같이 만�
 
 챕터가 시작할 때 보았던 예제 중 날짜에 대해서 살펴보자.
 
-```angelscript
+```kts
 **val** yesterday = 1.days.ago
 **val** tomorrow = 1.days.fromNow
 ```
 
 이 DSL을 java.time API와 코틀린을 통해 구현하기 위해서는 몇 줄의 코드만 있으면 된다.
 
-```reasonml
+```kotlin
 import java.time.Period
 import java.time.LocalDate
 
@@ -424,7 +424,7 @@ println(1.days.fromNow)
 
 이제 멤버 확장을 사용하는 예제를 살펴보자. 다음은 익스포즈드 프레임워크에서 제공한 SQL을 위한 internal DSL에서 가져온 예제이다. 익스포즈드 프레임워크에서 SQL로 테이블을 다루기 위해서는 Table 클래스를 확장한 객체로 대상 테이블을 정의해야 한다.
 
-```pgsql
+```kotlin
 object Country: Table() {
     val id = integer("id").autoIncrement().primaryKey()
     val name = varchar("name", 50)
