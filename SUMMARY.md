@@ -148,7 +148,7 @@
 * [🔒 SECURITY](computer-science/security/README.md)
   * [CIA Triad](computer-science/security/cia-triad.md)
 * [🖇 Algorithm](computer-science/algorithm/README.md)
-  * [Page 2](computer-science/algorithm/page-2.md)
+  * [Binary Search](computer-science/algorithm/binary-search.md)
   * [SequentialSearch](computer-science/algorithm/sequentialsearch.md)
   * [Sum of array](computer-science/algorithm/sum-of-array.md)
   * [Euclid](computer-science/algorithm/euclid.md)
