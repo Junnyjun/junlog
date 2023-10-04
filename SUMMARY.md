@@ -554,4 +554,5 @@
     * [Page 1](study/books/tcp-ip/page-1.md)
   * [📕 UNIT TESTING](study/books/unit-testing/README.md)
     * [단위 테스트의 목표](study/books/unit-testing/undefined.md)
+    * [Page 2](study/books/unit-testing/page-2.md)
   * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-12.md)
