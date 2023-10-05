@@ -2,7 +2,7 @@
 description: 자바의 IO와 NIO의 차이점&사용
 ---
 
-# NIO
+# NIO\&FILE
 
 ### IO
 
@@ -140,11 +140,3 @@ for (WatchEvent<?> watchEvent : watchEvents) {
     }
 }
 ```
-
-<details>
-
-<summary>Help Us<br><a href="https://palpit.tistory.com/640">https://palpit.tistory.com/640</a></summary>
-
-
-
-</details>
