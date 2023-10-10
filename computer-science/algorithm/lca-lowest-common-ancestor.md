@@ -10,6 +10,14 @@
 
 ### 1 깊이를 맞춰줍니다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (15).svg" alt="" class="gitbook-drawing">
 
 ### 2 정점을 찾으며 같은 정점을 찾아냅니다.
+
+<img src="../../.gitbook/assets/file.excalidraw (16).svg" alt="" class="gitbook-drawing">
+
+
+
+## How do code?
+
+{% embed url="https://gist.github.com/Junnyjun/3766ba647c87f2ab2f943d3767981d03" %}
