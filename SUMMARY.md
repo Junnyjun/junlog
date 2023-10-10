@@ -149,6 +149,7 @@
 * [🔒 SECURITY](computer-science/security/README.md)
   * [CIA Triad](computer-science/security/cia-triad.md)
 * [🖇 Algorithm](computer-science/algorithm/README.md)
+  * [LCA(Lowest Common Ancestor)](computer-science/algorithm/lca-lowest-common-ancestor.md)
   * [Recursive](computer-science/algorithm/recursive.md)
   * [Binary Search](computer-science/algorithm/binary-search.md)
   * [SequentialSearch](computer-science/algorithm/sequentialsearch.md)
