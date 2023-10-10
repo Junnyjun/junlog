@@ -4,7 +4,7 @@
 
 <img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
-3&9의 공통 부모는 7임을 알수있다.
+8&9의 공통 부모는 7임을 알수있다.
 
 ## How do Find?
 
