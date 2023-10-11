@@ -11,10 +11,8 @@ MD5는 128비트 해시를 생성하는 암호화 해시 함수입니다.\
 ## How do code?
 
 ```kotlin
-class Md5(
-    private val password: String
-) {
-    fun encrypt(): String = with(MessageDigest.getInstance("MD5")){
+class Md5{ 
+    fun encrypt(password: String): String = with(MessageDigest.getInstance("MD5")){
         this.update(password.toByteArray())
         this.digest()
     }
@@ -25,13 +23,13 @@ class Md5(
             }
             sb.toString()
         }
-    fun verify(raw:String,encrypted:String): Boolean = encrypt() == encrypted
+    fun verify(raw:String,encrypted:String): Boolean = encrypt(raw) == encrypted
 }
 -------------------------------------------------------------------------------------
 fun main(args: Array<String>) {
     val target = "Junnyland"
-    val md5=Md5(target)
-    val encrypt = md5.encrypt()
+    val md5=Md5()
+    val encrypt = md5.encrypt(target )
     println(md5.verify(target,encrypt)) // true
 }
 ```
