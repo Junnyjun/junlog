@@ -43,8 +43,6 @@
       * [UDP](spring/db/netty/base/udp.md)
       * [TCP](spring/db/netty/base/tcp.md)
   * [Security](jvm/clean-architecture/security/README.md)
-    * [Password Hash](jvm/clean-architecture/security/password-hash.md)
-    * [SHA](jvm/clean-architecture/security/sha.md)
     * [MD5](jvm/clean-architecture/security/ciper.md)
   * [JNI](jvm/clean-architecture/jni/README.md)
     * [Register](jvm/clean-architecture/jni/register.md)
@@ -150,6 +148,8 @@
 
 * [🔒 SECURITY](computer-science/security/README.md)
   * [CIA Triad](computer-science/security/cia-triad.md)
+  * [Password Hash](computer-science/security/password-hash.md)
+  * [SHA](computer-science/security/sha.md)
 * [🖇 Algorithm](computer-science/algorithm/README.md)
   * [Bitmask](computer-science/algorithm/bitmask.md)
   * [LCA(Lowest Common Ancestor)](computer-science/algorithm/lca-lowest-common-ancestor.md)
