@@ -562,5 +562,5 @@
   * [📕 UNIT TESTING](study/books/unit-testing/README.md)
     * [단위 테스트의 목표](study/books/unit-testing/undefined.md)
     * [단위 테스트란 무엇인가](study/books/unit-testing/undefined-1.md)
-    * [Page 2](study/books/unit-testing/page-2.md)
+    * [단위 테스트 구조](study/books/unit-testing/undefined-2.md)
   * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-12.md)
