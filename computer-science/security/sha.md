@@ -40,4 +40,27 @@ SHA-0과 SHA-1는 해시 충돌에 대한 이슈가 생겨 중요한 데이터�
 
 #### A 패딩
 
-512 비트 블록들로 나눕니다.
+INPUT MESSAGE를 512bit의 블록으로 나눕니다.\
+이때 512 비트는 448bit ( message + padding ) + 64bit ( message length )로 나눕니다.
+
+#### B 32Bit 분리
+
+<table data-header-hidden><thead><tr><th width="125">WORD</th><th>VALUE</th></tr></thead><tbody><tr><td>A</td><td>0x67452301</td></tr><tr><td>B</td><td>0xefcdab89</td></tr><tr><td>C</td><td>0x98badcfe</td></tr><tr><td>D</td><td>0x10325476</td></tr><tr><td>E</td><td>0xc3d2e1f0</td></tr></tbody></table>
+
+W0 - W79는 위 고정된 Word Buffer와 특정 연산을 거쳐 160Bit를 만들어냅니다.
+
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+#### C Hash 생성
+
+80개의 WT는 다음과 같은 공식을 거쳐 생성됩니다.
+
+| 0<= t <= 19   | f (t, B, C, D) = (B & C) \| (\~B & D)           |
+| ------------- | ----------------------------------------------- |
+| 20<= t <= 39  | f (t, B, C, D) = B ^ C ^ D                      |
+| 40<= t <= 59  | f (t, B, C, D) = (B & C ) \| (B & D) \| (C & D) |
+| 60 <= t <= 79 | f (t, B, C, D) = B ^ C ^ D                      |
+
+`Wt = (Wt-16 XOR Wt-14 XOR Wt-8 XOR Wt-3) <<< 1bit 레프트 로테이션`
+
+## SHA2
