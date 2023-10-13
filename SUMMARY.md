@@ -148,7 +148,7 @@
 
 * [🔒 SECURITY](computer-science/security/README.md)
   * [CIA Triad](computer-science/security/cia-triad.md)
-  * [Password Hash](computer-science/security/password-hash.md)
+  * [Password](computer-science/security/password.md)
   * [SHA](computer-science/security/sha.md)
 * [🖇 Algorithm](computer-science/algorithm/README.md)
   * [Bitmask](computer-science/algorithm/bitmask.md)
