@@ -63,4 +63,14 @@ W0 - W79는 위 고정된 Word Buffer와 특정 연산을 거쳐 160Bit를 만�
 
 `Wt = (Wt-16 XOR Wt-14 XOR Wt-8 XOR Wt-3) <<< 1bit 레프트 로테이션`
 
+#### D Block 연산
+
+80 라운드 반복 (80 Rounds Iteration): 80개의 라운드를 반복합니다.\
+각 라운드에서 다음과 같은 계산을 수행합니다:
+
+`f(t;B,C,D) = (B AND C) OR ((NOT B) AND D)`: 함수 f(t)는 현재 라운드 t에서 사용되는 함수로, B, C, D 값을 이용하여 계산됩니다.
+
+계산된 f(t)는 고정상수 Kt에 의해 A,B,C,D,E가 재배치됩니다.\
+라운드가 종료된뒤 각 32bit인 ABCDE를 합쳐 해시값을 도출합니다.
+
 ## SHA2
