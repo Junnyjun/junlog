@@ -151,6 +151,7 @@
   * [Password](computer-science/security/password.md)
   * [SHA](computer-science/security/sha.md)
 * [🖇 Algorithm](computer-science/algorithm/README.md)
+  * [Disjoint Sets](computer-science/algorithm/disjoint-sets.md)
   * [Bitmask](computer-science/algorithm/bitmask.md)
   * [LCA(Lowest Common Ancestor)](computer-science/algorithm/lca-lowest-common-ancestor.md)
   * [Recursive](computer-science/algorithm/recursive.md)
