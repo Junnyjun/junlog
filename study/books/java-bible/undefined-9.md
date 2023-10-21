@@ -99,7 +99,7 @@ and(), or(), negate()로 연결해서 하나의 새로운 Predicate로 결합할
 | 특정 객체 인스턴스메서드 참조 | (x) -> obj.method(x)       | obj::method       |
 | 생성자 참조           | () -> new ClassName()      | ClassName::new    |
 
-
+***
 
 ### 2. 스트림(stream) <a href="#2-stream" id="2-stream"></a>
 

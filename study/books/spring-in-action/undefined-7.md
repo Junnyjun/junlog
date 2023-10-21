@@ -8,7 +8,7 @@ MailSender 인터페이스 : 스프링의 이메일 추상화 핵심. 해당 인
 
 JavaMailSenderImpl : MailSender의 구현체, JavaMail API를 사용한다
 
-
+***
 
 #### 1.1 메일 전송자 설정하기
 
@@ -57,7 +57,7 @@ public MailSender mailSender(MailSession mailSession) {
 
 \=> 이 경우, JavaMailSenderImpl은 서버의 설정보다는, 메일 발송에 초점을 맞출수 있게 된다.
 
-
+***
 
 #### 1.2 메일 서버를 와이어링하고 사용하기
 
@@ -84,7 +84,7 @@ public void sendSimpleSpittleEmail(String to, Spittle spittle) {
 
 \* setFrom() 메소드를 통해 메시지의 발송자를 지정하고,, mailSender의 send() 메소드로 메시지를 발송한다..
 
-
+***
 
 #### 2. 이메일 메시지를 풍부하게 꾸미기
 
@@ -129,7 +129,7 @@ public void sendSpittleEmailWithAttachment(String to, Spittle spittle) throws Me
 }
 ```
 
-
+***
 
 #### 2.2 리치 콘텐츠를 이용한 이메일 전송
 
@@ -159,7 +159,7 @@ public void sendRichSpitterEmail(String to, Spittle spittle) throws MessagingExc
 }
 ```
 
-
+***
 
 ### 3. 템플릿을 사용하여 이메일 생성
 
@@ -167,7 +167,7 @@ public void sendRichSpitterEmail(String to, Spittle spittle) throws MessagingExc
 
 결과적으로 HTML 메시지에 가까운 이메일 레이아웃을 표현하는 방법이 쓰임 => 아파치 Velocity, Thymeleaf로 템플릿 옵션을 선택할 수 있다
 
-
+***
 
 #### 3.1 Velocity를 사용하여 메시지 구성
 
@@ -219,7 +219,7 @@ emailTemlate.vm ==> velocity 엔진의 파일로 존재 ==> 이렇게 하면, �
 </html>
 ```
 
-
+***
 
 #### 3.2 Thymeleaf 사용하기
 

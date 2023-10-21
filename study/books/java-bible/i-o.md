@@ -52,7 +52,7 @@ Java에서는 char가 2byte이기 때문에 바이트 기반의 스트림으로 
 
 보조스트림 역시 이름만 다를 뿐 사용목적과 방식은 바이트기반과 다르지 않다.
 
-
+***
 
 ### 2. 표준입출력과 File <a href="#2-file" id="2-file"></a>
 
@@ -79,7 +79,7 @@ Java에서는 char가 2byte이기 때문에 바이트 기반의 스트림으로 
 
 File클래스를 통해서 파일과 디렉토리를 다룰 수 있다.
 
-
+***
 
 ### 3. 직렬화(Serialization) <a href="#3-serialization" id="3-serialization"></a>
 

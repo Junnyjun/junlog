@@ -14,13 +14,13 @@
 
 \* 부가적인 기능 : 선언적 트랜잭션에 대한 통합 지원, 투명한 예외 처리, 스레드 안정성을 갖춘 경량의 템플릿, DAO 지원, 자원 관리
 
-
+***
 
 #### 스프링과 하이버네이트 통합
 
 하이버네이트 : 오픈소스 퍼시스턴스 프레임워크, 제대로 된 ORM이 갖춰야할 기능을 모두 제공(캐시, 지연 로딩, 조기 인출, 분산 캐시 등)
 
-
+***
 
 **하이버네이트 세션 팩토리 선언**
 
@@ -45,7 +45,7 @@ public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
 
 ```
 
-
+***
 
 **스프링으로부터 해방된 하이버네이트 구성**
 
@@ -111,13 +111,13 @@ public BeanPostProcessor perstistenceTeanslation() {
 
 &#x20;
 
-
+***
 
 **스프링과 자바  퍼시스턴스 API**
 
 JPA(java persitence API)는 POJO 기반의 퍼시스턴스  메커니즘,, 스프링 2.0부터 사용 가능하다.
 
-
+***
 
 엔티티 관리자 팩토리 설정
 
@@ -130,7 +130,7 @@ JPA로 만든 애플리케이션은, EntityManagerFactory의 구현객체를 이
 
 \=> 스프링에서는, 개발자에게는 큰 의미가 없음.. 어떤 유형을 사용해도, 스프링이 관리를 해줌... JpaTemplate이 세부사항을 감춰줌
 
-
+***
 
 **애플리케이션 관리형 JPA 구성**
 
@@ -171,7 +171,7 @@ public LocalEntityManagerFactoryBean entityManagerFactoryBean() {
 
 \==> 애플리케이션 관리형의 경우 \<persistence.xml>에 필요한 내용을 넣어두어야, PersistenceProvider가 가져올 수 있다. 그런데 스프링을 이용하면, JpaTemplate이 PersistenceProvider와 상호작용을 하기 때문에, 실제로 설정정보를 persistence.xml에 넣는 것은 현명하지 않다.
 
-
+***
 
 **컨테이너 관리형 JPA 구성**
 
@@ -207,7 +207,7 @@ public JpaVendorAdapter jpaVendorAdapter() {
 }
 ```
 
-
+***
 
 **JNDI에서 EntityManagerFactory 가져오기**
 
@@ -230,7 +230,7 @@ JndiObjectFactoryBean jndiObjectFB = new JndiObjectFactoryBean();
 }
 ```
 
-
+***
 
 #### JPA 기반 저장소 작성
 
@@ -263,7 +263,7 @@ public class JpaCafeRepository implements CafeRepository {
 
 \=> EntityManager가 계속 생성되는 문제가 있음. 스레드 세이프하지 않고, 저장소와 같이 공유 싱글톤 빈으로 주입되지 않기 때문..
 
-
+***
 
 프록시를 가지는 저장소를 EntityManager에 주입
 
@@ -311,7 +311,7 @@ public BeanPostProcessor persistenceTranslation() {
 }
 ```
 
-
+***
 
 &#x20;
 
@@ -336,7 +336,7 @@ public class JpaConfiguration {
 
 \=> 일반 JPA동작을 위한 18개의 메소드를 제공함
 
-
+***
 
 **쿼리메소드 제공하기**
 
@@ -360,7 +360,7 @@ public class JpaConfiguration {
 
 \==> 사용자가 스프링 데이터의 명명규칙에 맞춰서 메소드의  확정 리스트를 제공하는 것은 불가능.
 
-
+***
 
 **맞춤형 쿼리 선언**
 
@@ -375,7 +375,7 @@ List<Coffee> findAllLattees();
 
 \* 명명규칙이 너무 복잡하거나, 명명규칙으로 수행이 불가능할 때 사용하면 좋다.
 
-
+***
 
 **맞춤형 기능 혼합**
 
@@ -418,7 +418,7 @@ public interface CafeRepository extends JpaRepository<Cafe, Long> {}, CoffeePric
 
 \=> 둘중 하나의 방법을 사용
 
-
+***
 
 ... 번외로 impl을 사용하고 싶지 않다면?
 

@@ -72,7 +72,7 @@ null이 할당될 수 있는 값에 안전 네비게이션 연산자를 이용�
 
 하스켈, 스칼라 등의 함수형 언어는 다른 관점에서 null 문제에 접근한다. 하스켈의 Maybe와 스칼라의 Optional은 주어진 형식의 값을 갖거나 아무 값도 갖지 않을 수 있는 구조를 가진다. 따라서 null 참조 개념은 자연스럽게 사라진다.
 
-
+***
 
 #### 11.2 Optional 클래스 소개
 
@@ -82,7 +82,7 @@ null을 참조하면 NullPointerException이 발생하지만 Optional.empty()는
 
 Car 변수를 그냥 사용했을때는 null 참조가 할당되었을때 올바른 상황인지 아니지 알수 없다. 하지만 Optional을 사용하면 Optional\<Car>로 바뀌고, 이는 값이 없을 수 있음을 명시적으로 보여준다.\`
 
-
+***
 
 #### 11.3 Optional 패턴 적용
 
@@ -271,7 +271,7 @@ optInsurance.filter(insurance -> "CambridgeInsurance".equals(insurance.getName()
   .ifPresent(x -> System.out.println("ok"));
 ```
 
-
+***
 
 ### 11.4 Optional을 사용한 실용 예제
 

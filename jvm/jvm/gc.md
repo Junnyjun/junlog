@@ -46,7 +46,7 @@ Object의 할당을 위해 한정된 Heap 공간을 재활용 하겠다는 의�
 
 `Free Space` _(해지된 영역)_ 보다 큰 Object를 할당하는 경우 재활용을 의미를 잃게 된다.
 
-
+***
 
 ### Hotspot JVM의 GC ❔
 
@@ -96,7 +96,7 @@ GC가 발생하거나 객체가 각 영역에서 다른 영역으로 이동할 �
 
 ![](https://velog.velcdn.com/images/junny8643/post/bfae0b52-8bc5-49bd-b345-908ca84e4f60/image.png)
 
-
+***
 
 ### Collection 종류 ❔
 
@@ -156,7 +156,7 @@ G1은 가득 찬 Region부터 작업을 진행하고 Remember Set을 이용한�
 
 Minor GC와 동일한 개념으로써, Suspend Time과 Multi Thread 작업이 존재한다.
 
-
+***
 
 **Concurrent Mark Phase**
 

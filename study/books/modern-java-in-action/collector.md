@@ -24,7 +24,7 @@ Collectors에서 제공하는 메서드의 기능은 크게 세 가지로 구분
 * 요소 그룹화
 * 요소 분할
 
-
+***
 
 #### 6.2 리듀싱과 요약
 
@@ -128,7 +128,7 @@ public static <T> Collector<T, ?, Long> counting() {
 
 재사용성과 커스터마이즈 가능성을 제공하는 높은 수준의 추상화와 일반화를 얻을 수 있다.
 
-
+***
 
 #### 6.3그룹화
 
@@ -362,7 +362,7 @@ public Map<Boolean, List<Integer>> partitionPrimes(int n) {
 }
 ```
 
-
+***
 
 #### 6.5 Collector 인터페이스
 
@@ -526,7 +526,7 @@ List<Dish> dishes = menuStream.collect(
   List:addAll); //합침
 ```
 
-
+***
 
 #### 6.6 커스텀 컬렉터를 구현해서 성능 개선하기
 

@@ -29,7 +29,7 @@ class java.util.HashSet //kolin의 set은 java의 hashset class과 일치한다.
 
 위의 함수는 joinToString(list, "; ", "(", ")")과 같이 파라미터를 넘겨주어야 한다. 그런데 이때 다음과 같은 문제가 발생한다.
 
-
+***
 
 **1. 가독성 문제**
 
@@ -103,7 +103,7 @@ fun performOperation() {
 
 이때 const 키워드를 사용하여 자바에서의 public static final임을 명시할 수 있다.
 
-
+***
 
 ### 함수와 프로퍼티의 확장 <a href="#ed-a-ec-ec-ed-eb-a-c-ed-d-bc-ed-b-b-ec-d-ed-ec-e-a" id="ed-a-ec-ec-ed-eb-a-c-ed-d-bc-ed-b-b-ec-d-ed-ec-e-a"></a>
 

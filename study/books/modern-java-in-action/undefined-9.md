@@ -37,7 +37,7 @@ double gbp = convertUSDtoGBP.applyAsDouble(1000);
 
 두 번째 함수는 f, b 두 가지 인수만 함수에 요청하고, 반환된 함수에 인수 x를 이용해서 결과를 얻을 수 있다.
 
-
+***
 
 #### 19.2 영속 자료구조
 
@@ -313,7 +313,7 @@ static <T> void printAll(MyList<T> list) {
 }
 ```
 
-
+***
 
 #### 19.4 패턴 매칭
 

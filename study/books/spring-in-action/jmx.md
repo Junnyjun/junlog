@@ -13,7 +13,7 @@
 
 \=> 스프링의 JMX 모듈을 이용하여, 스프링 애플리케이션의 빈을 관리할 수 있다
 
-
+***
 
 ### 1 스프링 빈을 MBean으로 익스포트하기
 
@@ -64,7 +64,7 @@ public MBeanExporter mbeanExporter(SpittleController spittleController) {
 * 인터페이스로 구성하여 노출 메소드  선택
 * 빈의 애너테이션을 적용하여 관리 애트리뷰트와 오퍼레이션 지정
 
-
+***
 
 #### 1.1 이름으로 메소드 노출시키기
 
@@ -116,7 +116,7 @@ public MethodExclusionMBeanInfoAssembler assembler() {
 
 \* 동작은 위의 사진과 같다(spittles를 제한했기 때문)
 
-
+***
 
 #### 1.2 인터페이스를 이용한 MBean 오퍼레이션과 애트리뷰트 정의
 
@@ -144,7 +144,7 @@ public InterfaceBasedMBeanInfoAssembler assembler() {
 
 \* 그러나, 관리 오퍼레이션의 선언은 코드에서 중복으로 나타난다(단순히 MBeanExporter를 위해) => 이와 같은 중복을 제거하는 방법은 애너테이션을 사용하느 것이 좋다
 
-
+***
 
 #### 1.3 애너테이션 주도의 MBean을 이용한 작업
 
@@ -183,7 +183,7 @@ public class SpittleController {
 
 &#x20;
 
-
+***
 
 #### 1.4 MBean 충돌 처리
 
@@ -206,13 +206,13 @@ public MBeanExporter mbeanExporter(SpittleController spittleController, MBeanInf
 * IGNORE\_EXISTING : 충돌 무시하고, 새 빈 등록하지 않음
 * REPLACING\_EXISTING : 기존 빈을, 새로운 빈으로 대체
 
-
+***
 
 ### 2. MBean 리모팅
 
 원격 JMX의 표준이 필요해지며, JSR-160, 즉 JMX 원격 API 명세가 만들어짐. 최소 RMI 바인딩을 필수로 요구하며, 선택적으로 JMX 메시징 프로토콜(JMXMP)을 요구
 
-
+***
 
 2.1 원격으로 MBean 노출하기
 
@@ -251,7 +251,7 @@ public RmiRegistryFactoryBean rmiRegistryFB() {
 }
 ```
 
-
+***
 
 #### 2.2 원격 MBean에 액세스
 
@@ -305,7 +305,7 @@ mbeanServerConnection.invoke(
 
 \=> 프록시를 만듬
 
-
+***
 
 #### 2.3 MBean 프록시 만들기
 
@@ -327,7 +327,7 @@ public MBeanProxyFactoryBean remoteSpittleControllerMBean(MBeanServerConnection 
 
 <figure><img src="https://blog.kakaocdn.net/dn/cUrEqE/btqA0NLs1Mm/OEQm3Sj71iPGQrIknwek11/img.png" alt=""><figcaption><p>원격 MBean에 대한 프록시 생성. 이때 프록시의 클라이언트는 설쩡된 POJO인 것처럼 원격MBean과 상호작용</p></figcaption></figure>
 
-
+***
 
 ### 3. 통지처리
 
@@ -359,7 +359,7 @@ public class SpittleNotifierImpl implements NotificationPublisherAware, SpittleN
 
 \* setNotification() 메소드가 호출 되면, 통지가 어디론가 가고 있다 => 리스너가 반응하도록 설정
 
-
+***
 
 #### 3.1 통지 듣기
 

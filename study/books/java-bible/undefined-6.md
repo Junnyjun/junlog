@@ -37,7 +37,7 @@ key-value쌍을 다루기 위해 Map인터페이스의 내부에 정의되어 �
 
 > Vector나 Hashtable과 같은 기존의 컬렉션 클래스들은 호환을 위해, 설계를 변경해서 남겨두었지만 가능하면 사용하지 않는 것이 좋다.
 
-
+***
 
 ### 2. ArrayList <a href="#2-arraylist" id="2-arraylist"></a>
 
@@ -50,7 +50,7 @@ key-value쌍을 다루기 위해 Map인터페이스의 내부에 정의되어 �
 1. 크기를 변경할 수 없다.
 2. 비순차적인 데이터의 추가 또는 삭제에 시간이 많이 걸린다.
 
-
+***
 
 ### 3. LinkedList <a href="#3-linkedlist" id="3-linkedlist"></a>
 
@@ -65,7 +65,7 @@ LinkedList클래스는 더블 링크드 리스트로 구현되었다.
 
 > 다루고자 하는 데이터의 개수가 변하지 않는 경우라면, ArrayList가 최상의 선택이 되겠지만, 데이터 개수의 변경이 잦다면 linkedList를 사용하는 것이 더 나은 선택이 될 것이다.
 
-
+***
 
 ### 4. Stack과 Queue <a href="#4-stack-queue" id="4-stack-queue"></a>
 
@@ -90,7 +90,7 @@ LinkedList클래스는 더블 링크드 리스트로 구현되었다.
 
 덱은 스택과 큐를 하나로 합쳐놓은 것과 같다.
 
-
+***
 
 ### 5. Iterator, ListIterator, Enumeration <a href="#5-iterator-listiterator-enumeration" id="5-iterator-listiterator-enumeration"></a>
 
@@ -115,7 +115,7 @@ Map인터페이스는 iterator()를 직접 호출할 수 ㅇ벗고, 그 대신 k
 
 다만 ArrayList나 LinkedList와 같이 List인터페이스를 구현한 컬렉션에서만 사용가능하다.
 
-
+***
 
 ### 6. Arrays <a href="#6-arrays" id="6-arrays"></a>
 
@@ -128,14 +128,14 @@ Map인터페이스는 iterator()를 직접 호출할 수 ㅇ벗고, 그 대신 k
 * 배열을 List로 변환 - asList(Object... a)
 * parallelXXX(), spliterator(), stream()
 
-
+***
 
 ### 7. Comparator와 Comparable <a href="#7-comparator-comparable" id="7-comparator-comparable"></a>
 
 Comparable : 기본 정렬기준을 구현하는데 사용\
 Comparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 때 사용
 
-
+***
 
 ### 8. HashSet & HashMap(Hashtable) <a href="#8-hashset--hashmaphashtable" id="8-hashset--hashmaphashtable"></a>
 
@@ -144,7 +144,7 @@ Comparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 �
 Hashtable과 HashMap의 관계는 Vector와 ArrayList의 관계와 같다.\
 HashMap을 사용하자.
 
-
+***
 
 ### 9. TreeSet & TreeMap <a href="#9-treeset--treemap" id="9-treeset--treemap"></a>
 
@@ -153,7 +153,7 @@ Red-Black tree를 이용해서 구현했다.
 검색에 관한한 대부분의 경우에서 Hash가 Tree보다 더 뛰어나다.\
 다만 범위검색이나 정령이 필요한 경우 Tree를 사용하자.
 
-
+***
 
 ### 10. Properties <a href="#10-properties" id="10-properties"></a>
 
@@ -162,7 +162,7 @@ Hashtable을 상속받아 구현한 것이다.\
 
 주로 애플리케이션의 환경설정과 관련된 속성(property)을 저장하는데 사용되며 데이터를 파일로부터 읽고 쓰는 편리한 기능을 제공한다.
 
-
+***
 
 ### 11. Collections <a href="#11-collections" id="11-collections"></a>
 
@@ -212,7 +212,7 @@ static Map			singletonMap(Object key, Object value);
 
 컬렉션에 저장할 요소의 타입을 제한하는 것은 제네릭스로 간단히 처리할 수 있는데도 메서드들을 제공하는 이유는 구버전에 작성된 코드들과의 호환성 때문이다. 여기서는 따로 적지 않겠다.
 
-
+***
 
 ### 12. 컬렉션 클래스 요약 <a href="#12" id="12"></a>
 

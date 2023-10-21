@@ -10,7 +10,7 @@
 
 로컬메소드 호출과는, 인접성에서 차이점을 보임 -> 근거리(대화) vs 원거리(전화통화)
 
-
+***
 
 스프링은 여러 RPC 모델에 대해, 리모팅을 지원해줌
 
@@ -28,7 +28,7 @@
 
 원격 서비스를 소비하는 코드를 개발하거나, 구현하는 코드를 개발하든... 원격 서비스를 이용하는 작업은 단순히 설정상의 문제 -> 리모팅을 위해 자바 코드를 작성할 필요가 없음. 그리고 서비스 빈은 그 빈이 RPC에 참여하는지도 몰라도 괜찮다.
 
-
+***
 
 #### &#x20;
 
@@ -38,7 +38,7 @@ RMI(Remote Mehod Invocation, 원격 메소드 호출) : 자바 프로그램 간�
 
 \* 과거에는 RMI서비스를 개발하고, 액세스 작업또한 거쳐야 했음. 하지만 스프링은 RMI를 로컬 JavaBeans인 것처럼 연결 해주는 프록시 팩토리 빈을 제공하여 RMI모델을 단순화함
 
-
+***
 
 **2.1 RMI 서비스 익스포트**
 
@@ -98,7 +98,7 @@ public RmiServiceExporter rmiExporter(SpitterService spitterService) {
 
 <figure><img src="https://blog.kakaocdn.net/dn/c0iuuK/btqACHj993U/orHvr3HHCgtxtT7DT9DRq1/img.png" alt=""><figcaption><p>RmiSerivceExporter는 POJO를 어댑터 안에, 래핑 후 그 어댑터를 RMI레지스트리에 바인딩한다.</p></figcaption></figure>
 
-
+***
 
 **2.2 RMI 서비스 와이어링**
 
@@ -154,7 +154,7 @@ public List<Spittle> getSpittles(String userName) {
 
 \=> 장점은, 클라이언트 코드가 RMI 서비스를 처리한다는 것을 아예 몰라도 되며, 단지 주입된 Serivce 객체만을 받을 뿐
 
-
+***
 
 RMI는 원격 서비스 통신으로는 훌륭하지만 여러 단점이 있다.
 
@@ -164,7 +164,7 @@ RMI는 원격 서비스 통신으로는 훌륭하지만 여러 단점이 있다.
 
 \===> 이러한 단점을 해결하기 위해 Hessian과 Burlap 을 이용한다.
 
-
+***
 
 #### &#x20;
 
@@ -177,7 +177,7 @@ Hessian, Burlap은 Http를 통해, 가벼운 원격서비스를 가능케 한다
 
 \-> 두가지 기술은 대부분 동일함. 바이너리메시지와, XML의 차이이다.
 
-
+***
 
 **3.1 Hessian과 Burlap을 이용한 빈 기능 노출**
 
@@ -201,7 +201,7 @@ public HessianServiceExporter hessianExportedSpitterService(SpitterService servi
 
 \* 레지스트리를 갖지 않으므로, serviceName 프로퍼티는 필요가 없음
 
-
+***
 
 Hessian 컨트롤러 구성하기
 
@@ -243,7 +243,7 @@ public HandlerMapping hessianMapping() {
 
 \* 해당 SimpleUrlHandlerMaping이 실제 URL매핑을 처리하게 된다.
 
-
+***
 
 Burlap 서비스 익스포트
 
@@ -261,7 +261,7 @@ public BurlapServiceExporter burlapExportedSpitterService(SpitterService service
 
 \* 유일한 차이점은, 빈의 메소드와, exporter 클래스 ===> 컨트롤러 설정은 동일하다(생략)
 
-
+***
 
 **3.2 Hessian/Burlap 서비스에 액세스하기**
 
@@ -292,7 +292,7 @@ public BurlapProxyFactoryBean spitterService() {
 
 <figure><img src="https://blog.kakaocdn.net/dn/q17U3/btqABr3NJMx/ZbtGgk6au0p21qXJoelhI1/img.png" alt=""><figcaption><p>팩토리빈은 클라이언트가 HTTP요청으로, 원격서비스와 통신하는 프록시 객체를 생성한다</p></figcaption></figure>
 
-
+***
 
 \* Hessian/Burlap은 Http를 기반으로 하므로, 방화벽 문제를 겪지 않음
 
@@ -300,7 +300,7 @@ public BurlapProxyFactoryBean spitterService() {
 
 \==> RMI(자바의 직렬화 사용)와 Hessian/Burlap(방화벽 문제 없음)의 장점을 섞은 스프링의 HTTP호출자가 존재
 
-
+***
 
 #### &#x20;
 
@@ -308,7 +308,7 @@ public BurlapProxyFactoryBean spitterService() {
 
 방화벽을 가로질러 사용 + 독자적인 객체 직렬화 매커니즘 => 스프링 Http 호출자(invoker) => HttpInvoker
 
-
+***
 
 **4.1 빈을 HTTP 서비스로 익스포트**
 
@@ -330,7 +330,7 @@ public HttpInvokerServiceExporter httpExportedSpitterService(SpitterService serv
 
 \==> 따라서, DispatcherServlet 매핑과, URL 핸들러를 설정해주어야 함 ==> 3.1의 컨트롤러 설정과 동일(생략)
 
-
+***
 
 **4.2 HTTP를 거쳐 서비스에 액세스하기**
 
@@ -350,7 +350,7 @@ public HttpInvokerProxyFactoryBean spitterService() {
 }
 ```
 
-
+***
 
 스프링 HttpInvoke는, Http통신의 단순함과, 자바에 내장된 객체 직렬화를 결합하여, 두가지의 장점을 모은 리모팅 솔루션
 
@@ -360,7 +360,7 @@ public HttpInvokerProxyFactoryBean spitterService() {
 
 \===> 스프링에는 SOAP기반 웹서비스를 통해 리모팅을 구현 할 수 있다(처음부터 이걸 알려주던가..)
 
-
+***
 
 &#x20;
 
@@ -374,7 +374,7 @@ JAX-WS : 웹서비스를 생성하는 JAVA-API.. 어노테이션을 사용하여
 
 스프링에서는, 일반적으로 알려진 XML 웹서비스나 JAX-XS를 이용하여, SOAP 웹서비스를 발행하고 소비 가능
 
-
+***
 
 **5.1 스프링을 사용할 수 있는 JAX-WS 엔드포인트 생성**
 
@@ -384,7 +384,7 @@ JAX-WS : 웹서비스를 생성하는 JAVA-API.. 어노테이션을 사용하여
 
 다만, 이 방법이 모든 상황의 최선은 아님을 알아야한다. SimpleJaxWsServiceExporter는 JAX-WS 런타임이 특정한 주소에 대한 endpoint의 배포를 지원할 것을 요구한다(JDK 1.6 이상만 가능)
 
-
+***
 
 스프링에서의 JAX-WS 엔드포인트 오토와이어링
 
@@ -427,7 +427,7 @@ public class SpitterServiceEndpoint extends SpringBeanAutowiringSupport { // 오
 
 \* 오토와이어링 활성화, Service 위임
 
-
+***
 
 **독립형 JAX-WS 엔드포인트 익스포트**
 
@@ -489,7 +489,7 @@ public SimpleJaxWsServiceExporter jaxWsExporter() {
 
 \-> 기본 주소를 바꿔 줄 수 있다
 
-
+***
 
 **5.2 클라이언트 측에서 JAX-WS 프록시하기**
 

@@ -32,7 +32,7 @@ CompletionStage를 이용하는 자바 코어 라이브러리 RxJava와 같은 �
 
 > 해결책은 배압 제어 메커니즘💡
 
-
+***
 
 ## 리액티브 스트림의 기본 스펙
 
@@ -89,7 +89,7 @@ public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
 }
 ```
 
-
+***
 
 ## 리액티브 스트림 기술 호환성 키트(TCK)
 
@@ -97,7 +97,7 @@ public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
 
 [ reactive-streams/reactive-streams-jvmReactive Streams Specification for the JVM. Contribute to reactive-streams/reactive-streams-jvm development by creating an account on GitHub.github.com](https://github.com/reactive-streams/reactive-streams-jvm/tree/master/tck)
 
-
+***
 
 ## JDK 9
 
@@ -115,7 +115,7 @@ Publisher external = FlowAdapters.toPublisher(jdkPublisher);
 Flow.Publisher jdkPublisher2 = FlowAdapter.toFlowPublisher(external);
 ```
 
-
+***
 
 ## 리액티브 스트림을 활용한 비동기 및 병렬 처리
 
@@ -163,7 +163,7 @@ Flow.Publisher jdkPublisher2 = FlowAdapter.toFlowPublisher(external);
 (스레드 1) (스레드 2)   ( ... )    (스레드 N-1) (스레드 N)
 ```
 
-
+***
 
 ## 리액티브 전망의 변화
 

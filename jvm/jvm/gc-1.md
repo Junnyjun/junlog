@@ -67,7 +67,7 @@ Heap의 초기 크기를 제어하는 `-Xms , -Xmx`, `New`:`Old`의 비율 설�
 
 원인이 단순하게 `Perm Area`의 문제라면, -XX:PermSize -XX:MaxPermSize 로 크기를 변경해 주는것이 좋다
 
-
+***
 
 #### GC 튜닝 방법?
 
