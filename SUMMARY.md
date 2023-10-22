@@ -118,6 +118,7 @@
     * [No child processes](infra/infra/error/no-child-processes.md)
     * [Too many open files](infra/infra/error/too-many-open-files.md)
   * [Command](infra/infra/command/README.md)
+    * [lsof](infra/infra/command/lsof.md)
     * [awk](infra/infra/command/awk.md)
     * [sed](infra/infra/command/sed.md)
     * [Resources](infra/infra/command/resources.md)
