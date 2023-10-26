@@ -568,6 +568,8 @@
     * [단위 테스트의 목표](study/books/unit-testing/undefined.md)
     * [단위 테스트란 무엇인가](study/books/unit-testing/undefined-1.md)
     * [단위 테스트 구조](study/books/unit-testing/undefined-2.md)
+    * [좋은 단위 테스트의 4대 요소](study/books/unit-testing/4.md)
+    * [목과 테스트 취약성](study/books/unit-testing/undefined-3.md)
   * [📗 코틀린으로 배우는 함수형 프로그래밍](study/books/undefined-12/README.md)
     * [함수형 프로그래밍이란?](study/books/undefined-12/undefined.md)
     * [Page 2](study/books/undefined-12/page-2.md)
