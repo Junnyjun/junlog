@@ -85,8 +85,8 @@
   * [Async](spring/common/async.md)
 * [🚪 GateWay](spring/tools.md)
   * [Socket](spring/page-4.md)
-  * [HTTP CALL](spring/tools/api-call/README.md)
-    * [Okhttp](spring/tools/api-call/okhttp.md)
+  * [RestTemplate Logging](spring/tools/api-call.md)
+  * [Okhttp](spring/tools/okhttp.md)
 * [⁉ Testing](spring/testing.md)
 * [🪙 WebFlux](spring/db/README.md)
 
