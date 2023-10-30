@@ -1,483 +1,139 @@
-# 유스케이스 구현하기
+---
+description: CPU가 작업을 분배하는 방법
+---
 
-### 도메인 모델 구현하기 <a href="#h-tag-1" id="h-tag-1"></a>
+# 스케줄링
 
-> 한 계좌에서 다른 계좌로 송감하는 유스케이스를 구현한다.
+프로세스가 생선된 후 모든 상태 변화를 조정해주는 일을 한다. CPU와 시스템 자원을 어떻게 배정할지 결정한다
 
-#### Account 엔티티 모델링 <a href="#h-tag-2" id="h-tag-2"></a>
+#### 스케줄러 단계
 
-> 입금과 출금을 할 수 있는 계좌를 의미
+![](https://velog.velcdn.com/images/junny8643/post/4d5d5f9d-cf0f-4840-853a-a9688e7caa62/image.png)
 
-```
-package com.book.cleanarchitecture.buckpal.account.domain.vo;
+🔴 고수준 스케줄링 가장 큰 틀에서 이뤄지는 스케줄링이다. 시스템의 전체 작업 수를 조절해주며, 작업을 받아 들이거나 거부한다.
 
-public class AccountId {
+시스템의 전체 `작업수는 멀티 프로그래밍 정도` 이다
 
-    private final Long value;
+🟠 저수준 스케줄링 가장 작은 틀에서 이뤄지는 스케줄링이다. 프로세스에 CPU를 할당하거나, 프로세스 상태를 상태로 바꿀지 결정한다.
 
-    public AccountId(Long value) {
-        this.value = value;
-    }
+🟡 중간수준 스케줄링 프로세스를 활성화 할지 말지 결정하여 전체 프로세스의 수를 조절하는 방식이다. 중지와 활성화로 전체 시스템의 활성화된 프로세스 수를 조절하여 과부하를 막는다.
 
-    public Long getValue() {
-        return value;
-    }
-}
-```
+#### 스케줄링 목적
 
-```
-package com.book.cleanarchitecture.buckpal.account.domain;
+모든 프로세스가 공평하게 작업하는 것 이다. 자원을 골고루 배분하고 안정적으로 작동하도록 해야된다.
 
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
+🔴 공평성 : 모든 프로세스는 공평하게 자원을 배정받아야 하며, 특정 프로세스가 배제되어서는 안된다 🟠 효율성 : 시스템 자원이 유휴시간 없이 사용되도록 스케줄링 하고, 유휴 자원을 사용하는 프로세스는 우선권을 가진다. 🟡 안정성 : 우선순위를 사용하여 중요 프로세스가 먼저 작동하도록 배정함으로써 시스템 자원을 보호한다. 🟢 확장성 : 프로세스가 증가해도 안정적으로 작동해야 한다 🔵 반응 시간 보장 : 응답이 없는 경우 시스템이 멈춘것으로 가정하기 때문에, 적절한 시간 안에 프로세스의 요구에 반응해야 한다. 🟣 무한 연기 방지 : 특정 프로세스의 작업이 무한히 연기되어서는 안된다
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
+***
 
-public class Account {
+### 스케줄링 고려 사항
 
-    private final AccountId id;
+#### 선점형& 비선점형 스케줄링
 
-    private final Money baselineBalance;
+🔴 선점형 : CPU를 운영체제가 강제로 뺏을 수 있는 방식 🟠 비선점형 : CPU를 빼앗을 수 없는 방식
 
-    private final ActivityWindow activityWindow;
+선점형 스케줄링은 운영체제가 필요하다고 판단 되면, 실행 상태에 있는 프로세스의 작업을 중단 시키고 새로운 작업을 시작할 수 있다.
 
-    private Account(AccountId id, Money baselineBalance, ActivityWindow activityWindow) {
-        this.id = id;
-        this.baselineBalance = baselineBalance;
-        this.activityWindow = activityWindow;
-    }
+비선점형 스케줄링은 프로세스가 종료& 자발적 대기 전까지는 실행된다. 그러나 CPU 사용시간이 긴 프로세스 떄문에 시스템의 처리율이 떨어질 수 있다.
 
-    public static Account withId(
-            AccountId accountId,
-            Money baselineBalance,
-            ActivityWindow activityWindow) {
-        return new Account(accountId, baselineBalance, activityWindow);
-    }
+#### 프로세스 우선순위
 
-    public Money calculateBalance() {
-        return this.baselineBalance.plus(this.activityWindow.calculateBalance(this.id));
-    }
+프로세스는 커널프로세스와 일반 프로세스로 나뉘어 진다. 이때 스케줄러에 할당되는 우선순위는 커널 프로세스가 일반 프로세스 보다 높다.
 
-    public boolean withdraw(Money money, AccountId targetAccountId) {
-        if (!mayWithdraw(money)) {
-            return false;
-        }
+**CPU 집중 & 입출력 집중**
 
-        Activity withdrawal = new Activity(this.id, this.id, targetAccountId, LocalDateTime.now(), money);
-        this.activityWindow.addActivity(withdrawal);
+프로세스는 준비, 실행, 대기를 거쳐 완료 된다. CPU를 할당받아 실행하는 작업을 CPU 버스트, 입출력 작업을 I/O 버스트 라고 부른다.
 
-        return true;
-    }
+🔴 CPU 집중 프로세스 : 수학 연산과 같이 CPU를 많이 사용하는 프로세스를 말한다. 🟠 입출력 집중 프로세스 : 저장장치에서 데이터를 복사하는 일과 같이 입출력을 많이 사용하는 프로세스이다.
 
-    private boolean mayWithdraw(Money money) {
-        return this.calculateBalance().plus(money.negate()).isPositiveOrZero();
-    }
+**전면&후면 프로세스**
 
-    public boolean deposit(Money money, AccountId sourceAccountId) {
-        Activity deposit = new Activity(this.id, sourceAccountId, this.id, LocalDateTime.now(), money);
-        this.activityWindow.addActivity(deposit);
+🔴 전면 프로세스 : 사용자에게 입력을 받아와야 하는 프로세스 🟠 후면 프로세스 : 사용자의 응답이 필요하지 않으면 프로세스
 
-        return true;
-    }
+***
 
-    public Optional<AccountId> getId() {
-        return Optional.ofNullable(this.id);
-    }
+### 다중큐
 
-    public List<Activity> getActivities() {
-        return activityWindow.getActivities();
-    }
-}
-```
+프로세스의 중요도는 PCB에 표시된다. CPU 스케줄러는 PCB를 뒤져서 가장 높은 순위의 프로세스에 CPU를 할당 한다.
 
-* 모든 활동들을 메모리에 올리면 현명하지 않기 때문에 ActivityWindow라는 VO를 가지고 있게 된다.
-* baselineBalance는 첫 번째 활동 바로 전의 잔고를 표현한다
-* 현재 총 잔고는 기준 잔고(baselineBalnce)에 활동창의 모든 활동들의 잔고를 합한 값이 된다.
-* withdraw() 메서드는 출금 / deposit() 메서드는 입금을 의미한다.
+🔴 고정 우선순위 방식 : 프로세스가 끝날 때 까지 바뀌지 않는 방식이다. 🟠 변동 우선순위 방식 : 프로세스 생성 시 부여받은 우선순위가 중간에 변하는 방식이다.
 
-#### ActivityWindow 모델링 <a href="#h-tag-3" id="h-tag-3"></a>
+#### 대기상태의 큐
 
-> 계좌에 대한 모든 입금과 출금은 Activity 엔티티에 포착되며, 모든 활동들을 메모리에 올리면 현명하지 않기 때문에 ActivityWindow라는 VO를 가지고 있게 된다.
+대기상태는 입출력이 완료되기를 기다리는 프로세스가 모여있는 곳 이다. 같은 장치의 입출력을 기다리는 프로세스의 PCB는 동일한 입출력 큐에 모여 있게 된다.
 
-```
-package com.book.cleanarchitecture.buckpal.account.domain.vo;
+준비큐는 한 번에 하나의 프로세스를 꺼내어 CPU를 할당하는 반면, 대기큐는 여러개의 PCB를 동시에 꺼내 준비 상태로 옮긴다. 입출력이 동시에 끝나는 경우에 여러 인터럽트가 한번에 처리되는데, 이떄 인터럽트 벡터를 사용한다.
 
-public class ActivityId {
+***
 
-    private final Long value;
+### 스케줄링 알고리즘
 
-    public ActivityId(Long value) {
-        this.value = value;
-    }
+선점형 알고리즘과 비선점형 알고리즘이 있다. \*\* 비선점형은 최근에 거의 사용되지 않는다 \*\*
 
-    public Long getValue() {
-        return value;
-    }
-}
-```
+#### 알고리즘 기준
 
-```
-package com.book.cleanarchitecture.buckpal.account.domain;
+알고리즘을 선택할 때 에는, 평가 기준이 있어야 한다.
 
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
+🔴 CPU 사용률 : CPU가 사용된 시간을 측정하는 방법이다. 🟠 처리량 : 단위 시간당 작업을 마친 프로세스의 수다. 🟡 대기 시간 : 실제 작업이 이뤄지기 전 까지 대기 시간이다. 🟢 응답 시간 : 프로세스 시작 후 첫번째 출력&반응 까지 걸리는 시간이다. 🔵 반환 시간 : 프로세스가 생성된 후 종료되어 자원을 반환 할 때 까지 걸리는 시간이다.
 
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+성능은 평균 대기시간 ( $모든 프로세스의 대기시간\over 프로세스수$ ) 을 본다
 
-public class ActivityWindow {
+#### FCFS 스케줄링
 
-    private final List<Activity> activities;
+준비 큐에 도착한 순서대로 CPU를 할당하는 비선점형 방식이다. (FIFO) 단일큐 이며, 프로세스가 끝나야 다음 프로세스를 실행할 수 있다.
 
-    public ActivityWindow(List<Activity> activities) {
-        this.activities = activities;
-    }
+처리시간이 긴 프로세스가 CPU를 오래동안 차지하는 걸 `콘보이 효과` 라고 한다.
 
-    public ActivityWindow(Activity... activities) {
-        this.activities = Arrays.asList(activities);
-    }
+#### SJF 스케줄링
 
-    public LocalDateTime getStartTimestamp() {
-        return activities.stream()
-                .min(Comparator.comparing(Activity::getTimestamp))
-                .orElseThrow(IllegalStateException::new)
-                .getTimestamp();
-    }
+실행 시간이 가장 짧은 작업부터 CPU를 할당하는 비선점형 방식이다. 작은 작업을 먼저 실행하기 때문에 효율성이 좋아진다.
 
-    public LocalDateTime getEndTimestamp() {
-        return activities.stream()
-                .max(Comparator.comparing(Activity::getTimestamp))
-                .orElseThrow(IllegalStateException::new)
-                .getTimestamp();
-    }
+이런 장점에도 불구하고 sjf 스케줄링을 사용하지 못하는 이유
 
-    public Money calculateBalance(AccountId accountId) {
-        Money depositBalance = activities.stream()
-                .filter(activity -> activity.getTargetAccountId().equals(accountId))
-                .map(Activity::getMoney)
-                .reduce(Money.ZERO, Money::plus);
+🔴 운영체제가 종료시간을 예측하기 힘들다 🟠 공평하지 못하다
 
-        Money withdrawalBalance = activities.stream()
-                .filter(activity -> activity.getSourceAccountId().equals(accountId))
-                .map(Activity::getMoney)
-                .reduce(Money.ZERO, Money::plus);
+#### HRN 스케줄링
 
-        return depositBalance.plus(withdrawalBalance.negate());
-    }
+최고 응답률 우선 스케줄링이다. 프로세스 실행 시간을 기준으로 하여 가장 적은 시간을 사용하는 프로세스에게 우선권을 주어준다.
 
-    public void addActivity(Activity activity) {
-        this.activities.add(activity);
-    }
+우선순위 = $대기시간 + 사용시간 \over CPU사용시간$
 
-    public List<Activity> getActivities() {
-        return Collections.unmodifiableList(this.activities);
-    }
-}
-```
+#### 라운드 로빈 스케줄링
 
-#### Money 모델링 <a href="#h-tag-4" id="h-tag-4"></a>
+순환 순서 방식이다. 한 프로세스가 할당받은 시간동안 작업을 진행하다 끝나지 않으면 맨뒤로 가서 차례를 기다리는 방식이다. 자신의 타임슬라이스 만큼 CPU를 사용할 수 있게된다.
 
-> 돈을 의미한다.
+#### SRT 우선 스케줄링
 
-```
-package com.book.cleanarchitecture.buckpal.account.domain.vo;
+SJF 와 라운드 로빈을 혼합한 방식으로 최소 잔류시간 우선 스케줄링 이라고 한다. 남아있는 잔여 시간이 가장 적은 프로세스를 우선적으로 선택한다. 현재 실행 중인 프로세스와 큐에 있는 프로세스의 남은 시간을 주기적으로 계산하고 남은 시간이 더 적은 프로세스와 문맥 교환을 해야 한다.
 
-import java.math.BigInteger;
-import java.util.Objects;
+#### 우선순위 스케줄링
 
-public class Money {
+프로세스의 중요도에 따라 우선순위를 갖는데 우선순위를 반영한 알고리즘이다.
 
-    public static final Money ZERO = Money.of(0L);
+🔴 SJF 스케줄링 : 작업 시간이 짧은 프로세스에 높은 우선순위 🟠 HRN 스케줄링 : 작업 시간이 짧거나 대기 시간이 긴 프로세스에 높은 우선순위를 부여한다. 🟡 SRT 스케줄링 : 남은 시간이 짧은 프로세스에 높은 우선순위를 부여한다. 🟢 고정 우선순위 알고리즘 : 한번 우선순위를 부여받으면 종료될때 까지 우선순위가 고정된다 🔵 변동 우선순위 알고리즘 : 일정 시간마다 우선순위가 변한다.
 
-    private final BigInteger amount;
+#### 다단계 큐 스케줄링
 
-    public Money(BigInteger amount) {
-        this.amount = amount;
-    }
+다단계 큐 스케줄링은 우선순위에 따라 준비 큐를 여러 개 사용하는 방식이다. 라운드 로빈 방식으로 운영되는 큐는 우선순위에 따라 다단계로 나뉘어 있어 프로세스가 큐에 삽입되는 것 만으로 우선순위가 결정된다.
 
-    public static Money of(long value) {
-        return new Money(BigInteger.valueOf(value));
-    }
+우선순위에 따라 다양한 스케줄링이 가능한 선점형 방식이다.
 
-    public boolean isPositiveOrZero() {
-        return this.amount.compareTo(BigInteger.ZERO) >= 0;
-    }
+#### 다단계 피드백 큐 스케줄링
 
-    public boolean isGreaterThan(Money money) {
-        return this.amount.compareTo(money.amount) >= 1;
-    }
+우선순위가 낮은 프로세스에 불리한 다단계 큐 스케줄링의 문제점을 보완한 방식이다. CPU를 사용하고 난 프로세스는 원래의 큐로 되돌아 가지 않고 우선순위가 하나 낮은 큐의 끝으로 들어간다.
 
-    public Money minus(Money money) {
-        return new Money(this.amount.subtract(money.amount));
-    }
+프로세스가 CPU를 한 번씩 할당 받아 실행될 때 마다 프로세스의 우선순위를 낮춤으로써, 낲은 프로세스의 실행이 연기되는 문제가 완화된다.
 
-    public Money plus(Money money) {
-        return new Money(this.amount.add(money.amount));
-    }
+우선순위가 낮을수록 CPU의 타임슬라이스가 크다.
 
-    public Money negate() {
-        return new Money(this.amount.negate());
-    }
+***
 
-    public BigInteger getAmount() {
-        return amount;
-    }
+### 인터럽트 처리
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Money money = (Money) o;
-        return amount.equals(money.amount);
-    }
+시스템을 보호하는 데 매우 중요한 작업이다. 입출력이 완료되면 이벤트를 발생시켜 CPU에게 알려주는 작업이다.
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(amount);
-    }
-}
-```
+#### 인터럽트
 
-### 유스케이스 둘러보기 <a href="#h-tag-5" id="h-tag-5"></a>
+실행중인 명령어로 발생하는 동기적 인터럽트& 실행 중인 명령어와 무관하게 발생하는 비동기적 인터럽트이다.
 
-#### 단계 <a href="#h-tag-6" id="h-tag-6"></a>
-
-1. 입력을 받는다.
-2. 비즈니스 규칙을 검증한다.
-3. 모델 상태를 조작한다.
-4. 출력을 반환한다.
-
-#### 비즈니스 규칙 검증이란? <a href="#h-tag-7" id="h-tag-7"></a>
-
-유스케이스는 비즈니스 규칙을 검증할 책임이 있고, 도메인인 엔티티와 이 책임을 공유한다. 하나의 서비스가 하나의 유스케이스를 구현하고, 도메인 모델을 변경하고, 변경된 상태를 저장하기 위해 아웃고잉 포트를 호출한다.
-
-```
-package com.book.cleanarchitecture.buckpal.application.service;
-
-import com.book.cleanarchitecture.buckpal.application.port.in.SendMoneyCommand;
-import org.springframework.transaction.annotation.Transactional;
-
-@Transactional
-public class SendMoneyService implements SendMoneyUseCase {
-    private final LoadAccountPort loadAccountPort;
-    private final AccountLock accountLock;
-    private final UpdateAccountStatePort updateAccountStatePort;
-
-    public SendMoneyService(LoadAccountPort loadAccountPort, AccountLock accountLock, UpdateAccountStatePort updateAccountStatePort) {
-        this.loadAccountPort = loadAccountPort;
-        this.accountLock = accountLock;
-        this.updateAccountStatePort = updateAccountStatePort;
-    }
-
-    @Override
-    public boolean sendMoney(SendMoneyCommand command) {
-        // Todo 비즈니스 규칙 검증
-        // Todo 모델 상태 조작
-        // Todo 출력 값 반환
-    }
-}
-```
-
-### 입력 유효성 검증 <a href="#h-tag-8" id="h-tag-8"></a>
-
-애플리케이션 계층에서 유효성을 검증해야 하는 이유는 그렇게 하지 않을 경우 애플리케이션 코어의 바깥쪽으로부터 유효하지 않은 입력값을 받게 되고, 모델의 상태를 해칠수 있기 때문이다. 따라서 입력 모델(input model)을 이 문제를 다루도록 한다.
-
-```
-package com.book.cleanarchitecture.buckpal.shared;
-
-import javax.validation.*;
-import java.util.Set;
-
-public abstract class SelfValidating<T> {
-
-    private final Validator validator;
-
-    protected SelfValidating() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        this.validator = factory.getValidator();
-    }
-
-    protected void validateSelf() {
-        Set<ConstraintViolation<T>> violations = validator.validate((T) this);
-        if (!violations.isEmpty()) {
-            throw new ConstraintViolationException(violations);
-        }
-    }
-}
-```
-
-```
-package com.book.cleanarchitecture.buckpal.account.application.port.in;
-
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import com.book.cleanarchitecture.buckpal.shared.SelfValidating;
-
-import javax.validation.constraints.NotNull;
-
-public class SendMoneyCommand extends SelfValidating<SendMoneyCommand> {
-
-    @NotNull
-    private final AccountId sourceAccountId;
-
-    @NotNull
-    private final AccountId targetAccountId;
-
-    @NotNull
-    private final Money money;
-
-    public SendMoneyCommand(AccountId sourceAccountId, AccountId targetAccountId, Money money) {
-        this.sourceAccountId = sourceAccountId;
-        this.targetAccountId = targetAccountId;
-        this.money = money;
-        this.validateSelf();
-    }
-
-    public AccountId getSourceAccountId() {
-        return sourceAccountId;
-    }
-
-    public AccountId getTargetAccountId() {
-        return targetAccountId;
-    }
-
-    public Money getMoney() {
-        return money;
-    }
-}
-```
-
-* final을 이용해 불변 필드로 만들고, 이후에 잘못된 상태로 변경할 수 없다는 사실을 보장하자.
-* Java Bean Validation API를 이용해 작업하기 위해 SelfValidating이라는 클래스를 만들었다.
-* 입력 모델에 있는 유효성 검증 코드를 통해 유스케이스 구현체 주위에 사실상 오류 방지 계층(anti corruption layer)을 만ㄷ르었다.
-
-💡 오류 방지 계층이란? 하나의 바운디드 컨텍스트를 다른 바운디드 컨텍스트와 격리시키는 계층
-
-### 유스케이스마다 다른 입력 모델 <a href="#h-tag-9" id="h-tag-9"></a>
-
-> 각기 다른 유스케이스에 동일한 입력 모델을 사용하고 싶다는 생각이 든다면?
-
-불변 커맨드 객체의 필드에 대해서 null을 유효한 상태로 받아들이는 것은 그 자체로 코드 냄새다. 등록 유스케이스와 업데이트 유스케이스는 서로 다른 유효성 검증 로직이 필요하다. 아마도 유스케이스에 커스텀 유효성 검증 로직을 넣어야 할 테고, 이는 신성한 비즈니스 코드를 입력 유효성 검증과 관련된 관심사로 오염시킨다. 각 유스케이스 전용 입력 모델은 유스케이스를 훨씬 명확하게 만들고 다른 유스케이스와의 결합도 제거해서 불필요한 부수효과가 발생하지 않게 한다.
-
-### 비즈니스 규칙 검증하기 <a href="#h-tag-10" id="h-tag-10"></a>
-
-> 입력 유효성을 검증하는 것은 구문상의(syntactical) 유효성을 검증하는 것이라고도 할 수 있다. 반면 비즈니스 규칙은 유스케이스의 맥락 속에서 의미적인(semantical) 유효성을 검증하는 일이라고 할 수 있다.
-
-비즈니스 규칙을 도메인 엔티티 안에 넣는 것이 가장 좋다.규칙을 지켜야 하는 비즈니스 로직 바로 옆에 규칙이 위치하기 때문에 위치를 정하는 것도 쉽고 추론하기도 쉽다. 도메인 엔티티에서 비즈니스 규칙을 검증하기가 여의치 않다면 유스케이스 코드에서 도메인 엔티티를 사용하기 전에 해도 된다.
-
-```
-package com.book.cleanarchitecture.buckpal.doamin;
-
-import com.book.cleanarchitecture.buckpal.doamin.vo.AccountId;
-
-import java.time.LocalDateTime;
-
-public class Account {
-
-    private final AccountId id;
-    private final Money baselineBalance;
-    private final ActivityWindow activityWindow;
-
-    public Account(AccountId id, Money baselineBalance, ActivityWindow activityWindow) {
-        this.id = id;
-        this.baselineBalance = baselineBalance;
-        this.activityWindow = activityWindow;
-    }
-
-    public Money calculateBalance() {
-        return this.baselineBalance.plus(this.activityWindow.calculateBalance(this.id));
-    }
-
-    public boolean withdraw(Money money, AccountId targetAccountId) {
-        if(!mayWithdraw(money)) {
-            return false;
-        }
-
-                // ...
-    }
-}
-```
-
-```
-package com.book.cleanarchitecture.buckpal.application.service;
-
-import com.book.cleanarchitecture.buckpal.application.port.in.SendMoneyCommand;
-import org.springframework.transaction.annotation.Transactional;
-
-@Transactional
-public class SendMoneyService implements SendMoneyUseCase {
-    private final LoadAccountPort loadAccountPort;
-    private final AccountLock accountLock;
-    private final UpdateAccountStatePort updateAccountStatePort;
-
-    public SendMoneyService(LoadAccountPort loadAccountPort, AccountLock accountLock, UpdateAccountStatePort updateAccountStatePort) {
-        this.loadAccountPort = loadAccountPort;
-        this.accountLock = accountLock;
-        this.updateAccountStatePort = updateAccountStatePort;
-    }
-
-    @Override
-    public boolean sendMoney(SendMoneyCommand command) {
-        requireAccountExists(command.getSourceAccountId());
-        requireAccountExists(command.getTargetAccountId());
-    }
-}
-```
-
-### 풍부한 도메인 모델 vs 빈약한 도메인 모델 <a href="#h-tag-11" id="h-tag-11"></a>
-
-#### 풍부한 도메인 모델이란? <a href="#h-tag-12" id="h-tag-12"></a>
-
-애플리케이션의 코어에 있는 엔티티에서 가능한 한 많은 도메인 로직이 구현된다. 엔티티들은 상태를 변경하는 메서드를 제공하고, 비즈니스 규칙에 맞는 유효한 변경만 허용한다.
-
-#### 빈약한 도메인 모델이란? <a href="#h-tag-13" id="h-tag-13"></a>
-
-일반적으로 상태를 표현하는 필드와 getter, setter만 포함하고 어느 도메인 로직도 가지고 있지 않다. 도메인 로직이 유스케이스 클래스에 구현되어 있다는 것이고, 엔티티를 전달할 책임 역시 유스케이스 클래스에 있다.
-
-#### 둘 중에 무엇이 좋은가? <a href="#h-tag-14" id="h-tag-14"></a>
-
-각자의 필요에 맞는 스타일을 자유롭게 선택하면 되지만, 나는 풍부한 도메인 모델이 더 좋다고 생각한다
-
-### 유스케이스마다 다른 출력 모델 <a href="#h-tag-15" id="h-tag-15"></a>
-
-> 만약 의심스럽다면 가능한 한 적게 반환하자.
-
-유스케이스들 간에 같은 출력 모델을 공유하게 되면 유스케이스들도 강하게 결합된다. 한 유스케이스에서 출력 모델에 새로운 필드가 필요해지면 이 값과 관련이 없는 다른 유스케이스에서도 이 필드를 처리해야 한다. 공유 모델은 장기적으로 봤을 때 갖가지 이유로 점점 커지게 돼 있다. 단일 책임 원칙을 적용하고 모델을 분리해서 유지하는 것은 유스케이스의 결합을 제거하는 데 도움이 된다.
-
-### 읽기 전용 유스케이스는 어떨까? <a href="#h-tag-16" id="h-tag-16"></a>
-
-> 쿼리를 위한 인커밍 전용 포트를 만들고 이를 쿼리 서비스에 구현하는 것이다.
-
-```
-package com.book.cleanarchitecture.buckpal.account.application.service;
-
-import com.book.cleanarchitecture.buckpal.account.application.port.in.GetAccountBalanceQuery;
-import com.book.cleanarchitecture.buckpal.account.application.port.out.LoadAccountPort;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-
-import java.time.LocalDateTime;
-
-public class GetAccountBalanceService implements GetAccountBalanceQuery {
-    private final LoadAccountPort loadAccountPort;
-
-    public GetAccountBalanceService(LoadAccountPort loadAccountPort) {
-        this.loadAccountPort = loadAccountPort;
-    }
-
-    @Override
-    public Money getAccountBalance(AccountId accountId) {
-        return loadAccountPort.loadAccount(accountId, LocalDateTime.now())
-                .calculateBalance();
-    }
-}
-```
-
-이 처럼 읽기 전용 쿼리는 쓰기가 가능한 유스케이스(또는 커맨드)와 코드 상에서 명확하게 구분된다. 이런 방식은 CQS(Command-Query Separation)나 CQRS(Command-Query Responsibility Segregation)같은 개념과 아주 잘 맞는다.
-
-💡 CQRS란 데이터를 조회하는 작업과 데이터를 업데이트하는 작업의 책임을 분리하는 패턴으로서 명명 쿼리 책임 분리로 직영된다.
+인터럽트 발생시 인터럽트 번호와 번호가 붙어있는 함수의 쌍으로 이루어져 있다. 각각의 인터럽트에는 고유 번호 `IRQ` 가 있다. 인터럽트는 한순간에 동시에 발생하는 인터럽트 벡터로 발생한다.

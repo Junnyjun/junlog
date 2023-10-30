@@ -1,215 +1,137 @@
-# 영속성 어댑터 구현하기
+---
+description: 프로세스가 서로 무한정 대기하는 상태
+---
 
-### 의존성 역전 <a href="#h-tag-1" id="h-tag-1"></a>
+# 교착 상태
 
-![image](https://user-images.githubusercontent.com/53366407/151949736-0978485f-dc32-4e1b-8730-2b6f4d07b9a1.png)
+## 교착 상태     &#x20;
 
-코어의 서비스가 영속성 어댑터에 접근하기 위해 포트를 사용한다. 애플리케이션에 의해 호출될 뿐, 애플리케이션을 호출하지 않는다. 여기서 포트는 사실상 애플리케이션 서비스와 영속성 코드 사이의 간접적인 계증이다. 자연스럽게 런타임에도 의존성을 애플리케이션 코어에서 영속성 어댑터로 향한다.
+2개 이상의 프로세스가 다른 프로세스의 작업이 끝나기를 기다리며 진행되지 않는 상태를 말한다.
 
-### 영속성 어댑터의 책임 <a href="#h-tag-2" id="h-tag-2"></a>
+여러 프로세스가 하나의 자원을 동시에 사용하면 다중 자원이라고 부른다.
 
-1. 입력을 받는다.
-2. 입력을 데이터베이스 포맷으로 매핑한다.
-3. 입력을 데이터베이스로 보낸다.
-4. 데이터베이스 출력을 애플리케이션 포맷으로 매핑한다.
-5. 출력을 반환한다.
+### 교착 시스템 발생
 
-> 핵심은 영속성 어댑터의 입력 모델이 영속성 어댑터 내부에 있는 것이 아니라 애플리케이션 코어에 있기 떄문에 영속성 어댑터 내부를 변경하는 것이 코어에 영향을 미치지 않는다는 것이다.
+컴퓨터 시스템 에서 교착 상태는 시스템 자원, 공유 변수, 응용프로그램을 사용할 때 발생 할 수 있
 
-### 포트 인터페이스 나누기 <a href="#h-tag-3" id="h-tag-3"></a>
+🔴 시스템 자원 : 다른 프로세스와 공유할 수 없는 자원을 사용할 때 발생한다.
 
-하나의 아웃고잉 포트 인터페이스에 모든 데이터베이스 연산을 모아두면 모든 서비스가 실제로는 필요하지 않은 메서드에 의존하게 된다. 인터페이스 분리 원칙(Interface Segregation Principle, ISP)은 이 문제의 답을 제시한다. 이 원칙은 클라이언트가 오로지 자신이 필요로 하는 메서드만 알면 되도록 넓은 인터페이스를 특화된 인터페이스로 분리해야 한다고 설명한다. 인터페이스 분리 원칙을 적용하면 불필요한 의존성을 제거하고 기존 의존성을 눈에 더 잘 띄게 만들 수 있다.
+🟠 공유 변수 : 공유 변수를 사용할 때 발생한다.
 
-### 영속성 어댑터 나누기 <a href="#h-tag-4" id="h-tag-4"></a>
+🟡 응용 프로그램 : 데이터 베이스같은 경우의 일관성을 유지하지 못하는 상황에도 발생한다.
 
-하나의 애그리거트당 하나의 영속성 어댑터를 만들어서 여러 개의 영속성 어댑터를 만들수 수도 있다. 도메인 코드는 영속성 포트에 의해 정의된 명시를 어떤 클래스가 충족시키는지에 관심이 없다. 모든 포트가 구현돼 있기만 한다면 영속성 계층에서 하고 싶은 어떤 작업이든 해도 된다. 애그리거트당 하나의 영속성 어댑터 접근 방식 또한 나중에 여러 개의 바운디드 컨텍스트의 영속성 요구사항을 분리하기 위한 좋은 토대가 된다. 바운디드 컨텍스트 간의 경계를 명확하게 구분하고 싶다면 각 바운디드 컨텍스트가 영속성 어댑터(들)을 하나씩 가지고 있어야 한다.
+#### 자원 할당 그래프
 
-### 스프링 데이터 JPA 예제 <a href="#h-tag-5" id="h-tag-5"></a>
+어떤 자원을 사용하는지, 어떤 자원을 기다리고 있는지 방향성 그래프를 표현한 것이다.
 
-```jsx
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "accounts")
-class AccountJpaEntity {
+### 교착 상태 필요 조건
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+교착  상태와 아사상태는 서로 다른 상태인데, 아사 현상은 정책상 잘못이나 오류가 없어도 발생한다
 
-    protected AccountJpaEntity() {
-    }
+🔴 상호 배제 : 한 프로세스가 사용하는 자원은 다른 프로세스와 공유할 수 없는 자원이여야 한다
 
-    public Long getId() {
-        return id;
-    }
-}
-```
+이 자원은 임계구역으로 보호되기 때문에 동시에 사용할 수 없다
 
-```jsx
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
+🟠 비선점 : 다른 프로세스가 중간에 뺏을 수 없는 자원이어야 한다.
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+🟡 점유와 대기 : 프로세스가 서로 할당&대기 상태여야 한다.
 
-@Entity
-@Table(name = "activities")
-public class ActivityJpaEntity {
+🟢 원형 대기 :  점유와 대기를 하는 프로세스의 관계가 원을 이루어야 한다
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+### 교착 상태 해결 방법
 
-    @Column
-    private LocalDateTime timestamp;
+예방, 회피, 검출, 회복으로 교착상태를 해결한다.
 
-    @Column
-    private Long ownerAccountId;
+🔴 예방 : 교착 상태를 유발하는 조건이 발생하지 않도록 무력화 시키는 방식이다.
 
-    @Column
-    private Long sourceAccountId;
+🟠 회피 : 자원 할당량을 조절하는 방식이다. 자원을 할당하다 교착 상태의 가능성이 보이면 할당을 중단한다
 
-    @Column
-    private Long targetAccountId;
+🟡 검출& 회복 : 제약을 가하지 않고 자원할당 그래프를 모니터링 하면서 교착 상태가 발생하는지 살펴보는 방식이다.
 
-    @Column
-    private Long amount;
+### 교착 상태 예방
 
-    protected ActivityJpaEntity() {
-    }
+상호 배타적인 모든 자원을 없애 버리는 방법이다.
 
-    public ActivityJpaEntity(Long id, LocalDateTime timestamp, Long ownerAccountId, Long sourceAccountId, Long targetAccountId, Long amount) {
-        this.id = id;
-        this.timestamp = timestamp;
-        this.ownerAccountId = ownerAccountId;
-        this.sourceAccountId = sourceAccountId;
-        this.targetAccountId = targetAccountId;
-        this.amount = amount;
-    }
+시스템 내의 모든 자원을 공유할 수 있다면 교착 상태가 발생하지 않는다.
 
-    public Long getId() {
-        return id;
-    }
+#### 비선점 예방
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
+모든 자원을 빼앗을 수 있도록 만드는 방법이다.
 
-    public Long getOwnerAccountId() {
-        return ownerAccountId;
-    }
+임계 구역을 보호하기 위해 잠금을 사용하면 자원을 빼앗을 수도 없고 상호 배제도 보장할 수 없다.
 
-    public Long getSourceAccountId() {
-        return sourceAccountId;
-    }
+#### 점유와 대기 예방
 
-    public Long getTargetAccountId() {
-        return targetAccountId;
-    }
+프로세스가 자원을 점유한 상태에서 다른 지원을 기다리지 못하게 하는 방법이다.
 
-    public Long getAmount() {
-        return amount;
-    }
-}
-```
+`전부 할당`& `할당 X` 하는 방식으로, 프로세스 자원 사용 방식을 변화시켜 교착 상태를 처리한다
 
-```java
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
+* 프로세스가 자신이 사용하는 모든 자원을 알기 어렵다
+* 자원의 활용성이 떨어진다.
+* 많은 자원을 사용하는 프로세스가 적은 자원을 사용하는 프로세스보다 불리하다
+* 일괄 작업 방식으로 동작한
 
-import org.springframework.data.jpa.repository.JpaRepository;
+#### 원형 대기 예방&#x20;
 
-interface SpringDataAccountRepository extends JpaRepository<AccountJpaEntity, Long> {
-}
-```
+점유와 대기를 하는 프로세스들이 원형을 이루지 못하게 하는 방법이다.
 
-```java
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
+자원이 한 방향으로만 사용하도록 설정함 으로써 원형 대기를 예방할 수 있다.
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+* 프로세스 작업 진행에 유연성이 떨어진다
+* 자원의 번호를 어떻게 부여할 것인지가 문제이다
 
-import java.time.LocalDateTime;
-import java.util.List;
+### 교착 상태 회피
 
-interface ActivityRepository extends JpaRepository<ActivityJpaEntity, Long> {
+자원을 할당할 떄 어느 수준 이상의 자원을 나누어 주면 교착 상태가 발생하는지 파악 하는 방법이다.
 
-    @Query("SELECT activites FROM ActivityJpaEntity activites " +
-            "WHERE activites.ownerAccountId = :ownerAccountId " +
-            "AND activites.timestamp >= :since")
-    List<ActivityJpaEntity> findByOwnerSince(@Param("ownerAccountId") Long ownerAccountId, @Param("since") LocalDateTime since);
+자원의 총수와 할당된 자원의 수를 기준으로 `안정상태` & `불안정상태` 로 나누고 시스템이 안정 상태를 유지하도록 자원을 할당한
 
-    @Query("SELECT SUM(activites.amount) FROM ActivityJpaEntity activites " +
-            "WHERE activites.targetAccountId = :accountId " +
-            "AND activites.ownerAccountId = :accountId " +
-            "AND activites.timestamp < :until")
-    Long getDepositBalanceUntil(@Param("accountId") Long accountId, @Param("until") LocalDateTime until);
+* 프로세스가 자신이 사용할 모든 자원을 미리 선언해야 한다
+* 시스템의 전체 자원 수가 고정적이어야 한다
+* 자원이 낭비된다
 
-    @Query("SELECT SUM(activites.amount) FROM ActivityJpaEntity activites " +
-            "WHERE activites.sourceAccountId = :accountId " +
-            "AND activites.ownerAccountId = :accountId " +
-            "AND activites.timestamp < :until")
-    Long getWithdrawalBalanceUntil(@Param("accountId") Long accountId, @Param("until") LocalDateTime until);
-}
-```
+<details>
 
-```java
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
+<summary>은행원 알고리즘</summary>
 
-import com.book.cleanarchitecture.buckpal.account.application.port.out.LoadAccountPort;
-import com.book.cleanarchitecture.buckpal.account.application.port.out.UpdateAccountStatePort;
-import com.book.cleanarchitecture.buckpal.account.domain.Account;
-import com.book.cleanarchitecture.buckpal.account.domain.Activity;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.shared.PersistenceAdapter;
+각 프로세스는 자신이 사용할 자원의 최대 수를 운영체제에 알려준다 &#x20;
 
-import javax.persistence.EntityNotFoundException;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
+각 프로세스에 할당된 자원의 수는 할당자원에 표시되며,
 
-@PersistenceAdapter
-public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
+&#x20;선언한 최대 자원에서 할당 자원을 빼면 기대자원이 된다.
 
-    private final SpringDataAccountRepository accountRepository;
-    private final ActivityRepository activityRepository;
-    private final AccountMapper accountMapper;
+</details>
 
-    public AccountPersistenceAdapter(SpringDataAccountRepository accountRepository, ActivityRepository activityRepository, AccountMapper accountMapper) {
-        this.accountRepository = accountRepository;
-        this.activityRepository = activityRepository;
-        this.accountMapper = accountMapper;
-    }
 
-    @Override
-    public Account loadAccount(AccountId accountId, LocalDateTime baselineDate) {
-        AccountJpaEntity account = accountRepository.findById(accountId.getValue())
-                .orElseThrow(EntityNotFoundException::new);
 
-        List<ActivityJpaEntity> activities = activityRepository.findByOwnerSince(accountId.getValue(), baselineDate);
+### 교착 상태 검출
 
-        Long withdrawalBalance = orZero(activityRepository
-                .getWithdrawalBalanceUntil(accountId.getValue(), baselineDate));
+교착 상태 예방은 구현하기 어렵고, 회피는 구현할 수 있지만 자원을 낭비한다.
 
-        Long depositBalance = orZero(activityRepository
-                .getDepositBalanceUntil(accountId.getValue(), baselineDate));
+교착 상태 검출은 타임아웃을 이용하거나, 자원할당 그래프를 이용하는 방법이 있다.
 
-        return accountMapper.mapToDomainEntity(account, activities, withdrawalBalance, depositBalance);
-    }
+타임아웃을 이용한 검증은 `가벼운 교착 상태 검증` 이라 부르며,  일정 시간동안 작업이 진행되지 않은 프로세스를 교착으로 간주한다.
 
-    @Override
-    public void updateActivities(Account account) {
-        List<Activity> activities = account.getActivities();
+* 엉뚱한 프로세스가 종료될 수 있다
+* 모든 시스템에 적용할 수 없다
 
-        activities.stream()
-                .filter(activity -> Objects.isNull(activity.getId()))
-                .forEach(activity -> activityRepository.save(accountMapper.mapToJpaEntity(activity)));
-    }
+자원 할당 그래프를 사용한 검증은 `무거운 교착 상태 검증` 이라 부르며 시스템이 어떤 자원을 사용하거나 기다리는지 알 수 있다.
 
-    private Long orZero(Long value) {
-        return value == null ? 0L : value;
-    }
-}
-```
+* 교착 상태가 없는 자원 할당 그래프
+* 교착 상태가 있는 자원 할당 그래프
+
+자원 할당 그래프를 이용하여 교착 상태를 검출하는 방법은 정확하고 멈춤이 생기지 않는다.
+
+
+
+### 교착 상태 회복
+
+교착 상태가 검출되면 교착 상태를 푸는 후속 작업을 한다.
+
+* 교착 상태를 일으킨 프로세스를 동시에 종료
+* 교착 상태를 일으킨 프로세스중 하나를 골라 순서대로 종료
+
+회복 단계에서는 관련 프로세스를 종료하고 복구하는 일도 해야된다.
+

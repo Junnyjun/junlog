@@ -1,508 +1,187 @@
-# 아키텍처 요소 테스트하기
+---
+description: 메모리 관리의 복잡성을 해결하는 방법
+---
 
-### 테스트 피라미드 <a href="#h-tag-1" id="h-tag-1"></a>
+# 메모리 관리
 
-> 비용이 많이 드는 테스트는 지양하고 비용이 적게 드는 테스트를 많이 만들어야 한다. 만드는 비용이 적고, 유지보수하기 쉽고, 빨리 실행되고, 안정적인 작은 크기의 테스트들에 대해 높은 커버리지를 유지해야 한다는 것이다.
+## 메모리 관리의 복잡성
 
-![image](https://user-images.githubusercontent.com/53366407/151956954-e053763a-383b-4b87-b613-e93e4155bdc0.png)
+메모리 구조는 1B 크기로 나눈다.&#x20;
 
-💡 좋은 테스트의 속성(FIRST) F(Fast) : 빠르게 동작해라. I(Isolated) : 고립시켜라. R(Repeatable): 반복 가능해야 한다. S(Self-validating) : 스스로 검증 가능해야 한다. T(Timely): 적시에 사용해야 한다.
+보통 나눠진 영역은 메모리 주소로 구분하는데 보통 0번지 부터 시작된다.&#x20;
 
-* 단위 테스트(Unit)
-  * 하나의 클래스를 인스턴스화하고 해당 클래스의 인터페이스를 통해 기능들을 테스트한다.
-  * 테스트 중인 클래스가 다른 클래스에 의존한다면 의존되는 클래스들은 mock으로 대체한다.
-* 통합테스트(Integration)
-  * 연결된 여러 유닛을 인스턴스화하고 시작점이 되는 클래스의 인터페이스로 데이터를 보낸 후 유닛들의 네트워크가 기대한 대로 잘 동작하는지 검증한다.
-* )시스템 테스트(E2E)
-  * 모든 객체 네트워크를 가동시켜 특정 유스케이스가 전 계층에서 잘 동작하는지 검증
+CPU는 메모리에 있는 내용을 가져오거나 작업 결과를 메모리에 저장하기 위해 메모리 주소 레지스터를 사용한다.&#x20;
 
-### 단위 테스트로 도메인 엔티티 테스트하기 <a href="#h-tag-2" id="h-tag-2"></a>
+메모리 주소 레지스터에 필요한 메모리 주소를 넣으면 데이터를 메모리에서 가져오거나 메모리에 데이터를 옮길 수 있다
 
-```java
-package com.book.cleanarchitecture.buckpal.account.domain;
+### 소스코드의 번역과 실행
 
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+보통 컴파일러를 사용하여 작성한 프로그램을 실행 가능한 코드로 변경한다.
 
-import static com.book.cleanarchitecture.buckpal.common.AccountTestData.defaultAccount;
-import static com.book.cleanarchitecture.buckpal.common.ActivityTestData.defaultActivity;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
+기계어와 어셈블리어는 컴퓨터의 동작을 가장 직접적으로 표현한 언어로 저급 언어라고 한다
 
-class AccountTest {
+저급언어와 반대되는 이해하기 쉬운 언어는 C언어와 자바가 있다
 
-    private final AccountId accountId = new AccountId(1L);
-    private final Account account = defaultAccount()
-            .withAccountId(accountId)
-            .withBaselineBalance(Money.of(555L))
-            .withActivityWindow(new ActivityWindow(
-                    defaultActivity()
-                            .withTargetAccount(accountId)
-                            .withMoney(Money.of(999L)).build(),
-                    defaultActivity()
-                            .withTargetAccount(accountId)
-                            .withMoney(Money.of(1L)).build()))
-            .build();
+🔴 컴파일러 : 소스코드를 컴퓨터가 실행할 수 있는 기계어로 번역한 후 한꺼번에 실행한다
 
-    @Test
-    @DisplayName("계좌의 금액 계산하는 메서드")
-    void calculateBalance() {
-        Money balance = account.calculateBalance();
+🟠 인터프리터 : 소스코드를 한 행씩 번역하여 실행한다
 
-        assertThat(balance).isEqualTo(Money.of(1555L));
-    }
+#### 컴파일러의 목적
 
-    @Test
-    @DisplayName("계좌 송금 성공 테스트")
-    void withdrawalSucceeds() {
-        boolean success = account.withdraw(Money.of(555L), new AccountId(99L));
+* 오류 발견&#x20;
 
-        assertAll(
-                () -> assertThat(success).isTrue(),
-                () -> assertThat(account.getActivities()).hasSize(3),
-                () -> assertThat(account.calculateBalance()).isEqualTo(Money.of(1000L))
-        );
-    }
+소스 코드의 오류를 발견하여 실행 시 문제를 사전에 찾아낸다.&#x20;
 
-    @Test
-    @DisplayName("계좌 송금 실패 테스트 (초과된 금액)")
-    void withdrawalFailure() {
-        boolean failure = account.withdraw(Money.of(1556L), new AccountId(99L));
+오류를 찾기 전 심벌 테이블을 사용하는데 변수 선언부에 명시한 변수의 이름과 종류를 모아놓은 테이블이다
 
-        assertAll(
-                () -> assertThat(failure).isFalse(),
-                () -> assertThat(account.getActivities()).hasSize(2),
-                () -> assertThat(account.calculateBalance()).isEqualTo(Money.of(1555L))
-        );
-    }
+* 코드 최적화&#x20;
 
-    @Test
-    @DisplayName("계좌 예금 성공 테스트")
-    void depositSuccess() {
-        boolean success = account.deposit(Money.of(445L), new AccountId(99L));
+컴파일러는 실행하기 전 코드를 점검하여, 중복되거나 사용하지 않는 코드를 검출한다.&#x20;
 
-        assertAll(
-                () -> assertThat(success).isTrue(),
-                () -> assertThat(account.getActivities()).hasSize(3),
-                () -> assertThat(account.calculateBalance()).isEqualTo(Money.of(2000L))
-        );
-    }
-}
+컴파일러는 오류와 중복을 점검하고 최적화 하는 목적을 가진다
+
+#### 컴파일 과정
+
+작성한 소스코드를 목적 코드로 변환한 후 실행파일을 만든다
+
+```
+I) 소스코드 작성 및 컴파일 
+c언어나 자바로 코드를 작성하여 컴파일하면 목적코드가 만들어진다.
+II) 목적코드와 라이브러리 연결 
+목적코드가 만들어지면 라이브러리에 있는 코드를 목적 코드에 삽입하여 최종 실행 파일을 만든다. 
+라이브러리는 자주 사용하는 함수를 시스템내에 만들어둔 것으로 작성이 까다롭고 귀찮은 함수를 모아 놓은 것이다
+III) 동적 라이브러리를 포함하여 최종 실행
+동적 라이브러리 방식은 함수가 변경되어도 새로 컴파일할 필요가 없다
 ```
 
-### 단위 테스트로 유스케이스 테스트하기 <a href="#h-tag-3" id="h-tag-3"></a>
-
-```java
-package com.book.cleanarchitecture.buckpal.account.application.service;
-
-import com.book.cleanarchitecture.buckpal.account.application.port.in.SendMoneyCommand;
-import com.book.cleanarchitecture.buckpal.account.application.port.out.AccountLock;
-import com.book.cleanarchitecture.buckpal.account.application.port.out.LoadAccountPort;
-import com.book.cleanarchitecture.buckpal.account.application.port.out.UpdateAccountStatePort;
-import com.book.cleanarchitecture.buckpal.account.domain.Account;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-
-class SendMoneyServiceTest {
-    private final LoadAccountPort loadAccountPort = mock(LoadAccountPort.class);
-    private final AccountLock accountLock = mock(AccountLock.class);
-    private final UpdateAccountStatePort updateAccountStatePort = mock(UpdateAccountStatePort.class);
-    private final SendMoneyService sendMoneyService = new SendMoneyService(loadAccountPort, accountLock, updateAccountStatePort, moneyTransferProperties());
-
-    @Test
-    @DisplayName("계좌 송금 실패 테스트")
-    void givenWithdrawalFails_thenOnlySourceAccountIsLockedAndReleased() {
-        AccountId sourceAccountId = new AccountId(41L);
-        Account sourceAccount = givenAnAccountWithId(sourceAccountId);
-
-        AccountId targetAccountId = new AccountId(42L);
-        Account targetAccount = givenAnAccountWithId(targetAccountId);
-
-        givenWithdrawalWillFail(sourceAccount);
-        givenDepositWillSucceed(targetAccount);
-
-        SendMoneyCommand command = new SendMoneyCommand(sourceAccountId, targetAccountId, Money.of(300L));
-
-        boolean success = sendMoneyService.sendMoney(command);
-
-        assertThat(success).isFalse();
-
-        then(accountLock).should().lockAccount(eq(sourceAccountId));
-        then(accountLock).should().releaseAccount(eq(sourceAccountId));
-        then(accountLock).should(times(0)).lockAccount(eq(targetAccountId));
-    }
-
-    @Test
-    @DisplayName("계좌송금 성공 테스트")
-    void transactionSucceeds() {
-        Account sourceAccount = givenSourceAccount();
-        Account targetAccount = givenTargetAccount();
-
-        givenWithdrawalWillSucceed(sourceAccount);
-        givenDepositWillSucceed(targetAccount);
-
-        Money money = Money.of(500L);
-
-        SendMoneyCommand command = new SendMoneyCommand(
-                sourceAccount.getId().get(),
-                targetAccount.getId().get(),
-                money);
-
-        boolean success = sendMoneyService.sendMoney(command);
-
-        assertThat(success).isTrue();
-
-        AccountId sourceAccountId = sourceAccount.getId().get();
-        AccountId targetAccountId = targetAccount.getId().get();
-
-        then(accountLock).should().lockAccount(eq(sourceAccountId));
-        then(sourceAccount).should().withdraw(eq(money), eq(targetAccountId));
-        then(accountLock).should().releaseAccount(eq(sourceAccountId));
-
-        then(accountLock).should().lockAccount(eq(targetAccountId));
-        then(targetAccount).should().deposit(eq(money), eq(sourceAccountId));
-        then(accountLock).should().releaseAccount(eq(targetAccountId));
-
-        thenAccountsHaveBeenUpdated(sourceAccountId, targetAccountId);
-    }
-
-    private void thenAccountsHaveBeenUpdated(AccountId... accountIds) {
-        ArgumentCaptor<Account> accountCaptor = ArgumentCaptor.forClass(Account.class);
-        then(updateAccountStatePort).should(times(accountIds.length))
-                .updateActivities(accountCaptor.capture());
-
-        List<AccountId> updatedAccountIds = accountCaptor.getAllValues()
-                .stream()
-                .map(Account::getId)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .collect(Collectors.toList());
-
-        for (AccountId accountId : accountIds) {
-            assertThat(updatedAccountIds).contains(accountId);
-        }
-    }
-
-    private void givenDepositWillSucceed(Account account) {
-        given(account.deposit(any(Money.class), any(AccountId.class))).willReturn(true);
-    }
-
-    private void givenWithdrawalWillFail(Account account) {
-        given(account.withdraw(any(Money.class), any(AccountId.class))).willReturn(false);
-    }
-
-    private void givenWithdrawalWillSucceed(Account account) {
-        given(account.withdraw(any(Money.class), any(AccountId.class))).willReturn(true);
-    }
-
-    private Account givenTargetAccount() {
-        return givenAnAccountWithId(new AccountId(42L));
-    }
-
-    private Account givenSourceAccount() {
-        return givenAnAccountWithId(new AccountId(41L));
-    }
-
-    private Account givenAnAccountWithId(AccountId id) {
-        Account account = mock(Account.class);
-
-        given(account.getId())
-                .willReturn(Optional.of(id));
-        given(loadAccountPort.loadAccount(eq(account.getId().get()), any(LocalDateTime.class)))
-                .willReturn(account);
-
-        return account;
-    }
-
-    private MoneyTransferProperties moneyTransferProperties() {
-        return new MoneyTransferProperties(Money.of(Long.MAX_VALUE));
-    }
-}
-```
-
-* 테스트 중인 유스케이스 서비스는 상태가 없기 때문에 then 섹션에서 특정 상태를 검증할 수 없다. 대신 테스트는 서비스가 (모킹된) 의존 대상의 특정 메서드와 상호작용했는지 여부를 검증한다. 이는 테스트가 코드의 행동 변경뿐만 아니라 코드의 구조 변경에도 취약해진다는 의미가 된다. 자연스럽게 코드가 리팩터링되면 테스트도 변경될 확률이 높아진다. 그렇기 때문에, 테스트에서 어떤 상호작용을 검증하고 싶은지 신중하게 생각해야 한다. 앞의 예제처럼 모든 동작을 검증하는 대신 중요한 핵심만 골라 집중해서 테스트하는 것이좋다. 만약 모든 동작을 검증하려고 하면 클래스가 조금이라도 바뀔 때마다 테스트를 변경해야 한다. 이는 테스트의 가치를 떨어뜨리는 일이다.
-
-### 통합 테스트로 웹 어댑터 테스트하기 <a href="#h-tag-4" id="h-tag-4"></a>
-
-```java
-package com.book.cleanarchitecture.buckpal.account.adapter.in.web;
-
-import com.book.cleanarchitecture.buckpal.account.application.port.in.SendMoneyCommand;
-import com.book.cleanarchitecture.buckpal.account.application.port.in.SendMoneyUseCase;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.BDDMockito.then;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-@WebMvcTest(controllers = SendMoneyController.class)
-class SendMoneyControllerTest {
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private SendMoneyUseCase sendMoneyUseCase;
-
-    @Test
-    @DisplayName("송금 테스트")
-    void testSendMoney() throws Exception {
-        mockMvc.perform(post("/accounts/send/{sourceAccountId}/{targetAccountId}/{amount}", 41L, 42L, 500)
-                        .header("Content-Type", "application/json"))
-                .andExpect(status().isOk());
-
-        then(sendMoneyUseCase)
-                .should()
-                .sendMoney(eq(new SendMoneyCommand(new AccountId(41L), new AccountId(42L), Money.of(500L))));
-    }
-}
-```
-
-* 웹 컨트롤러가 스프링 프레임워크에 강하게 묶여 있기 때문에 격리된 상태로 테스트하기보다는 이 프레임워크와 통합된 상태로 테스트하는 것이 합리적이다.
-
-### 통합 테스트로 영속성 어댑터 테스트하기 <a href="#h-tag-5" id="h-tag-5"></a>
-
-```tsx
-INSERT INTO accounts (id)
-VALUES (1);
-INSERT INTO accounts (id)
-VALUES (2);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1, '2018-08-08 08:00:00.0', 1, 1, 2, 500);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (2, '2018-08-08 08:00:00.0', 2, 1, 2, 500);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (3, '2018-08-09 10:00:00.0', 1, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (4, '2018-08-09 10:00:00.0', 2, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (5, '2019-08-09 09:00:00.0', 1, 1, 2, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (6, '2019-08-09 09:00:00.0', 2, 1, 2, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (7, '2019-08-09 10:00:00.0', 1, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (8, '2019-08-09 10:00:00.0', 2, 2, 1, 1000);
-```
-
-```java
-package com.book.cleanarchitecture.buckpal.account.adapter.out.persistence;
-
-import com.book.cleanarchitecture.buckpal.account.domain.Account;
-import com.book.cleanarchitecture.buckpal.account.domain.ActivityWindow;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.time.LocalDateTime;
-
-import static com.book.cleanarchitecture.buckpal.common.AccountTestData.defaultAccount;
-import static com.book.cleanarchitecture.buckpal.common.ActivityTestData.defaultActivity;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
-
-@DataJpaTest
-@Import({AccountPersistenceAdapter.class, AccountMapper.class})
-class AccountPersistenceAdapterTest {
-    @Autowired
-    private AccountPersistenceAdapter adapterUnderTest;
-
-    @Autowired
-    private ActivityRepository activityRepository;
-
-    @Test
-    @Sql("AccountPersistenceAdapterTest.sql")
-    void loadsAccount() {
-        Account account = adapterUnderTest.loadAccount(new AccountId(1L), LocalDateTime.of(2018, 8, 10, 0, 0));
-
-        assertAll(
-                () -> assertThat(account.getActivities()).hasSize(2),
-                () -> assertThat(account.calculateBalance()).isEqualTo(Money.of(500))
-        );
-    }
-
-    @Test
-    void updatesActivities() {
-        Account account = defaultAccount()
-                .withBaselineBalance(Money.of(555L))
-                .withActivityWindow(new ActivityWindow(
-                        defaultActivity()
-                                .withId(null)
-                                .withMoney(Money.of(1L)).build()))
-                .build();
-
-        adapterUnderTest.updateActivities(account);
-
-        ActivityJpaEntity savedActivity = activityRepository.findAll().get(0);
-
-        assertAll(
-                () -> assertThat(activityRepository.count()).isEqualTo(1),
-                () -> assertThat(savedActivity.getAmount()).isEqualTo(1L)
-        );
-    }
-}
-```
-
-* 더미데이터로 테스트 하는 것이 더 효율적이다.
-
-### 시스템 테스트로 주요 경로 테스트하기 <a href="#h-tag-6" id="h-tag-6"></a>
-
-```tsx
-INSERT INTO accounts (id)
-VALUES (1);
-INSERT INTO accounts (id)
-VALUES (2);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1001, '2018-08-08 08:00:00.0', 1, 1, 2, 500);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1002, '2018-08-08 08:00:00.0', 2, 1, 2, 500);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1003, '2018-08-09 10:00:00.0', 1, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1004, '2018-08-09 10:00:00.0', 2, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1005, '2019-08-09 09:00:00.0', 1, 1, 2, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1006, '2019-08-09 09:00:00.0', 2, 1, 2, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1007, '2019-08-09 10:00:00.0', 1, 2, 1, 1000);
-
-INSERT INTO activities (id, timestamp, owner_account_id, source_account_id, target_account_id, amount)
-VALUES (1008, '2019-08-09 10:00:00.0', 2, 2, 1, 1000);
-```
-
-```java
-package com.book.cleanarchitecture.buckpal;
-
-import com.book.cleanarchitecture.buckpal.account.application.port.out.LoadAccountPort;
-import com.book.cleanarchitecture.buckpal.account.domain.Account;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.AccountId;
-import com.book.cleanarchitecture.buckpal.account.domain.vo.Money;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.*;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.time.LocalDateTime;
-
-import static org.assertj.core.api.BDDAssertions.then;
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SendMoneySystemTest {
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Autowired
-    private LoadAccountPort loadAccountPort;
-
-    @Test
-    @Sql("SendMoneySystemTest.sql")
-    void sendMoney() {
-        Money initialSourceBalance = sourceAccount().calculateBalance();
-        Money initialTargetBalance = targetAccount().calculateBalance();
-        ResponseEntity<Object> response = whenSendMoney(sourceAccountId(), targetAccountId(), transferredAmount());
-
-        then(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(sourceAccount().calculateBalance()).isEqualTo(initialSourceBalance.minus(transferredAmount()));
-        then(targetAccount().calculateBalance()).isEqualTo(initialTargetBalance.plus(transferredAmount()));
-    }
-
-    private Account sourceAccount() {
-        return loadAccount(sourceAccountId());
-    }
-
-    private Account targetAccount() {
-        return loadAccount(targetAccountId());
-    }
-
-    private Account loadAccount(AccountId accountId) {
-        return loadAccountPort.loadAccount(accountId, LocalDateTime.now());
-    }
-
-    private ResponseEntity<Object> whenSendMoney(AccountId sourceAccountId, AccountId targetAccountId, Money amount) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        HttpEntity<Void> request = new HttpEntity<>(null, headers);
-
-        return restTemplate.exchange(
-                "/accounts/send/{sourceAccountId}/{targetAccountId}/{amount}",
-                HttpMethod.POST,
-                request,
-                Object.class,
-                sourceAccountId.getValue(),
-                targetAccountId.getValue(),
-                amount.getAmount());
-    }
-
-    private Money transferredAmount() {
-        return Money.of(500L);
-    }
-
-    private AccountId sourceAccountId() {
-        return new AccountId(1L);
-    }
-
-    private AccountId targetAccountId() {
-        return new AccountId(2L);
-    }
-}
-```
-
-* 일반적으로 시스템 테스트는 단위 테스트와 통합 테스트가 발견하는 버그와는 또 다른 종류의 버그를 발견해서 수정할 수 있게 해준다. 예를 들어, 단위 테스트나 통합 테스트만으로는 알아차리지 못했을 계층 간 매핑 버그 같은 것들 말이다.
-* 시스템 테스트는 여러 개의 유스케이스를 결합해서 시나리오를 만들 때 더 빛이 난다. 각 시나리오는 사용자가 애플리케이션을 사용하면서 거쳐갈 특정 경로를 의미한다. 시스템 테스트를 통해 중요한 시나리오들이 커버된다면 최신 변경사항들이 애플리케이션을 망가뜨리지 않았음을 가정할 수 있고, 배포될 준비가 됐다는 확신을 가질 수 있다.
-
-### 얼마만의 테스트가 충분할까? <a href="#h-tag-7" id="h-tag-7"></a>
-
-* 라인 커버리지는 테스트 성공을 측정하는 데 있어서는 잘못된 지표다.
-* 프로덕션의 버그를 수정하고 이로부터 배우는 것을 우선순위로 삼으면 제대로 가고 있는 것이다.
-* 도메인 엔티티를 구현할 때는 단위 테스트로 커버하자.
-* 유스케이스를 구현할 떄는 단위 테스트로 커버하자.
-* 어댑터를 구현할 때는 통합 테스트로 커버하자.
-* 사용자가 취할 수 있는 중요 애플리케이션 경로는 시스템 테스트로 커버하자.
+### 메모리 관리자의 역할&#x20;
+
+매모리 관리 유닛(MMU) 라는 하드웨어를 통칭한다.
+
+#### 🔴 가져오기&#x20;
+
+사용자의 요청이 들어온 프로세스와 데이터를 메모리로 가져오는 작업이다.
+
+&#x20;앞으로 필요할 것으로 예상되는 데이터도 미리 가져오기도 한다
+
+#### 🟠 배치 작업&#x20;
+
+프로세스 데이터를 어디에 올려 놓을지 결정하는 작업이다
+
+&#x20;메모리를 어떤 크기로 자를 것인지가 가장 중요하다.
+
+#### 🟡 재배치 작업
+
+새로운 프로세스를 가져와야 하는데 메모리가 꽉 찻다면 메모리에 있는 프로세스를 디스크로 옮겨 놓아야 새로운 프로세스 메모리를 가져올 수 있다
+
+## 메모리 주소
+
+CPU 32Bit 64Bit 차이
+
+CPU의 비트는 한번에 다룰 수 있는 데이터의 최대 크기를 의미한다&#x20;
+
+32bit의 cpu의 내의 레지스터 크기는 전부 32bit이고 산술 논리연산 장치(ALU)도 32bit만 처리할 수 있도록 설계된다.&#x20;
+
+버스의 크기(대역폭)도 32bit이다
+
+<img src="../../../.gitbook/assets/file.drawing (5) (1) (1).svg" alt="" class="gitbook-drawing">
+
+CPU의 비트는 메모리 주소 공간의 크기와도 연관이 잇다. 총$$2^{32}-1$$개이며 약 4GB이다\
+CPU엔 메모리가 설치되어 있으며 각 메모리 주소 공간(물리 주소 공간)이 존재한다.&#x20;
+
+이와 반대로 사용자 입장에서 바라본 주소 공간은 논리 주소 공간이다
+
+### 절대 주소와 상대 주소
+
+메모리 관리자는 운영체제 영역과 사용자 영억으로 나누어 관리한다.&#x20;
+
+운영체제는 시스템을 관리하는 역할을 하기 때문에 사용자가 침범하지 못하도록 분리한다
+
+사용자 프로세스는 운영체제 영역을 피하여 메모리에 올라간다.
+
+사용자 영역이 운영체제 영역을 침범하는 것을 막으려면 하드웨어의 도움이 필요한데,&#x20;
+
+이는 CPU의 경계 레지스터가 담당한다.
+
+메모리 관리자는 사용자 작업을 요청할 떄마다 경계 레지스터의 값을 벗어나는지 검사하고, 벗어난다면 종료시킨다
+
+#### 절대 주소
+
+메모리 주소 레지스터가 사용하는 주소로, 컴퓨터의 램 실제 주소(물리 주소 공간)이다
+
+#### 상대 주소
+
+프로세스 입장에서 운영체제의 메모리 위치와 상관없이,
+
+&#x20;주소공간이 항상 0번지 부터 시작되는 부분(논리 주소 공간)이다
+
+{% hint style="info" %}
+상대 주소 => 절대 주소
+
+사용자가 상대 주소의 데이터를 요청&#x20;
+
+메모리 관리자가 프로세스 데이터의 물리 주소 가져오라 명령
+{% endhint %}
+
+## 메모리 할당
+
+### 단일 프로그래밍 환경
+
+실제 메모리보다 큰 프로그램을 잘라서 가져오는 기법을 메모리 오버레이라고 한다
+
+메모리 오버레이의 경우 프로그램을 몇 개의 모듈로 나누고, 필요시 모듈을 메모리에 가져와서 사용한다.
+
+메모리 오버레이에서 모듈을 가져오거나 내보낼지는 프로그램 카운터가 결정한다.
+
+### 스왑
+
+메모리 모듈을 가져올때, 기존에 올라온 모듈을 보관하는 방법이다.
+
+메모리가 모자라서 쫓겨난 프로세스는 저장장치의 스왑 영역에 저장되는데,&#x20;
+
+스왑영역에서 데이터를 가져오는 작업은 `swap in`, 스왑영역에서 데이터를 내보내는 작업을 `swap out`이라고 한다
+
+{% hint style="info" %}
+최대 절전모드에서 데이터를 옮기는 곳도 스왑 영역이다
+{% endhint %}
+
+### 다중 프로그래밍 환경
+
+메모리 분할 방식은 두가지 가변 분할, 고정 분할 방식이 존재한다
+
+프로세스의 빈공간이 있어도 서로 떨어지면 작은 조각들이 발생하는데 단편화&조각화 라고한다
+
+#### 가변 분할&#x20;
+
+프로세스의 크기에 따라 메모리 분할 `세그먼테이션 기법`
+
+한 프로세스가 연속된 공간에 배치되기 때문에 연속 메모리 할당
+
+* 최초 배치 : 단편화를 고려하지않는 것으로 메모리의 빈 공간에 배치할 때 적재 가능한 공간 찾고 첫 번째 공간에 배치한다
+* 최적 배치: 메모리의 빈 공간을 모두 확인한 후 적당한 크기중 가장 작은 공간에 배치한다
+* 최악 배치 : 가장 큰 공간에 프로세스를 배치하는 방법이다
+
+어떤 방식을 사용해도 단편화 현상을 발생한다.
+
+단편화가 발생하면 조각 모음을 통해 배치된 프로세스를 옮겨 빈 공간들을 추려낸다
+
+#### 고정 분할
+
+메모리 조각에 프로세스를 배치하고 공간이 남는 현상을 내부 단편화 라고한다
+
+가상 메모리 시스템에서는 고정 분할 방식을 페이징 이라고도 한다
+
+프로세스 크기와 상관없이 메모리를 같은 크기로 나누는 것이다
+
+비연속 메모리 할당이라고 한다
+
+### 버디 시스템
+
+프로세스 크기에 맞게 메모리를 1/2로 자르고 프로세스를 메모리에 배치한다
+
+&#x20;나뉜 메모리의 각 구격에는 프로세스가 1개만 들어간다&#x20;
+
+프로세스가 종료되면 주변의 빈 조각과 합쳐서 하나의 큰 덩어리를 만든다
+
+##
+

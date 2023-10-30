@@ -1,81 +1,82 @@
-# 아키텍처 경계 강제하기
+---
+description: 필수장치인 입출력 장치에 대해 알아봅니다.
+---
 
-### 경계와 의존성 <a href="#h-tag-1" id="h-tag-1"></a>
+# 입출력 시스템
 
-![image](https://user-images.githubusercontent.com/53366407/152138440-5a20b58b-59b4-4f3b-a044-e74b63192a5a.png)
+컴퓨터는 필수 장치인 CPU, 메모리 주변장치인 입출력 장치와 저장장치로 구성되어 있다.
 
-* 아키텍처 경계를 강제한다는 것은 의존성이 올바른 방향을 향하도록 강제하는 것을 의미한다. 아키텍처에서 허용되지 않은 의존성을 점선 화살표로 표시했다.
+각 장치는 메인보드의 버스로 연결된다.
 
-### 접근 제한자 <a href="#h-tag-2" id="h-tag-2"></a>
+버스에 많은 종류에 장치가 연결되기 때문에 버스를 하나만 사용하면 병목 현상이 발생한다.
 
-* [**자바의 접근제어자(public, protected, private, private-package)**](https://rutgo-letsgo.tistory.com/328)
+{% hint style="info" %}
+병목 현상 : 다른 장치의 성능을 제한하는 현상
+{% endhint %}
 
-#### package-private 제한자가 왜 중요한가? <a href="#h-tag-3" id="h-tag-3"></a>
+이때 데이터가 지나가는 통로를 채널 이라고 한다.
 
-자바 패키지를 통해 클래스들을 응집적인 모듈로 만들어 주기 때문이다. 이러한 모듈 내에 있는 클래스들은 서로 접근가능하지만, 패키지 바깥에서는 접근할 수 없다. 그럼 모듈의 진입점으로 활용될 클래스들만 골라서 public으로 만들면 된다. 이렇게 하면 의존성이 잘못된 방향을 가리켜서 의존성 규칙을 위반할 위험이 줄어든다.
+운영체제는 속도가 비슷한 주변 장치를 묶어 채널을 할당하면, 병목현상을 줄일 수 있다.
 
-### 컴파일 후 체크 <a href="#h-tag-4" id="h-tag-4"></a>
 
-#### 의존성 규칙을 위반했는지 확인할 수단 <a href="#h-tag-5" id="h-tag-5"></a>
 
-1. 컴파일 후 체크를 도입한다. (ArchUnit)
+### 입출력 버스
 
-```java
-package com.book.cleanarchitecture.buckpal;
+#### 초기
 
-import com.book.cleanarchitecture.buckpal.archunit.HexagonalArchitecture;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
-import org.junit.jupiter.api.Test;
+초기에는 입출력 명령을 만나면 직접 입출력 장치의 데이터를 가져왔는데 이를 폴링이라고 한다.
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+이방식을 이용하면 CPU는 입출력이 끝날 때 까지 다른 작업을 할 수없기에 효율이 떨어진다.
 
-class DependencyRuleTests {
 
-    // @formatter:off
-    @Test
-    void validateRegistrationContextArchitecture() {
-        HexagonalArchitecture.boundedContext("com.book.cleanarchitecture.buckpal.account")
-                    .withDomainLayer("domain")
-                    .withAdaptersLayer("adapter")
-                    .incoming("in.web")
-                    .outgoing("out.persistence")
-                    .and()
-                .withApplicationLayer("application")
-                    .services("service")
-                    .incomingPorts("port.in")
-                    .outgoingPorts("port.out")
-                    .and()
-                .withConfiguration("configuration")
-                .check(new ClassFileImporter().importPackages("buckpal.."));
-    }
 
-    @Test
-    void testPackageDependencies() {
-        noClasses()
-                .that()
-                .resideInAPackage("io.reflectoring.reviewapp.domain..")
-                .should()
-                .dependOnClassesThat()
-                .resideInAnyPackage("io.reflectoring.reviewapp.application..")
-                .check(new ClassFileImporter().importPackages("io.reflectoring.reviewapp.."));
-    }
-}
-```
+#### 입출력 제어기
 
-ArchUnit API를 이용하면 적은 작업만으로도 육각형 아키텍처 내에서 관련된 모든 패키지를 명시할 수 있는 일종의 도메인 특화 언어(DSL)를 만들 수도 있고, 패키지 사이의 의존성 방향이 올바른지 자동으로 체크할 수 있다.
+폴링 방식을 개선한 방식으로서, 모든 입출력을 입출력 제어기에 맡기는 구조이다.
 
-### 빌드 아티팩트 <a href="#h-tag-6" id="h-tag-6"></a>
 
-![image](https://user-images.githubusercontent.com/53366407/152138462-8959a838-508a-4a6e-b3f0-44ec04b65fce.png)
 
-* 빌드 아티팩트란 아마도 자동화된 빌드 프로세스의 결과물이다.
-* 빌드 도구의 주요한 기능 중 하나는 의존성 해결이다.
-* 각 모듈 혹은 계층에 대해 전용 코드베이스와 빌드 아티팩트로 분리된 빌드 모듈(JAR 파일)을 만들 수 있다. 각 모듈의 빌드 스크립트에서는 아키텍처에서 허용하는 의존성만 지정한다.
+입출력 제어기는 주변 장치들의 전송 속도 차이로 인해 데이터 전송이 느려지는 문제가 발생 하였다.
 
-결론은 영속성 계층의 변경이 웹 계층에 영향을 미치거나 웹 계층의 변경이 영속성 계층에 영향을 미치는 것을 바라지 않을 것이다. (단일 책임 원칙을 기억하자)
+저속 입출력 버스와 고속 입출력 버스로 운영하여 이러한 문제를 해결한다.,
 
-#### 빌드 모듈로 아키텍처 경계를 구분하는 것은 패키지로 구분하는 방식과 비교했을때의 장점 <a href="#h-tag-7" id="h-tag-7"></a>
+<img src="../../../.gitbook/assets/file.drawing (1) (1) (3).svg" alt="" class="gitbook-drawing">
 
-1. 빌드 도구가 순환 의존성을 극도로 싫어한다.
-2. 빌드 모듈 방식에서는 다른 모듈을 고려하지 않고 특정 모듈의 코드를 격리한채로 변경할 수 있다.
-3. 모듈 간 의존성이 빌드 스크립트에 분명하게 선언돼 있기 떄문에 새로 의존성을 추가하는 일은 우연이 아닌 의식적인 행동이 된다.
+다양한 주변 장치는 전송 속도에 따라 저속 주변장치( 1KB 미만) 과 고속 주변장치 (높은 전송률) 로 구분된다.
+
+
+
+### 직접 메모리 접근
+
+입출력 제어기는 다양한 주변 장치의 입출력을 대행하며 여러 채널의 데이터를 메모리로 옮긴다.
+
+입출력 제어기는 DMA(직접메모리 접근)가 존재하여, 메모리에 접근할 수 있다.
+
+입출력 제어기는 여러 채널에 연결된 주변 장치로 부터 받아온 데이터를 배분하여 데이터 흐름을 만든다.
+
+이 데이터는 DMA제어기를 거쳐 메모리에 올라간다.
+
+현재의 입출력 시스템은 CPU의 작업 공간과 DMA 제어기가 데이터를 옮기는 공간을 분리하여 메인 메모리를 운연하는데, 메모리 맵 입출력 이라고 한다.
+
+<img src="../../../.gitbook/assets/file.drawing (1) (9).svg" alt="" class="gitbook-drawing">
+
+### 인터럽트
+
+입출력 제어기와 DMA의 작업이 완료되면 입출력 제어기는 CPU에 인터럽트를 보낸다.
+
+{% hint style="info" %}
+인터럽트 ? CPU에 작업 상태나 이상을 알려주는 행위
+{% endhint %}
+
+각 장치에는 고유한 IRQ라는 인터럽트 번호가 부여되어 있는데, CPU는 해당 IRQ를 보고 어떤 장치인지 식별한다.
+
+이와 같이 입출력 장치로 부터 오거나 기계적 오류로 오는 인터럽트는 외부 인터럽트 라고 한다
+
+반대로 프로세스의 잘못이나 예쌍치 못한 문제로 발생하는 문제는 내부 인터럽트라고 부른다.
+
+사용자의 의지로 kill을 하거나 프로세스를 강제로 종료하는 것은 시그널 이라고 부른다.
+
+#### 인터럽트 백터
+
+시스템 내에는 100개 이상의 인터럽트가 있고 이를 인터럽트 핸들러로 관리한다.
+
