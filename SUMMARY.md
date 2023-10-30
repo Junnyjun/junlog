@@ -214,6 +214,7 @@
 * [Books](study/books/README.md)
   * [📙 그림으로 공부하는 IT 인프라 구조](study/books/it/README.md)
     * [인프라 아키텍처를 살펴보자](study/books/it/undefined.md)
+    * [서버를 열어보자](study/books/it/undefined-1.md)
   * [📕 디버깅을 통해 배우는 리눅스 커널의 구조와 원리](study/books/undefined/README.md)
     * [리눅스 소개와 전망](study/books/undefined/undefined.md)
   * [📘 Atomic kotlin](study/atomic-kotlin.md)
