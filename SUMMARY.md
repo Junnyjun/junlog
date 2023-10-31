@@ -1,6 +1,7 @@
 # Table of contents
 
 * [👻 JUNNYLAND BLOG](README.md)
+  * [MATH](readme/math.md)
   * [Rust](readme/rust/README.md)
     * [Grammar](readme/rust/grammar/README.md)
       * [Variable](readme/rust/grammar/variable.md)
@@ -208,6 +209,11 @@
   * [Command](computer-science/design-pattern/command.md)
   * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
+
+## ETC
+
+* [🔢 MATH](etc/math/README.md)
+  * [Page 3](etc/math/page-3.md)
 
 ## STUDY
 
@@ -567,8 +573,7 @@
     * [컬렉션 처리 단계 수를 제한하라](study/books/undefined-11/undefined-32.md)
     * [성능이 중요한 부분에는 기본 자료형 배열을 사용하라](study/books/undefined-11/undefined-33.md)
     * [mutable 컬렉션 사용을 고려하라](study/books/undefined-11/mutable.md)
-  * [📓 TCP/IP 완벽가이드](study/books/tcp-ip/README.md)
-    * [Page 1](study/books/tcp-ip/page-1.md)
+  * [📓 TCP/IP 완벽가이드](study/books/tcp-ip.md)
   * [📕 UNIT TESTING](study/books/unit-testing/README.md)
     * [단위 테스트의 목표](study/books/unit-testing/undefined.md)
     * [단위 테스트란 무엇인가](study/books/unit-testing/undefined-1.md)
@@ -577,5 +582,4 @@
     * [목과 테스트 취약성](study/books/unit-testing/undefined-3.md)
   * [📗 코틀린으로 배우는 함수형 프로그래밍](study/books/undefined-12/README.md)
     * [함수형 프로그래밍이란?](study/books/undefined-12/undefined.md)
-    * [Page 2](study/books/undefined-12/page-2.md)
   * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13.md)
