@@ -213,7 +213,8 @@
 ## ETC
 
 * [🔢 MATH](etc/math/README.md)
-  * [Page 3](etc/math/page-3.md)
+  * [Function](etc/math/function/README.md)
+    * [Constant Function](etc/math/function/constant-function.md)
 
 ## STUDY
 
