@@ -226,6 +226,7 @@
     * [인프라 아키텍처를 살펴보자](study/books/it/undefined.md)
     * [서버를 열어보자](study/books/it/undefined-1.md)
     * [3계층형 시스템을 살펴보자](study/books/it/3.md)
+    * [직렬/병렬](study/books/it/undefined-2.md)
   * [📕 디버깅을 통해 배우는 리눅스 커널의 구조와 원리](study/books/undefined-1/README.md)
     * [리눅스 소개와 전망](study/books/undefined-1/undefined.md)
   * [📘 Atomic kotlin](study/atomic-kotlin.md)
