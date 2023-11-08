@@ -9,7 +9,7 @@
 
 [https://bob-full.tistory.com/6](https://bob-full.tistory.com/6)
 
-***
+
 
 ### 스프링 시큐리티 시작하기
 
@@ -19,7 +19,7 @@
 
 &#x20;
 
-***
+
 
 **웹요청 필터**
 
@@ -35,7 +35,7 @@ public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitia
 // ===> AbstractSecurityWebApplicationInitializer를 상속받으면 DelegatingFilterProxy가 자동 등록 됨.
 ```
 
-***
+
 
 **간단한 보안 설정**
 
@@ -67,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 * configure(WebSecurity) : 필터 연결을 설정, 전역 보안에 영향을 주는 구성 설정
 * configure(HttpSecurity) : 인터셉터가 요청하는 URL 경로를 보호해야하는지에 대한 정의, 자신만의 인증 매커니즘 정의
 
-***
+
 
 #### 시큐리티 상세 설정
 
@@ -92,7 +92,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 authorities()의 축약형 -> roles()
 
-***
+
 
 #### 데이터베이스 테이블로 인증
 
@@ -120,7 +120,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 인증과 기본 권한에 대한 쿼리를 오버라이딩한, jdbcAuthentication()... (정확히 모르겠음..)
 
-***
+
 
 **부호화된 암호**
 
@@ -149,7 +149,7 @@ public interface PasswordEncoder {
 }
 ```
 
-***
+
 
 #### LDAP기반 적용
 
@@ -169,7 +169,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 }
 ```
 
-***
+
 
 **암호비교설정**
 
@@ -191,7 +191,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 }
 ```
 
-***
+
 
 **원격 LDAP 조회**
 
@@ -213,7 +213,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 }
 ```
 
-***
+
 
 #### 사용자 정의 서비스 설정
 
@@ -267,7 +267,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 }
 ```
 
-***
+
 
 #### 요청가로채기
 
@@ -303,7 +303,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 <figure><img src="https://blog.kakaocdn.net/dn/bFzUen/btqzYUsiALD/gzsH5IJYiQA3Rbym2t3oEk/img.png" alt=""><figcaption><p>스프링 보안 특성의 표현으로 SpEL을 확장한다.</p></figcaption></figure>
 
-***
+
 
 **채널 보안 적용**
 
@@ -321,7 +321,7 @@ protected void configure(HttpSecurity http) throws Exception {
     .antMatchers("/consumer/form").requiresSecure(); // HTTPS 요구
 ```
 
-***
+
 
 **사이트간 요청 위조 방지**
 
@@ -345,7 +345,7 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 ```
 
-***
+
 
 #### 사용자 인증하기
 
@@ -363,7 +363,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 <figure><img src="https://blog.kakaocdn.net/dn/ckxh58/btqzYCMpLE3/4u9Xg9V1ELQaV274DzoxY1/img.png" alt=""><figcaption></figcaption></figure>
 
-***
+
 
 **사용자 정의 로그인 페이지 추가하기**
 
@@ -403,7 +403,7 @@ Thymeleaf를 이용하여, 간단한 로그인 페이지를 개발할 수 있다
 
 \=> 이 템플릿 역시 /login페이지로  제출 할 것이다 (\<form> 부분)
 
-***
+
 
 **HTTP 기본 인증 활성화**
 
@@ -428,7 +428,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 \=> 대게 httpBasic정도만 필요한 편...
 
-***
+
 
 **기억하기 기능**
 
@@ -448,7 +448,7 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 ```
 
-***
+
 
 **로그아웃**
 
@@ -478,7 +478,7 @@ protected void configure(HttpSecurity http) throws Exception {
 }
 ```
 
-***
+
 
 #### 뷰 보안하기
 

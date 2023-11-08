@@ -10,7 +10,7 @@
 
 데이터 액세스 계층은 퍼시스턴스기술에 상관 없이 액세스, 오직 관련 데이터 액세스 메소드만 인터페이스로 노출 -> 유연한 설계 가능
 
-***
+
 
 **스프링의 데이터 액세스 예외 계층 구조**
 
@@ -28,7 +28,7 @@ SQLException을 발생시키는 흔한 문제 -> 데이터베이스 연결 불�
 
 \==> 스프링JDBC의 에외는 전부, DataAccessException을 확장한다. 특별한 점은 비검사형 예외이기  때문에, catch를 굳이 사용하지 않아도 된다(스프링의 많은 예외가 catch로 잡을 수 없기 때문으로 보임, 검사형의 경우 빈 catch블록도 강제됨)
 
-***
+
 
 **데이터 액세스 템플릿화**
 
@@ -50,13 +50,13 @@ SQLException을 발생시키는 흔한 문제 -> 데이터베이스 연결 불�
 
 \=> 스프링은 퍼시스턴스 플랫폼에 따라 선택가능한 템플릿을 제공 -> 대표적으로 JdbcTemplate, HibernateTemplate, JpaTemlate
 
-***
+
 
 #### 데이터 소스 설정
 
 스프링에 데이터 소스 빈을 설정하는 방법 - JDBC드라이버를 통해 선언, JNDI에 등록, 커넥션을 풀링
 
-***
+
 
 **JNDI 데이터 소스 이용**
 
@@ -79,7 +79,7 @@ public JndiObjectFactoryBean dataSource() {
 
 &#x20;
 
-***
+
 
 **풀링기능이 있는 데이터 소스 사용하기**
 
@@ -103,7 +103,7 @@ public BasicDataSource dataSource() {
 }
 ```
 
-***
+
 
 **JDBC 드라이버 기반 데이터 소스**
 
@@ -131,7 +131,7 @@ public DataSource dataSource() {
 }
 ```
 
-***
+
 
 **임베디드 데이터 소스**
 
@@ -150,7 +150,7 @@ public DataSource dataSource() {
 }
 ```
 
-***
+
 
 **데이터 소스 선택을 위한  프로파일링**
 
@@ -198,7 +198,7 @@ public class DataSourceConfiguration {
 }
 ```
 
-***
+
 
 #### 스프링과 JDBC
 
@@ -208,7 +208,7 @@ JDBC 단점 - 코드가 지저분하다(간단한 객체 하나에 20줄 이상 
 
 \====> 스프링은 이런 JDBC의 장점은 가져오고, 단점은 템플릿으로 보완한다.
 
-***
+
 
 #### JDBC 템플릿
 
@@ -220,7 +220,7 @@ JDBC 단점 - 코드가 지저분하다(간단한 객체 하나에 20줄 이상 
 
 ~~\* SimpleJdbcTemplate - 자바5가 제공하는 오토박싱, 제네릭스 등을 활용해 쉽게 템플릿 사용~~
 
-***
+
 
 **JdbcTemplate을 사용하여 데이터 추가**
 
@@ -282,7 +282,7 @@ public Coffee findOne(String name) {
 }
 ```
 
-***
+
 
 명명된 파라미터 사용
 

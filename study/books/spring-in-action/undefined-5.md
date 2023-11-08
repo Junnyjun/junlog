@@ -12,7 +12,7 @@
 
 &#x20;
 
-***
+
 
 #### @Secured 어노테이션을 통한 메소드 보안
 
@@ -45,7 +45,7 @@ public void addUser(User user) {
 
 &#x20;
 
-***
+
 
 #### JSR-250의 @RolesAllowed
 
@@ -67,7 +67,7 @@ public class MethodSecurityConfig
 
 &#x20;
 
-***
+
 
 #### 메소드 레벨 시큐리티를 위한 표현식 사용
 
@@ -87,13 +87,13 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {}
 
 &#x20;
 
-***
+
 
 #### 메소드 액세스 규칙 표현하기
 
 스프링은 표현식 검증에 기반을 둔, 매세도 액세스 제한 애너테이션인 @PreAuthorize와, @PostAuthorize를 통해서, 유연성을 추가한다.
 
-***
+
 
 **사전 권한 부여 PREAUTHORIZING**&#x20;
 
@@ -108,7 +108,7 @@ public void addSpittle(Spittle spittle) {
 
 \* SPITTER권한이 있는 사람 중에, spittle.text가 140 이상이거나, PREMIUM 권한이 있는 지 체크 먼저 하고 권한 부여&#x20;
 
-***
+
 
 **사후 권한 부여 POSTAUTHORIZING**
 
@@ -127,13 +127,13 @@ public Spittle getSpittleById(long id) {
 
 &#x20;
 
-***
+
 
 #### 필터링
 
 메소드 액세스를 제한하는 것은 매우 무거운 작업이다. 필요한 것의 범위를 좁히고 반환되는 컬렉션을 필터링 하는 방법을 사용해아할 경우가 있음. 이럴 경우에 스프링 시큐리티는 필터링 어노테이션 메소드를 제공
 
-***
+
 
 **사후필터링 POSTFILTERING**
 
@@ -151,7 +151,7 @@ public List<Spittle> getOffensiveSpittles() {
 
 \* filterObject는 반환 된, List의 개별 요소를 참조 -> false면 해당 객체 삭제
 
-***
+
 
 **사전 필터링 PREFILTERING**
 
@@ -169,7 +169,7 @@ public void deleteSpittles(List<Spittle> spittles) {
 
 \* 사전 권한 부여를 통해, 메소드를 호출한 후에. 메소드 실행전에 파라미터(spittles)를 검증한다. 검증된 아이템들이 true인 것을 필터링하여 메소드를 진행함
 
-***
+
 
 **권한 평가자 정의**
 

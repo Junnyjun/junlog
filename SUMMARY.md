@@ -229,7 +229,7 @@
     * [직렬/병렬](study/books/it/undefined-2.md)
     * [인프라를 지탱하는 응용 이론](study/books/it/undefined-3.md)
     * [시스템을 연결하는 네트워크 구조](study/books/it/undefined-4.md)
-    * [Page 1](study/books/it/page-1.md)
+    * [무정지를 위한 인프라 구조](study/books/it/undefined-5.md)
   * [📕 디버깅을 통해 배우는 리눅스 커널의 구조와 원리](study/books/undefined-1/README.md)
     * [리눅스 소개와 전망](study/books/undefined-1/undefined.md)
   * [📘 Atomic kotlin](study/atomic-kotlin.md)

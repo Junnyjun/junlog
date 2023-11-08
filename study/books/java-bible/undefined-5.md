@@ -32,7 +32,7 @@ Calendar cal = Calendar.getInstance();
 cal.setTime(d);
 ```
 
-***
+
 
 ### 2. 형식화 클래스 <a href="#2" id="2"></a>
 
@@ -69,7 +69,7 @@ String result = df.format(today);
 
 데이터를 정해진 양식에 맞게 출력할 수 있도록 해준다.
 
-***
+
 
 ### 3. java.time패키지 <a href="#3-javatime" id="3-javatime"></a>
 
