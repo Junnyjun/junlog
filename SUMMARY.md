@@ -10,6 +10,7 @@
 
 * [☕ JAVA](clean-architecture/README.md)
   * [Basic](jvm/clean-architecture/basic/README.md)
+    * [Clamp](jvm/clean-architecture/basic/clamp.md)
     * [Yield](jvm/clean-architecture/yield.md)
     * [SOAP](jvm/clean-architecture/soap.md)
     * [Final](jvm/clean-architecture/final.md)

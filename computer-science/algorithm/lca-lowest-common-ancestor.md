@@ -2,7 +2,7 @@
 
 트리에서 두 정점이 가지고 있는 가장 가까운 공통 조상을 찾는 알고리즘 입니다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 8&9의 공통 부모는 7임을 알수있다.
 
