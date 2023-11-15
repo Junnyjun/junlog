@@ -194,6 +194,7 @@
     * [Internet ?](computer-science/network/tcp/chap1.md)
   * [UDP](computer-science/network/udp.md)
 * [🎁 Architectural Patterns](computer-science/architectural-patterns/README.md)
+  * [Page 1](computer-science/architectural-patterns/page-1.md)
   * [Layered pattern](computer-science/architectural-patterns/layered-pattern.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
   * [Flyweight](computer-science/design-pattern/flyweight.md)
