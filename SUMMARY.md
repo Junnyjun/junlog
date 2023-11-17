@@ -222,7 +222,7 @@
 
 * [Books](study/books/README.md)
   * [📓 함수형 언어 산책](study/books/undefined/README.md)
-    * [함수형 프로그래밍 입](study/books/undefined/undefined.md)
+    * [함수형 프로그래밍 입문](study/books/undefined/undefined.md)
     * [리스](study/books/undefined/undefined-1.md)
   * [📙 그림으로 공부하는 IT 인프라 구조](study/books/it/README.md)
     * [인프라 아키텍처를 살펴보자](study/books/it/undefined.md)
