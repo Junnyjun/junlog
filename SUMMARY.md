@@ -195,6 +195,7 @@
     * [Internet ?](computer-science/network/tcp/chap1.md)
   * [UDP](computer-science/network/udp.md)
 * [🎁 Architectural Patterns](computer-science/architectural-patterns/README.md)
+  * [Master slave pattern](computer-science/architectural-patterns/master-slave-pattern.md)
   * [Client Server pattern](computer-science/architectural-patterns/client-server-pattern.md)
   * [Layered pattern](computer-science/architectural-patterns/layered-pattern.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
