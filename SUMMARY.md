@@ -197,6 +197,7 @@
 * [🎁 Architectural Patterns](computer-science/architectural-patterns/README.md)
   * [Master slave pattern](computer-science/architectural-patterns/master-slave-pattern.md)
   * [Client Server pattern](computer-science/architectural-patterns/client-server-pattern.md)
+  * [Pipe filter pattern](computer-science/architectural-patterns/pipe-filter-pattern.md)
   * [Layered pattern](computer-science/architectural-patterns/layered-pattern.md)
 * [💡 Design pattern](computer-science/design-pattern/README.md)
   * [Flyweight](computer-science/design-pattern/flyweight.md)
