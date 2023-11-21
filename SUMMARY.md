@@ -184,6 +184,7 @@
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙ Operating System](information/OS/README.md)
   * [Top Half& Bottom Half](computer-science/os/top-half-and-bottom-half.md)
+  * [Context Switch](computer-science/os/context-switch.md)
   * [x86 vs ARM](computer-science/os/x86-vs-arm.md)
   * [printf](information/OS/printf.md)
   * [Interrupt](information/OS/undefined.md)
