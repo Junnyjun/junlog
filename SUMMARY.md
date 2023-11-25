@@ -598,4 +598,6 @@
     * [목과 테스트 취약성](study/books/unit-testing/undefined-3.md)
   * [📗 코틀린으로 배우는 함수형 프로그래밍](study/books/undefined-12/README.md)
     * [함수형 프로그래밍이란?](study/books/undefined-12/undefined.md)
+    * [코틀린으로 함수형 프로그래밍 시작하기](study/books/undefined-12/undefined-1.md)
+    * [Page 1](study/books/undefined-12/page-1.md)
   * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13.md)
