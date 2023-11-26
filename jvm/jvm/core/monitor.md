@@ -39,4 +39,4 @@ public class HelloMonitor implements Runnable {
 
 <img src="../../../.gitbook/assets/file.excalidraw (29).svg" alt="" class="gitbook-drawing">
 
-ㅇ
+해당 monitor의 라이프사이클은 `synchronized`에 의존한다
