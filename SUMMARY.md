@@ -604,5 +604,7 @@
     * [고차 함수](study/books/undefined-12/undefined-3.md)
     * [컬렉션으로 데이터 다루기](study/books/undefined-12/undefined-4.md)
     * [함수형 타입](study/books/undefined-12/undefined-5.md)
+    * [펑터](study/books/undefined-12/undefined-6.md)
+    * [애플리케이티브 펑터](study/books/undefined-12/undefined-7.md)
   * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13.md)
   * [📘 TCP/IP 쉽게 더 쉽게](study/books/tcp-ip-1.md)
