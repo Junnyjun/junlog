@@ -1,145 +1,75 @@
 # 컴퓨터 네트워크
 
-## Static Pages와 Dynamic Pages <a href="#static-pages-dynamic-pages" id="static-pages-dynamic-pages"></a>
+## 컴퓨터 네트워크 <a href="#01" id="01"></a>
 
-![](https://velog.velcdn.com/images%2Fiseeu95%2Fpost%2F21ec560f-39e1-42bc-9805-0498468b5344%2Fimage.png)
+### 컴퓨터 네트워크의 종류 <a href="#0101" id="0101"></a>
 
-### Static Pages <a href="#static-pages" id="static-pages"></a>
+여러 대의 컴퓨터를 서로 연결하여 서로 데이터를 주고받을 수 있도록 망이 사전에 구축된 것
 
-Web Server는 파일 경로 이름을 받아 경로와 일치하는 file contents를 반환한다.\
-항상 동일한 페이지를 반환한다.\
-Ex) image, html, css, javascript 파일과 같이 컴퓨터에 저장되어 있는 파일들
+![](https://velog.velcdn.com/cloudflare/iseeu95/2796e79a-5ae5-40cb-b94c-983adef6803d/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-04-08%20%EC%98%A4%ED%9B%84%208.23.23.png)
 
-### Dynamic Pages <a href="#dynamic-pages" id="dynamic-pages"></a>
+인터넷은 여러 네트워크 중에서도 가장 규모가 크다.
 
-인자의 내용에 맞게 동적인 contents를 반환한다.\
-즉, 웹 서버에 의해서 실행되는 프로그램을 통해서 만들어진 결과물
+***
 
-`Servlet`: WAS 위에서 돌아가는 Java Program\
-개발자는 Servlet에 doGet()을 구현한다.
+### 서버와 클라이언트 <a href="#0103" id="0103"></a>
 
-## Web Server와 WAS의 차이 <a href="#web-server-was" id="web-server-was"></a>
+서버와 클라이언트의 역할은 하드웨어의 성능으로 구분하는 게 아니라 어떤 역할의 프로그램을 설치하느냐에 따라 결정된다.
 
-![](https://velog.velcdn.com/images%2Fiseeu95%2Fpost%2F96f0c0bf-fe03-437a-9974-dee4bf8cc748%2Fimage.png)
+![](https://velog.velcdn.com/cloudflare/iseeu95/69f1cdd4-bf04-46d1-bd84-f642dc2581ab/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-04-08%20%EC%98%A4%ED%9B%84%208.28.15.png)
 
-### Web Server <a href="#web-server" id="web-server"></a>
+#### 피어 투 피어(P2P) <a href="#p2p" id="p2p"></a>
 
-#### Web Server의 개념 <a href="#web-server" id="web-server"></a>
+네트워크에 연결된 두 대의 컴퓨터가 클라이언트와 서버의 역할을 동시에 할 수 있어서 서로에게 서비스를 주거나 받을 수 있는 통신 방식 주로 개인 컴퓨터 간의 파일 공유나 인터넷 전화(VoIP, Voice over IP)에 활용
 
-소프트웨어와 하드웨어로 구분된다.
+***
 
-#### 하드웨어
+### 패킷 교환 방식 <a href="#0104" id="0104"></a>
 
-Web 서버가 설치되어 있는 컴퓨터
+컴퓨터 네트워크는 패킷 교환 방식을 이용하여 여러 대의 컴퓨터와 혼선 없이 데이터를 주고받을 수 있다.
 
-#### 소프트웨어
+#### 패킷 교환 방식이란? <a href="#undefined" id="undefined"></a>
 
-웹 브라우저 클라이언트로부터 HTTP 요청을 받아 정적인 컨텐츠(.html .jpeg .css 등)를 제공하는 컴퓨터 프로그램
+컴퓨터 네트워크에서는 이메일, 파일과 같은 데이터를 패킷이라는 작은 단위로 분할한 후 주고받는다.\
+데이터를 패킷 단위로 작게 잘라서 네트워크에 흘려 보냄 \
+패킷은 자신이 어디로 전달되어야 하는지 알 수 있도록 어드레스 정보를 가지고 있다.
 
-### Web Server의 기능 <a href="#web-server" id="web-server"></a>
+#### 회선 교환 방식과 패킷 교환 방식 <a href="#undefined" id="undefined"></a>
 
-HTTP 프로토콜을 기반으로 하여 클라이언트(웹 브라우저 또는 웹 크롤러)의 요청을 서비스하는 기능을 담당한다.\
-요청에 따라 아래의 두 가지 기능 중 적절하게 선택하여 수행한다.
+아날로그 방식의 유선 전화나 3G 방식의 휴대전화는 회선 교환 방식을 사용
 
-#### **정적인 컨텐츠 제공**
+**회선교환 방식이란?**
 
-WAS를 거치지 않고 바로 자원을 제공한다.
+통신하려는 양측을 연결하기 위해 하나의 통신 경로를 점유한 후 통신하는 방식이라서 기본적으로 일대일 통신만 할수 있다.
 
-#### **동적인 컨텐츠 제공을 위한 요청 전달**
+**패킷 교환 방식이란?**
 
-클라이언트의 요청(Request)을 WAS에 보내고, \
-WAS가 처리한 결과를 클라이언트에게 전달(응답, Response)한다.
+주고받을 데이터를 작게 쪼갠 후 _**다른 데이터의 조각들과 통신 경로를 공유**_하며 전송하는 방식이라 여러 상대와 통신할 때 효과적
 
-클라이언트는 일반적으로 웹 브라우저를 의미한다.
+***
 
-#### Web Server의 예 <a href="#web-server" id="web-server"></a>
+### 컴퓨터 네트워크과 계층 모델 <a href="#0105" id="0105"></a>
 
-Ex) Apache Server, Nginx, IIS(Windows 전용 Web 서버) 등\
-WAS(Web Application Server)
+#### 컴퓨터 네트워크를 구성하는 계층 <a href="#undefined" id="undefined"></a>
 
-### WAS의 개념 <a href="#was" id="was"></a>
+![](https://velog.velcdn.com/cloudflare/iseeu95/8b807f11-4f0c-4a2e-99c3-9a28d97d277a/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-04-08%20%EC%98%A4%ED%9B%84%208.29.43.png)
 
-DB 조회나 다양한 로직 처리를 요구하는 **동적인 컨텐츠**를 제공하기 위해 만들어진
+4개 계층 중 서비스의 내용을 결정하는 것은 애플리케이션 계층뿐.\
+나머지 3개 계층은 데이터를 전달하는 통신 기능을 담당.
 
-HTTP를 통해 컴퓨터나 장치에 애플리케이션을 수행해주는 미들웨어(소프트웨어 엔진)이다.
+#### 각 계층을 통과하는 데이터의 형태 <a href="#undefined" id="undefined"></a>
 
-“웹 컨테이너(Web Container)” 혹은 “서블릿 컨테이너(Servlet Container)”라고도 불린다.\
-Container란 JSP, Servlet을 실행시킬 수 있는 소프트웨어를 말한다.
+통신 과정에서 **각 계층을 지나는 데이터는 패킷 단위로 작게 쪼개지고 목적지 정보와 같은 부가 정보가 헤더의 형태**로 덧붙여지게 된다.
 
-즉, WAS는 JSP, Servlet 구동 환경을 제공한다.
+### OSI 참조 모델 <a href="#osi" id="osi"></a>
 
-### WAS의 역할 <a href="#was" id="was"></a>
+여기서 소개한 것은 인터넷에서 사용되는 TCP/IP의 계층 모델이다.
 
-`WAS = Web Server + Web Container`\
-Web Server 기능들을 구조적으로 분리하여 처리하고자하는 목적으로 제시되었다.
+네트워크 관련 문서를 보면 OSI 참조 모델이 언급되기도 하는데, OSI 참조 모델은 TCP/IP 계층 모델보다 더 세분화된 7개의 계층으로 구성되어 있다.
 
-분산 트랜잭션, 보안, 메시징, 쓰레드 처리 등의 기능을 처리하는 분산 환경에서 사용된다.\
-현재는 WAS가 가지고 있는 Web Server도 정적인 컨텐츠를 처리하는 데 있어서 성능상 큰 차이가 없다.
+#### TCP/IP는 프로토콜의 집합 <a href="#tcpip" id="tcpip"></a>
 
-#### WAS의 주요 기능 <a href="#was" id="was"></a>
+TCP/IP는 하나의 프로토콜을 지칭하는 말이 아니라 인터넷에서 사용되는 각종 표준 프로토콜을 한데 모아
 
-프로그램 실행 환경과 DB 접속 기능 제공\
-여러 개의 트랜잭션(논리적인 작업 단위) 관리 기능\
-업무를 처리하는 비즈니스 로직 수행\
-WAS의 예\
-Ex) Tomcat, JBoss, Jeus, Web Sphere 등
-
-## Web Server와 WAS를 구분하는 이유 <a href="#web-server-was" id="web-server-was"></a>
-
-![](https://velog.velcdn.com/images%2Fiseeu95%2Fpost%2Fe7d4db2d-70df-40a7-8d6f-2047be0f97bb%2Fimage.png)
-
-### Web Server가 필요한 이유? <a href="#web-server" id="web-server"></a>
-
-클라이언트(웹 브라우저)에 이미지 파일(정적 컨텐츠)을 보내는 과정을 생각해보자.
-
-이미지 파일과 같은 정적인 파일들은 웹 문서(HTML 문서)가 클라이언트로 보내질 때 함께 가는 것이 아니다.
-
-클라이언트는 HTML 문서를 먼저 받고 그에 맞게 필요한 이미지 파일들을 다시 서버로 요청하면 그때서야 이미지 파일을 받아온다.\
-Web Server를 통해 정적인 파일들을 Application Server까지 가지 않고 앞단에서 빠르게 보내줄 수 있다.\
-따라서 Web Server에서는 정적 컨텐츠만 처리하도록 기능을 분배하여 서버의 부담을 줄일 수 있다.
-
-### WAS가 필요한 이유? <a href="#was" id="was"></a>
-
-웹 페이지는 정적 컨텐츠와 동적 컨텐츠가 모두 존재한다.\
-사용자의 요청에 맞게 적절한 동적 컨텐츠를 만들어서 제공해야 한다.
-
-이때, **Web Server만을 이용한다면 사용자가 원하는 요청에 대한 결과값을 모두 미리 만들어 놓고 서비스**를 해야 한다. 하지만 이렇게 수행하기에는 **자원이 절대적으로 부족**하다.
-
-따라서 **WAS를 통해 요청에 맞는 데이터를 DB에서 가져와서 비즈니스 로직에 맞게 그때 그때 결과를 만들어서 제공**함으로써 자원을 효율적으로 사용할 수 있다.
-
-그렇다면 WAS가 Web Server의 기능도 모두 수행하면 되지 않을까?
-
-### **기능을 분리하여 서버 부하 방지**
-
-WAS는 DB 조회나 다양한 로직을 처리하느라 바쁘기 때문에 **단순한 정적 컨텐츠는 Web Server에서 빠르게 클라이언트에 제공**하는 것이 좋다.
-
-**WAS는 기본적으로 동적 컨텐츠를 제공**하기 위해 존재하는 서버이다.
-
-만약 정적 컨텐츠 요청까지 WAS가 처리한다면 정적 데이터 처리로 인해 부하가 커지게 되고, 동적 컨텐츠의 처리가 지연됨에 따라 수행 속도가 느려진다.
-
-#### 물리적으로 분리하여 보안 강화
-
-SSL에 대한 암복호화 처리에 Web Server를 사용
-
-여러 대의 WAS를 연결 가능 Load Balancing을 위해서 Web Server를 사용
-
-특히 대용량 웹 어플리케이션의 경우(여러 개의 서버 사용) Web Server와 WAS를 분리하여 무중단 운영을 위한 장애 극복에 쉽게 대응할 수 있다.
-
-예를 들어, 앞 단의 Web Server에서 오류가 발생한 WAS를 이용하지 못하도록 한 후 WAS를 재시작함으로써 사용자는 오류를 느끼지 못하고 이용할 수 있다.
-
-#### 여러 웹 어플리케이션 서비스 가능
-
-예를 들어, 하나의 서버에서 PHP Application과 Java Application을 함께 사용하는 경우\
-기타\
-접근 허용 IP 관리, 2대 이상의 서버에서의 세션 관리 등도 Web Server에서 처리하면 효율적이다.\
-즉, 자원 이용의 효율성 및 장애 극복, 배포 및 유지보수의 편의성 을 위해 Web Server와 WAS를 분리한다.\
-Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 형태로 설정하면 더욱 효율적인 분산 처리가 가능하다.
-
-### Web Service Architecture <a href="#web-service-architecture" id="web-service-architecture"></a>
-
-![](https://velog.velcdn.com/images%2Fiseeu95%2Fpost%2Fc10dde73-9733-4d49-be59-a3f9f2af3b6a%2Fimage.png)\
-다양한 구조를 가질 수 있다.
-
-> Client -> Web Server -> DB\
-> Client -> WAS -> DB\
-> Client -> Web Server -> WAS -> DB
+흔히 TCP/IP라고 부르는 이유는 TCP와 IP가 이들 프로토콜 중 가장 대표적인 프로토콜이기 때문.\
+각각의 개별 프로토콜을 일컫는 말이 아니라, 인터넷 프로토콜 집합의 의미로 굳이 구분해야 할 때는 TCP/IP 프로토콜 슈트(Suite)라고 한다.
