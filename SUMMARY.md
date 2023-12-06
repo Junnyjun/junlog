@@ -1,7 +1,9 @@
 # Table of contents
 
 * [👻 JUNNYLAND BLOG](README.md)
-  * [MATH](readme/math.md)
+  * [MATH](readme/math/README.md)
+    * [Function](readme/math/function/README.md)
+      * [Constant Function](readme/math/function/constant-function.md)
   * [Rust](readme/rust/README.md)
     * [Grammar](readme/rust/grammar/README.md)
       * [Variable](readme/rust/grammar/variable.md)
@@ -217,12 +219,6 @@
   * [Command](computer-science/design-pattern/command.md)
   * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
-
-## ETC
-
-* [🔢 MATH](etc/math/README.md)
-  * [Function](etc/math/function/README.md)
-    * [Constant Function](etc/math/function/constant-function.md)
 
 ## STUDY
 
