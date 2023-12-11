@@ -15,7 +15,7 @@ Service Discovery의 기본적인 기능은 서비스를 등록하고 등록된 
 
 ## Client Side Discovery
 
-<img src="../../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (3) (2).svg" alt="" class="gitbook-drawing">
 
 service client가 service registry에 query를 통해 서비스의 위치를 물어보고 호출하는 방식이며, 호출 시에는 로드밸런싱 알고리즘을 통해 서비스가 호출됩니다.
 
@@ -26,7 +26,7 @@ _E.g )_ Netflix Eureka
 
 ## Server Side Discovery
 
-<img src="../../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2) (1) (3).svg" alt="" class="gitbook-drawing">
 
 호출되는 서비스 앞에 Load Balancer를 넣는 방식으로 service client가 Load Balancer를 호출하면 Load Balancer가 service register로 서비스의 위치를 물어보고 가용할 수 있는 서비스 인스턴스를 라우팅 합니다.
 

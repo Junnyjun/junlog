@@ -7,7 +7,7 @@
 이는 나중에 해당 시점부터 실행하려면 상태를 저장해야 함을 의미합니다.\
 마찬가지로, 실행 중인 프로세스 내의 스레드가 CPU를 다른 스레드에 양보할 때 전환이 발생합니다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
 ### 발생 원인
 

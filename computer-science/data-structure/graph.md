@@ -6,7 +6,7 @@
 
 `간선(Edge)` : 정점 사이를 연결하는 선으로 두 정점 쌍 (u, v)로 표현함.
 
-<img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (4) (3).svg" alt="" class="gitbook-drawing">
 
 ## GRAPH
 

@@ -6,6 +6,45 @@
 논리 주소는 프로그램의 주소 공간을 지정하는 데 사용됩니다. \
 주소 공간은 프로세스에 할당된 가상 주소의 범위를 나타냅니다.
 
-## Byte Memory Address
+<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
-바이트(8비트)는 현대 컴퓨터에서 주소를 지정할 수 있는 최소 단위입니다. 프로세서가 액세스할 수 있는 주소 수는 비트 크기에 따라 결정됩니다. 예를 들어 32비트 프로세서는 ![2^{32}](https://www.baeldung.com/wp-content/ql-cache/quicklatex.com-aa395d5309b200ec5e25b7cd900585bd\_l3.svg)주소(약 4GB)에 액세스할 수 있습니다. 64비트 프로세서의 경우 값은 입니다 ![2^{64}](https://www.baeldung.com/wp-content/ql-cache/quicklatex.com-fbf65e4cb6a70104fa08ee75ff35cf11\_l3.svg).
+### Byte
+
+바이트(8비트)는 현대 컴퓨터에서 주소를 지정할 수 있는 최소 단위입니다. \
+프로세서가 액세스할 수 있는 주소 수는 비트 크기에 따라 결정됩니다.&#x20;
+
+예를 들어 32비트 프로세서는 2^32주소(약 4GB)에 액세스할 수 있습니다. \
+64비트 프로세서의 경우 값은 2^64입니다
+
+### Word
+
+단어는 Byte의 그룹입니다. Word는 16비트 , 24비트, 32비트 .. 등이 될 수 있습니다.\
+워드는 일반적으로 CPU에 대한 명령을 저장하는 데 사용되며 일반적으로 32비트를 가집니다.
+
+단어를 사용하여 데이터를 나타낼 수도 있습니다. 정수 및 부동 소수점과 같은 데이터는 16비트, 64비트의 단어입니다.
+
+### Endian
+
+엔디안은 바이트가 메모리에 배열되는 순서를 나타냅니다. \
+최상위 -> 최하위 순으로 정렬된 경우 `Big Endian` 이라고 표현합니다 \
+이는 현재 제일 많이 사용하는 배열입니다.
+
+```
+EX ) [ 1, 2, 3, 4 ] -> A100 A96 A92 A88
+```
+
+반대로 바이트가 최 하위부터 최상위 까지 정렬되어 있으면 이를 `Little Endian`이라고 부릅니다
+
+일반적으로 CPU의 데이터 순서 유형을 생각할 필요는 없지만, 네트워크 어플리케이션에서는 바이트의 순서를 아는것이 유용합니다.
+
+Intel 의 경우 Little Endian을 사용하고 IBM은 Big Endian을 사용합니다.\
+서로 다른 Endian끼리는 바이너리 데이터를 주고받는 경우 엔디안 변환이  경우가 있습니다.
+
+<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+
+## Alignment <a href="#bd-alignment" id="bd-alignment"></a>
+
+바이트 주소 메모리를 처리할 때 각 바이트는 독립적인 데이터를 나타냅니다 ( Word 주소 도 같음)\
+프로세스는 주소를 연속적인 바이트 블록으로 나눠  처리합니다.
+
+<img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
