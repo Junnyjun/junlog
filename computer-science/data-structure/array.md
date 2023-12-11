@@ -19,3 +19,7 @@ Indexing(요소 읽기), Slicing(분리)을 지원한다
 
 배열 선언 후 할당된 정적 메모리 크기를 변경할 수 없다.\
 데이터 삽입, 삭제의 오버헤드가 큰편이다.
+
+{% embed url="https://gist.github.com/Junnyjun/11ec846e11780a788859277ff07aff60" %}
+
+* JAVA의 Array는 크기가 모자르면 기존크기의 두배만큼을 할당해준다.
