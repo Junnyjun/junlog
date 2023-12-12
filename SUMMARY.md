@@ -193,7 +193,7 @@
   * [Interrupt](information/OS/undefined.md)
   * [BIOS\&UEFI](information/OS/bios-and-uefi.md)
   * [Memory Address](computer-science/os/memory-address.md)
-  * [File Sharing](computer-science/os/file-sharing.md)
+  * [NAND & NOR](computer-science/os/nand-and-nor.md)
 * [🛠 Network](computer-science/network/README.md)
   * [BASIC](computer-science/network/basic.md)
   * [TCP](computer-science/network/tcp/README.md)
