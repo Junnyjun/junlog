@@ -6,7 +6,7 @@
 논리 주소는 프로그램의 주소 공간을 지정하는 데 사용됩니다. \
 주소 공간은 프로세스에 할당된 가상 주소의 범위를 나타냅니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 ### Byte
 
@@ -40,11 +40,11 @@ EX ) [ 1, 2, 3, 4 ] -> A100 A96 A92 A88
 Intel 의 경우 Little Endian을 사용하고 IBM은 Big Endian을 사용합니다.\
 서로 다른 Endian끼리는 바이너리 데이터를 주고받는 경우 엔디안 변환이  경우가 있습니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (3) (1).svg" alt="" class="gitbook-drawing">
 
 ## Alignment <a href="#bd-alignment" id="bd-alignment"></a>
 
 바이트 주소 메모리를 처리할 때 각 바이트는 독립적인 데이터를 나타냅니다 ( Word 주소 도 같음)\
 프로세스는 주소를 연속적인 바이트 블록으로 나눠  처리합니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (4) (1).svg" alt="" class="gitbook-drawing">
