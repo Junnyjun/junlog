@@ -25,7 +25,7 @@ ConcurrentMapCacheManager : 간단한 캐시 매니저. 저장소로 ConcurrentH
 
 &#x20;
 
-
+***
 
 #### 캐시 매니저 설정하기
 
@@ -41,7 +41,7 @@ ConcurrentMapCacheManager : 간단한 캐시 매니저. 저장소로 ConcurrentH
 
 &#x20;
 
-
+***
 
 **EhCache로 캐싱하기**
 
@@ -81,7 +81,7 @@ public class CachingConfig {
 
 &#x20;
 
-
+***
 
 #### Redis로 캐싱하기
 
@@ -114,7 +114,7 @@ public class CachingConfig {
 
 &#x20;
 
-
+***
 
 #### 다중 캐시 매니저 사용
 
@@ -141,7 +141,7 @@ public CacheManager cacheManager(net.sf.ehcache.CacheManager cm, javax.cache.Cac
 
 &#x20;
 
-
+***
 
 ### 캐시 어노테이션 메소드
 
@@ -153,7 +153,7 @@ public CacheManager cacheManager(net.sf.ehcache.CacheManager cm, javax.cache.Cac
 
 &#x20;
 
-
+***
 
 #### 캐시 채우기
 
@@ -185,7 +185,7 @@ public Spittle findOne(long id) {
 
 &#x20;
 
-
+***
 
 **캐시에 값 넣기**
 
@@ -200,7 +200,7 @@ Spittle save(Spittle spittle);
 
 &#x20;
 
-
+***
 
 **맞춤형 캐시 키 만들기**
 
@@ -219,7 +219,7 @@ Spittle save(Spittle spittle);
 
 &#x20;
 
-
+***
 
 **조건 캐싱**
 
@@ -247,7 +247,7 @@ Spittle findOne(long id);
 
 &#x20;
 
-
+***
 
 #### 캐시 엔트리 삭제하기
 

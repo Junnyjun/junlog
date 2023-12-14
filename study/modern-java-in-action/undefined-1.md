@@ -61,7 +61,7 @@ Comparator<Apple> byWeight = (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2
 //Apple 형식의 파라미터 2개를 가지며, int(두 사과의 무게 비교 결과)를 반환
 ```
 
-
+***
 
 #### 3.2 어디에, 어떻게 람다를 사용할까?
 
@@ -165,7 +165,7 @@ String oneLine = processFile((BufferedReader br) -> br.readline());
 String twoLines = processFile((BufferedReader br) -> br.readline() + br.readline());
 ```
 
-
+***
 
 #### 3.4 함수형 인터페이스 사용
 
@@ -270,7 +270,7 @@ Predicate<Integer> oddNumbers = (integer i) -> i % 2 != 0;
 oddNumbes.test(1000); //거짓(박싱)
 ```
 
-
+***
 
 #### 3.5 형식 검사, 형식 추론, 제약
 
@@ -375,7 +375,7 @@ Runnable r = () -> System.out.println(portNumber);
 
 복사본의 값이 바뀌지 않아야 하므로 지역변수는 한번만 할당되어야 한다.
 
-
+***
 
 #### 3.6 메서드 참조
 
@@ -449,7 +449,7 @@ public interface TriFunction<T, U, V, R> {
 TriFunction<Integer, Integer, Integer, Color> colorFactory = Color::new;
 ```
 
-
+***
 
 #### 3.7 람다, 메서드 참조 활용하기
 
@@ -528,7 +528,7 @@ inventory.sort(comparing(Apple::getWeight));
 
 코드 자체로 'Apple을 weight 별로 비교해서 inventory를 sort하라'는 의미를 전달할 수 있다.
 
-
+***
 
 #### 3.8 람다 표현식을 조합할 수 있는 유용한 메서드
 

@@ -2,7 +2,7 @@
 
 재귀 호출은 함수가 자기 자신을 호출하여 반복처리하는 기법입니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## How do code?
 

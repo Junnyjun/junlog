@@ -51,7 +51,7 @@ score = new int[]{ 50, 60, 70, 80, 90};	//OK
 score = { 50, 60, 70, 80, 90};			//에러
 ```
 
-
+***
 
 ### 2. String 배열 <a href="#2-string" id="2-string"></a>
 
@@ -71,7 +71,7 @@ char[] tmp = str.toCharArray();
 public static void main(String[] args) {...}
 ```
 
-
+***
 
 ### 3. 다차원 배열 <a href="#3" id="3"></a>
 

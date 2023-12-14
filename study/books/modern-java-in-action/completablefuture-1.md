@@ -22,7 +22,7 @@ Future 인터페이스에는 비동기 계산에 대한 대기와 결과 처리 
 * 프로그램적으로 Future를 완료시킨다.(비동기 동작에서 수동으로 결과 제공)
 * Future 완료 동작에 반응한다.(결과를 기다리면서 블록되지 않음)
 
-
+***
 
 #### 16.2 비동기 API 구현
 
@@ -116,7 +116,7 @@ supplyAsync 메서드는 Supplier를 인수로 받아서 CompletableFuture를 �
 
 ForkJoinPool의 Executor 중 하나가 Supplier를 실행하며, 두 번째 인수로 다른 Executor를 지정할 수도 있다.
 
-
+***
 
 #### 16.3 비블록 코드 만들기
 
@@ -461,7 +461,7 @@ Funtion<Double> futurePriceInUSD = CompletableFuture.supplyAsync(() -> shop.getP
   .orTimeout(3, TimeUnit.SECONDS);
 ```
 
-
+***
 
 #### 16.5 CompletableFuture의 종료에 대응하는 방법
 

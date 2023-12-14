@@ -1,4 +1,4 @@
-# 유클리드 호제법
+# Euclid
 
 두 정수의 최대 공약수를 구하는 알고리즘
 
@@ -22,15 +22,13 @@ B 20 : 10 = 20 - 10 : 10
 
 같은 수가 남았으면 최대 공약수 입니다.
 
-```mermaid
-flowchart LR
+{% @mermaid/diagram content="flowchart LR
     A[A] --> C;
     B[B] --> C;
     C{A == B ?} -->|Yes| RETURN;
     C -->|A = A-B| C;
     C -->|B = B-A| C;
-
-```
+" %}
 
 ***
 

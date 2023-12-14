@@ -4,7 +4,7 @@
 
 기본적인 AbstratAnnotationConfigDispatcherServeleteInitializer의 설정이 요구사항을 만족하지 못할 때, 제공하는 방법
 
-
+***
 
 #### DispatcherServelet 설정 사용자 정의하기
 
@@ -23,7 +23,7 @@ procted void customizeRegistration(Dynamic registration){
 
 \=> customizedRegistration()에서 넘겨지는 ServletRegistration.Dynamic으로 setLoadOnStartup()을 호출하여, load-on-startup의 우선순위를 설정, setInitParameter()를 호출하여, 초기 인자를 설정하고, 멀티파트 지원 설정을 위해 setMultipartConfig()를 호출하는 등의 기능을 수행함... (??)
 
-
+***
 
 서블릿 필터 추가하기
 
@@ -62,7 +62,7 @@ protected Filter[] getServletFilters() {
 }
 ```
 
-
+***
 
 #### &#x20;
 
@@ -72,7 +72,7 @@ protected Filter[] getServletFilters() {
 
 \* 스프링 MVC 컨트롤러에선 매우 간단히, 이런 멀티파트 요청을 읽고, 처리할 수 있다.
 
-
+***
 
 **멀티파트 리졸버 설정하기**
 
@@ -112,7 +112,7 @@ protected void customizeRegistration(Dynamic registration){
 
 \==> 이외에, 서블릿3.0 미만 스펙에서는 CommonsMultipartResolver를 사용해야함
 
-
+***
 
 멀티파트 요청 처리하기
 
@@ -130,7 +130,7 @@ public String processingRegistration(
 
 \=> profilePricture 애트리뷰트에, byte 배열을 넘겨준다. 파일이 없다면 null, 메소드 내에서 처리를 해준다.
 
-
+***
 
 **MultipartFile 받기**
 
@@ -185,7 +185,7 @@ public interface Part {
 }
 ```
 
-
+***
 
 #### 예외 처리하기
 
@@ -193,7 +193,7 @@ public interface Part {
 
 \=> 자동으로 명시된 HTTP 상태코드로 매핑 //예외는 @ResponseStatuas 애너테이션 // 메소드는 @ExceptionHandler 애너테이션
 
-
+***
 
 **예외를 HTTP상태 코드에 매핑하기**
 
@@ -211,7 +211,7 @@ public class CoffeeNotFoundException extends RuntimeException{
 
 \=> 커피를 찾았는데 보이지 않는, 404 NOT FOUND에러에 맞는 코드를 매핑한다. 이후, 해당 에러가 발생하 경우에는, 404상태 코드를 가짐
 
-
+***
 
 **예외처리 메소드 작성하기**
 
@@ -253,7 +253,7 @@ public String hanldeDuplicateCoffee() {
 
 \* 같은 컨트롤러 내의 모든 핸들러 메소드에서 발생한 예외를 처리한다. 잠재적으로 발생하는 모든 메소드 중복을 커버 가능
 
-
+***
 
 #### 어드바이징 컨트롤러
 
@@ -272,7 +272,7 @@ public class AppWideExceptionHandler {
 }
 ```
 
-
+***
 
 &#x20;
 
@@ -284,7 +284,7 @@ public class AppWideExceptionHandler {
 
 \* 데이터를 플래스 애트리뷰트에 넣어서 전달
 
-
+***
 
 **URL템플릿과 함께 리다이렉션 하기**&#x20;
 
@@ -315,7 +315,7 @@ public String processRegistration(~~~~, Model model) {
 
 \=> coffeName = americano, shot =2 --> /coffees/americano?shot=2
 
-
+***
 
 **플래시 애트리뷰트로 작업하기**
 

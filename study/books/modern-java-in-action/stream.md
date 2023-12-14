@@ -63,7 +63,7 @@ filter, sorted, map, collect 같은 여러 빌딩 블록을 연산을 연결해�
 * 조립할 수 있음 : 유연성이 좋아진다.
 * 병렬화 : 성능이 좋아진다.
 
-
+***
 
 #### 4.2 스트림 시작하기
 
@@ -104,7 +104,7 @@ List<String> treeHighCaloricDishesName =
 
 <figure><img src="https://blog.kakaocdn.net/dn/bo7kIz/btq8ivdirE4/jrINd9kk1U8shsRG5b8KsK/img.png" alt=""><figcaption></figcaption></figure>
 
-
+***
 
 #### 4.3 스트림과 컬렉션
 
@@ -144,7 +144,7 @@ List<String> treeHighCaloricDishesName =
 
 내부 반복을 사용하면 작업을 투명하게 병렬로 처리하거나 더 최적화된 다양한 순서로 처리할 수 있다.
 
-
+***
 
 #### 4.4 스트림 연산
 
