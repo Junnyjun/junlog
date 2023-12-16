@@ -7,11 +7,37 @@
 
 파일 시스템 관리, 메모리 관리, 하드웨어 장치 관리와 같은 작업을 합니다.
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 ## API
 
 소프트 웨어 또는 코드 모듈을 사용하는 방법을 정의한 규칙&절차 입니다.\
 어플리케이션이 프로그램간 통신에 사용할 수 있는 프로토콜이나 데이터 형식을 정의합니다
 
-<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+
+## SHELL
+
+운영체제 또는 소프트웨어와 상호작용하기 위한 명령&텍스트 기반 인터페이스입니다.\
+텍스트 기반 입출력을 활용하여 스크립트 또는 배치 파일로 반복 작업이 자동화를 지원합니다.
+
+```bash
+$ > ls
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      2022-02-09   오전 9:57                .cache
+d-----      2022-11-06  오후 10:35                .config
+```
+
+## What is Different ?
+
+### &#x20;Functionality <a href="#bd-1-functionality" id="bd-1-functionality"></a>
+
+| KERNEL                                                          | API                                                                                   | SHELL                                                  |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| 시스템 리소스를 관리하고 하드웨어 상호 작용을 처리하며 프로세스 관리 및 메모리 할당과 같은 필수 서비스를 제공합 | 애플리케이션이 다양한 소프트웨어 구성 요소, 서비스 또는 라이브러리에 액세스하고 상호 작용하는 데 사용할 수 있는 기능, 데이터 구조 및 프로토콜을 정의 | 사용자 명령을 해석하고, 프로세스를 시작하고, I/O를 관리하고, 운영 체제와의 사용자 상호 작용 |
+
+### Location <a href="#bd-2-location" id="bd-2-location"></a>
+
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+
