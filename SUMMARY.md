@@ -195,6 +195,7 @@
   * [Memory Address](computer-science/os/memory-address.md)
   * [NAND & NOR](computer-science/os/nand-and-nor.md)
   * [Shell vs Kernel vs API](computer-science/os/shell-vs-kernel-vs-api.md)
+  * [DMA Controller](computer-science/os/dma-controller.md)
 * [🛠 Network](computer-science/network/README.md)
   * [BASIC](computer-science/network/basic.md)
   * [TCP](computer-science/network/tcp/README.md)
