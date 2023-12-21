@@ -153,7 +153,7 @@
 ## Computer Science
 
 * [🎀 System Design](computer-science/system-design/README.md)
-  * [Pre UP\&OUT scaling](computer-science/system-design/pre-up-and-out-scaling.md)
+  * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
   * [CIA Triad](computer-science/security/cia-triad.md)
   * [Password](computer-science/security/password.md)
