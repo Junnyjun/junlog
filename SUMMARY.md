@@ -228,6 +228,9 @@
 
 * [FINTECH](fintech/README.md)
   * [AML ?](fintech/aml.md)
+* [AI](ai/README.md)
+  * [Books](ai/books/README.md)
+    * [📙 가장 쉬운 AI 입문서](ai/books/ai.md)
 
 ## STUDY
 
