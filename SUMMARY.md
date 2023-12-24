@@ -1,12 +1,6 @@
 # Table of contents
 
 * [👻 JUNNYLAND BLOG](README.md)
-  * [MATH](readme/math/README.md)
-    * [Function](readme/math/function/README.md)
-      * [Constant Function](readme/math/function/constant-function.md)
-  * [Rust](readme/rust/README.md)
-    * [Grammar](readme/rust/grammar/README.md)
-      * [Variable](readme/rust/grammar/variable.md)
 
 ## JVM
 
@@ -72,6 +66,7 @@
 * [🆙 Testing](jvm/testing/README.md)
   * [Junit](jvm/testing/junit/README.md)
     * [소개](jvm/testing/junit/page-2.md)
+* [📚 Books](jvm/books.md)
 
 ## Spring
 
@@ -224,13 +219,23 @@
   * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
 
-***
+## FINTECH
 
-* [FINTECH](fintech/README.md)
-  * [AML ?](fintech/aml.md)
-* [AI](ai/README.md)
-  * [Books](ai/books/README.md)
-    * [📙 가장 쉬운 AI 입문서](ai/books/ai.md)
+* [AML ?](fintech/aml.md)
+
+## AI
+
+* [Books](ai/books/README.md)
+  * [📙 가장 쉬운 AI 입문서](ai/books/ai.md)
+
+## ETC
+
+* [MATH](etc/math/README.md)
+  * [Function](etc/math/function/README.md)
+    * [Constant Function](etc/math/function/constant-function.md)
+* [Rust](etc/rust/README.md)
+  * [Grammar](etc/rust/grammar/README.md)
+    * [Variable](etc/rust/grammar/variable.md)
 
 ## STUDY
 
