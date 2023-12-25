@@ -159,6 +159,16 @@
 * [🗯 GIT](infra/git/README.md)
   * [gitignore](infra/git/gitignore.md)
   * [Author 변경](infra/git/author.md)
+* [📚 Books](infra/books/README.md)
+  * [📙 그림으로 공부하는 IT 인프라 구조](infra/books/it/README.md)
+    * [인프라 아키텍처를 살펴보자](infra/books/it/undefined.md)
+    * [서버를 열어보자](infra/books/it/undefined-1.md)
+    * [3계층형 시스템을 살펴보자](infra/books/it/3.md)
+    * [직렬/병렬](infra/books/it/undefined-2.md)
+    * [인프라를 지탱하는 응용 이론](infra/books/it/undefined-3.md)
+    * [시스템을 연결하는 네트워크 구조](infra/books/it/undefined-4.md)
+    * [무정지를 위한 인프라 구조](infra/books/it/undefined-5.md)
+    * [성능 향상을 위한 인프라 구조](infra/books/it/undefined-6.md)
 
 ## Computer Science
 
@@ -279,15 +289,6 @@
 ## STUDY
 
 * [Books](study/books/README.md)
-  * [📙 그림으로 공부하는 IT 인프라 구조](study/books/it/README.md)
-    * [인프라 아키텍처를 살펴보자](study/books/it/undefined.md)
-    * [서버를 열어보자](study/books/it/undefined-1.md)
-    * [3계층형 시스템을 살펴보자](study/books/it/3.md)
-    * [직렬/병렬](study/books/it/undefined-2.md)
-    * [인프라를 지탱하는 응용 이론](study/books/it/undefined-3.md)
-    * [시스템을 연결하는 네트워크 구조](study/books/it/undefined-4.md)
-    * [무정지를 위한 인프라 구조](study/books/it/undefined-5.md)
-    * [성능 향상을 위한 인프라 구조](study/books/it/undefined-6.md)
   * [📕 디버깅을 통해 배우는 리눅스 커널의 구조와 원리](study/books/undefined-1/README.md)
     * [리눅스 소개와 전망](study/books/undefined-1/undefined.md)
   * [📘 Atomic kotlin](study/atomic-kotlin.md)
