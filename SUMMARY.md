@@ -137,7 +137,7 @@
   * [📙 도메인 주도 설계](jvm/books/ddd/README.md)
     * [동작하는 도메인 모델 만들기](jvm/books/ddd/undefined.md)
     * [지식 탐구](jvm/books/ddd/undefined-1.md)
-    * [유비쿼터스 언어](jvm/books/ddd/undefined-1-1.md)
+    * [의사 소통과 언어 사용](jvm/books/ddd/undefined-1-1.md)
     * [모델 주도 설계](jvm/books/ddd/undefined-2.md)
     * [깊은 통찰을 향한 리팩터링](jvm/books/ddd/undefined-3.md)
     * [모델 무결성 보존](jvm/books/ddd/undefined-4.md)
