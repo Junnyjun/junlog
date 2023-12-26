@@ -166,7 +166,7 @@
     * [모노이드](jvm/books/undefined-12/undefined-8.md)
     * [모나드](jvm/books/undefined-12/undefined-9.md)
     * [로깅, 예외처리, 테스트, 디버깅](jvm/books/undefined-12/undefined-10.md)
-  * [📘 이펙티브 코틀린](jvm/books/undefined-11/README.md)
+  * [📘 Effective Kotlin](jvm/books/undefined-11/README.md)
     * [가변성을 제한하라](jvm/books/undefined-11/undefined.md)
     * [변수의 스코프를 최소화하라](jvm/books/undefined-11/undefined-1.md)
     * [최대한 플랫폼 타입을 사용하지 마라](jvm/books/undefined-11/undefined-2.md)
