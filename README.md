@@ -6,6 +6,6 @@ coverY: 0
 
 # 👻 JUNNYLAND BLOG
 
-{% @github-files/github-code-block url="https://github.com/Junnyjun?tab=repositories" %}
+{% @github-files/github-code-block url="https://github.com/Junnyjun" %}
 
 <figure><img src=".gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg" alt=""><figcaption></figcaption></figure>
