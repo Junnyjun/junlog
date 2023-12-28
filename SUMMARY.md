@@ -292,6 +292,7 @@
     * [서블릿 계층 구조](spring/books/java-web/undefined.md)
     * [비즈니스 로직 처리](spring/books/java-web/undefined-1.md)
     * [서블릿 포워드](spring/books/java-web/undefined-2.md)
+    * [웹페이지 연결](spring/books/java-web/undefined-3.md)
   * [📕 Spring5를 활용한 리액티브 스트림](spring/books/spring5/README.md)
     * [왜 리액티브인가?](spring/books/spring5/undefined.md)
     * [기본개념](spring/books/spring5/undefined-1.md)
