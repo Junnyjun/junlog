@@ -110,4 +110,107 @@ getSession : 기존의 세션객체가 존재하면 반환 없으면 새로 생�
 
 ***
 
-**encodeURL** _브라우저에서 쿠키&세션 기능을 사용할 수 없게 설정했을때 사용_
+encodeURL 브라우저에서 쿠키&세션 기능을 사용할 수 없게 설정했을때 사용
+
+## 서블릿 속성과 스코프
+
+### **서블릿 속성**&#x20;
+
+세가지 서블릿 API 클래스에 저장되는 객체
+
+* servletContext
+* HttpSession
+* HttpServletRequest
+
+### **서블릿 스코프**&#x20;
+
+서블릿 API에 바인딩된 속성에 대한 접근 범위
+
+* 로그인 상태 유지기능
+* 장바구니 기능
+* MVC에 Model\&View 데이터 전달 기능
+
+| Scope 종류         | Servlet API        | Attribute\&Scope       |
+| ---------------- | ------------------ | ---------------------- |
+| Applicatio Scope | ServletContext     | 속성은 어플리케이션 전체에 접근      |
+| Session Scope    | HttpSession        | 속성은 브라우저 에서만 접근        |
+| Request Scope    | HttpSerlvetRequest | 속성은 해당 요청/응답 사이클에서만 접근 |
+
+**URL 패턴** 실제 서블릿의 매핑 이름 서블릿 매핑시 가상의 이름으로 클라이언트가 브라우저에서 요청할 때 사용되며 반드시 / 로 시작
+
+## 필터 API
+
+브라우저에서 서블릿에 요청하거나 응답할 때 미리 요청이나 응답과 관련해 여러가지 작업을 처리하는 기능
+
+### **요청 필터**
+
+사용자 인증 및 권한 검사\
+요청 시 요청 관련 로그 작업\
+인코딩
+
+### **응답 필터**
+
+응답 결과에 대한 암호과 작업\
+서비스 시간 측정
+
+| 메서드     | 기능                                                                         |
+| ------- | -------------------------------------------------------------------------- |
+| destroy | 필터 소명 시 컨테이너에 의해 호출되어 종료 작업을 수행\| \|doFilter\|요청/응답 시 컨테이너에 의해 호출되어 기능을 수행 |
+| init    | 필터 생성 시 컨테이너에 의해 호출되어 초기화 수행                                               |
+
+* getFilterName : 필터이름 반환
+* getInitParameter : 매개변수 name에 대한 값 반환
+* getServletContext : 서블릿 콘텍스트 객체를 반환
+
+#### **Servlet Listener API**
+
+| Listener                        |                                    |
+| ------------------------------- | ---------------------------------- |
+| ServletContextAttributeListener | context 객체의 속성 추가/제거/수정 이벤트 발생시 처리 |
+
+* attributeAdd() :
+* attributeRemoved()
+* attributeReplaced
+
+|                     |                          |
+| ------------------- | ------------------------ |
+| HttpSessionListener | 세션 객체의 생성/소멸 이벤트 발생 시 처리 |
+
+* sessionCreated()
+* sessionDestroyed()
+
+|                        |                      |
+| ---------------------- | -------------------- |
+| ServletRequestListener | 클라이언트의 요청 이벤트 발생시 처리 |
+
+* requestInitialized
+* requestDestroyed
+
+|                                 |                              |
+| ------------------------------- | ---------------------------- |
+| ServletRequestAttributeListener | 요청객체에 속성 추가/제거/수정 이벤트 발생시 처리 |
+
+* attributesAdded()
+* attributesRemoved()
+* attributesReplaced()
+
+|                            |                                     |
+| -------------------------- | ----------------------------------- |
+| HttpSessionBindingListener | 세션에 바인딩/언바인딩 된 객체를 알려주는 이벤트 발생 시 처리 |
+
+* valueBound()
+* valueUnbound()
+
+|                        |                            |
+| ---------------------- | -------------------------- |
+| ServletContextListener | 컨텍스트 객체의 생성/소멸 이벤트 발생 시 처리 |
+
+* contextInitialized()
+* contextDestroyed()
+
+|                                |                        |
+| ------------------------------ | ---------------------- |
+| HttpSerssionActivationListener | 세션 활성화/비활성화 비엔트 발생시 처리 |
+
+* sessionDidActivated()
+* sessionWillPassivated()
