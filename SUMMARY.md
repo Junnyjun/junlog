@@ -550,7 +550,7 @@
 * [Books](ai/books/README.md)
   * [📙 가장 쉬운 AI 입문서](ai/books/ai.md)
   * [📕 텐초의 파이토치](ai/books/undefined/README.md)
-    * [실습환](ai/books/undefined/undefined.md)
+    * [실습환경](ai/books/undefined/undefined.md)
 
 ## ETC
 
