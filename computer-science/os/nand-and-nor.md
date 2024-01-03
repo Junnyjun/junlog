@@ -25,7 +25,7 @@ MOSFET의 P채널 트랜지스터(PMOS)와 N채널 트랜지스터(NMOS)가 접�
 `NMOS` 의 경우 인가된 게이트 전압이 소스에서 드레인으로 전자의 흐름을 허용합니다.\
 `PMOS` 의 경우 인가된 게이트 전압이 트랜지스터를 꺼 전자의 흐름을 방지합니다
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## NOR ?
 
