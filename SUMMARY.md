@@ -322,6 +322,7 @@
     * [단위 테스트 구조](spring/books/unit-testing/undefined-2.md)
     * [좋은 단위 테스트의 4대 요소](spring/books/unit-testing/4.md)
     * [목과 테스트 취약성](spring/books/unit-testing/undefined-3.md)
+  * [📘 Spring Security in action](spring/books/spring-security-in-action.md)
 
 ## DB
 
