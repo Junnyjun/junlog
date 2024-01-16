@@ -140,7 +140,7 @@
     * [의사 소통과 언어 사용](jvm/books/ddd/undefined-1-1.md)
     * [모델과 구현의 연계](jvm/books/ddd/undefined-2.md)
     * [도메인의 격리](jvm/books/ddd/undefined-3.md)
-    * [소프트 웨어에서 표현되는 모델](jvm/books/ddd/undefined-3-1.md)
+    * [도메인 객체의 생명주기](jvm/books/ddd/undefined-3-1.md)
     * [모델 무결성 보존](jvm/books/ddd/undefined-4.md)
   * [📗 자바 병렬 프로그래밍](jvm/books/undefined-6/README.md)
     * [개요](jvm/books/undefined-6/undefined.md)
