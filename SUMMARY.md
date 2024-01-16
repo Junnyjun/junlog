@@ -266,6 +266,8 @@
     * [suspend ?](jvm/books/undefined-10/suspend.md)
     * [iterator ?](jvm/books/undefined-10/iterator.md)
     * [mutex ?](jvm/books/undefined-10/mutex.md)
+  * [📕 Optimizing java](jvm/books/optimizing-java/README.md)
+    * [Page 2](jvm/books/optimizing-java/page-2.md)
 
 ## Spring
 
