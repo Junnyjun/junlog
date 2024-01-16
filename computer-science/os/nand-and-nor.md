@@ -17,7 +17,7 @@ MOSFET의 P채널 트랜지스터(PMOS)와 N채널 트랜지스터(NMOS)가 접�
 
 집적도가 높고 소비전력이 매우 적다는 이점을 가지고 있습니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 각 트랜지스터는 게이트, 소스, 드레인의 세가지 구성 요소로 구성되어 있습니다.\
 게이트에 전압이 가해지면 전기장이 생성되어 소스와 드레인 사이의 흐름을 제어합니다.
@@ -25,7 +25,7 @@ MOSFET의 P채널 트랜지스터(PMOS)와 N채널 트랜지스터(NMOS)가 접�
 `NMOS` 의 경우 인가된 게이트 전압이 소스에서 드레인으로 전자의 흐름을 허용합니다.\
 `PMOS` 의 경우 인가된 게이트 전압이 트랜지스터를 꺼 전자의 흐름을 방지합니다
 
-<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## NOR ?
 
@@ -37,7 +37,7 @@ NOR 플래시 메모리는 비 휘발성 스토리지 기술로 데이터 유지
 NOR 게이트는 두 개의 NMOS\&PMOS 트랜지스터의 출력을 결합하여 구성됩니다\
 두 개의 구성 요소가 직렬로 연결되며, 각 구성 요소는 두 개의 트랜지스터로 구성됩니다
 
-<img src="../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (1) (1).svg" alt="" class="gitbook-drawing">
 
 위 회로처럼 2개의 입력과 1개의 출력이 있을때, 입력중 적어도 하나가 높게 설정되면 NMOS 트랜지스터는 꺼지고 PMOST 트랜지스터가 켜져 출력 전압이 낮아집니다.
 

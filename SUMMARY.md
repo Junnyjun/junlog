@@ -267,7 +267,7 @@
     * [iterator ?](jvm/books/undefined-10/iterator.md)
     * [mutex ?](jvm/books/undefined-10/mutex.md)
   * [📕 Optimizing java](jvm/books/optimizing-java/README.md)
-    * [Page 2](jvm/books/optimizing-java/page-2.md)
+    * [성능과 최적화](jvm/books/optimizing-java/undefined.md)
 
 ## Spring
 
