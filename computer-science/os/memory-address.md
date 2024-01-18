@@ -6,7 +6,7 @@
 논리 주소는 프로그램의 주소 공간을 지정하는 데 사용됩니다.\
 주소 공간은 프로세스에 할당된 가상 주소의 범위를 나타냅니다.
 
-<img src="../../.gitbook/assets/file.excalidraw (2) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### Byte
 

@@ -112,7 +112,7 @@ CPU 리소스가 실제 작업 단위를 처리하는데 쓰여야합니다.
 
 부하가 증가하면서 예기치 않은 저하(지연)이 발생하는 그래프를 확인할 수 있으며 이러한 형태를 보통 성능 엘보라 칭합니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
 이와는 반대로 장비 추가에 따라 거의 선형으로 처리율이 확장되는 운좋은 케이스가 있습니다. \
 다만 대부분 암달의 법칙과 비슷합니다.
