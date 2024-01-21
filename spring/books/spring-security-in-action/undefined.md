@@ -38,36 +38,14 @@ public class ServiceConfiguration {
 
 ### 자동-구성 <a href="#h_3" id="h_3"></a>
 
-* Autowiring과 Component Scanning 기반으로 한다
-* Component Scanning 을 통해 스프링은 자동으로 애플리케이션의 classpath에 지정된 컴포넌트를 찾은 후 컨텍스트의 빈으로 생성한다
-* Autowiring 을 통해 의존관계에 있는 컴포넌트를 자동으로 다른 빈에 주입
-* 스프링 부트는 자동 구성 기능이 막강!!!
+Autowiring과 Component Scanning 기반으로 한다
 
-### 1.2 스프링 애플리케이션 초기 설정하기 <a href="#h_4" id="h_4"></a>
+Component Scanning 을 통해 스프링은 자동으로 애플리케이션의 classpath에 지정된 \
+컴포넌트를 찾은 후 컨텍스트의 빈으로 생성한다
 
-* [https://start.spring.io/](https://start.spring.io/)
+Autowiring 을 통해 의존관계에 있는 컴포넌트를 자동으로 다른 빈에 주입
 
-<figure><img src="https://blog.kakaocdn.net/dn/ubNqL/btq8vQJR3fx/GegDNVj6QqF9lROdT0p9ck/img.jpg" alt=""><figcaption></figcaption></figure>
-
-#### 1.2.2 스프링 프로젝트 구조 살펴 보기 <a href="#h_5" id="h_5"></a>
-
-**주요 항목**
-
-1. mvnw, mvnw.cmd\
-   메이븐 래퍼 스크립트\
-   메이븐이 설치 되어 있지 않더라도 이 스크립트로 프로젝트 빌드 가능
-2. pom.xml\
-   메이블 빌드 명세
-3. TacoCloudApplication.java\
-   스프링부트 메인 클래스
-4. application.properties\
-   구성 속성 지정
-5. static\
-   브라우저에 제공할 정적인 콘텐츠(이미지, 스타일시트 등) 저장 폴더
-6. templates\
-   브라우제 콘텐츠를 보여주는 템플릿 파일 폴더
-
-**빌드 명세 살펴보기**
+### **빌드 명세 살펴보기**
 
 1. Spring boot starter 의존성 관리
 
