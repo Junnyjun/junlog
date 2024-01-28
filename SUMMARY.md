@@ -326,6 +326,7 @@
     * [목과 테스트 취약성](spring/books/unit-testing/undefined-3.md)
   * [📘 Spring Security in action](spring/books/spring-security-in-action/README.md)
     * [오늘날의 보안](spring/books/spring-security-in-action/undefined.md)
+    * [안녕! 스프링 시큐리티](spring/books/spring-security-in-action/undefined-1.md)
 
 ## DB
 
