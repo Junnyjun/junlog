@@ -5,3 +5,17 @@
 ## 첫 번째 프로젝트 시작
 
 첫번째 예시는 간단한 REST API 하나이다.
+
+{% swagger method="get" path="" baseUrl="security.junnyland.com/hello" summary="" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="Hello!" %}
+
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="{ "status" : 401 ... }" %}
+
+{% endswagger-response %}
+{% endswagger %}
