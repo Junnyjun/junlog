@@ -28,3 +28,6 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 > curl -u user:d09c0129-c06d-4ebe-9a94-fe48cc494b74 https://security.junnyland.com/hello
 ```
 
+이로써, 기본 설정으로 스프링 시큐리티가 작동한것을 확인해 보았다.
+
+## 기본 구성이란?
