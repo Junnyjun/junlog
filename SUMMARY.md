@@ -345,6 +345,7 @@
 * [💾 Storage](infra/storage/README.md)
   * [Minio](infra/storage/minio.md)
 * [🧩 CI\&CD](infra/ci-and-cd/README.md)
+  * [Waypoint](infra/ci-and-cd/waypoint.md)
   * [Jenkins](infra/ci-and-cd/jenkins.md)
     * [Multi Java version](infra/ci-and-cd/jenkins/multi-java-version.md)
     * [Feestyle Job](infra/ci-and-cd/jenkins/feestyle-job.md)
