@@ -38,4 +38,10 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 2. Authentication Manager는 Authentication Provider를 이용해 인증 처리
 3. Authentication Provider는 인증 과정 구현
 4. 구현 과정중 필요한 provider를 이용
-5. 인증후 Security Context
+5. 인증후 Security Context에 데이터 유지
+
+### 기본 설정
+
+User DetailService : 사용자에 관한 세부 정보를 등록하는 Bean이다.
+
+PasswordEncoder : 암호를 인코딩한다, 암호가 서로 일치하는지 검증한다
