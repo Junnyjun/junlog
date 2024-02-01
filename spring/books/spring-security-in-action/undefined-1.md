@@ -45,3 +45,37 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 User DetailService : 사용자에 관한 세부 정보를 등록하는 Bean이다.
 
 PasswordEncoder : 암호를 인코딩한다, 암호가 서로 일치하는지 검증한다
+
+#### HTTPS 설정
+
+openssl을 이용한 자체 서명 인증서 생성
+
+```bash
+openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
+openssl pkcs12 -export -in certificate.pem -inkey key.pem -out certificate.p12
+
+---
+Country Name (2 letter code) [AU]:KR
+State or Province Name (full name) [Some-State]:korea
+Locality Name (eg, city) []:Seoul
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:junnyland
+Organizational Unit Name (eg, section) []:junny
+Common Name (e.g. server FQDN or YOUR name) []:security
+Email Address []:junnyland@test.com
+
+Enter Export Password:
+Verifying - Enter Export Password:
+```
+
+서버 설정
+
+```yaml
+server:
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:certificate.p12
+    key-store-password: 1234
+```
+
+## 구성 재정의
+
