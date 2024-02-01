@@ -30,4 +30,12 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 
 이로써, 기본 설정으로 스프링 시큐리티가 작동한것을 확인해 보았다.
 
-## 기본 구성이란?
+## 기본 구성
+
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+
+1. Authentication Filter는 인증 요청을 Authentication Manager에 위임후 Security Context구성
+2. Authentication Manager는 Authentication Provider를 이용해 인증 처리
+3. Authentication Provider는 인증 과정 구현
+4. 구현 과정중 필요한 provider를 이용
+5. 인증후 Security Context
