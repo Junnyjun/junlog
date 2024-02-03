@@ -70,6 +70,7 @@ Verifying - Enter Export Password:
 서버 설정
 
 ```yaml
+# application.yml
 server:
   ssl:
     key-store-type: PKCS12
@@ -79,3 +80,6 @@ server:
 
 ## 구성 재정의
 
+스프링 프로젝트의 기본 요소를 재정의하여 맞춤형 구현을 적용하는 방법을 소개한다.
+
+### UserDetailsService&#x20;
