@@ -82,4 +82,21 @@ server:
 
 스프링 프로젝트의 기본 요소를 재정의하여 맞춤형 구현을 적용하는 방법을 소개한다.
 
-### UserDetailsService&#x20;
+### UserDetailsService & PasswordEncoder
+
+```kotlin
+@Bean
+fun userDetailsService():UserDetailsService = 
+  InMemoryUserDetailsManager()
+    .also { it.createUser(User.withUsername("junnyland").password("1234").roles("USER").build()) }
+
+@Bean
+fun passwordEncoder():PasswordEncoder = PasswordEncoderFactories
+  .createDelegatingPasswordEncoder()
+
+---
+curl -u junnyland:1234 http://localhost:8080/hello
+Hello World!
+```
+
+Endpoint&#x20;
