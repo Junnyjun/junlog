@@ -105,3 +105,30 @@ Http Basic 인증은 대부분의 어플리케이션에 적합하지 않다. 마
 
 WebSecurityConfigurerAdapter클래스를 확장 하여 규칙을 정한다.
 
+```kotlin
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .httpBasic{ }
+        .authorizeHttpRequests { it.anyRequest().authenticated() }
+        // 모든 요청에 인증 필요
+        .build()
+```
+
+다른 방법으로는 UserDetailService를 사용한 방법이 있다.
+
+```kotlin
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .authenticationManager(authenticationManager(AuthenticationManagerBuilder(objectPostProcessor)))
+        .build()
+
+    fun userDetailsService(): UserDetailsService = InMemoryUserDetailsManager()
+        .also { it.createUser(User.withUsername("junnyland").password("1234").roles("USER").build()) }
+        
+    fun authenticationManager(auth: AuthenticationManagerBuilder): AuthenticationManager = auth
+            .also {it
+                    .userDetailsService<UserDetailsService>(userDetailsService())
+                    .passwordEncoder(passwordEncoder()) }
+            .build()
+```
+
