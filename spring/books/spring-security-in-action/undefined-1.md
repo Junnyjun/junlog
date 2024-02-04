@@ -126,9 +126,11 @@ WebSecurityConfigurerAdapter클래스를 확장 하여 규칙을 정한다.
         .also { it.createUser(User.withUsername("junnyland").password("1234").roles("USER").build()) }
         
     fun authenticationManager(auth: AuthenticationManagerBuilder): AuthenticationManager = auth
-            .also {it
-                    .userDetailsService<UserDetailsService>(userDetailsService())
+            .also {it.userDetailsService<UserDetailsService>(userDetailsService())
                     .passwordEncoder(passwordEncoder()) }
             .build()
 ```
 
+### AuthenticationProvider
+
+Spring Security를 구성하는 구성요소에 작업을 위임하는 옵션을 적용할수 있게한다.
