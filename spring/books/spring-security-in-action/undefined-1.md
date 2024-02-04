@@ -99,4 +99,9 @@ curl -u junnyland:1234 http://localhost:8080/hello
 Hello World!
 ```
 
-Endpoint&#x20;
+#### Endpoint 권한 부여
+
+Http Basic 인증은 대부분의 어플리케이션에 적합하지 않다. 마찬가지로 어플리케이션의 모든 엔드포인트를 보호할 필요는 없으며, 보안이 필요한 엔드포인트에 다른 권한 규칙을 선택해야 할 수도있다.&#x20;
+
+WebSecurityConfigurerAdapter클래스를 확장 하여 규칙을 정한다.
+
