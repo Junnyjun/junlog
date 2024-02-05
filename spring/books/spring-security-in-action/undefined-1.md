@@ -134,3 +134,24 @@ WebSecurityConfigurerAdapter클래스를 확장 하여 규칙을 정한다.
 ### AuthenticationProvider
 
 Spring Security를 구성하는 구성요소에 작업을 위임하는 옵션을 적용할수 있게한다.
+
+```kotlin
+    @Component
+    class CustomAuthenticationProvider: AuthenticationProvider {
+        override fun authenticate(authentication: Authentication): Authentication {
+            val username = authentication.name
+            val password = authentication.credentials.toString()
+            if (username == "junnyland" && password == "1234") {
+                return UsernamePasswordAuthenticationToken(username, password, emptyList())
+            }
+            throw BadCredentialsException("Authentication failed for user $username")
+        }
+        override fun supports(authentication: Class<*>): Boolean {
+            return UsernamePasswordAuthenticationToken::class.java.isAssignableFrom(authentication)
+        }
+    }
+```
+
+위는 처음 등록햇던 UserDetailService를 대체한다
+
+### 프로젝트에 여러 구성 클래스 이용
