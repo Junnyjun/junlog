@@ -155,3 +155,22 @@ Spring Security를 구성하는 구성요소에 작업을 위임하는 옵션을
 위는 처음 등록햇던 UserDetailService를 대체한다
 
 ### 프로젝트에 여러 구성 클래스 이용
+
+위처럼 하나의 구성클래스만 사용하는 방법도 있지만, 각 구성클래스의 책임을 분리하는 것이 좋습니다.
+
+{% code title="" %}
+```kotlin
+@Configuration
+class UserManagementConfig {
+
+    @Bean
+    fun userDetailsService(): UserDetailsService = InMemoryUserDetailsManager()
+        .also { it.createUser(withUsername("junnyland").password("1234").roles("USER").build()) }
+    
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder = createDelegatingPasswordEncoder()
+
+}
+```
+{% endcode %}
