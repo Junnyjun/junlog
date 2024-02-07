@@ -7,3 +7,5 @@ UserDetailManager는 대부분의 어플리케이션에 필요한 사용자 관�
 
 스프링 시큐리티에서의 사용자는 작업을 수행할수 있는 권리를 가진자를 이야기한다.
 이때의 권한은 GrantedAuthority를 구현한 객체로 표현된다.
+
+<img src="../../../.gitbook/assets/file.excalidraw (40).svg" alt="" class="gitbook-drawing">
