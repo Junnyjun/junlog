@@ -174,3 +174,14 @@ class UserManagementConfig {
 }
 ```
 {% endcode %}
+
+{% code title="" %}
+```kotlin
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .httpBasic { }
+        .authorizeHttpRequests { it.anyRequest().authenticated() }
+//        .authenticationProvider(authenticationProvider) 제거해준다
+        .build()
+```
+{% endcode %}
