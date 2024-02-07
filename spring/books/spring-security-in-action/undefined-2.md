@@ -30,8 +30,6 @@ getAuthorities()는 사용자가 작업을 수행할수 있는 권한을 반환�
 interface GrantedAuthority : Serializable {
     fun getAuthority(): String
 }
-
-///
 val read:GrantedAuthority = GrantedAuthority { "READ" }
 val write:GrantedAuthority = GrantedAuthority { "WRITE" }
 ```
