@@ -47,5 +47,12 @@ class DummyUser : UserDetails {
 ```
   
 ## Spring Security에서의 사용자 관리
-스프링 시큐리티에서는 사용자의 정보를 가져오는 역할을 하는 UserDetailsService과
-유저를 관리해주는 UserDetailsManager가 존재한다.
+스프링 시큐리티에서는 사용자의 정보를 가져오는 역할을 하는 UserDetailsService과 유저를 관리해주는 UserDetailsManager가 존재한다.
+
+### UserDetailsService
+```kotlin
+interface UserDetailsService {
+    fun loadUserByUsername(username: String): UserDetails
+}
+```
+loadUserByUsername()는 사용자의 이름을 받아서 UserDetails를 반환하고 존재하지 않는다면 UsernameNotFoundException을 발생시킨다. 
