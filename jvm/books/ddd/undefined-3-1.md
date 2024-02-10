@@ -3,7 +3,7 @@
 모든 객체에는 생명주기가 있다.\
 MODEL-DRIVEN DESIGN에서는 이러한 객체들을 관리하는것이 중요하다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 도메인 객체의 관리와 관련된 문제는 두 가지 범주로 나뉜다.
 
@@ -44,7 +44,7 @@ AGGREGATE 경계 안의 어떤 객체를 변경하더라도 전체 AGGREGATE의 
 
 클라이언트의 목적과 생성된 객체의 추상적인 관점을 반영하는 인터페이스를 제공
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### FACTORY 설계를 위한 기본 요건
 
@@ -111,7 +111,7 @@ AGGREGATE나 캡슐화 같은 특징을 활용하는 것을 우회하려 하고,
 
 REPOSITORY를 사용하면 위의 문제를 해결할 수 있다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### REPOSITORY의 이점
 

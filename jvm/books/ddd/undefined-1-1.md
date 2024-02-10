@@ -13,7 +13,7 @@ UML상의 다이어 그램으로 한정되지 않고, 모든 의사 소통 수�
 
 이러한 상호간의 번역은 용어의 분열을 일으키고 용어와 코드상 용어가 단절된다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### 모델 기반 언어
 

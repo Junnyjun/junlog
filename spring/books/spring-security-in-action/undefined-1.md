@@ -15,7 +15,7 @@
 
 {% endswagger-response %}
 
-{% swagger-response status="401: Unauthorized" description="{ "status" : 401 ... }" %}
+{% swagger-response status="401: Unauthorized" description="{ " %}
 
 {% endswagger-response %}
 {% endswagger %}
@@ -32,7 +32,7 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 
 ## 기본 구성
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 1. Authentication Filter는 인증 요청을 Authentication Manager에 위임후 Security Context구성
 2. Authentication Manager는 Authentication Provider를 이용해 인증 처리
@@ -101,7 +101,7 @@ Hello World!
 
 #### Endpoint 권한 부여
 
-Http Basic 인증은 대부분의 어플리케이션에 적합하지 않다. 마찬가지로 어플리케이션의 모든 엔드포인트를 보호할 필요는 없으며, 보안이 필요한 엔드포인트에 다른 권한 규칙을 선택해야 할 수도있다.&#x20;
+Http Basic 인증은 대부분의 어플리케이션에 적합하지 않다. 마찬가지로 어플리케이션의 모든 엔드포인트를 보호할 필요는 없으며, 보안이 필요한 엔드포인트에 다른 권한 규칙을 선택해야 할 수도있다.
 
 WebSecurityConfigurerAdapter클래스를 확장 하여 규칙을 정한다.
 

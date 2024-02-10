@@ -11,6 +11,7 @@ UserDetailManager는 대부분의 어플리케이션에 필요한 사용자 관�
 <img src="../../../.gitbook/assets/file.excalidraw (40).svg" alt="" class="gitbook-drawing">
 
 ## UserDetailsService
+
 ```kotlin
 interface UserDetails : Serializable {
     fun getAuthorities(): Collection<out GrantedAuthority>
@@ -22,10 +23,12 @@ interface UserDetails : Serializable {
     fun isEnabled(): Boolean
 }
 ```
-이중 getPassword()와 getUsername()는 각 사용자의 이름과 암호를 반환한다 \
+
+이중 getPassword()와 getUsername()는 각 사용자의 이름과 암호를 반환한다\
 getAuthorities()는 사용자가 작업을 수행할수 있는 권한을 반환한다.
 
 그중 사용자가 작업을 부여받을 수 있는 권한을 나타내는 GrantedAuthority가 존재한다.
+
 ```kotlin
 interface GrantedAuthority : Serializable {
     fun getAuthority(): String
@@ -35,6 +38,7 @@ val write:GrantedAuthority = GrantedAuthority { "WRITE" }
 ```
 
 위 두 객체로 Dummy 사용자를 생성하면 다음과 같다.
+
 ```kotlin
 class DummyUser : UserDetails {
     override fun getAuthorities(): Collection<out GrantedAuthority> = listOf("READ", "WRITE").map { GrantedAuthority { it } }
@@ -43,14 +47,39 @@ class DummyUser : UserDetails {
     // ...
 }
 ```
-  
+
 ## Spring Security에서의 사용자 관리
+
 스프링 시큐리티에서는 사용자의 정보를 가져오는 역할을 하는 UserDetailsService과 유저를 관리해주는 UserDetailsManager가 존재한다.
 
 ### UserDetailsService
+
 ```kotlin
 interface UserDetailsService {
     fun loadUserByUsername(username: String): UserDetails
 }
 ```
-loadUserByUsername()는 사용자의 이름을 받아서 UserDetails를 반환하고 존재하지 않는다면 UsernameNotFoundException을 발생시킨다. 
+
+loadUserByUsername()는 사용자의 이름을 받아서 UserDetails를 반환하고 존재하지 않는다면 UsernameNotFoundException을 발생시킨다.
+
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+
+Security구현에서 사용할 User를 새롭게 구현한다
+
+```kotlin
+data class Users(
+    val username: String,
+    val password: String,
+    val authority: List<String>
+) : UserDetails {
+    override fun getAuthorities(): Collection<GrantedAuthority> = authority.map { GrantedAuthority { it } }
+    override fun getPassword(): String = password
+    override fun getUsername(): String = username
+    override fun isAccountNonExpired(): Boolean = true
+
+    override fun isAccountNonLocked(): Boolean = true
+    override fun isCredentialsNonExpired(): Boolean = true
+
+    override fun isEnabled(): Boolean = true
+}
+```
