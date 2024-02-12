@@ -33,15 +33,17 @@ getAuthorities()는 사용자가 작업을 수행할수 있는 권한을 반환�
 interface GrantedAuthority : Serializable {
     fun getAuthority(): String
 }
-val read:GrantedAuthority = GrantedAuthority { "READ" }
-val write:GrantedAuthority = GrantedAuthority { "WRITE" }
+
+val read: GrantedAuthority = GrantedAuthority { "READ" }
+val write: GrantedAuthority = GrantedAuthority { "WRITE" }
 ```
 
 위 두 객체로 Dummy 사용자를 생성하면 다음과 같다.
 
 ```kotlin
 class DummyUser : UserDetails {
-    override fun getAuthorities(): Collection<out GrantedAuthority> = listOf("READ", "WRITE").map { GrantedAuthority { it } }
+    override fun getAuthorities(): Collection<out GrantedAuthority> =
+        listOf("READ", "WRITE").map { GrantedAuthority { it } }
     override fun getPassword(): String = "1234"
     override fun getUsername(): String = "junny"
     // ...
@@ -83,3 +85,39 @@ data class Users(
     override fun isEnabled(): Boolean = true
 }
 ```
+
+또한 UserDetailsService를 구현하여 사용자 정보를 관리한다
+
+```kotlin   
+    @Service
+    class UserDetailService(
+        private val users: List<UserDetails>
+    ) : UserDetailsService {
+        override fun loadUserByUsername(username: String): UserDetails {
+            val user = userRepository.findByUsername(username)
+            return user.orElseThrow { UsernameNotFoundException("사용자를 찾을 수 없습니다.") }
+        }
+    }
+ ```
+
+유저를 넣어 빈으로 등록한다.
+
+```kotlin
+@Configuration
+class UserManagementConfig {
+    private val users : UserDetails = Users(
+        username = "junnyland",
+        password = "1234",
+        authority = listOf("USER")
+    )
+
+    @Bean
+    fun userDetailsService(): UserDetailsService = InMemoryUserDetailsService(listOf(users))
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder = createDelegatingPasswordEncoder()
+
+}
+``` 
+
+### UserDetailsManager
