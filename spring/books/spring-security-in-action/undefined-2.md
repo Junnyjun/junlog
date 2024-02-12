@@ -121,3 +121,14 @@ class UserManagementConfig {
 ``` 
 
 ### UserDetailsManager
+이 인터페이스는 UserDetailsService를 확장하여 사용자를 관리할 수 있는 기능을 제공한다.
+
+```kotlin
+interface UserDetailsManager : UserDetailsService {
+    fun createUser(user: UserDetails)
+    fun updateUser(username: UserDetails)
+    fun deleteUser(username: String)
+    fun changePassword(old: String, new: String)
+    fun userExists(username: String): Boolean
+}
+```
