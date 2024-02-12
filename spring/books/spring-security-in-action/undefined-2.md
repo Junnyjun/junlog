@@ -146,7 +146,7 @@ CREATE TABLE `users` (
     `enabled` TINYINT(1) NOT NULL,
     PRIMARY KEY (`id`)
 );
-# 권한 테이블00
+# 권한 테이블
 CREATE TABLE `authorities` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(50) NOT NULL,
