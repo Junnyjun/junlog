@@ -120,6 +120,7 @@ class UserManagementConfig {
 }
 ``` 
 
+
 ### UserDetailsManager
 이 인터페이스는 UserDetailsService를 확장하여 사용자를 관리할 수 있는 기능을 제공한다.
 
@@ -132,3 +133,26 @@ interface UserDetailsManager : UserDetailsService {
     fun userExists(username: String): Boolean
 }
 ```
+
+## JDBC를 이용한 사용자 관리
+JdbcUserDetailsManager를 사용하여 사용자 정보를 관리할 수 있다.
+
+```SQL
+# 사용자 테이블
+CREATE TABLE `users` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
+    `enabled` TINYINT(1) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+# 권한 테이블00
+CREATE TABLE `authorities` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(50) NOT NULL,
+    `authority` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+```
+
+
