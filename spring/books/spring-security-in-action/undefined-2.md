@@ -137,7 +137,7 @@ interface UserDetailsManager : UserDetailsService {
 ## JDBC를 이용한 사용자 관리
 JdbcUserDetailsManager를 사용하여 사용자 정보를 관리할 수 있다.
 
-```SQL
+```mysql
 # 사용자 테이블
 CREATE TABLE `users` (
     `id` INT NOT NULL AUTO_INCREMENT,
