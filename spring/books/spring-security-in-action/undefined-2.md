@@ -64,7 +64,7 @@ interface UserDetailsService {
 
 loadUserByUsername()는 사용자의 이름을 받아서 UserDetails를 반환하고 존재하지 않는다면 UsernameNotFoundException을 발생시킨다.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 Security구현에서 사용할 User를 새롭게 구현한다
 
@@ -88,7 +88,7 @@ data class Users(
 
 또한 UserDetailsService를 구현하여 사용자 정보를 관리한다
 
-```kotlin   
+```kotlin
     @Service
     class UserDetailService(
         private val users: List<UserDetails>
@@ -98,7 +98,7 @@ data class Users(
             return user.orElseThrow { UsernameNotFoundException("사용자를 찾을 수 없습니다.") }
         }
     }
- ```
+```
 
 유저를 넣어 빈으로 등록한다.
 
@@ -118,10 +118,10 @@ class UserManagementConfig {
     fun passwordEncoder(): PasswordEncoder = createDelegatingPasswordEncoder()
 
 }
-``` 
-
+```
 
 ### UserDetailsManager
+
 이 인터페이스는 UserDetailsService를 확장하여 사용자를 관리할 수 있는 기능을 제공한다.
 
 ```kotlin
@@ -135,6 +135,7 @@ interface UserDetailsManager : UserDetailsService {
 ```
 
 ## JDBC를 이용한 사용자 관리
+
 JdbcUserDetailsManager를 사용하여 사용자 정보를 관리할 수 있다.
 
 ```mysql
@@ -154,5 +155,3 @@ CREATE TABLE `authorities` (
     PRIMARY KEY (`id`)
 );
 ```
-
-

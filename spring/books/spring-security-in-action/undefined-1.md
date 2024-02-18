@@ -32,7 +32,7 @@ Spring boot web, security의존성을 설정하고 프로젝트를 시작하면 
 
 ## 기본 구성
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 1. Authentication Filter는 인증 요청을 Authentication Manager에 위임후 Security Context구성
 2. Authentication Manager는 Authentication Provider를 이용해 인증 처리
