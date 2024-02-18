@@ -329,6 +329,7 @@
     * [안녕! 스프링 시큐리티](spring/books/spring-security-in-action/undefined-1.md)
     * [사용자 관리](spring/books/spring-security-in-action/undefined-2.md)
     * [암호 처리](spring/books/spring-security-in-action/undefined-3.md)
+    * [인증 구현](spring/books/spring-security-in-action/undefined-4.md)
 
 ## DB
 
