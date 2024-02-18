@@ -46,7 +46,7 @@ public interface Authentication extends Principal, Serializable {
 }
 ```
 
-### Custom 인증 프로세스
+####  Custom 인증 프로세스
 
 ```java
 public interface AuthenticationProvider {
@@ -79,4 +79,8 @@ class CustomAuthenticationProvider(
     override fun supports(autenticationType: Class<*>): Boolean = autenticationType == UsernamePasswordAuthenticationToken::class.java
 }
 ```
+
+## SecurityContext
+
+`SecurityContext`는 `Authentication`을 저장하고 관리하는 인터페이스이다. 
 
