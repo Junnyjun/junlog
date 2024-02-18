@@ -26,10 +26,7 @@ sequenceDiagram
     participant U as User
     participant A as Application
     U->>A: 인증 요청
-    A->>A: Authentication 객체 생성
-    A->>A: AuthenticationManager.authenticate()
     A->>A: AuthenticationProvider.authenticate()
-    A->>A: 인증 성공
     A->>U: 인증 성공
 ```
 
