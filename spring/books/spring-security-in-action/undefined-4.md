@@ -122,6 +122,13 @@ class AsyncSecurityConfig {
 ## HTTP basic 인증
 
 
+```kotlin
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .httpBasic { }
+        .authenticationProvider(customAuthenticationProvider)
+        .build()
+```
 
 
 
