@@ -79,7 +79,12 @@ class CustomAuthenticationProvider(
 
 ## SecurityContext
 
-`SecurityContext`는 `Authentication`을 저장하고 관리하는 인터페이스이다.
+`SecurityContext`는 `Authentication`을 저장하고 관리하는 인터페이스이다. \
+요청이 유지되는 동안 인증된 사용자의 정보를 저장한다.
+
+
+
+```java
 
 <img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
