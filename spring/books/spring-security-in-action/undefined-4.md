@@ -82,12 +82,44 @@ class CustomAuthenticationProvider(
 `SecurityContext`는 `Authentication`을 저장하고 관리하는 인터페이스이다. \
 요청이 유지되는 동안 인증된 사용자의 정보를 저장한다.
 
-
-
-```java
-
 <img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
+SecurityContext는 다음과 같이 정의되어 있다.
+
+```java
+public interface SecurityContext {
+    Authentication getAuthentication();
+    void setAuthentication(Authentication authentication);
+}
+```
+
+SecurityContext는 다음과 같은 전략으로 관리된다
+1. `MODE_THREADLOCAL` : 요청 스레드가 개별적으로 가진다
+2. `MODE_INHERITABLETHREADLOCAL` : 비동기의 경우 복사하도록 설정한다
+3. `MODE_GLOBAL` : 전역적으로 사용한다
+
+SecurityContext는 다음과 같이 사용된다.
+
+```kotlin
+val context = SecurityContextHolder.createEmptyContext()
+```
+
+### @Async에서 Authentication 전파
+
+`@Async`를 사용하면 SecurityContext가 전파되지 않는다.\
+이를 해결하기 위해서는 `SecurityContext`를 `@Async`로 전파하도록 설정해야 한다.
+
+```kotlin
+@Configuration
+class AsyncSecurityConfig {
+    @Bean
+    fun initializingBean(): InitializingBean = InitializingBean {
+        SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL)
+    }
+}
+```
+
+## HTTP basic 인증
 
 
 
