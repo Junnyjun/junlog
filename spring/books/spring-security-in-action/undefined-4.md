@@ -138,23 +138,40 @@ class AsyncSecurityConfig {
 ```kotlin
 @Bean
 fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
-        .httpBasic { configure -> setOf(configure.realmName("JUNNY LAND").authenticationEntryPoint(authenticationEntryPoint())) }
+        .httpBasic { configure ->
+            setOf(
+                configure.realmName("JUNNY LAND").authenticationEntryPoint(authenticationEntryPoint())
+            )
+        }
         .build()
 
-fun authenticationEntryPoint(): AuthenticationEntryPoint = AuthenticationEntryPoint { request, response, authException -> response.sendError(401, "Unauthorized") }
+fun authenticationEntryPoint(): AuthenticationEntryPoint =
+    AuthenticationEntryPoint { request, response, authException -> response.sendError(401, "Unauthorized") }
 // CURL -v http://localhost:8080
 // < WWW-Authenticate : Basic realm="JUNNY LAND"
 ```
 
 ## Form 인증
 
+양식 기반의 인증을 사용하려면 `formLogin()`을 사용한다.
 
+```kotlin
+@Bean
+fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .formLogin { configure -> setOf(configure.loginPage("/login").permitAll()) }
+        .defaultSuccessUrl("/home", true) // 성공시 리다이렉트
+        .authorizeHttpRequests { it.anyRequest().authenticated() }
+        .build()
+```
 
+더 세부적인 설정을 하려면 AuthenticationSuccessHandler, AuthenticationFailureHandler를 사용한다.
 
-
-
-
-
+```kotlin
+formLogin { it
+        .successHandler { _, response, _ -> response.sendRedirect("/hello") }
+        .failureHandler { _, response, _ -> response.sendRedirect("/error") }
+}
+```
 
 
 
