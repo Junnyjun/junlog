@@ -26,3 +26,100 @@ class UserManagementConfig {
 
 }
 ```
+
+### User 등록
+<details markdown="1">
+  <summary> USER ENTITY</summary>
+
+```kotlin
+@Entity
+class User(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0L,
+    val username: String,
+    val password: String,
+
+    @Enumerated(EnumType.STRING)
+    val algorithm: EncryptAlgorithm,
+
+    @OneToMany
+    val authorities: List<Authority>
+) {
+
+    enum class EncryptAlgorithm {
+        BCRYPT, SCRYPT
+    }
+}
+
+interface UserRepository: JpaRepository<User, Long> {
+
+    fun findByUsername(username: String): User?
+}
+```
+</details>
+<details markdown="1">
+  <summary> AUTHORITY ENTITY</summary>
+
+```kotlin
+@Entity
+class Authority(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0L,
+    val name: String,
+    @ManyToOne
+    @JoinColumn(name = "user")
+    val user: User
+) {
+
+}
+
+interface AuthorityRepository: JpaRepository<Authority, Long> {
+}
+```
+</details>
+
+## 인증 논리 구현
+
+<details markdown="1">
+  <summary> UserDetails</summary>
+
+```kotlin
+class CustomUserDetails(
+    private val user: User
+): UserDetails {
+    override fun getAuthorities(): List<GrantedAuthority> = user.authorities
+        .map { authority -> GrantedAuthority { authority.name } }
+        .toList()
+
+    override fun getPassword(): String = user.password
+
+    override fun getUsername(): String = user.username
+
+    override fun isAccountNonExpired(): Boolean = true
+
+    override fun isAccountNonLocked(): Boolean = true
+
+    override fun isCredentialsNonExpired(): Boolean = true
+
+    override fun isEnabled(): Boolean = true
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> UserDetailsService </summary>
+
+```kotlin
+@Service
+class CustomUserDetailService(
+    private val userRepository: UserRepository
+) : UserDetailsService {
+
+    override fun loadUserByUsername(username: String): UserDetails = userRepository.findByUsername(username)
+        ?.let { CustomUserDetails(it) }
+        ?: throw UsernameNotFoundException("User not found")
+}
+```
+</details>
