@@ -331,6 +331,7 @@
     * [암호 처리](spring/books/spring-security-in-action/undefined-3.md)
     * [인증 구현](spring/books/spring-security-in-action/undefined-4.md)
     * [작고 안전한 웹 어플리케이션](spring/books/spring-security-in-action/undefined-5.md)
+    * [액세스 제한](spring/books/spring-security-in-action/undefined-6.md)
 
 ## DB
 
