@@ -1,6 +1,8 @@
 # 작고 안전한 웹 어플리케이션
 
-어플리케이션의 제품 정보와 사용자는 데이터베이스에 저장되고, 각 사용자의 암호는 `BCrypt`를 사용하여 암호화된다.
+어플리케이션의 제품 정보와 사용자는 데이터베이스에 저장되고, \
+각 사용자의 암호는 `BCrypt`를 사용하여 암호화된다. 
+
 이 작은 프로젝트의 구현은 다음과 같다
 
 1. 데이터베이스
@@ -120,6 +122,65 @@ class CustomUserDetailService(
     override fun loadUserByUsername(username: String): UserDetails = userRepository.findByUsername(username)
         ?.let { CustomUserDetails(it) }
         ?: throw UsernameNotFoundException("User not found")
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> AuthenticationProvider </summary>
+
+```kotlin
+@Service
+class CustomAuthenticationProvider(
+    private val userDetailService: CustomUserDetailService,
+) : AuthenticationProvider {
+    private val sCryptPasswordEncoder: SCryptPasswordEncoder = SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8()
+    private val bCryptPasswordEncoder: BCryptPasswordEncoder = BCryptPasswordEncoder()
+
+    override fun authenticate(authentication: Authentication): Authentication {
+        val name = authentication.name
+        val password = authentication.credentials.toString()
+        val user: CustomUserDetails = userDetailService.loadUserByUsername(name)
+
+        return when (user.getUser.algorithm) {
+            BCRYPT -> {
+                bCryptPasswordEncoder.matches(password, user.password)
+            }
+            SCRYPT -> {
+                sCryptPasswordEncoder.matches(password, user.password)
+            }
+        }
+            .takeIf { it }
+            ?.let { return UsernamePasswordAuthenticationToken(user.username, user.password, user.authorities) }
+            ?: throw BadCredentialsException("Bad credentials")
+    }
+
+    override fun supports(authentication: Class<*>): Boolean = UsernamePasswordAuthenticationToken::class.java.isAssignableFrom(authentication)
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> SecurityConfiguration </summary>
+
+```kotlin
+@Configuration
+@EnableWebSecurity
+class SecurityConfiguration(
+    private val authenticationProvider: CustomAuthenticationProvider
+) {
+
+
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .formLogin { it.loginPage("/login")
+            .successHandler { _, response, _ -> response.sendRedirect("/hello") }
+            .failureHandler { _, response, _ -> response.sendRedirect("/error") }
+        }
+        .authorizeHttpRequests { it.anyRequest().authenticated() }
+        .authenticationProvider(authenticationProvider)
+        .build()
+
 }
 ```
 </details>
