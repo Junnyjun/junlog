@@ -106,6 +106,17 @@ class SecurityConfiguration(
 
 스프링 시큐리티는 다양한 필터를 제공한다.
 
-- `OncePerRequestFilter` : 한번만 요청을 처리하는 필터
+- `OncePerRequestFilter` : 한번만 요청을 처리 하는 필터
+```kotlin
+class AuthenticationFilter : OncePerRequestFilter() {
+    override fun doFilterInternal(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+        filterChain: FilterChain
+    ) {
+        logger.info("custom doFilter")
+        filterChain.doFilter(request, response)
+    }
+}
+```
 - `GenericFilterBean` : 일반적인 필터
-- 
