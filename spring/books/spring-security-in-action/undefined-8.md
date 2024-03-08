@@ -42,7 +42,7 @@ class CustomFilter : Filter {
             ?.takeIf { it == KEY }
             ?.let { filter.doFilter(request, response) }
             ?: (response as HttpServletResponse).setStatus(HttpServletResponse.SC_UNAUTHORIZED)
-    }
+    }₩
 }
 ```
 </details>
@@ -62,4 +62,50 @@ class CustomFilter : Filter {
 ## 필터를 다른 필터 위치에 추가
 
 다른 필터 위치에 맞춤형 필터를 추가하는 방식이다.
-HttpBasic 인증 흐름 대신 다른 인증을 사용하는 경우를 예시로 들예정이다.
+HttpBasic 인증 흐름 대신 다른 인증을 사용하는 경우를 예시로 사용한다
+
+- 인증을 위한 정적 헤더 값에 기반을 둔 식별
+- 대칭 키를 사용한 요청 서명
+- OTP를 사용한 인증
+
+<details markdown="1">
+  <summary> Setting </summary>
+
+```kotlin
+private const val KEY: String = "JUNNYLAND"
+
+@Component
+class CustomFilter : Filter {
+    private val logger = LoggerFactory.getLogger(CustomFilter::class.java)
+    override fun doFilter(request: ServletRequest, response: ServletResponse, filter: FilterChain) {
+        logger.info("custom doFilter")
+        val httpRequest = request as HttpServletRequest
+        httpRequest.getHeader("JUNNYLAND")
+            ?.takeIf { it == KEY }
+            ?.let { filter.doFilter(request, response) }
+            ?: (response as HttpServletResponse).setStatus(HttpServletResponse.SC_UNAUTHORIZED)
+    }
+}
+
+@Configuration
+@EnableWebSecurity
+class SecurityConfiguration(
+    private val customFilter: CustomFilter
+) {
+
+
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .addFilterAt(customFilter, BasicAuthenticationFilter::class.java)
+        .build()
+}
+```
+</details>
+
+## 스프링 시큐리티가 제공하는 필터
+
+스프링 시큐리티는 다양한 필터를 제공한다.
+
+- `OncePerRequestFilter` : 한번만 요청을 처리하는 필터
+- `GenericFilterBean` : 일반적인 필터
+- 
