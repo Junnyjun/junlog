@@ -23,3 +23,43 @@ FilterChain을 통해 다양한 요구사항별 필터를 적용할 수 있다.
 <img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 ## 기존 필터에 필터 추가
+
+모든 요청에 `JUNNYLAND`헤더가 있는지 확인하는 필터를 추가한다.
+
+
+<details markdown="1">
+  <summary> CustomFilter </summary>
+
+```kotlin
+private const val KEY: String = "JUNNYLAND"
+
+class CustomFilter : Filter {
+    private val logger = LoggerFactory.getLogger(CustomFilter::class.java)
+    override fun doFilter(request: ServletRequest, response: ServletResponse, filter: FilterChain) {
+        logger.info("custom doFilter")
+        (request as HttpServletRequest)
+            .getHeader("JUNNYLAND")
+            ?.takeIf { it == KEY }
+            ?.let { filter.doFilter(request, response) }
+            ?: (response as HttpServletResponse).setStatus(HttpServletResponse.SC_UNAUTHORIZED)
+    }
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> SecurityConfiguration </summary>
+
+```kotlin
+@Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .addFilterBefore(CustomFilter(), BasicAuthenticationFilter::class.java) // before BasicAuthenticationFilter 전에 필터를 추가 한다
+        .addFilterAfter(CustomFilter(), BasicAuthenticationFilter::class.java) // after BasicAuthenticationFilter 후에 필터를 추가 한다
+        .build()
+```
+</details>
+
+## 필터를 다른 필터 위치에 추가
+
+다른 필터 위치에 맞춤형 필터를 추가하는 방식이다.
+HttpBasic 인증 흐름 대신 다른 인증을 사용하는 경우를 예시로 들예정이다.
