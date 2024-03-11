@@ -41,8 +41,8 @@ class CustomFilter : Filter {
             .getHeader("JUNNYLAND")
             ?.takeIf { it == KEY }
             ?.let { filter.doFilter(request, response) }
-            ?: (response as HttpServletResponse).setStatus(HttpServletResponse.SC_UNAUTHORIZED)
-    }₩
+            ?: (response as HttpServletResponse).setStatus(HttpSe`rvletResponse.SC_UNAUTHORIZED)
+    }
 }
 ```
 </details>
