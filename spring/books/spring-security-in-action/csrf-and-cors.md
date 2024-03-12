@@ -24,7 +24,7 @@ class CustomCsrfFilter : Filter {
 ## CSRF 맞춤 구현
 
 <details markdown="1">
-  <summary> TokenRepository </summary>
+  <summary> TokenRepository(JPA) </summary>
 
 ```kotlin
 @Entity
@@ -41,19 +41,43 @@ class Token(
 interface TokenRepository :JpaRepository<Token, String>{}
 ```
 </details>
+
 <details markdown="1">
   <summary> CsrfRepository </summary>
 
 ```kotlin
-@Entity
-class Token(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: String,
-    val token: String,
-    val identifier: String,
-) {}
-///
-interface TokenRepository :JpaRepository<Token, String>{}
+class CsrfTokenRdbmsRepository(
+    private val csrfTokenRepository: TokenRepository
+) : CsrfTokenRepository {
+    override fun generateToken(request: HttpServletRequest): CsrfToken =
+        DefaultCsrfToken("X-CSRF-TOKEN", "_csrf","${UUID.randomUUID()}")
+
+    override fun saveToken(token: CsrfToken, request: HttpServletRequest, response: HttpServletResponse) {
+        csrfTokenRepository.findByIdentifier(request.getHeader("X-IDENTIFIER"))
+            ?.let { csrfTokenRepository.save((Token(token = UUID.fromString(token.token), identifier = "JUNNYLAND"))) }
+            ?: csrfTokenRepository.save(Token(token = UUID.fromString(token.token), identifier = "JUNNYLAND"))
+    }
+    override fun loadToken(request: HttpServletRequest): CsrfToken? =
+        csrfTokenRepository.findByIdentifier(request.getHeader("X-IDENTIFIER"))
+            ?.let { DefaultCsrfToken("X-CSRF-TOKEN", "_csrf", it.token.toString()) }
+}
 ```
 </details>
+
+## CORS
+`CORS`는 `Cross-Origin Resource Sharing`의 약자로, 다른 도메인 간에 자원을 공유하기 위한 방법이다.\
+허용된 도메인에서만 요청을 받아들이고, 허용된 도메인에서만 응답을 보내는 방식이다.
+
+스프링 시큐리티 에서는 `Access-Control-Allow-Origin` 헤더를 사용하여 `CORS`를 설정할 수 있다.\
+`CORS` 설정은 `CorsConfigurer`를 통해 설정할 수 있다.
+
+```kotlin
+class CustomCorsFilter : Filter {
+    private val logger = LoggerFactory.getLogger(CustomFilter::class.java)
+    override fun doFilter(req: ServletRequest, res: ServletResponse, filter: FilterChain) {
+        val response = res as HttpServletResponse
+        response.setHeader("Access-Control-Allow-Origin", "http://junnyland.com")
+        filter.doFilter(req, res)
+    }
+}
+```
