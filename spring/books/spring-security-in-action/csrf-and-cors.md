@@ -71,13 +71,31 @@ class CsrfTokenRdbmsRepository(
 스프링 시큐리티 에서는 `Access-Control-Allow-Origin` 헤더를 사용하여 `CORS`를 설정할 수 있다.\
 `CORS` 설정은 `CorsConfigurer`를 통해 설정할 수 있다.
 
+<details markdown="1">
+  <summary> @CrossOrigin </summary>
+
 ```kotlin
-class CustomCorsFilter : Filter {
-    private val logger = LoggerFactory.getLogger(CustomFilter::class.java)
-    override fun doFilter(req: ServletRequest, res: ServletResponse, filter: FilterChain) {
-        val response = res as HttpServletResponse
-        response.setHeader("Access-Control-Allow-Origin", "http://junnyland.com")
-        filter.doFilter(req, res)
+@RestController
+@CrossOrigin(origins = ["junnyland.com"])
+class HelloController {
+
+    @GetMapping("/hello")
+    fun hello(): String = "Hello World!"
+}
+```
+
+</details>
+
+<details markdown="1">
+  <summary> CorsConfigurer </summary>
+
+```kotlin
+@Configuration
+class CorsConfig : WebMvcConfigurer {
+    override fun addCorsMappings(registry: CorsRegistry) {
+        registry.addMapping("/**")
+            .allowedOrigins("http://localhost:8080")
+            .allowedMethods("GET", "POST", "PUT", "DELETE")
     }
 }
 ```
