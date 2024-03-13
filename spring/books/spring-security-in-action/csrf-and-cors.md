@@ -99,3 +99,4 @@ class CorsConfig : WebMvcConfigurer {
     }
 }
 ```
+</details>
