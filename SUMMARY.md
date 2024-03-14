@@ -336,6 +336,7 @@
     * [제한 적용](spring/books/spring-security-in-action/undefined-7.md)
     * [필터 구현](spring/books/spring-security-in-action/undefined-8.md)
     * [CSRF\&CORS 적용](spring/books/spring-security-in-action/csrf-and-cors.md)
+    * [실전 : 책임의 분리](spring/books/spring-security-in-action/undefined-9.md)
 
 ## DB
 
