@@ -23,4 +23,30 @@
 - `Header` : 토큰의 타입과 해싱 알고리즘을 지정한다.
 - `Payload` : 토큰에 포함될 정보를 지정한다.
 - `Signature` : `Header`와 `Payload`를 인코딩한 후, 비밀키로 해싱한 값을 지정한다.
-- 
+
+
+## 인증서버 구현
+인증 서버는 `SMS OTP`로 인증을 수행한다.
+`/user/auth`을 호출하면 `SMS OTP`를 전송하고, `/login`에 `OTP`값을 전달하여 인증을 수행한다.
+
+- `/user/add` : 사용자를 추가한다
+- `/user/auth` : 사용자를 인증한다
+- `/otp/check` : `OTP`값을 검증한다
+
+<tabs >
+<tab title="User">
+```kotlin
+@Entity
+
+data class User(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0L,
+    val username: String,
+    val password: String,
+    val phone: String,
+    val roles: String
+)
+````
+</tab>
+
