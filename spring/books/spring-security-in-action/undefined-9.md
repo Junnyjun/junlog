@@ -33,20 +33,67 @@
 - `/user/auth` : 사용자를 인증한다
 - `/otp/check` : `OTP`값을 검증한다
 
-<tabs >
-<tab title="User">
+<details markdown="1">
+  <summary> USER ENTITY</summary>
+
 ```kotlin
 @Entity
-
-data class User(
+class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
+    @Column(unique = true)
     val username: String,
     val password: String,
-    val phone: String,
-    val roles: String
-)
-````
-</tab>
+
+) {}
+
+interface UserRepository: JpaRepository<User, Long> {
+    fun findByUsername(username: String): User?
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> OTP ENTITY</summary>
+
+```kotlin
+@Entity
+class Otp(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0L,
+    val value: String,
+    val username: String
+) {}
+
+interface OtpRepository: JpaRepository<Otp, Long> {
+    fun findByUsername(username: String): Otp?
+}
+```
+</details>
+<details markdown="1">
+  <summary> Security Config</summary>
+
+```kotlin
+@EnableWebSecurity
+class SecurityConfig(
+) {
+
+    @Bean
+    fun configure():HttpSecurity {
+        return HttpSecurity {
+            it
+                .authorizeHttpRequests {
+                    it
+                        .antMatchers("/user/add").permitAll()
+                        .antMatchers("/user/auth").permitAll()
+                        .antMatchers("/otp/check").permitAll()
+                        .anyRequest().authenticated()
+                }
+                .formLogin()
+        }
+    }
+}
+```
 
