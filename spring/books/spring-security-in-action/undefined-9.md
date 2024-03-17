@@ -96,4 +96,9 @@ class SecurityConfig(
     }
 }
 ```
+</details>
 
+생략 ...
+
+## 논리 서버 구현
+논리 서버는 `JWT`를 사용하여 인증과 권한 부여를 수행한다.
