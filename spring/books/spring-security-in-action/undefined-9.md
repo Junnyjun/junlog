@@ -102,3 +102,15 @@ class SecurityConfig(
 
 ## 논리 서버 구현
 논리 서버는 `JWT`를 사용하여 인증과 권한 부여를 수행한다.
+
+<details markdown="1">
+  <summary> Authentication </summary>
+
+```kotlin
+class UsernamePasswordAuthentication (
+    principal: Any,
+    credentials: Any,
+    authorities: MutableCollection<out GrantedAuthority>?
+): UsernamePasswordAuthenticationToken(principal, credentials, authorities) {
+}
+```
