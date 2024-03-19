@@ -104,7 +104,7 @@ class SecurityConfig(
 논리 서버는 `JWT`를 사용하여 인증과 권한 부여를 수행한다.
 
 <details markdown="1">
-  <summary> Authentication </summary>
+  <summary> UsernamePasswordAuthentication </summary>
 
 ```kotlin
 class UsernamePasswordAuthentication (
@@ -114,3 +114,76 @@ class UsernamePasswordAuthentication (
 ): UsernamePasswordAuthenticationToken(principal, credentials, authorities) {
 }
 ```
+</details>
+
+<details markdown="1">
+  <summary> UsernamePasswordAuthenticationProvider </summary>
+
+```kotlin
+class UsernamePasswordAuthenticationProvider(
+    private val gateway: OtpGateway,
+): AuthenticationProvider {
+    override fun authenticate(authentication: Authentication): Authentication {
+        val username = authentication.name
+        val password = authentication.credentials.toString()
+
+        val user = gateway.getUser(username)
+        
+        return UsernamePasswordAuthenticationToken(user, password)
+    }
+        
+
+    override fun supports(authentication: Class<*>): Boolean {
+        return UsernamePasswordAuthentication::class.java.isAssignableFrom(authentication)
+    }
+}
+```
+
+</details>
+
+
+<details markdown="1">
+  <summary> OtpAuthentication </summary>
+
+```kotlin
+class OtpAuthentication(
+    principal: Any,
+    credentials: Any,
+    authorities: MutableCollection<out GrantedAuthority>?
+): UsernamePasswordAuthenticationToken(principal, credentials, authorities) {
+}
+```
+</details>
+
+<details markdown="1">
+  <summary> OtpAuthenticationProvider </summary>
+
+```kotlin
+class OtpAuthenticationProvider(
+    private val gateway: OtpGateway,
+): AuthenticationProvider {
+    override fun authenticate(authentication: Authentication): Authentication {
+        val username = authentication.name
+        val otp = authentication.credentials.toString()
+
+        val user = gateway.getUser(username)
+        val savedOtp = gateway.getOtp(username)
+
+        if (otp == savedOtp) {
+            return OtpAuthentication(user, otp)
+        }
+        throw BadCredentialsException("Invalid OTP")
+    }
+
+    override fun supports(authentication: Class<*>): Boolean {
+        return OtpAuthentication::class.java.isAssignableFrom(authentication)
+    }
+}
+```
+</details>
+
+
+
+
+
+ 
