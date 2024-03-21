@@ -272,7 +272,8 @@
 ## Spring
 
 * [🌫️ Data](spring/data/README.md)
-  * [Datasource](spring/data/datasource.md)
+  * [JDBC](spring/data/datasource/README.md)
+    * [Datasource](spring/data/datasource/datasource.md)
   * [Neo4j](spring/data/neo4j.md)
   * [GraphQL](spring/data/graphql/README.md)
     * [Setting](spring/data/graphql/setting.md)
