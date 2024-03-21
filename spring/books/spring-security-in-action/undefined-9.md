@@ -201,3 +201,7 @@ class OtpAuthenticationProvider(
 
 ### 필터 구현
 
+<details>
+<summary>InitialAuthenticationFilter</summary>
+
+```kotlin
