@@ -286,6 +286,7 @@
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
 * [🚪 GateWay](spring/tools.md)
+  * [Integration](spring/tools/integration.md)
   * [Socket](spring/page-4.md)
   * [RestTemplate Logging](spring/tools/api-call.md)
   * [Okhttp](spring/tools/okhttp.md)
