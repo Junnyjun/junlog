@@ -13,7 +13,7 @@
 
 ## Main Components
 
-전형적인 스프링 기반은 계층구조로 설계하고, 메시징 기반은 조금더 수평적인 관점을 더하긴 하지만 \
+전형적인 스프링 기반은 계층구조로 설계하고, 메시징 기반은 조금더 수평적인 관점을 더하긴 하지만\
 수직적인 관점에서 관심사를 분리할수 있게 해준다.
 
 {% hint style="info" %}
@@ -25,7 +25,17 @@ Message
 {% endhint %}
 
 ## Message Channel
+
 Pipe and Filter 패턴을 구현하기 위한 인터페이스로, 메시지를 전달하는 역할을 한다.
+
+<img src="../../../.gitbook/assets/file.excalidraw (45).svg" alt="" class="gitbook-drawing">
 
 Producer는 메시지를 생성하고, Consumer는 메시지를 소비한다.\
 `point-to-point`, `publish-subscribe`등 다양한 패턴을 지원한다.
+
+### Message Endpoint
+
+Spring Integration의 주요 목표는 제어의 역전을 통해 통합 솔루션을 만들어 주는 일이다.\
+사용자는 컨슈머와 프로듀서를 직접 구현할 필요가 없으며, 메시지를 만들거나 연산을 호출하지 않아도 된다.
+
+순수 객체 기반으로 구현을 이어가고 도메인 모델에 집중할 수 있어야 한다.
