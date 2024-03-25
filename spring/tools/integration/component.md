@@ -23,3 +23,9 @@ Message
 
 페이로드와 여러가지 헤더로 구성된다.
 {% endhint %}
+
+## Message Channel
+Pipe and Filter 패턴을 구현하기 위한 인터페이스로, 메시지를 전달하는 역할을 한다.
+
+Producer는 메시지를 생성하고, Consumer는 메시지를 소비한다.\
+`point-to-point`, `publish-subscribe`등 다양한 패턴을 지원한다.
