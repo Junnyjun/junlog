@@ -132,6 +132,7 @@ class UsernamePasswordAuthentication (
 <summary>UsernamePasswordAuthenticationProvider</summary>
 
 ```kotlin
+@Component
 class UsernamePasswordAuthenticationProvider(
     private val gateway: OtpGateway,
 ): AuthenticationProvider {
@@ -175,6 +176,7 @@ class OtpAuthentication(
 <summary>OtpAuthenticationProvider</summary>
 
 ```kotlin
+@Component
 class OtpAuthenticationProvider(
     private val gateway: OtpGateway,
 ): AuthenticationProvider {
@@ -205,3 +207,101 @@ class OtpAuthenticationProvider(
 <summary>InitialAuthenticationFilter</summary>
 
 ```kotlin
+@Component
+class InitialAuthenticationFilter(
+    private val manger: AuthenticationManager,
+    @Value("\${security.jwt.secret}") private val secret: String
+) : OncePerRequestFilter() {
+    override fun doFilterInternal(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+        filterChain: FilterChain
+    ) {
+        val username = request.getHeader("username")
+        val password = request.getHeader("password")
+
+        request.getHeader("code")
+            ?.let { code -> OtpAuthentication(username, code, null)}
+            ?.let { manger.authenticate(it) }
+            ?.let { createJwt(username) }
+            ?.let { jwt -> response.setHeader("Authorization", jwt) }
+            ?: manger.authenticate(UsernamePasswordAuthentication(username, password, null))
+    }
+
+    override fun shouldNotFilter(request: HttpServletRequest): Boolean = request.requestURI.contains("/login")
+
+    private fun createJwt(username: String): String = Jwts.builder()
+        .setClaims(mapOf("username" to username))
+        .signWith(Keys.hmacShaKeyFor(secret.toByteArray()))
+        .compact()
+}
+```
+</details>
+
+<details>
+<summary>JwtAuthenticationFilter</summary>
+
+```kotlin
+@Component
+class JwtAuthenticationFilter(
+    @Value("\${security.jwt.secret}") private val secret: String
+) : OncePerRequestFilter() {
+    override fun doFilterInternal(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+        filterChain: FilterChain
+    ) {
+        val token = request.getHeader("Authorization")
+
+        val body:Claims = Jwts.parserBuilder()
+            .setSigningKey(Keys.hmacShaKeyFor(secret.toByteArray()))
+            .build()
+            .parseClaimsJws(token)
+            .body
+
+        val username = body["username"].toString()
+        SecurityContextHolder.getContext().authentication = UsernamePasswordAuthentication(username, "", null)
+        filterChain.doFilter(request, response)
+    }
+
+    override fun shouldNotFilter(request: HttpServletRequest): Boolean = request.requestURI.contains("/login")
+
+}
+```
+</details>
+
+<details>
+<summary>Security Config</summary>
+
+```kotlin
+@Configuration
+@EnableWebSecurity
+class SecurityConfiguration(
+    private val initial: InitialAuthenticationFilter,
+    private val jwt: JwtAuthenticationFilter,
+    private val otpProvider: OtpAuthenticationProvider,
+    private val username: UsernamePasswordAuthenticationProvider
+) {
+
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
+        .addFilterBefore(initial, BasicAuthenticationFilter::class.java)
+        .addFilterBefore(jwt, BasicAuthenticationFilter::class.java)
+        .authorizeHttpRequests { authorizeRequests ->
+            authorizeRequests
+                .anyRequest().authenticated()
+        }
+        .build()
+
+    @Bean
+    fun configure(auth: AuthenticationManagerBuilder) {
+        auth.authenticationProvider(username)
+            .authenticationProvider(otpProvider)
+    }
+    
+    @Bean
+    fun authenticationManager(auth: AuthenticationManagerBuilder): AuthenticationManager = auth.build()
+}
+```
+
+</details>
