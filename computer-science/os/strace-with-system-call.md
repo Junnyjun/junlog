@@ -1,0 +1,2 @@
+# Strace with system call
+

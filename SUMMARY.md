@@ -466,7 +466,7 @@
   * [Graph](computer-science/data-structure/graph.md)
   * [Tree Traversal](computer-science/data-structure/tree-traversal.md)
 * [⚙️ Operating System](information/OS/README.md)
-  * [Strace in System.call()](computer-science/os/strace-in-system.call.md)
+  * [Strace with system call](computer-science/os/strace-with-system-call.md)
   * [Top Half& Bottom Half](computer-science/os/top-half-and-bottom-half.md)
   * [Context Switch](computer-science/os/context-switch.md)
   * [x86 vs ARM](computer-science/os/x86-vs-arm.md)

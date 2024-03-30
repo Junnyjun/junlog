@@ -1,2 +1,0 @@
-# Strace in System.call()
-
