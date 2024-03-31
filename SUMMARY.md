@@ -55,6 +55,7 @@
     * [10분 코틀린 기초떼기](jvm/kotlin/10.md)
 * [🤖 JVM](jvm/jvm/README.md)
   * [Compile](jvm/jvm/compile/README.md)
+    * [JIT & AOT](jvm/jvm/compile/jit-and-aot.md)
     * [Byte Code](jvm/jvm/byte-code.md)
     * [Java & Kotlin](jvm/jvm/java-and-kotlin.md)
   * [Core](jvm/jvm/core/README.md)
