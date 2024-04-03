@@ -2,7 +2,7 @@
 
 스프링 시큐리티에서 HTTP필터는 HTTP요청에 적용되는 다양한 책임을 위임한다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 FilterChain을 통해 다양한 요구사항별 필터를 적용할 수 있다.
 
@@ -20,15 +20,15 @@ FilterChain을 통해 다양한 요구사항별 필터를 적용할 수 있다.
 * CsrfFilter : CSRF 공격을 방어하는 필터
 * CorsFilter : CORS를 처리하는 필터
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 ## 기존 필터에 필터 추가
 
 모든 요청에 `JUNNYLAND`헤더가 있는지 확인하는 필터를 추가한다.
 
+<details>
 
-<details markdown="1">
-  <summary> CustomFilter </summary>
+<summary>CustomFilter</summary>
 
 ```kotlin
 private const val KEY: String = "JUNNYLAND"
@@ -45,10 +45,12 @@ class CustomFilter : Filter {
     }
 }
 ```
+
 </details>
 
-<details markdown="1">
-  <summary> SecurityConfiguration </summary>
+<details>
+
+<summary>SecurityConfiguration</summary>
 
 ```kotlin
 @Bean
@@ -57,19 +59,20 @@ class CustomFilter : Filter {
         .addFilterAfter(CustomFilter(), BasicAuthenticationFilter::class.java) // after BasicAuthenticationFilter 후에 필터를 추가 한다
         .build()
 ```
+
 </details>
 
 ## 필터를 다른 필터 위치에 추가
 
-다른 필터 위치에 맞춤형 필터를 추가하는 방식이다.
-HttpBasic 인증 흐름 대신 다른 인증을 사용하는 경우를 예시로 사용한다
+다른 필터 위치에 맞춤형 필터를 추가하는 방식이다. HttpBasic 인증 흐름 대신 다른 인증을 사용하는 경우를 예시로 사용한다
 
-- 인증을 위한 정적 헤더 값에 기반을 둔 식별
-- 대칭 키를 사용한 요청 서명
-- OTP를 사용한 인증
+* 인증을 위한 정적 헤더 값에 기반을 둔 식별
+* 대칭 키를 사용한 요청 서명
+* OTP를 사용한 인증
 
-<details markdown="1">
-  <summary> Setting </summary>
+<details>
+
+<summary>Setting</summary>
 
 ```kotlin
 private const val KEY: String = "JUNNYLAND"
@@ -100,13 +103,15 @@ class SecurityConfiguration(
         .build()
 }
 ```
+
 </details>
 
 ## 스프링 시큐리티가 제공하는 필터
 
 스프링 시큐리티는 다양한 필터를 제공한다.
 
-- `OncePerRequestFilter` : 한번만 요청을 처리 하는 필터
+* `OncePerRequestFilter` : 한번만 요청을 처리 하는 필터
+
 ```kotlin
 class AuthenticationFilter : OncePerRequestFilter() {
     override fun doFilterInternal(
@@ -119,4 +124,5 @@ class AuthenticationFilter : OncePerRequestFilter() {
     }
 }
 ```
-- `GenericFilterBean` : 일반적인 필터
+
+* `GenericFilterBean` : 일반적인 필터

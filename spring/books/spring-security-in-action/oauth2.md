@@ -1,6 +1,9 @@
 # Oauth2가 작동하는 방법
 
 ## Oauth2 프레임워크
+
 최근 웹 어플리케이션 보안에 일반적으로 이용되므로 Oauth2 프레임워크를 이해하는 것이 중요하다. Oauth2는 인증 및 권한 부여를 위한 프로토콜이다.\
 Oauth2는 클라이언트 애플리케이션이 사용자의 리소스에 접근할 수 있도록 권한을 부여하는 프레임웨크이다.\
 타사 서비스나, 자체 서비스에 대한 인증 및 권한 부여를 위해 Oauth2를 사용할 수 있다.
+
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
