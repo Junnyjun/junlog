@@ -24,4 +24,4 @@ Just in Time 컴파일러는 프로그램을 실행하는 동안에 바이트 �
 
 
 
-#### Hotspot VM과 프로그램의 실행 흐름을 추저하는 Tracing JIT방식
+#### Hotspot VM과 프로그램의 실행 흐름을 추적하는 Tracing JIT방식
