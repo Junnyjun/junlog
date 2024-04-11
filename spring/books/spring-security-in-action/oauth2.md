@@ -8,3 +8,9 @@ Oauth2는 클라이언트 애플리케이션이 사용자의 리소스에 접근
 <img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 ## Oauth2 구성 요소
+oauth2는 다음과 같은 구성 요소로 구성되어 있습니다.
+
+- `Resource Server` : 리소스에 대한 접근을 제어하는 서버
+- `Resource Owner` : 리소스에 대한 접근을 허용하는 사용자
+- `Client` : 리소스에 접근하는 애플리케이션
+- `Authorization Server` : 클라이언트에게 접근 권한을 부여하는 서버
