@@ -343,6 +343,7 @@
     * [CSRF\&CORS 적용](spring/books/spring-security-in-action/csrf-and-cors.md)
     * [실전 : 책임의 분리](spring/books/spring-security-in-action/undefined-9.md)
     * [Oauth2가 작동하는 방법](spring/books/spring-security-in-action/oauth2.md)
+    * [Oauth2 리소스 서버](spring/books/spring-security-in-action/oauth2-1.md)
 
 ## DB
 
