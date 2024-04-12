@@ -5,7 +5,7 @@
 `JPA`는 특정 데이터베이스에 종속적이지 않은 기술이다.\*\* 따라서 다른 데이터베이스로 손쉽게 교체할 수 있다.
 
 {% hint style="info" %}
-#### 데이터베이스 마다 어떤 부분이 다를까?
+**데이터베이스 마다 어떤 부분이 다를까?**
 
 데이터 타입 : 가변 문자 타입으로 `MySQL`은 `VARCHAR`, `오라클`은 `VARCHAR2`를 사용한다.
 
@@ -18,7 +18,7 @@
 
 개발자는 JPA가 제공하는 표준 문법에 맞추어 JPA를 사용하면 되고, 특정 데이터베이스에 의존적인 SQL은 데이터베이스 방언이 처리해준다.
 
-<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 엔티티 매니저 설정
 
