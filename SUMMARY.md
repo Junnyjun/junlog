@@ -439,7 +439,7 @@
   * [Password](computer-science/security/password.md)
   * [SHA](computer-science/security/sha.md)
 * [🖇️ Algorithm](computer-science/algorithm/README.md)
-  * [Genetic Algorithm](computer-science/algorithm/genetic-algorithm.md)
+  * [DFS(Depth-First Search)](computer-science/algorithm/genetic-algorithm.md)
   * [Greedy](computer-science/algorithm/greedy.md)
   * [Fibonacci](computer-science/algorithm/fibonacci.md)
   * [Union-Find](computer-science/algorithm/union-find.md)
