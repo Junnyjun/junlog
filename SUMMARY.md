@@ -344,6 +344,7 @@
     * [실전 : 책임의 분리](spring/books/spring-security-in-action/undefined-9.md)
     * [Oauth2가 작동하는 방법](spring/books/spring-security-in-action/oauth2.md)
     * [Oauth2 리소스 서버](spring/books/spring-security-in-action/oauth2-1.md)
+    * [전역 메서드 보안](spring/books/spring-security-in-action/undefined-10.md)
 
 ## DB
 
