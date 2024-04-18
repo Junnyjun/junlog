@@ -25,4 +25,3 @@ oauth2는 다음과 같은 구성 요소로 구성되어 있습니다.
 - `Implicit` : 클라이언트가 사용자의 리소스에 접근하기 위해 사용자의 권한을 얻는 방법
 - `Resource Owner Password Credentials` : 클라이언트가 사용자의 리소스에 접근하기 위해 사용자의 권한을 얻는 방법
 - `Client Credentials` : 클라이언트가 사용자의 리소스에 접근하기 위해 사용자의 권한을 얻는 방법
-
