@@ -506,6 +506,7 @@
   * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
 * [📚 Books](computer-science/books/README.md)
+  * [DNS 실전 교과서](computer-science/books/dns.md)
   * [📘 데이터 통신과 컴퓨터 네트워크](computer-science/books/undefined-2/README.md)
     * [네트워크 관련 기초 용어](computer-science/books/undefined-2/undefined.md)
     * [네트워크 개념](computer-science/books/undefined-2/undefined-1.md)
