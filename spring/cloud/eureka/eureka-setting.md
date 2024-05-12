@@ -1,23 +1,41 @@
 # Eureka setting
 
-Eureka 는 자가 등록, 동적 발견 및 부하 분산을 담당하며 위의 서비스 디스커버리 패턴을 구현할 수 있도록 도와준다.&#x20;
+Eureka 는 자가 등록, 동적 발견 및 부하 분산을 담당하며 위의 서비스 디스커버리 패턴을 구현할 수 있도록 도와준다.
 
-| Eureka Server                                                                                   | Eureka Client                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 모든 마이크로서비스가 자신의 가용성을 등록하는 레지스트리                                                                 | 등록된 마이크로서비스를 호출해서 사용할 때 Eureka Client 를 이용해서 필요한 서비스를 발견                                                                                            |
-| <p>등록되는 정보는 서비스 ID와 URL 이 포함되는데,<br> 마이크로서비스는 Eureka Client 를 이용해서 이 정보를 Eureka Server 에 등록</p> | <p>Eureka Server 는 Eureka Server 인 동시에 서로의 상태를 동기화하기 서로를 바라보는 Eureka Client 이기도 한다<br>이 점은 Eureka Server 의 고가용성을 위해 여러 대의 Eureka Server 운영 시 유용</p> |
-
-
+| Eureka Server                                                                                  | Eureka Client                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 모든 마이크로서비스가 자신의 가용성을 등록하는 레지스트리                                                                | 등록된 마이크로서비스를 호출해서 사용할 때 Eureka Client 를 이용해서 필요한 서비스를 발견                                                                                            |
+| <p>등록되는 정보는 서비스 ID와 URL 이 포함되는데,<br>마이크로서비스는 Eureka Client 를 이용해서 이 정보를 Eureka Server 에 등록</p> | <p>Eureka Server 는 Eureka Server 인 동시에 서로의 상태를 동기화하기 서로를 바라보는 Eureka Client 이기도 한다<br>이 점은 Eureka Server 의 고가용성을 위해 여러 대의 Eureka Server 운영 시 유용</p> |
 
 ## START EUREKA
 
 ### SERVER SETTING
 
-**의존성 추가**
+**의존성 추가**\
+springCloudVersion 버전 [참고](https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions#supported-releases)
 
 {% code title="build.gradle" %}
 ```gradle
-implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version '3.2.0'
+  id 'io.spring.dependency-management' version '1.1.4'
+}
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  set('springCloudVersion', "2023.0.0")
+}
+
+dependencyManagement {
+  imports {
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
 ```
 {% endcode %}
 
@@ -64,13 +82,13 @@ eureka:
 ```
 {% endcode %}
 
-을 지정해 준뒤  실행하면&#x20;
+을 지정해 준뒤 실행하면
 
 <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### CLIENT SETTING
 
-&#x20;**의존성 추가**
+**의존성 추가**
 
 {% code title="build.gradle" %}
 ```gradle
