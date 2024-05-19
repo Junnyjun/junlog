@@ -9,13 +9,13 @@ Echo 서버는 클라이언트로부터 메시지를 받아 그대로 반환하�
 ```kotlin
 class EchoServerHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
-        ctx.write(msg) // 받은 메시지를 그대로 씀
-        ctx.flush() // 즉시 플러시
+        ctx.write(msg)
+        ctx.flush()
     }
 
     override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
-        cause.printStackTrace() // 예외가 발생하면 스택 트레이스를 출력
-        ctx.close() // 채널을 닫음
+        cause.printStackTrace()
+        ctx.close()
     }
 }
 ```
