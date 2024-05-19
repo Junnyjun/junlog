@@ -7,9 +7,6 @@ Echo 서버는 클라이언트로부터 메시지를 받아 그대로 반환하�
 먼저 클라이언트의 요청을 처리하는 `ChannelHandler`를 구현합니다. 이 핸들러는 수신된 메시지를 그대로 반환합니다.
 
 ```kotlin
-kotlin코드 복사import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.ChannelInboundHandlerAdapter
-
 class EchoServerHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
         ctx.write(msg) // 받은 메시지를 그대로 씀
@@ -28,14 +25,6 @@ class EchoServerHandler : ChannelInboundHandlerAdapter() {
 서버를 설정하고 시작하기 위한 부트스트랩 코드를 작성합니다.
 
 ```kotlin
-kotlin코드 복사import io.netty.bootstrap.ServerBootstrap
-import io.netty.channel.ChannelInitializer
-import io.netty.channel.ChannelOption
-import io.netty.channel.EventLoopGroup
-import io.netty.channel.nio.NioEventLoopGroup
-import io.netty.channel.socket.SocketChannel
-import io.netty.channel.socket.nio.NioServerSocketChannel
-
 class EchoServer(private val port: Int) {
     fun start() {
         val bossGroup: EventLoopGroup = NioEventLoopGroup()
@@ -77,9 +66,6 @@ Echo 서버와 통신할 클라이언트를 작성해보겠습니다.
 클라이언트의 `ChannelHandler`는 서버로부터 수신된 데이터를 처리합니다.
 
 ```kotlin
-kotlin코드 복사import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.ChannelInboundHandlerAdapter
-
 class EchoClientHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
         println("Received from server: $msg")
@@ -97,13 +83,6 @@ class EchoClientHandler : ChannelInboundHandlerAdapter() {
 클라이언트 부트스트랩 코드는 서버에 연결하고 메시지를 전송하는 작업을 처리합니다.
 
 ```kotlin
-kotlin코드 복사import io.netty.bootstrap.Bootstrap
-import io.netty.channel.ChannelInitializer
-import io.netty.channel.EventLoopGroup
-import io.netty.channel.nio.NioEventLoopGroup
-import io.netty.channel.socket.SocketChannel
-import io.netty.channel.socket.nio.NioSocketChannel
-
 class EchoClient(private val host: String, private val port: Int) {
     fun start() {
         val group: EventLoopGroup = NioEventLoopGroup()
