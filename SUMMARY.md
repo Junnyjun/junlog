@@ -245,6 +245,7 @@
   * [Netty](spring/db/netty/README.md)
     * [Netty 등장의 이유](jvm/clean-architecture/netty/netty.md)
     * [Echo 서버 작성](spring/db/netty/echo.md)
+    * [구성 요소 및 설계](spring/db/netty/undefined.md)
     * [base](spring/db/netty/base/README.md)
       * [UDP](spring/db/netty/base/udp.md)
       * [TCP](spring/db/netty/base/tcp.md)
