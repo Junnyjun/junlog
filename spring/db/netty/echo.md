@@ -70,7 +70,10 @@ class EchoClientHandler : ChannelInboundHandlerAdapter() {
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
         println("Received from server: $msg")
     }
-
+    override fun channelActive(ctx: ChannelHandlerContext) {
+            logger.info("[Echo] Connected to server")
+            ctx.writeAndFlush(Unpooled.copiedBuffer("Hello, World!".toByteArray()))
+    }    
     override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
         cause.printStackTrace()
         ctx.close()
@@ -91,8 +94,7 @@ class EchoClient(private val host: String, private val port: Int) {
             b.group(group)
                 .channel(NioSocketChannel::class.java)
                 .handler(object : ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public override fun initChannel(ch: SocketChannel) {
+                    override fun initChannel(ch: SocketChannel) {
                         ch.pipeline().addLast(EchoClientHandler())
                     }
                 })
