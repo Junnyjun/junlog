@@ -2,20 +2,31 @@
 
 Echo 서버는 클라이언트로부터 메시지를 받아 그대로 반환하는 서버입니다.
 
+> ```groovy
+> implementation 'org.springframework.boot:spring-boot-starter-webflux'
+> ```
+
 **2.1 ChannelHandler 구현**
 
 먼저 클라이언트의 요청을 처리하는 `ChannelHandler`를 구현합니다. 이 핸들러는 수신된 메시지를 그대로 반환합니다.
 
 ```kotlin
+@Component
 class EchoServerHandler : ChannelInboundHandlerAdapter() {
+    private val logger =  LoggerFactory.getILoggerFactory().getLogger(EchoServerHandler::class.java.name)
+
     override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
+        logger.info("[Echo] Received: ${(msg as ByteBuf).toString(Charset.defaultCharset())}")
         ctx.write(msg)
-        ctx.flush()
     }
 
-    override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
-        cause.printStackTrace()
-        ctx.close()
+    override fun channelReadComplete(ctx: ChannelHandlerContext) {
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
+            .addListener(CLOSE)
+    }
+
+    override fun channelActive(ctx: ChannelHandlerContext) {
+        logger.info("[Echo] Connected to client")
     }
 }
 ```
@@ -25,35 +36,31 @@ class EchoServerHandler : ChannelInboundHandlerAdapter() {
 서버를 설정하고 시작하기 위한 부트스트랩 코드를 작성합니다.
 
 ```kotlin
-class EchoServer(private val port: Int) {
-    fun start() {
-        val bossGroup: EventLoopGroup = NioEventLoopGroup()
-        val workerGroup: EventLoopGroup = NioEventLoopGroup()
-        try {
-            val b = ServerBootstrap()
-            b.group(bossGroup, workerGroup)
-                .channel(NioServerSocketChannel::class.java)
-                .childHandler(object : ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public override fun initChannel(ch: SocketChannel) {
-                        ch.pipeline().addLast(EchoServerHandler())
-                    }
-                })
-                .option(ChannelOption.SO_BACKLOG, 128)
-                .childOption(ChannelOption.SO_KEEPALIVE, true)
+@Configuration
+class EchoServer (
+    @Value("\${netty.port:28080}")
+    private val port: Int,
+    private val echoServerHandler: EchoServerHandler,
+) {
+    private val logger: Logger = LoggerFactory.getLogger(EchoServer::class.java)
+    private val group: NioEventLoopGroup = NioEventLoopGroup()
+    private val serverBootstrap: ServerBootstrap = ServerBootstrap()
 
-            val f = b.bind(port).sync()
-            f.channel().closeFuture().sync()
-        } finally {
-            workerGroup.shutdownGracefully()
-            bossGroup.shutdownGracefully()
-        }
+    @Bean
+    fun start(): ServerBootstrap {
+        logger.info("[Echo] Starting server on port $port")
+        return serverBootstrap.group(group)
+            .channel(NioServerSocketChannel::class.java)
+            .localAddress(port)
+            .childHandler(echoServerHandler)
+            .also { it.bind().sync() }
     }
-}
 
-fun main() {
-    val port = 8080
-    EchoServer(port).start()
+    @PreDestroy
+    fun stop() {
+        logger.info("[Echo] Stopping server")
+        group.shutdownGracefully().sync()
+    }
 }
 ```
 
@@ -66,17 +73,14 @@ Echo 서버와 통신할 클라이언트를 작성해보겠습니다.
 클라이언트의 `ChannelHandler`는 서버로부터 수신된 데이터를 처리합니다.
 
 ```kotlin
-class EchoClientHandler : ChannelInboundHandlerAdapter() {
-    override fun channelRead(ctx: ChannelHandlerContext, msg: Any) {
-        println("Received from server: $msg")
+class EchoClientHandler : SimpleChannelInboundHandler<ByteBuf>() {
+    private val logger = getILoggerFactory().getLogger(EchoClientHandler::class.java.name)
+    override fun channelRead0(p0: ChannelHandlerContext?, p1: ByteBuf?) {
+        logger.info("[Echo] Received: ${p1?.toString(Charset.defaultCharset())}")
     }
     override fun channelActive(ctx: ChannelHandlerContext) {
-            logger.info("[Echo] Connected to server")
-            ctx.writeAndFlush(Unpooled.copiedBuffer("Hello, World!".toByteArray()))
-    }    
-    override fun exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable) {
-        cause.printStackTrace()
-        ctx.close()
+        logger.info("[Echo] Connected to server")
+        ctx.writeAndFlush(Unpooled.copiedBuffer("Hello, World!".toByteArray()))
     }
 }
 ```
@@ -86,31 +90,21 @@ class EchoClientHandler : ChannelInboundHandlerAdapter() {
 클라이언트 부트스트랩 코드는 서버에 연결하고 메시지를 전송하는 작업을 처리합니다.
 
 ```kotlin
-class EchoClient(private val host: String, private val port: Int) {
-    fun start() {
-        val group: EventLoopGroup = NioEventLoopGroup()
-        try {
-            val b = Bootstrap()
-            b.group(group)
-                .channel(NioSocketChannel::class.java)
-                .handler(object : ChannelInitializer<SocketChannel>() {
-                    override fun initChannel(ch: SocketChannel) {
-                        ch.pipeline().addLast(EchoClientHandler())
-                    }
-                })
-
-            val f = b.connect(host, port).sync()
-            f.channel().closeFuture().sync()
-        } finally {
-            group.shutdownGracefully()
-        }
-    }
-}
-
-fun main() {
-    val host = "localhost"
-    val port = 8080
-    EchoClient(host, port).start()
+@Test
+fun echoPingTest() {
+    val echoClientHandler = EchoClientHandler()
+    val group = NioEventLoopGroup()
+    val serverBootstrap = Bootstrap()
+        .group(group)
+        .channel(NioSocketChannel::class.java)
+        .remoteAddress("localhost", 28080)
+        .handler(object : ChannelInitializer<SocketChannel>() {
+            override fun initChannel(ch: SocketChannel) {
+                ch.pipeline().addLast(echoClientHandler)
+            }
+        })
+    val channelFuture = serverBootstrap.connect().sync()
+    channelFuture.channel().closeFuture().sync()
 }
 ```
 
