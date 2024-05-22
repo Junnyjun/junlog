@@ -49,30 +49,6 @@ interface MyChannelFuture : ChannelFuture {
 
 **3.1.4 구성 요소 다이어그램**
 
-```mermaid
-classDiagram
-  class Channel {
-    + bind()
-    + connect()
-    + read()
-    + write()
-  }
-
-  class EventLoop {
-    + register(Channel)
-    + execute(Runnable)
-  }
-
-  class ChannelFuture {
-    + addListener(ChannelFutureListener)
-    + sync()
-  }
-
-  Channel --> EventLoop
-  Channel --> ChannelFuture
-
-```
-
 #### 3.2 채널 핸들러 및 채널 파이프라인
 
 Netty의 주요 개념 중 하나는 `ChannelHandler`와 `ChannelPipeline`입니다. 이들은 네트워크 이벤트를 처리하고 데이터를 변환하는 데 사용됩니다.
@@ -112,25 +88,6 @@ class MyChannelInitializer : ChannelInitializer<SocketChannel>() {
         ch.pipeline().addLast(MyChannelHandler())
     }
 }
-```
-
-**3.2.3 구성 요소 다이어그램**
-
-```mermaid
-classDiagram
-  class ChannelPipeline {
-    + addLast(ChannelHandler)
-    + remove(ChannelHandler)
-    + fireChannelRead(Object)
-  }
-
-  class ChannelHandler {
-    + channelRead(ChannelHandlerContext, Object)
-    + exceptionCaught(ChannelHandlerContext, Throwable)
-  }
-
-  ChannelPipeline o-- ChannelHandler
-
 ```
 
 #### 3.3 부트스트래핑(Bootstrapping)
@@ -189,36 +146,4 @@ fun startClient(host: String, port: Int) {
         group.shutdownGracefully()
     }
 }
-```
-
-**3.3.3 부트스트래핑 다이어그램**
-
-```mermaid
-classDiagram
-  class ServerBootstrap {
-    + group()
-    + channel()
-    + childHandler()
-    + bind()
-  }
-
-  class Bootstrap {
-    + group()
-    + channel()
-    + handler()
-    + connect()
-  }
-
-  class NioEventLoopGroup
-  class NioServerSocketChannel
-  class MyChannelInitializer
-  class NioSocketChannel
-
-  ServerBootstrap --> NioEventLoopGroup
-  ServerBootstrap --> NioServerSocketChannel
-  ServerBootstrap --> MyChannelInitializer
-  Bootstrap --> NioEventLoopGroup
-  Bootstrap --> NioSocketChannel
-  Bootstrap --> MyChannelInitializer
-
 ```
