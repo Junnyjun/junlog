@@ -49,30 +49,28 @@ interface MyChannelFuture : ChannelFuture {
 
 **3.1.4 구성 요소 다이어그램**
 
-```plantuml
-@startuml
-!define RECTANGLE class
+```mermaid
+classDiagram
+  class Channel {
+    + bind()
+    + connect()
+    + read()
+    + write()
+  }
 
-RECTANGLE Channel {
-  + bind()
-  + connect()
-  + read()
-  + write()
-}
+  class EventLoop {
+    + register(Channel)
+    + execute(Runnable)
+  }
 
-RECTANGLE EventLoop {
-  + register(Channel)
-  + execute(Runnable)
-}
+  class ChannelFuture {
+    + addListener(ChannelFutureListener)
+    + sync()
+  }
 
-RECTANGLE ChannelFuture {
-  + addListener(ChannelFutureListener)
-  + sync()
-}
+  Channel --> EventLoop
+  Channel --> ChannelFuture
 
-Channel --> EventLoop
-Channel --> ChannelFuture
-@enduml
 ```
 
 #### 3.2 채널 핸들러 및 채널 파이프라인
@@ -118,23 +116,21 @@ class MyChannelInitializer : ChannelInitializer<SocketChannel>() {
 
 **3.2.3 구성 요소 다이어그램**
 
-```plantuml
-@startuml
-!define RECTANGLE class
+```mermaid
+classDiagram
+  class ChannelPipeline {
+    + addLast(ChannelHandler)
+    + remove(ChannelHandler)
+    + fireChannelRead(Object)
+  }
 
-RECTANGLE ChannelPipeline {
-  + addLast(ChannelHandler)
-  + remove(ChannelHandler)
-  + fireChannelRead(Object)
-}
+  class ChannelHandler {
+    + channelRead(ChannelHandlerContext, Object)
+    + exceptionCaught(ChannelHandlerContext, Throwable)
+  }
 
-RECTANGLE ChannelHandler {
-  + channelRead(ChannelHandlerContext, Object)
-  + exceptionCaught(ChannelHandlerContext, Throwable)
-}
+  ChannelPipeline o-- ChannelHandler
 
-ChannelPipeline o-- ChannelHandler
-@enduml
 ```
 
 #### 3.3 부트스트래핑(Bootstrapping)
@@ -197,29 +193,32 @@ fun startClient(host: String, port: Int) {
 
 **3.3.3 부트스트래핑 다이어그램**
 
-```plantuml
-@startuml
-!define RECTANGLE class
+```mermaid
+classDiagram
+  class ServerBootstrap {
+    + group()
+    + channel()
+    + childHandler()
+    + bind()
+  }
 
-RECTANGLE ServerBootstrap {
-  + group()
-  + channel()
-  + childHandler()
-  + bind()
-}
+  class Bootstrap {
+    + group()
+    + channel()
+    + handler()
+    + connect()
+  }
 
-RECTANGLE Bootstrap {
-  + group()
-  + channel()
-  + handler()
-  + connect()
-}
+  class NioEventLoopGroup
+  class NioServerSocketChannel
+  class MyChannelInitializer
+  class NioSocketChannel
 
-ServerBootstrap --> NioEventLoopGroup
-ServerBootstrap --> NioServerSocketChannel
-ServerBootstrap --> MyChannelInitializer
-Bootstrap --> NioEventLoopGroup
-Bootstrap --> NioSocketChannel
-Bootstrap --> MyChannelInitializer
-@enduml
+  ServerBootstrap --> NioEventLoopGroup
+  ServerBootstrap --> NioServerSocketChannel
+  ServerBootstrap --> MyChannelInitializer
+  Bootstrap --> NioEventLoopGroup
+  Bootstrap --> NioSocketChannel
+  Bootstrap --> MyChannelInitializer
+
 ```
