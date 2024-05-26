@@ -8,15 +8,15 @@ ByteBuf는 Netty에서 제공하는 데이터 컨테이너로, JDK의 ByteBuffer
 
 ### 5.2 Class ByteBuf—Netty의 데이터 컨테이너
 
-모든 네트워크 통신은 바이트 시퀀스의 이동을 포함하므로 효율적이고 사용하기 쉬운 데이터 구조가 필요합니다. Netty의 ByteBuf 구현은 이러한 요구 사항을 충족시킵니다. B
+모든 네트워크 통신은 바이트 시퀀스의 이동을 포함하므로 효율적이고 사용하기 쉬운 데이터 구조가 필요합니다. Netty의 ByteBuf 구현은 이러한 요구 사항을 충족시킵니다.&#x20;
 
-yteBuf는 데이터를 접근하기 쉽게 하기 위해 readerIndex와 writerIndex라는 두 개의 별도 인덱스를 유지합니다. 데이터를 읽을 때마다 readerIndex가 증가하고, 데이터를 쓸 때마다 writerIndex가 증가합니다.
+ByteBuf는 데이터를 접근하기 쉽게 하기 위해 readerIndex와 writerIndex라는 두 개의 별도 인덱스를 유지합니다. 데이터를 읽을 때마다 readerIndex가 증가하고, 데이터를 쓸 때마다 writerIndex가 증가합니다.
 
 #### 5.2.1 작동 방식
 
 ByteBuf는 읽기와 쓰기를 위한 두 개의 별도 인덱스를 유지합니다. ByteBuf에서 읽을 때마다 readerIndex가 증가하고, 쓸 때마다 writerIndex가 증가합니다.&#x20;
 
-예를 들어, readerIndex가 writerIndex에 도달하면 읽을 수 있는 데이터의 끝에 도달한 것입니다. 이를 초과하여 읽으려 하면 IndexOutOfBoundsException이 발생합니다.
+예를 들어, readerIndex가 writerIndex에 도달하면 읽을 수 있는 데이터의 끝에 도달한 것입니다.&#x20;
 
 ```java
 ByteBuf buffer = ...;
@@ -46,7 +46,8 @@ if (heapBuf.hasArray()) {
 
 **직접 버퍼**
 
-직접 버퍼는 네이티브 호출을 통해 메모리를 할당하여 네트워크 데이터 전송에 이상적입니다. 직접 버퍼의 주요 단점은 힙 기반 버퍼보다 할당 및 해제 비용이 더 많이 든다는 것입니다.
+직접 버퍼는 네이티브 호출을 통해 메모리를 할당하여 네트워크 데이터 전송에 이상적입니다. \
+직접 버퍼의 주요 단점은 힙 기반 버퍼보다 할당 및 해제 비용이 더 많이 든다는 것입니다.
 
 ```java
 ByteBuf directBuf = ...;
@@ -93,8 +94,7 @@ ByteBuf는 기본 읽기 및 쓰기 작업 외에도 데이터를 수정하기 �
 
 #### 5.3.1 Domain access indexing
 
-ByteBuf는 특정 영역 내에서 데이터에 접근할 수 있는 메서드를 제공합니다.&#x20;
-
+ByteBuf는 특정 영역 내에서 데이터에 접근할 수 있는 메서드를 제공합니다. \
 이를 통해 데이터의 부분 영역에 대해 읽기와 쓰기 작업을 수행할 수 있습니다.&#x20;
 
 getBytes(int index, byte\[] dst, int dstIndex, int length)와 같은 메서드를 사용하여 특정 인덱스부터 시작하여 데이터를 읽거나 쓸 수 있습니다.
@@ -107,8 +107,7 @@ buffer.getBytes(buffer.readerIndex(), dst, 0, dst.length);
 
 #### 5.3.2 Sequential (Linear) access indexing
 
-ByteBuf는 readerIndex와 writerIndex를 사용하여 순차적으로 데이터를 읽고 쓸 수 있습니다.&#x20;
-
+ByteBuf는 readerIndex와 writerIndex를 사용하여 순차적으로 데이터를 읽고 쓸 수 있습니다. \
 readByte()와 writeByte(byte value) 메서드를 사용하여 순차적으로 데이터를 읽거나 쓸 수 있습니다.
 
 ```java
@@ -121,8 +120,7 @@ buffer.writeByte((byte) 'a');
 
 #### 5.3.3 Discardable bytes
 
-ByteBuf는 읽기 작업이 완료된 바이트를 버릴 수 있는 메서드를 제공합니다.&#x20;
-
+ByteBuf는 읽기 작업이 완료된 바이트를 버릴 수 있는 메서드를 제공합니다. \
 discardReadBytes() 메서드는 readerIndex 이전의 바이트를 제거하여 메모리를 회수합니다.
 
 ```java
@@ -209,7 +207,8 @@ int index = buffer.forEachByte(ByteBufProcessor.FIND_CR);
 * order(ByteOrder)
 * readSlice(int)
 
-각 메서드는 자체 reader, writer 및 마커 인덱스를 가진 새로운 ByteBuf 인스턴스를 반환합니다. 내부 저장소는 JDK ByteBuffer와 마찬가지로 공유됩니다.&#x20;
+각 메서드는 자체 reader, writer 및 마커 인덱스를 가진 새로운 ByteBuf 인스턴스를 반환합니다. \
+내부 저장소는 JDK ByteBuffer와 마찬가지로 공유됩니다.&#x20;
 
 이는 파생 버퍼를 생성하는 비용이 저렴하다는 것을 의미하지만, 내용을 수정하면 원본 인스턴스도 수정된다는 점에 주의해야 합니다.
 
@@ -311,7 +310,7 @@ ByteBufHolder는 페이로드를 ByteBuf에 저장하는 메시지 객체를 구
 
 #### 5.5.1 On-demand: interface ByteBufAllocator
 
-메모리 할당 및 해제의 오버헤드를 줄이기 위해 Netty는 ByteBufAllocator 인터페이스를 통해 풀링을 구현합니다. 이는 우리가 설명한 모든 종류의 ByteBuf 인스턴스를 할당하는 데 사용할 수 있습니다. 풀링의 사용은 애플리케이션별 결정이며 ByteBuf API에 아무런 영향을 미치지 않습니다.
+메모리 할당 및 해제의 오버헤드를 줄이기 위해 Netty는 ByteBufAllocator 인터페이스를 통해 풀링을 구현합니다. 풀링의 사용은 애플리케이션별 결정이며 ByteBuf API에 아무런 영향을 미치지 않습니다.
 
 Channel(각 Channel은 고유한 인스턴스를 가질 수 있음)이나 ChannelHandler에 바인딩된 ChannelHandlerContext에서 ByteBufAllocator를 참조할 수 있습니다.&#x20;
 
@@ -360,8 +359,9 @@ ByteBufUtil은 ByteBuf를 조작하기 위한 정적 헬퍼 메서드를 제공�
 
 참조 카운팅은 객체가 다른 객체에 의해 더 이상 참조되지 않을 때 해당 객체가 보유한 리소스를 해제하여 메모리 사용과 성능을 최적화하는 기술입니다.&#x20;
 
-참조 카운팅의 아이디어는 간단합니다. 특정 객체에 대한 활성 참조 수를 추적하는 것입니다. ReferenceCounted 구현 인스턴스는 일반적으로 1의 활성 참조 카운트로 시작합니다. 참조 카운트가 0보다 큰 동안 객체는 해제되지 않습니다. 활성 참조 수가 0이 되면 인스턴스는 해제됩니다.&#x20;
+참조 카운팅의 아이디어는 간단합니다. 특정 객체에 대한 활성 참조 수를 추적하는 것입니다. ReferenceCounted 구현 인스턴스는 일반적으로 1의 활성 참조 카운트로 시작합니다.&#x20;
 
+참조 카운트가 0보다 큰 동안 객체는 해제되지 않습니다. 활성 참조 수가 0이 되면 인스턴스는 해제됩니다. \
 참조 카운팅은 메모리 할당의 오버헤드를 줄이는 PooledByteBufAllocator와 같은 풀링 구현에 필수적입니다.
 
 ```java

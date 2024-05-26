@@ -219,16 +219,15 @@ classDiagram
 
 #### 주요 Channel 메서드
 
-| 메서드 이름        | 설명                                            |
-| ------------- | --------------------------------------------- |
-| eventLoop     | 채널에 할당된 `EventLoop`을 반환합니다.                   |
-| pipeline      | 채널에 할당된 `ChannelPipeline`을 반환합니다.             |
-| isActive      | 채널이 활성 상태인지 여부를 반환합니다.                        |
-| localAddress  | 로컬 `SocketAddress`를 반환합니다.                    |
-| remoteAddress | 원격 `SocketAddress`를 반환합니다.                    |
-| write         | 원격 피어에 데이터를 씁니다. 이 데이터는 `ChannelPipeline`을 통해 |
-
-전달됩니다. | | flush | 이전에 기록된 데이터를 기저 트랜스포트에 플러시합니다. | | writeAndFlush | `write()`와 `flush()`를 순차적으로 호출하는 편의 메서드입니다. |
+| 메서드 이름        | 설명                                                  |
+| ------------- | --------------------------------------------------- |
+| eventLoop     | 채널에 할당된 `EventLoop`을 반환합니다.                         |
+| pipeline      | 채널에 할당된 `ChannelPipeline`을 반환합니다.                   |
+| isActive      | 채널이 활성 상태인지 여부를 반환합니다.                              |
+| localAddress  | 로컬 `SocketAddress`를 반환합니다.                          |
+| remoteAddress | 원격 `SocketAddress`를 반환합니다.                          |
+| write         | 원격 피어에 데이터를 씁니다. 이 데이터는 `ChannelPipeline`을 통해 전달됩니다 |
+| flush         | 이전에 기록된 데이터를 기저 트랜스포트에 플러시합니다.                      |
 
 ### 4.3 포함된 트랜스포트
 
@@ -272,7 +271,7 @@ public class NioServer {
 }
 ```
 
-#### 4.3.2 Epoll—리눅스를 위한 네이티브 논블로킹 트랜스포트
+#### 4.3.2 Epoll 네이티브 논블로킹 트랜스포트
 
 Epoll은 리눅스에서 높은 성능을 제공하는 네이티브 논블로킹 트랜스포트입니다. 리눅스의 `epoll` 메커니즘을 사용하여 높은 성능과 확장성을 제공합니다.
 

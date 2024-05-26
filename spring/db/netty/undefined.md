@@ -2,7 +2,7 @@
 
 ### Netty: 구성 요소 및 설계
 
-이번 포스트에서는 Netty의 주요 구성 요소와 설계 원리에 대해 자세히 알아보겠습니다. 이를 통해 Netty 애플리케이션을 효과적으로 구성하고 설계하는 방법을 배우겠습니다.
+이번 포스트에서는 Netty의 주요 구성 요소와 설계 원리에 대해 자세히 알아보겠습니다.&#x20;
 
 #### 3.1 채널, 이벤트 루프 및 채널 퓨처
 
@@ -10,7 +10,7 @@ Netty의 주요 구성 요소는 `Channel`, `EventLoop`, 그리고 `ChannelFutur
 
 **3.1.1 채널(Channel)**
 
-채널은 네트워크 연결을 추상화한 객체입니다. Netty에서는 다양한 유형의 채널을 제공합니다. 예를 들어, `NioSocketChannel`은 비차단형 I/O 소켓 채널입니다. 채널은 데이터를 송수신하기 위한 주요 인터페이스입니다.
+채널은 네트워크 연결을 추상화한 객체입니다. Netty에서는 다양한 유형의 채널을 제공합니다. `NioSocketChannel`은 비차단형 I/O 소켓 채널입니다. 채널은 데이터를 송수신하기 위한 주요 인터페이스입니다.
 
 ```kotlin
 import io.netty.channel.Channel
@@ -23,7 +23,7 @@ interface MyChannel : Channel {
 
 **3.1.2 이벤트 루프(EventLoop)**
 
-이벤트 루프는 채널의 모든 이벤트를 처리하는 단일 스레드입니다. Netty는 채널당 하나의 이벤트 루프를 할당하여, 해당 채널에 대한 모든 I/O 작업을 처리합니다. 이벤트 루프는 비동기 작업을 처리하고, 이벤트를 핸들러에 전달합니다.
+이벤트 루프는 채널의 모든 이벤트를 처리하는 단일 스레드입니다. Netty는 채널당 하나의 이벤트 루프를 할당하여, 해당 채널에 대한 모든 I/O 작업을 처리합니다.&#x20;
 
 ```kotlin
 import io.netty.channel.EventLoop
@@ -51,7 +51,7 @@ interface MyChannelFuture : ChannelFuture {
 
 #### 3.2 채널 핸들러 및 채널 파이프라인
 
-Netty의 주요 개념 중 하나는 `ChannelHandler`와 `ChannelPipeline`입니다. 이들은 네트워크 이벤트를 처리하고 데이터를 변환하는 데 사용됩니다.
+Netty의 주요 개념 중 하나는 `ChannelHandler`와 `ChannelPipeline`입니다.&#x20;
 
 **3.2.1 채널 핸들러(ChannelHandler)**
 
