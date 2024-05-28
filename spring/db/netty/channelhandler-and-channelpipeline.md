@@ -136,8 +136,6 @@ public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter {
 }
 ```
 
-### 6.2 Exception handling
-
 채널에서 발생하는 예외는 `exceptionCaught()` 메서드를 통해 처리할 수 있습니다. 이 메서드는 ChannelPipeline에서 처리 중 오류가 발생하면 호출됩니다. 이를 통해 적절한 예외 처리를 구현할 수 있습니다.
 
 ```java
@@ -148,3 +146,187 @@ public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
 }
 ```
 
+### 6.2 Interface ChannelPipeline
+
+ChannelPipeline은 ChannelHandler 인스턴스의 체인으로, 채널을 통해 흐르는 인바운드 및 아웃바운드 이벤트를 가로챕니다. 새로운 채널이 생성될 때마다 새로운 ChannelPipeline이 할당되며, 이는 채널의 생명주기 동안 변경되지 않습니다.
+
+이벤트의 출처에 따라 이벤트는 ChannelInboundHandler 또는 ChannelOutboundHandler에 의해 처리되며, 이후 ChannelHandlerContext 구현을 호출하여 동일한 유형의 다음 핸들러로 전달됩니다.
+
+#### ChannelHandlerContext
+
+ChannelHandlerContext는 ChannelHandler가 자신의 ChannelPipeline 및 다른 핸들러와 상호작용할 수 있도록 합니다. 핸들러는 이를 통해 다음 ChannelHandler에게 알리거나 ChannelPipeline을 동적으로 수정할 수 있습니다. ChannelHandlerContext는 이벤트 처리 및 I/O 작업을 위한 다양한 API를 제공합니다.
+
+#### ChannelPipeline 구조
+
+ChannelPipeline은 인바운드 및 아웃바운드 ChannelHandler로 구성됩니다. 인바운드 이벤트는 왼쪽에서 시작하여 오른쪽으로 이동하고, 아웃바운드 이벤트는 오른쪽에서 시작하여 왼쪽으로 이동합니다.
+
+### 6.2.1 Modifying a ChannelPipeline
+
+ChannelHandler는 ChannelPipeline의 레이아웃을 실시간으로 수정할 수 있습니다. 이는 다른 ChannelHandler를 추가, 제거 또는 교체할 수 있는 중요한 기능입니다.
+
+#### ChannelPipeline 수정 메서드
+
+* **addFirst**: ChannelPipeline의 처음에 ChannelHandler를 추가합니다.
+* **addBefore**: 지정된 핸들러 앞에 ChannelHandler를 추가합니다.
+* **addAfter**: 지정된 핸들러 뒤에 ChannelHandler를 추가합니다.
+* **addLast**: ChannelPipeline의 끝에 ChannelHandler를 추가합니다.
+* **remove**: ChannelPipeline에서 ChannelHandler를 제거합니다.
+* **replace**: ChannelPipeline에서 기존의 ChannelHandler를 다른 것으로 교체합니다.
+
+**예제: ChannelPipeline 수정**
+
+```java
+ChannelPipeline pipeline = ..;
+FirstHandler firstHandler = new FirstHandler();
+pipeline.addLast("handler1", firstHandler);
+pipeline.addFirst("handler2", new SecondHandler());
+pipeline.addLast("handler3", new ThirdHandler());
+pipeline.remove("handler3");
+pipeline.remove(firstHandler);
+pipeline.replace("handler2", "handler4", new FourthHandler());
+```
+
+#### ChannelHandler execution and blocking
+
+각 ChannelHandler는 EventLoop에 의해 이벤트를 처리합니다. 이 스레드를 블로킹하지 않는 것이 중요합니다. 블로킹 API를 사용하는 레거시 코드를 인터페이스해야 할 경우, ChannelPipeline의 add() 메서드는 EventExecutorGroup을 인수로 받을 수 있습니다. 이 경우, 이벤트는 Channel 자체의 EventLoop가 아닌 EventExecutorGroup의 하나에 의해 처리됩니다.
+
+### 6.2.2 Firing events
+
+ChannelPipeline API는 인바운드 및 아웃바운드 작업을 호출하는 추가 메서드를 제공합니다.
+
+#### 인바운드 작업
+
+* **fireChannelRegistered**: Channel이 EventLoop에 등록되었음을 알립니다.
+* **fireChannelUnregistered**: Channel이 EventLoop에서 등록 해제되었음을 알립니다.
+* **fireChannelActive**: Channel이 활성화되었음을 알립니다.
+* **fireChannelInactive**: Channel이 비활성화되었음을 알립니다.
+* **fireExceptionCaught**: 예외가 발생했음을 알립니다.
+* **fireUserEventTriggered**: 사용자 이벤트가 트리거되었음을 알립니다.
+* **fireChannelRead**: 데이터가 읽혔음을 알립니다.
+* **fireChannelReadComplete**: 읽기 작업이 완료되었음을 알립니다.
+
+#### 아웃바운드 작업
+
+* **bind**: Channel을 로컬 주소에 바인딩합니다.
+* **connect**: Channel을 원격 주소에 연결합니다.
+* **disconnect**: Channel을 원격 피어와 연결 해제합니다.
+* **close**: Channel을 닫습니다.
+* **deregister**: Channel을 EventLoop에서 등록 해제합니다.
+* **flush**: 대기 중인 데이터를 원격 피어로 플러시합니다.
+* **write**: 데이터를 원격 피어로 씁니다.
+* **writeAndFlush**: 데이터를 쓰고 플러시합니다.
+* **read**: Channel에서 더 많은 데이터를 읽습니다.
+
+### 6.3 Interface ChannelHandlerContext
+
+ChannelHandlerContext는 ChannelHandler와 ChannelPipeline 간의 연결을 나타내며, ChannelHandler가 ChannelPipeline에 추가될 때마다 생성됩니다. 주된 기능은 연결된 ChannelHandler가 다른 핸들러와 상호작용할 수 있도록 하는 것입니다.
+
+#### ChannelHandlerContext API
+
+* **bind**: 주어진 SocketAddress로 바인딩하고 ChannelFuture를 반환합니다.
+* **channel**: 이 인스턴스에 바인딩된 Channel을 반환합니다.
+* **close**: Channel을 닫고 ChannelFuture를 반환합니다.
+* **connect**: 주어진 SocketAddress에 연결하고 ChannelFuture를 반환합니다.
+* **deregister**: 이전에 할당된 EventExecutor에서 등록 해제하고 ChannelFuture를 반환합니다.
+* **disconnect**: 원격 피어와의 연결을 끊고 ChannelFuture를 반환합니다.
+* **executor**: 이벤트를 디스패치하는 EventExecutor를 반환합니다.
+* **fireChannelActive**: 다음 ChannelInboundHandler에 channelActive() 호출을 트리거합니다.
+* **fireChannelInactive**: 다음 ChannelInboundHandler에 channelInactive() 호출을 트리거합니다.
+* **fireChannelRead**: 다음 ChannelInboundHandler에 channelRead() 호출을 트리거합니다.
+* **fireChannelReadComplete**: 다음 ChannelInboundHandler에 channelReadComplete() 호출을 트리거합니다.
+* **handler**: 이 인스턴스에 바인딩된 ChannelHandler를 반환합니다.
+* **isRemoved**: 연결된 ChannelHandler가 ChannelPipeline에서 제거되었는지 여부를 반환합니다.
+* **name**: 이 인스턴스의 고유 이름을 반환합니다.
+* **pipeline**: 연결된 ChannelPipeline을 반환합니다.
+* **read**: Channel에서 데이터를 읽어 인바운드 버퍼로 가져오고 성공 시 channelRead 이벤트를 트리거합니다.
+* **write**: 메시지를 파이프라인을 통해 씁니다.
+
+#### ChannelHandlerContext 사용 예제
+
+**예제 1: Channel에서 ChannelHandlerContext 참조 얻기**
+
+```java
+ChannelHandlerContext ctx = ..;
+Channel channel = ctx.channel();
+channel.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
+```
+
+**예제 2: ChannelPipeline에서 ChannelHandlerContext 참조 얻기**
+
+```java
+ChannelHandlerContext ctx = ..;
+ChannelPipeline pipeline = ctx.pipeline();
+pipeline.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
+```
+
+**예제 3: ChannelHandlerContext.write() 호출**
+
+```java
+ChannelHandlerContext ctx = ..;
+ctx.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
+```
+
+### 6.4 Exception handling
+
+예외 처리는 애플리케이션의 중요한 부분으로, Netty는 인바운드 및 아웃바운드 처리 중 발생하는 예외를 처리하기 위한 다양한 옵션을 제공합니다.
+
+#### 6.4.1 Handling inbound exceptions
+
+인바운드 이벤트 처리 중 예외가 발생하면 해당 예외는 발생한 ChannelInboundHandler에서부터 ChannelPipeline을 통해 흐르기 시작합니다. 예외를 처리하려면 ChannelInboundHandler 구현에서 다음 메서드를 재정의합니다:
+
+```java
+public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
+```
+
+**예제: 기본 인바운드 예외 처리**
+
+```java
+public class InboundExceptionHandler extends ChannelInboundHandlerAdapter {
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.close();
+    }
+}
+```
+
+#### 6.4.2 Handling outbound exceptions
+
+아웃바운드 작업의 정상 완료 및 예외 처리는 다음과 같은 알림 메커니즘을 기반으로 합니다:
+
+* **ChannelFuture**: 모든 아웃바운드 작업은 ChannelFuture를 반환합니다. ChannelFutureListeners는 작업 완료 시 성공 또는 오류를 알립니다.
+* **ChannelPromise**: ChannelOutboundHandler 메서드에 전달되는 ChannelPromise 인스턴스는 비동기 알림을 위해 리스너를 등록할 수 있습니다.
+
+**예제: ChannelFuture에 ChannelFutureListener 추가**
+
+```java
+ChannelFuture future = channel.write(someMessage);
+future.addListener(new ChannelFutureListener() {
+    @Override
+    public void operationComplete(ChannelFuture f) {
+        if (!f.isSuccess()) {
+            f.cause().printStackTrace();
+            f.channel().close();
+        }
+    }
+});
+```
+
+**예제: ChannelPromise에 ChannelFutureListener 추가**
+
+```java
+public class OutboundExceptionHandler extends ChannelOutboundHandlerAdapter {
+    @Override
+    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) {
+        promise.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture f) {
+                if (!f.isSuccess()) {
+                    f.cause().printStackTrace();
+                    f.channel().close();
+                }
+            }
+        });
+    }
+}
+```
