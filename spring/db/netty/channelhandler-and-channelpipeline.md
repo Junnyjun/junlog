@@ -10,6 +10,8 @@ ChannelHandler는 Netty의 구성 요소 모델의 일부로, 데이터 처리 �
 
 Channel은 EventLoop에 등록된 후 다양한 상태를 가집니다.
 
+<img src="../../../.gitbook/assets/file.excalidraw (48).svg" alt="" class="gitbook-drawing">
+
 * **ChannelUnregistered**: Channel이 생성되었지만 EventLoop에 등록되지 않은 상태.
 * **ChannelRegistered**: Channel이 EventLoop에 등록된 상태.
 * **ChannelActive**: Channel이 활성화되어 원격 피어와 연결된 상태로, 데이터 송수신이 가능.
@@ -28,8 +30,8 @@ ChannelHandler의 생명주기 메서드는 ChannelPipeline에 추가되거나 �
 
 Netty는 ChannelHandler의 두 가지 중요한 하위 인터페이스를 정의합니다:
 
-* **ChannelInboundHandler**: 모든 종류의 수신 데이터 및 상태 변경을 처리합니다.
-* **ChannelOutboundHandler**: 송신 데이터와 모든 작업을 가로챌 수 있습니다.
+**ChannelInboundHandler**: 모든 종류의 수신 데이터 및 상태 변경을 처리합니다.\
+**ChannelOutboundHandler**: 송신 데이터와 모든 작업을 가로챌 수 있습니다.
 
 #### 6.1.3 Interface ChannelInboundHandler
 
@@ -63,19 +65,18 @@ ChannelOutboundHandler는 송신 데이터와 작업을 처리합니다. 주요 
 bind: Channel을 로컬 주소에 바인딩할 때 호출됩니다.
 connect: Channel을 원격 피어에 연결할 때 호출됩니다.
 disconnect: Channel을 원격 피어와 연결 해제할 때 호출됩니다.
-close: Channel을 닫을 때 호출됩니다.
-deregister: Channel을 EventLoop에서 등록 해제할 때 호출됩니다.
-read: Channel에서 더 많은 데이터를 읽을 때 호출됩니다.
 ...
 ```
 
-이 메서드들은 대부분 `ChannelPromise` 인수를 받아 작업 완료 시 통지를 제공합니다. `ChannelPromise`는 `ChannelFuture`의 하위 인터페이스로, `setSuccess()` 또는 `setFailure()`와 같은 쓰기 가능한 메서드를 정의합니다.
+이 메서드들은 대부분 `ChannelPromise` 인수를 받아 작업 완료 시 통지를 제공합니다.
 
 #### 6.1.5 ChannelHandler adapters
 
 `ChannelInboundHandlerAdapter`와 `ChannelOutboundHandlerAdapter`는 기본 구현을 제공하여 자신의 ChannelHandlers를 작성하는 데 사용할 수 있습니다.&#x20;
 
-이들 어댑터 클래스는 공통의 추상 클래스 `ChannelHandlerAdapter`를 확장합니다. `ChannelHandlerAdapter`는 유틸리티 메서드 `isSharable()`을 제공하여 구현이 Sharable로 주석 처리되어 여러 ChannelPipeline에 추가될 수 있는지 여부를 반환합니다.
+이들 어댑터 클래스는 공통의 추상 클래스 `ChannelHandlerAdapter`를 확장합니다.
+
+`ChannelHandlerAdapter`는 유틸리티 메서드 `isSharable()`을 제공하여 구현이 Sharable로 주석 처리되어 여러 ChannelPipeline에 추가될 수 있는지 여부를 반환합니다.
 
 #### 6.1.6 Resource management
 
@@ -101,8 +102,6 @@ ResourceLeakDetector.setLevel().
 * **SIMPLE**: 기본 샘플링 비율(1%)을 사용하여 누수를 보고합니다. 대부분의 경우에 적합합니다.
 * **ADVANCED**: 누수가 발생한 위치를 보고합니다. 기본 샘플링 비율을 사용합니다.
 * **PARANOID**: 모든 접근을 샘플링합니다. 성능에 큰 영향을 미치므로 디버깅 단계에서만 사용하세요.
-
-#### 6.1.7 Example of releasing resources
 
 **Inbound 메시지를 소비하고 해제**
 
