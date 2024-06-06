@@ -45,14 +45,12 @@ Hello라는 응답을 내려주는 handler이다.
 
 ### Option
 
-상세option을 지정해 줄수 있으며 상세 옵션은 링크를 [참조](https://docs.oracle.com/javase/8/docs/technotes/guides/net/socketOpt.html) \
+상세option을 지정해 줄수 있으며 상세 옵션은 링크를 [참조](https://docs.oracle.com/javase/8/docs/technotes/guides/net/socketOpt.html)\
 `.option({OPTION}, {VALUE})` 로 지정할 수있다
 
 ### Logger
 
-Peer들간 트래픽을 확인하기 위한 로깅은 `.wiretap(true)`  로 설정할 수 있다
-
-
+Peer들간 트래픽을 확인하기 위한 로깅은 `.wiretap(true)` 로 설정할 수 있다
 
 ## Client
 
