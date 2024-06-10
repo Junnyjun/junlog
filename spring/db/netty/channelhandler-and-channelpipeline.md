@@ -251,8 +251,9 @@ public class InboundExceptionHandler extends ChannelInboundHandlerAdapter {
 
 아웃바운드 작업의 정상 완료 및 예외 처리는 다음과 같은 알림 메커니즘을 기반으로 합니다:
 
-* **ChannelFuture**: 모든 아웃바운드 작업은 ChannelFuture를 반환합니다. ChannelFutureListeners는 작업 완료 시 성공 또는 오류를 알립니다.
-* **ChannelPromise**: ChannelOutboundHandler 메서드에 전달되는 ChannelPromise 인스턴스는 비동기 알림을 위해 리스너를 등록할 수 있습니다.
+**ChannelFuture**: 모든 아웃바운드 작업은 ChannelFuture를 반환합니다. ChannelFutureListeners는 작업 완료 시 성공 또는 오류를 알립니다.
+
+**ChannelPromise**: ChannelOutboundHandler 메서드에 전달되는 ChannelPromise 인스턴스는 비동기 알림을 위해 리스너를 등록할 수 있습니다.
 
 **예제: ChannelFuture에 ChannelFutureListener 추가**
 
