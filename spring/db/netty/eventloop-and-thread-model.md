@@ -102,3 +102,26 @@ Netty의 EventLoop는 `ScheduledExecutorService`를 확장하므로, JDK 구현�
 
 비동기 작업마다 반환되는 `ScheduledFuture`를 사용하여 실행 상태를 취소하거나 확인할 수 있습니다.
 
+### 7.4 Implementation details
+
+#### 7.4.1 Thread management
+
+Netty의 스레딩 모델의 뛰어난 성능은 현재 실행 중인 스레드의 식별에 달려 있습니다. \
+즉, 호출 스레드가 현재 채널과 그 EventLoop에 할당된 스레드인지 여부를 확인합니다.&#x20;
+
+호출 스레드가 EventLoop의 스레드인 경우, 해당 코드 블록이 직접 실행됩니다. \
+EventLoop는 나중에 실행될 작업을 예약하고 내부 큐에 넣습니다. EventLoop가 다음 이벤트를 처리할 때 이 큐에 있는 작업을 실행합니다.&#x20;
+
+각 EventLoop는 다른 EventLoop와 독립적인 자체 작업 큐를 갖습니다.
+
+#### 7.4.2 EventLoop/thread allocation
+
+채널을 위한 I/O 및 이벤트를 서비스하는 EventLoop는 EventLoopGroup에 포함됩니다. EventLoop가 생성되고 할당되는 방식은 전송 구현에 따라 다릅니다.
+
+**ASYNCHRONOUS TRANSPORTS**
+
+비동기 구현은 소수의 EventLoop(및 관련 스레드)만 사용하며, 현재 모델에서는 채널 간에 공유될 수 있습니다. 이는 각 채널에 스레드를 할당하는 대신, 가능한 최소한의 스레드 수로 많은 채널을 서비스할 수 있게 합니다.
+
+그림 7.4는 고정 크기의 세 개의 EventLoop(각각 하나의 스레드로 구동되는)가 있는 EventLoopGroup을 보여줍니다. EventLoop(및 그 스레드)는 EventLoopGroup이 생성될 때 직접 할당되어 필요할 때 사용할 수 있도록 합니다.
+
+EventLoopGroup은 새로 생성된 각 채널에 EventLoop를 할당할 책임이 있습니다. 현재 구현에서는 라운드 로빈 방식을 사용하여 균형 잡힌 분배를 달성하며, 동일한 EventLoop가 여러 채널에 할당될 수 있습니다. (이는 향후 버전에서 변경될 수 있습니다.)
