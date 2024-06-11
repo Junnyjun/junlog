@@ -52,3 +52,53 @@ public interface EventLoop extends EventExecutor, EventLoopGroup {
     EventLoopGroup parent();
 }
 ```
+
+### 7.3 Task scheduling
+
+때때로 작업을 나중에(지연된) 또는 주기적으로 실행하도록 예약해야 할 필요가 있습니다. \
+일반적인 사용 사례는 원격 피어에 하트비트 메시지를 보내 연결이 여전히 살아 있는지 확인하는 것입니다.&#x20;
+
+#### 7.3.1 JDK scheduling API
+
+| Methods                                                                 | Description                                                                                                  |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `newScheduledThreadPool(int corePoolSize)`                              | 명령을 지연 후 실행하거나 주기적으로 실행할 수 있는 `ScheduledThreadExecutorService`를 생성합니다. 인수 `corePoolSize`를 사용하여 스레드 수를 계산합니다. |
+| `newScheduledThreadPool(int corePoolSize, ThreadFactory threadFactory)` | 명령을 지연 후 실행하거나 주기적으로 실행할 수 있는 `ScheduledThreadExecutorService`를 생성합니다.                                       |
+| `newSingleThreadScheduledExecutor()`                                    | 하나의 스레드를 사용하여 예약된 작업을 실행합니다.                                                                                 |
+| `newSingleThreadScheduledExecutor(ThreadFactory threadFactory)`         | 하나의 스레드를 사용하여 예약된 작업을 실행합니다.                                                                                 |
+
+`ScheduledExecutorService`를 사용하여 60초 후에 작업을 실행하는 방법
+
+```kotlin
+fun main(args: Array<String>) {
+    val executor = Executors.newScheduledThreadPool(10)
+    val future: ScheduledFuture<*> = executor.schedule(fun() = println("60 seconds later"), 60, TimeUnit.SECONDS)
+    executor.shutdown()
+}
+```
+
+`ScheduledExecutorService` API는 직관적이지만, 부하가 높은 상황에서는 성능 비용이 발생할 수 있습니다.&#x20;
+
+#### 7.3.2 Scheduling tasks using EventLoop
+
+`ScheduledExecutorService` 구현은 풀 관리의 일부로 추가 스레드를 생성하는 등의 한계가 있습니다.\
+Netty는 채널의 EventLoop를 사용하여 이 문제를 해결합니다.
+
+```kotlin
+fun main(args: Array<String>) {
+    val group = NioEventLoopGroup()
+    val channel: Channel = NioSocketChannel()
+
+    with(channel) {
+        group.register(this)
+
+        eventLoop().schedule(fun() = println("60 seconds later"), 60, TimeUnit.SECONDS)
+        eventLoop().scheduleAtFixedRate(fun() = println("Run every 60 seconds"), 60, 60, TimeUnit.SECONDS)
+    }
+}
+```
+
+Netty의 EventLoop는 `ScheduledExecutorService`를 확장하므로, JDK 구현에서 사용할 수 있는 모든 메서드(`schedule()`, `scheduleAtFixedRate()` 등)를 제공합니다.&#x20;
+
+비동기 작업마다 반환되는 `ScheduledFuture`를 사용하여 실행 상태를 취소하거나 확인할 수 있습니다.
+
