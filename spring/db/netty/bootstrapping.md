@@ -71,42 +71,51 @@ public class ClientBootstrapExample {
 
 #### 8.2.2 채널과 EventLoopGroup 호환성
 
-Netty에서는 `EventLoopGroup`과 `Channel` 구현이 호환되어야 합니다. `NIO` 및 `OIO` 전송을 위한 관련 `EventLoopGroup`과 `Channel` 구현이 있습니다.
+Netty에서는 `EventLoopGroup`과 `Channel` 구현이 호환되어야 합니다. \
+`NIO` 및 `OIO` 전송을 위한 관련 `EventLoopGroup`과 `Channel` 구현이 있습니다.
 
-**호환 가능한 `EventLoopGroup` 및 `Channel` 구현 예제:**
+```kotlin
+fun main() {
+    val group = NioEventLoopGroup()
+    try {
+        val bootstrap = Bootstrap()
+        bootstrap.group(group)
+            .channel(NioSocketChannel::class.java)
+            .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
+                override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                    println("Received data")
+                }
+            })
 
-```java
-java코드 복사EventLoopGroup group = new NioEventLoopGroup();
-Bootstrap bootstrap = new Bootstrap();
-bootstrap.group(group)
-    .channel(NioSocketChannel.class)
-    .handler(new SimpleChannelInboundHandler<ByteBuf>() {
-        @Override
-        protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-            System.out.println("Received data");
-        }
-    });
-
-ChannelFuture future = bootstrap.connect(new InetSocketAddress("www.example.com", 80));
-future.syncUninterruptibly();
+        val future = bootstrap.connect(InetSocketAddress("www.example.com", 80))
+        future.syncUninterruptibly()
+    } finally {
+        group.shutdownGracefully()
+    }
+}
 ```
 
 **호환되지 않는 `EventLoopGroup` 및 `Channel` 구현 예제:**
 
-```java
-java코드 복사EventLoopGroup group = new NioEventLoopGroup();
-Bootstrap bootstrap = new Bootstrap();
-bootstrap.group(group)
-    .channel(OioSocketChannel.class) // 호환되지 않는 구현
-    .handler(new SimpleChannelInboundHandler<ByteBuf>() {
-        @Override
-        protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-            System.out.println("Received data");
-        }
-    });
+```kotlin
+fun main() {
+    val group = NioEventLoopGroup()
+    try {
+        val bootstrap = Bootstrap()
+        bootstrap.group(group)
+            .channel(OioSocketChannel::class.java) // 호환되지 않는 구현
+            .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
+                override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                    println("Received data")
+                }
+            })
 
-ChannelFuture future = bootstrap.connect(new InetSocketAddress("www.example.com", 80));
-future.syncUninterruptibly(); // IllegalStateException 발생
+        val future = bootstrap.connect(InetSocketAddress("www.example.com", 80))
+        future.syncUninterruptibly() // IllegalStateException 발생
+    } finally {
+        group.shutdownGracefully()
+    }
+}
 ```
 
 이 코드는 `NioEventLoopGroup`과 `OioSocketChannel`을 혼합하여 사용하려고 시도하기 때문에 `IllegalStateException`을 발생시킵니다.
