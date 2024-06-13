@@ -81,12 +81,12 @@ fun main() {
         val bootstrap = Bootstrap()
         bootstrap.group(group)
             .channel(NioSocketChannel::class.java)
+            // .channel(OioSocketChannel::class.java) // 호환되지 않는 구현
             .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
                 override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
                     println("Received data")
                 }
             })
-
         val future = bootstrap.connect(InetSocketAddress("www.example.com", 80))
         future.syncUninterruptibly()
     } finally {
@@ -95,30 +95,7 @@ fun main() {
 }
 ```
 
-**호환되지 않는 `EventLoopGroup` 및 `Channel` 구현 예제:**
-
-```kotlin
-fun main() {
-    val group = NioEventLoopGroup()
-    try {
-        val bootstrap = Bootstrap()
-        bootstrap.group(group)
-            .channel(OioSocketChannel::class.java) // 호환되지 않는 구현
-            .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
-                override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
-                    println("Received data")
-                }
-            })
-
-        val future = bootstrap.connect(InetSocketAddress("www.example.com", 80))
-        future.syncUninterruptibly() // IllegalStateException 발생
-    } finally {
-        group.shutdownGracefully()
-    }
-}
-```
-
-이 코드는 `NioEventLoopGroup`과 `OioSocketChannel`을 혼합하여 사용하려고 시도하기 때문에 `IllegalStateException`을 발생시킵니다.
+&#x20;`NioEventLoopGroup`과 `OioSocketChannel`을 혼합하여 사용하려고 시도하기 때문에 `IllegalStateException`을 발생시킵니다.
 
 부트스트래핑 시, `bind()` 또는 `connect()`를 호출하기 전에 다음 메서드를 호출하여 필요한 구성 요소를 설정해야 합니다.
 
