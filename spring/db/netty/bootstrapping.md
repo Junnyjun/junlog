@@ -6,11 +6,11 @@
 
 즉, 서버는 클라이언트의 연결을 수락하고 그들과 통신하기 위해 자식 채널을 생성하는 부모 채널을 사용하지만, 클라이언트는 대부분의 네트워크 상호작용을 위해 단일 비부모 채널만 필요로 합니다.&#x20;
 
-이전에 공부한 Netty 구성 요소 중 여러 가지가 부트스트랩 과정에 참여하며, 이들 중 일부는 클라이언트와 서버 모두에서 사용됩니다. 클라이언트 또는 서버에 특정한 단계를 제외하고, 부트스트랩 과정의 공통 단계는 `AbstractBootstrap`에서 처리되고, 각각 `Bootstrap` 또는 `ServerBootstrap`에서 처리됩니다.
+클라이언트 또는 서버에 특정한 단계를 제외하고, 부트스트랩 과정의 공통 단계는 `AbstractBootstrap`에서 처리되고, 각각 `Bootstrap` 또는 `ServerBootstrap`에서 처리됩니다.
 
 ### 8.2 클라이언트와 비연결형 프로토콜 부트스트래핑
 
-`Bootstrap`은 클라이언트 또는 비연결형 프로토콜을 사용하는 애플리케이션에서 사용됩니다. 다음 표는 이 클래스의 개요를 보여줍니다.
+`Bootstrap`은 클라이언트 또는 비연결형 프로토콜을 사용하는 애플리케이션에서 사용됩니다.&#x20;
 
 | 이름                                                       | 설명                                                      |
 | -------------------------------------------------------- | ------------------------------------------------------- |
@@ -112,8 +112,6 @@ fun main() {
 
 #### 8.3.2 서버 부트스트래핑
 
-서버 부트스트래핑을 설명하는 예제 코드입니다. 표 8.2에 나열된 몇 가지 메서드는 서버 애플리케이션에서 일반적이지 않습니다: `childHandler()`, `childAttr()`, `childOption()`. 이 메서드들은 수락된 채널의 ChannelConfig 구성원을 설정하는 작업을 단순화합니다.
-
 서버 채널은 `bind()`가 호출될 때 생성됩니다.&#x20;
 
 새로운 채널은 ServerChannel이 연결을 수락할 때 생성됩니다.
@@ -140,68 +138,14 @@ fun main() {
     } finally {
         group.shutdownGracefully()
     }
-}
-```
-
-#### 8.4 서버에서 클라이언트 부트스트래핑
-
-서버가 클라이언트 요청을 처리하는 동안 제3의 시스템에 클라이언트로서 동작해야 하는 경우가 있을 수 있습니다.&#x20;
-
-```kotlin
-fun main() {
-    val bossGroup = NioEventLoopGroup()
-    val workerGroup = NioEventLoopGroup()
-    try {
-        val serverBootstrap = ServerBootstrap()
-        serverBootstrap.group(bossGroup, workerGroup)
-            .channel(NioServerSocketChannel::class.java)
-            .childHandler(object : ChannelInitializer<NioSocketChannel>() {
-                override fun initChannel(ch: NioSocketChannel) {
-                    ch.pipeline().addLast(object : SimpleChannelInboundHandler<ByteBuf>() {
-                        lateinit var connectFuture: ChannelFuture
-
-                        override fun channelActive(ctx: ChannelHandlerContext) {
-                            val bootstrap = Bootstrap()
-                            bootstrap.group(ctx.channel().eventLoop())
-                                .channel(NioSocketChannel::class.java)
-                                .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
-                                    override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
-                                        println("Received data")
-                                    }
-                                })
-
-                            connectFuture = bootstrap.connect(InetSocketAddress("www.example.com", 80))
-                        }
-
-                        override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
-                            if (connectFuture.isDone) {
-                                // do something with the data
-                            }
-                        }
-                    })
-                }
-            })
-
-        val future: ChannelFuture = serverBootstrap.bind(InetSocketAddress(8080))
-        future.addListener { f ->
-            if (f.isSuccess) {
-                println("Server bound")
-            } else {
-                println("Bind attempt failed")
-                f.cause().printStackTrace()
-            }
-        }
-        future.sync()
-    } finally {
-        bossGroup.shutdownGracefully()
-        workerGroup.shutdownGracefully()
-    }
-}
+}          
 ```
 
 #### 8.5 부트스트랩 중 여러 ChannelHandler 추가
 
-Netty는 ChannelPipeline에 여러 ChannelHandler를 추가할 수 있는 기능을 제공합니다. 부트스트랩 과정에서 `handler()` 또는 `childHandler()`를 호출하여 단일 ChannelHandler를 추가하는 것 외에, 여러 ChannelHandler를 추가하려면 `ChannelInitializer` 클래스를 사용합니다.
+Netty는 ChannelPipeline에 여러 ChannelHandler를 추가할 수 있는 기능을 제공합니다.&#x20;
+
+부트스트랩 과정에서 `handler()` 또는 `childHandler()`를 호출하여 단일 ChannelHandler를 추가하는 것 외에, 여러 ChannelHandler를 추가하려면 `ChannelInitializer` 클래스를 사용합니다.
 
 ```kotlin
 fun main() {
@@ -226,4 +170,88 @@ fun main() {
 }
 ```
 
-이 예제는 `ChannelInitializer`를 사용하여 여러 `ChannelHandler`를 `ChannelPipeline`에 추가하는 방법을 보여줍니다.
+#### 8.6 Netty ChannelOptions 및 속성 사용하기
+
+모든 채널을 수동으로 구성하는 것은 매우 번거로울 수 있습니다. 다행히도, 부트스트랩에서 `option()`을 사용하여 ChannelOptions을 적용할 수 있습니다.&#x20;
+
+제공된 값들은 부트스트랩에서 생성된 모든 채널에 자동으로 적용됩니다. ChannelOptions에는 keep-alive나 timeout 속성 및 버퍼 설정과 같은 저수준의 연결 세부 사항이 포함됩니다.
+
+```kotlin
+fun main() {
+    val id: AttributeKey<Int> = AttributeKey.valueOf("ID")
+    val group = NioEventLoopGroup()
+
+    try {
+        val bootstrap = Bootstrap()
+        bootstrap.group(group)
+            .channel(NioSocketChannel::class.java)
+            .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
+                override fun channelRegistered(ctx: ChannelHandlerContext) {
+                    val idValue = ctx.channel().attr(id).get()
+                    // ID 값으로 작업 수행
+                }
+
+                override fun channelRead0(ctx: ChannelHandlerContext, byteBuf: ByteBuf) {
+                    println("Received data")
+                }
+            })
+
+        bootstrap.option(ChannelOption.SO_KEEPALIVE, true)
+            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+        bootstrap.attr(id, 123456)
+
+        val future: ChannelFuture = bootstrap.connect(InetSocketAddress("www.junnyalnd.com", 80))
+        future.syncUninterruptibly()
+    } finally {
+        group.shutdownGracefully()
+    }
+}
+```
+
+#### 8.7 DatagramChannels 부트스트래핑
+
+이전 부트스트랩 코드 예제는 TCP 기반의 SocketChannel을 사용했지만, 부트스트랩은 비연결 프로토콜에도 사용할 수 있습니다.&#x20;
+
+Netty는 이 목적을 위해 다양한 DatagramChannel 구현을 제공합니다. 유일한 차이점은 `connect()`를 호출하지 않고 `bind()`만 호출한다는 것입니다.
+
+```kotlin
+fun main() {
+    val group = NioEventLoopGroup()
+    try {
+        val bootstrap = Bootstrap()
+        bootstrap.group(group)
+            .channel(OioDatagramChannel::class.java)
+            .handler(object : SimpleChannelInboundHandler<DatagramPacket>() {
+                override fun channelRead0(ctx: ChannelHandlerContext, msg: DatagramPacket) {
+                    // 패킷 처리
+                }
+            })
+
+        val future: ChannelFuture = bootstrap.bind(InetSocketAddress(0))
+        future.sync()
+    } finally {
+        group.shutdownGracefully()
+    }
+}
+```
+
+#### 8.8 Shutdown
+
+부트스트래핑을 통해 애플리케이션을 실행할 수 있지만, 결국에는 애플리케이션을 종료해야 하는 시점이 올 것입니다. 물론, JVM이 종료될 때까지 기다릴 수 있지만, 이는 자원을 깨끗하게 해제하는 것을 의미하는 '우아한 종료(graceful shutdown)'의 정의에 맞지 않습니다.&#x20;
+
+우선, `EventLoopGroup`을 종료해야 합니다. 이는 모든 보류 중인 이벤트와 작업을 처리한 후 모든 활성 스레드를 해제합니다.&#x20;
+
+```kotlin
+fun main() {
+    val group = NioEventLoopGroup()
+    val bootstrap = Bootstrap()
+    bootstrap.group(group)
+        .channel(NioSocketChannel::class.java)
+    
+    // 부트스트랩을 설정하고 연결하는 로직을 여기에 추가
+
+    val future = group.shutdownGracefully()
+    // 그룹이 종료될 때까지 블록
+    future.syncUninterruptibly()
+}
+```
