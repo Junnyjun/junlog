@@ -203,21 +203,7 @@ fun main() {
 
 Netty는 ChannelPipeline에 여러 ChannelHandler를 추가할 수 있는 기능을 제공합니다. 부트스트랩 과정에서 `handler()` 또는 `childHandler()`를 호출하여 단일 ChannelHandler를 추가하는 것 외에, 여러 ChannelHandler를 추가하려면 `ChannelInitializer` 클래스를 사용합니다.
 
-**ChannelInitializer 예제 (코틀린):**
-
 ```kotlin
-import io.netty.bootstrap.ServerBootstrap
-import io.netty.channel.ChannelInitializer
-import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.ChannelInboundHandlerAdapter
-import io.netty.channel.nio.NioEventLoopGroup
-import io.netty.channel.socket.nio.NioServerSocketChannel
-import io.netty.channel.ChannelPipeline
-import io.netty.channel.Channel
-import io.netty.handler.codec.http.HttpClientCodec
-import io.netty.handler.codec.http.HttpObjectAggregator
-import java.net.InetSocketAddress
-
 fun main() {
     val group = NioEventLoopGroup()
     try {
