@@ -30,41 +30,23 @@
 
 `Bootstrap` 클래스는 클라이언트 및 비연결형 프로토콜을 사용하는 애플리케이션에서 채널을 생성하는 책임을 집니다.&#x20;
 
-```java
-public class ClientBootstrapExample {
-    public static void main(String[] args) {
-        EventLoopGroup group = new NioEventLoopGroup();
-        try {
-            Bootstrap bootstrap = new Bootstrap();
-            bootstrap.group(group)
-                .channel(NioSocketChannel.class)
-                .handler(new ChannelInitializer<NioSocketChannel>() {
-                    @Override
-                    protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new SimpleChannelInboundHandler<ByteBuf>() {
-                            @Override
-                            protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-                                System.out.println("Received data");
-                            }
-                        });
-                    }
-                });
-
-            ChannelFuture future = bootstrap.connect(new InetSocketAddress("www.example.com", 80));
-            future.addListener((ChannelFuture f) -> {
-                if (f.isSuccess()) {
-                    System.out.println("Connection established");
-                } else {
-                    System.err.println("Connection attempt failed");
-                    f.cause().printStackTrace();
+```kotlin
+fun main() {
+    val group: EventLoopGroup = NioEventLoopGroup()
+    try {
+        val bootstrap = Bootstrap()
+        bootstrap.group(group)
+            .channel(NioSocketChannel::class.java)
+            .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
+                override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                    println("Received data")
                 }
-            });
-            future.sync();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            group.shutdownGracefully();
-        }
+            })
+
+        val future = bootstrap.connect(InetSocketAddress("www.example.com", 80))
+        future.syncUninterruptibly()
+    } finally {
+        group.shutdownGracefully()
     }
 }
 ```
@@ -104,3 +86,158 @@ fun main() {
 * `handler()`
 
 이 작업을 수행하지 않으면 `IllegalStateException`이 발생합니다. 특히 `handler()` 호출은 `ChannelPipeline`을 구성하는 데 필요하므로 매우 중요합니다.
+
+#### 8.3 서버 부트스트래핑
+
+서버 부트스트래핑을 개요로 ServerBootstrap API를 설명한 후, 서버 부트스트래핑에 필요한 단계와 관련된 몇 가지 주제를 설명합니다. 여기에는 서버 채널에서 클라이언트를 부트스트랩하는 특별한 경우도 포함됩니다.
+
+#### 8.3.1 ServerBootstrap 클래스
+
+다음 표는 ServerBootstrap 클래스의 메서드를 나열합니다.
+
+| Name           | Description                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| group          | ServerBootstrap에서 사용할 EventLoopGroup을 설정합니다. 이 EventLoopGroup은 ServerChannel과 수락된 채널의 I/O를 처리합니다. |
+| channel        | 인스턴스화할 ServerChannel 클래스를 설정합니다.                                                                  |
+| channelFactory | Channel을 기본 생성자를 통해 생성할 수 없는 경우 ChannelFactory를 제공합니다.                                            |
+| localAddress   | ServerChannel이 바인딩할 로컬 주소를 지정합니다. 지정하지 않으면 OS에서 무작위로 할당됩니다.                                       |
+| option         | 새로 생성된 ServerChannel의 ChannelConfig에 적용할 ChannelOption을 지정합니다.                                    |
+| childOption    | 수락된 채널의 ChannelConfig에 적용할 ChannelOption을 지정합니다.                                                  |
+| attr           | ServerChannel에 대한 속성을 지정합니다. bind() 호출 후에는 변경할 수 없습니다.                                            |
+| childAttr      | 수락된 채널에 대한 속성을 적용합니다. 이후 호출은 효과가 없습니다.                                                            |
+| handler        | ServerChannel의 ChannelPipeline에 추가할 ChannelHandler를 설정합니다.                                        |
+| childHandler   | 수락된 채널의 ChannelPipeline에 추가할 ChannelHandler를 설정합니다.                                               |
+| clone          | 원본 ServerBootstrap과 동일한 설정으로 다른 원격 피어에 연결하기 위해 ServerBootstrap을 복제합니다.                            |
+| bind           | ServerChannel을 바인딩하고, 연결 작업이 완료되면 ChannelFuture를 반환합니다.                                           |
+
+#### 8.3.2 서버 부트스트래핑
+
+서버 부트스트래핑을 설명하는 예제 코드입니다. 표 8.2에 나열된 몇 가지 메서드는 서버 애플리케이션에서 일반적이지 않습니다: `childHandler()`, `childAttr()`, `childOption()`. 이 메서드들은 수락된 채널의 ChannelConfig 구성원을 설정하는 작업을 단순화합니다.
+
+서버 채널은 `bind()`가 호출될 때 생성됩니다.&#x20;
+
+새로운 채널은 ServerChannel이 연결을 수락할 때 생성됩니다.
+
+```kotlin
+fun main() {
+    val group = NioEventLoopGroup()
+    try {
+        val bootstrap = ServerBootstrap()
+        bootstrap.group(group)
+            .channel(NioServerSocketChannel::class.java)
+            .childHandler(object : ChannelInitializer<SocketChannel>() {
+                override fun initChannel(ch: SocketChannel) {
+                    ch.pipeline().addLast(object : SimpleChannelInboundHandler<ByteBuf>() {
+                        override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                            println("Received data")
+                        }
+                    })
+                }
+            })
+
+        val future: ChannelFuture = bootstrap.bind(InetSocketAddress(8080))
+        future.sync()
+    } finally {
+        group.shutdownGracefully()
+    }
+}
+```
+
+#### 8.4 서버에서 클라이언트 부트스트래핑
+
+서버가 클라이언트 요청을 처리하는 동안 제3의 시스템에 클라이언트로서 동작해야 하는 경우가 있을 수 있습니다.&#x20;
+
+```kotlin
+fun main() {
+    val bossGroup = NioEventLoopGroup()
+    val workerGroup = NioEventLoopGroup()
+    try {
+        val serverBootstrap = ServerBootstrap()
+        serverBootstrap.group(bossGroup, workerGroup)
+            .channel(NioServerSocketChannel::class.java)
+            .childHandler(object : ChannelInitializer<NioSocketChannel>() {
+                override fun initChannel(ch: NioSocketChannel) {
+                    ch.pipeline().addLast(object : SimpleChannelInboundHandler<ByteBuf>() {
+                        lateinit var connectFuture: ChannelFuture
+
+                        override fun channelActive(ctx: ChannelHandlerContext) {
+                            val bootstrap = Bootstrap()
+                            bootstrap.group(ctx.channel().eventLoop())
+                                .channel(NioSocketChannel::class.java)
+                                .handler(object : SimpleChannelInboundHandler<ByteBuf>() {
+                                    override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                                        println("Received data")
+                                    }
+                                })
+
+                            connectFuture = bootstrap.connect(InetSocketAddress("www.example.com", 80))
+                        }
+
+                        override fun channelRead0(ctx: ChannelHandlerContext, msg: ByteBuf) {
+                            if (connectFuture.isDone) {
+                                // do something with the data
+                            }
+                        }
+                    })
+                }
+            })
+
+        val future: ChannelFuture = serverBootstrap.bind(InetSocketAddress(8080))
+        future.addListener { f ->
+            if (f.isSuccess) {
+                println("Server bound")
+            } else {
+                println("Bind attempt failed")
+                f.cause().printStackTrace()
+            }
+        }
+        future.sync()
+    } finally {
+        bossGroup.shutdownGracefully()
+        workerGroup.shutdownGracefully()
+    }
+}
+```
+
+#### 8.5 부트스트랩 중 여러 ChannelHandler 추가
+
+Netty는 ChannelPipeline에 여러 ChannelHandler를 추가할 수 있는 기능을 제공합니다. 부트스트랩 과정에서 `handler()` 또는 `childHandler()`를 호출하여 단일 ChannelHandler를 추가하는 것 외에, 여러 ChannelHandler를 추가하려면 `ChannelInitializer` 클래스를 사용합니다.
+
+**ChannelInitializer 예제 (코틀린):**
+
+```kotlin
+import io.netty.bootstrap.ServerBootstrap
+import io.netty.channel.ChannelInitializer
+import io.netty.channel.ChannelHandlerContext
+import io.netty.channel.ChannelInboundHandlerAdapter
+import io.netty.channel.nio.NioEventLoopGroup
+import io.netty.channel.socket.nio.NioServerSocketChannel
+import io.netty.channel.ChannelPipeline
+import io.netty.channel.Channel
+import io.netty.handler.codec.http.HttpClientCodec
+import io.netty.handler.codec.http.HttpObjectAggregator
+import java.net.InetSocketAddress
+
+fun main() {
+    val group = NioEventLoopGroup()
+    try {
+        val bootstrap = ServerBootstrap()
+        bootstrap.group(group)
+            .channel(NioServerSocketChannel::class.java)
+            .childHandler(object : ChannelInitializer<Channel>() {
+                override fun initChannel(ch: Channel) {
+                    val pipeline: ChannelPipeline = ch.pipeline()
+                    pipeline.addLast(HttpClientCodec())
+                    pipeline.addLast(HttpObjectAggregator(Int.MAX_VALUE))
+                }
+            })
+
+        val future = bootstrap.bind(InetSocketAddress(8080))
+        future.sync()
+    } finally {
+        group.shutdownGracefully()
+    }
+}
+```
+
+이 예제는 `ChannelInitializer`를 사용하여 여러 `ChannelHandler`를 `ChannelPipeline`에 추가하는 방법을 보여줍니다.
