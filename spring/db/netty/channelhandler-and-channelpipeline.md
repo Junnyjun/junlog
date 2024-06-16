@@ -235,7 +235,7 @@ channel.write(Unpooled.copiedBuffer("Netty in Action", CharsetUtil.UTF_8));
 public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception
 ```
 
-**예제: 기본 인바운드 예외 처리**
+**기본 인바운드 예외 처리**
 
 ```java
 public class InboundExceptionHandler extends ChannelInboundHandlerAdapter {
@@ -255,7 +255,7 @@ public class InboundExceptionHandler extends ChannelInboundHandlerAdapter {
 
 **ChannelPromise**: ChannelOutboundHandler 메서드에 전달되는 ChannelPromise 인스턴스는 비동기 알림을 위해 리스너를 등록할 수 있습니다.
 
-**예제: ChannelFuture에 ChannelFutureListener 추가**
+**ChannelFuture에 ChannelFutureListener 추가**
 
 ```java
 ChannelFuture future = channel.write(someMessage);
@@ -270,7 +270,7 @@ future.addListener(new ChannelFutureListener() {
 });
 ```
 
-**예제: ChannelPromise에 ChannelFutureListener 추가**
+**ChannelPromise에 ChannelFutureListener 추가**
 
 ```java
 public class OutboundExceptionHandler extends ChannelOutboundHandlerAdapter {
