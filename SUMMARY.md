@@ -230,6 +230,7 @@
     * [Eureka setting](spring/cloud/eureka/eureka-setting.md)
     * [TLS Authentication](spring/cloud/eureka/tls-authentication.md)
 * [🗝️ Core](spring/common/README.md)
+  * [Inversion of Control](spring/common/inversion-of-control.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
