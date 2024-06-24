@@ -382,6 +382,7 @@
 
 ## Computer Science
 
+* [Software Design](computer-science/software-design.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
