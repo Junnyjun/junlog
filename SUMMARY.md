@@ -376,8 +376,10 @@
 ## Computer Science
 
 * [🔫 Software Design](computer-science/software-design/README.md)
-  * [지식 탐구](computer-science/software-design/undefined.md)
-  * [의사소통과 언어 사용](computer-science/software-design/undefined-1.md)
+  * [DDD](computer-science/software-design/ddd/README.md)
+    * [지식 탐구](computer-science/software-design/ddd/undefined.md)
+    * [의사소통과 언어 사용](computer-science/software-design/ddd/undefined-1.md)
+    * [모델과 구현의 연계](computer-science/software-design/ddd/undefined-2.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
