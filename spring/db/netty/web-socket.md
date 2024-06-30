@@ -1,22 +1,15 @@
 # Web Socket
 
-## Netty를 이용한 WebSocket
-
-### 이 장에서 다루는 내용
-
-* 실시간 웹의 개념
-* WebSocket 프로토콜
-* Netty를 사용한 WebSocket 기반 채팅 서버 구축
-
 ### WebSocket 소개
 
-WebSocket 프로토콜은 클라이언트와 서버가 언제든지 메시지를 전송할 수 있도록 양방향 데이터 전송 문제를 해결하기 위해 설계되었습니다. 최신 브라우저 대부분은 WebSocket을 HTML5의 클라이언트 API로 지원합니다.
+WebSocket 프로토콜은 클라이언트와 서버가 언제든지 메시지를 전송할 수 있도록 양방향 데이터 전송 문제를 해결하기 위해 설계되었습니다.&#x20;
 
 Netty는 WebSocket을 완벽히 지원하며, 이를 사용하여 실시간 채팅 애플리케이션을 구현할 수 있습니다.
 
 ### 예제 WebSocket 애플리케이션
 
-이번 예제 애플리케이션은 WebSocket 프로토콜을 사용하여 브라우저 기반 채팅 애플리케이션을 구현합니다. 다수의 사용자가 동시에 통신할 수 있도록 할 것입니다.
+이번 예제 애플리케이션은 WebSocket 프로토콜을 사용하여 브라우저 기반 채팅 애플리케이션을 구현합니다. \
+다수의 사용자가 동시에 통신할 수 있도록 할 것입니다.
 
 ```mermaid
 graph TD;
@@ -29,7 +22,8 @@ graph TD;
 
 ### WebSocket 지원 추가
 
-WebSocket으로 전환하기 위해 업그레이드 핸드셰이크 메커니즘이 사용됩니다. /ws로 끝나는 URL이 요청되면 WebSocket으로 프로토콜을 업그레이드합니다.
+WebSocket으로 전환하기 위해 업그레이드 핸드셰이크 메커니즘이 사용됩니다. \
+/ws로 끝나는 URL이 요청되면 WebSocket으로 프로토콜을 업그레이드합니다.
 
 #### HTTP 요청 처리
 
@@ -209,11 +203,7 @@ public class ChatServer {
 mvn -PChatServer clean package exec:exec
 ```
 
-다음과 같은 URL을 통해 애플리케이션에 접근할 수 있습니다: [http://localhost:9999](http://localhost:9999).
-
-![WebSocket ChatServer 데모](https://raw.githubusercontent.com/netty/netty/master/transport/src/main/java/io/netty/example/http/websocketx/server/websocket\_demo.png)
-
-### 암호화 추가
+다음과 같은 URL을 통해 애플리케이션에 접근할 수 있습니다
 
 실제 시나리오에서는 서버에 암호화를 추가해야 할 수 있습니다. Netty를 사용하면 `ChannelPipeline`에 `SslHandler`를 추가하고 구성하기만 하면 됩니다.
 
