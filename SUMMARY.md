@@ -380,6 +380,7 @@
     * [지식 탐구](computer-science/software-design/ddd/undefined.md)
     * [의사소통과 언어 사용](computer-science/software-design/ddd/undefined-1.md)
     * [모델과 구현의 연계](computer-science/software-design/ddd/undefined-2.md)
+    * [도메인의 격리](computer-science/software-design/ddd/undefined-3.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
