@@ -381,6 +381,7 @@
     * [의사소통과 언어 사용](computer-science/software-design/ddd/undefined-1.md)
     * [모델과 구현의 연계](computer-science/software-design/ddd/undefined-2.md)
     * [도메인의 격리](computer-science/software-design/ddd/undefined-3.md)
+    * [소프트웨어에서 표현되는 모델](computer-science/software-design/ddd/undefined-4.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
