@@ -382,6 +382,7 @@
     * [모델과 구현의 연계](computer-science/software-design/ddd/undefined-2.md)
     * [도메인의 격리](computer-science/software-design/ddd/undefined-3.md)
     * [소프트웨어에서 표현되는 모델](computer-science/software-design/ddd/undefined-4.md)
+    * [도메인 객체 생명 주기](computer-science/software-design/ddd/undefined-5.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
