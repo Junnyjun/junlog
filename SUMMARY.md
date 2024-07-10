@@ -385,7 +385,7 @@
     * [도메인 객체 생명 주기](computer-science/software-design/ddd/undefined-5.md)
     * [언어의 사용](computer-science/software-design/ddd/undefined-6.md)
     * [도약](computer-science/software-design/ddd/undefined-7.md)
-    * [Page 2](computer-science/software-design/ddd/page-2.md)
+    * [유연한 설계](computer-science/software-design/ddd/undefined-8.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
