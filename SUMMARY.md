@@ -387,6 +387,7 @@
     * [도약](computer-science/software-design/ddd/undefined-7.md)
     * [암묵적인 개념을 명시적으로 만들기](computer-science/software-design/ddd/undefined-8.md)
     * [유연한 설계](computer-science/software-design/ddd/undefined-9.md)
+    * [분석 패턴의 적용](computer-science/software-design/ddd/undefined-10.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
