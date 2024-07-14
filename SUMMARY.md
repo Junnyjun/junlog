@@ -388,6 +388,7 @@
     * [암묵적인 개념을 명시적으로 만들기](computer-science/software-design/ddd/undefined-8.md)
     * [유연한 설계](computer-science/software-design/ddd/undefined-9.md)
     * [모델과 디자인 패턴의 연결](computer-science/software-design/ddd/undefined-10.md)
+    * [더 심층적인 통찰을 위한 리팩터링](computer-science/software-design/ddd/undefined-11.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
