@@ -390,6 +390,7 @@
     * [모델과 디자인 패턴의 연결](computer-science/software-design/ddd/undefined-10.md)
     * [더 심층적인 통찰을 위한 리팩터링](computer-science/software-design/ddd/undefined-11.md)
     * [전략적 설계](computer-science/software-design/ddd/undefined-12.md)
+    * [디스틸레이션](computer-science/software-design/ddd/undefined-13.md)
 * [🎀 System Design](computer-science/system-design/README.md)
   * [Pre-Scaling](computer-science/system-design/pre-scaling.md)
 * [🔒 SECURITY](computer-science/security/README.md)
