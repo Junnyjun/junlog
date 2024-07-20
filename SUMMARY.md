@@ -66,6 +66,7 @@
 * [📚 Books](jvm/books/README.md)
   * [📙 Java Performance Funmdamental](jvm/books/java-performance-funmdamental/README.md)
     * [Java Virtual Machine](jvm/books/java-performance-funmdamental/java-virtual-machine.md)
+    * [Runtime Data Areas](jvm/books/java-performance-funmdamental/runtime-data-areas.md)
   * [📓 Clean Architecture](jvm/books/readme-1/README.md)
     * [설계와 아키텍처란?](jvm/books/readme-1/chap1-1.md)
     * [행위, 구조](jvm/books/readme-1/undefined.md)
