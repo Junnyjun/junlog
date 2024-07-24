@@ -19,7 +19,7 @@
 
 위의 과정 중에서 `.java`라는 확장자를 가진 소스 파일로 `.class` 파일을 생성하는 시점을 '컴파일 타임(Compile Time)'이라고 합니다. 그리고 컴파일을 거쳐 생성된 `.class` 파일을 실행하는 시점을 '런타임(Run Time)'이라고 합니다. 아래 그림은 Java 프로그램이 어떻게 수행되는지를 도식화한 것입니다.
 
-!\[Java 프로그램의 수행 과정]\(이미지 URL)
+<img src="../../../.gitbook/assets/file.excalidraw (49).svg" alt="" class="gitbook-drawing">
 
 이 그림을 자세히 살펴보면 앞에서 언급한 Java를 구성하는 네 가지 기술들이 모두 포함되어 있는 것을 알 수 있습니다. 처음 프로그램을 작성할 때 사용한 것은 Java Programming Language입니다. 그리고 작성한 프로그램을 컴파일하면 Java Class File Format으로 변경됩니다. 이를 실행하기 위해서는 Java Virtual Machine을 구동시켜 클래스 파일을 로딩합니다.
 
@@ -58,9 +58,9 @@ Java의 네 가지 구성 요소 중 가장 핵심적인 것은 단연 Java Virt
 
 JVM의 역할은 우리가 작성한 Java 프로그램을 실행하는 것입니다. 이는 Class 파일을 JVM으로 로딩하고 Bytecode를 해석(Interpret)하며, 메모리와 같은 리소스를 할당하고 관리하며, 정보 처리 작업을 포괄합니다. 이 때 JVM은 Thread 관리 및 Garbage Collection과 같은 메모리 재생 작업도 수행합니다.
 
-JVM의 기본적인 아키텍처는 다음과 같습니다:
+JVM의 기본적인 아키텍처는 다음과 같습니다
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (50).svg" alt="" class="gitbook-drawing">
 
 JVM은 ClassLoader System을 통해 클래스 파일들을 로딩합니다. 로딩된 클래스 파일들은 Execution Engine을 통해 해석됩니다. 이렇게 해석된 프로그램은 Runtime Data Areas에 배치되어 실질적인 수행이 이루어집니다. 이러한 실행 과정 속에서 JVM은 필요에 따라 Thread Synchronization과 Garbage Collection 같은 관리 작업을 수행하게 됩니다.
 
