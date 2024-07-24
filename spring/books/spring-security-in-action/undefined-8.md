@@ -2,7 +2,7 @@
 
 스프링 시큐리티에서 HTTP필터는 HTTP요청에 적용되는 다양한 책임을 위임한다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 FilterChain을 통해 다양한 요구사항별 필터를 적용할 수 있다.
 
@@ -20,7 +20,7 @@ FilterChain을 통해 다양한 요구사항별 필터를 적용할 수 있다.
 * CsrfFilter : CSRF 공격을 방어하는 필터
 * CorsFilter : CORS를 처리하는 필터
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## 기존 필터에 필터 추가
 

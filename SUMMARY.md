@@ -208,7 +208,8 @@
     * [네트워킹](jvm/books/java-bible/undefined-10.md)
   * [📕 Optimizing java](jvm/books/optimizing-java/README.md)
     * [성능과 최적화](jvm/books/optimizing-java/undefined.md)
-  * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals.md)
+  * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals/README.md)
+    * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
 
 ## Spring
 

@@ -3,7 +3,7 @@
 1장은 PCB 설계에서 낯선 도메인을 마주친 예시로 시작된다\
 가장 처음 발견한 도메인 요소는 NET라는것과 그에 대한 세부사항이였다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 이런 단순한 다이어그램 으로 시작하여 대화를 통해 점점 구체화 되는 `상호작용 다이어그램3ㅈ3ㅈ3ㅈ`을 완성하여 가장 초기 모델의 클래스 다이어 그램을 추출한다.
 
