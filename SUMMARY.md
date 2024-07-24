@@ -210,6 +210,7 @@
     * [성능과 최적화](jvm/books/optimizing-java/undefined.md)
   * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals.md)
     * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
+    * [Runtime Data Area](jvm/books/java-performance-fundamentals/runtime-data-area.md)
 
 ## Spring
 
