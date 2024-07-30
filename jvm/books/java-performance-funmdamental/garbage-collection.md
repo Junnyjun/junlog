@@ -69,3 +69,74 @@ JVM 옵션은 크게 Standard Option과 Non-Standard Option으로 나뉩니다. 
 #### 주요 Heap Sizing 관련 옵션
 
 Heap Sizing 관련 옵션은 초기 Heap 크기, 최대 Heap 크기, Young Generation의 크기, Permanent Area의 크기 등을 설정할 수 있습니다. 이는 JVM의 메모리 관리를 최적화하는 데 중요한 역할을 합니다.
+
+* Hotspot JVM은 객체의 나이와 함께 프로모션을 위한 임계값을 설정하는 옵션을 제공함. 이 옵션은 `-XX:MaxTenuringThreshold`로 기본값은 31이다. 이 수치가 작다고 생각해 100이나 1000으로 설정해도 실제 나이의 최대값은 31이다. 그 이유는 객체 헤더의 첫 번째 워드에 기록된 나이가 6비트로 표현되기 때문이다. 이는 0부터 31까지의 값만을 기록할 수 있다.
+
+**Promotion and Survivor Areas in Hotspot JVM**
+
+* 그림 51에서는 마크 단계가 끝난 후 프로모션 가능한 성숙한 객체를 표시하고 있다. Eden 영역에는 LiveObjectA가 있고 Survivor 2에는 LiveObject로 B와 M이 있다. 이 중 M은 성숙한 객체이다.
+* From과 To는 논리적인 명칭으로, 항상 To 영역으로 복사되고 From 영역은 보내기만 한다. Minor GC 당시 객체가 남아 있는 곳이 From이 되고 비어 있는 곳이 To가 된다. 이후 다음 Minor GC에는 From과 To가 서로 뒤바뀐다.
+
+**Old Generation의 Garbage Collection: Mark-and-Compacting**
+
+* Old Generation은 Young Generation과는 다른 방식으로 GC를 수행한다. Old Generation의 GC는 자주 발생하지 않지만 발생 시 Minor GC보다 더 긴 일시 정지 시간을 필요로 한다. 이는 Old Generation의 크기가 Young Generation보다 크기 때문이다.
+* Old Generation은 Mark-and-Compaction 알고리즘으로 GC를 수행하며, 이는 시간이 많이 소요된다. Old Generation에서의 GC는 프로모션을 위한 메모리 공간이 부족할 때 발생한다.
+
+**Serial Collector 옵션**
+
+* `-XX:+UseSerialGC`: Serial Collector를 사용하고자 할 때 설정해야 하는 옵션.
+* `-XX:InitialTenuringThreshold=<value>`: 객체의 초기 나이를 설정하는 옵션. 기본값은 0이며, 객체를 빨리 프로모션되게 하려면 이를 증가시킨다.
+* `-XX:MaxTenuringThreshold=<value>`: 객체가 프로모션되는 나이를 지정하는 옵션. 기본값은 31이다.
+* `-XX:PretenureSizeThreshold=<byte size>`: Young Generation에 생성되는 객체의 크기를 제한하는 옵션. 설정된 크기보다 큰 객체는 Tenured 영역에 바로 생성된다.
+* `-XX:+PrintTenuringDistribution`: Young Generation에 할당된 객체의 나이 정보와 서바이버 영역의 적정 임계값 등을 판단할 수 있도록 정보를 제공한다.
+
+**Incremental Collector**
+
+* Incremental Collector는 1.3.1 버전에서 소개된 Low Pause Goal을 충족시키기 위한 최초의 Collector이다. Young Generation의 GC를 위해 Serial Collector와 동일한 Generational Algorithm을 사용하지만, Old Generation에서는 Train Algorithm을 사용한다.
+
+**Parallel Collector**
+
+* Parallel Collector는 여러 개의 멀티 스레드가 동시에 GC를 수행한다. Young Generation에서만 적용되며, Old Generation은 Mark-and-Compacting 방식을 유지한다.
+* `-XX:+UseParallelGC`: Parallel Collector를 선택하는 옵션.
+* `-XX:ParallelGCThreads=<value>`: GC를 수행할 스레드의 개수를 설정하는 옵션. 기본값은 CPU 개수와 동일하다.
+* `-XX:+AlwaysTenure`: 모든 객체를 Old Generation으로 프로모션하는 옵션.
+
+**CMS (Concurrent Mark-Sweep) Collector**
+
+* CMS Collector는 Pause Time Goal을 가진 Collector로, Old Generation의 GC를 Concurrent하게 수행하여 일시 정지 시간을 줄인다.
+* `-XX:+UseConcMarkSweepGC`: CMS Collector를 사용하기 위한 옵션.
+* `-XX:+UseParNewGC`: Young Generation에서 Parallel GC를 수행하도록 설정하는 옵션.
+* `-XX:+CMSParallelRemarkEnabled`: Remark Phase의 일시 정지 시간을 줄이기 위해 사용되는 옵션.
+
+**Garbage First (G1) Collector**
+
+* G1 Collector는 Region 단위로 Heap을 나누어 관리하며, Pause Time Goal을 가지면서도 예측 가능한 일시 정지 시간을 제공한다.
+* `-XX:+UnlockExperimentalVMOptions`: G1 Collector를 사용하기 위해 실험적 옵션을 활성화하는 옵션.
+* `-XX:+UseG1GC`: G1 Collector를 사용하기 위한 옵션.
+
+**IBM JVM Garbage Collection**
+
+* IBM JVM의 GC는 Hotspot JVM과는 다르게 구성되어 있으며, Generational Heap을 사용하고 각 단계마다 Mark, Sweep, Compaction 단계를 포함한다.
+* `-Xgcpolicy:<optthruput | optavgpause | gencon | subpool>`: GC 정책을 선택하는 옵션.
+* `-disableexplicitgc`: 명시적인 GC 호출을 무시하는 옵션.
+* `-verbose:gc`: GC 정보를 화면에 출력하는 옵션.
+* `-compactexplicitgc`: 명시적인 GC 호출 시마다 Compaction을 수행하도록 설정하는 옵션.
+
+**Optimize for Throughput Collector**
+
+* 이 Collector는 처리량에 초점을 맞추고 병렬로 GC를 수행하며, AF (Allocation Failure) 시 Compaction을 수행한다.
+* `Parallel Mark`, `Parallel Bitwise Sweep`, `Incremental Compaction` 등의 알고리즘을 사용한다.
+
+**Optimize for Pause Time Collector**
+
+* Pause Time을 줄이기 위해 Concurrent하게 GC를 수행하며, `Concurrent Mark`, `Concurrent Sweep`, `Mostly Concurrent Compaction` 등의 알고리즘을 사용한다.
+
+**Generational Concurrent Collector**
+
+* Young Generation과 Old Generation을 구분하여 GC를 수행하며, `Scavenge`, `Global Collection` 등의 알고리즘을 사용한다.
+
+**Subpooling Collector**
+
+* 대규모 SMP 시스템에서 사용되며, FreeList를 크기별로 구성하여 사용한다.
+
+이 가이드는 각 JVM의 GC 옵션과 알고리즘을 이해하고 적절하게 설정하여 애플리케이션 성능을 최적화하는 데 도움을 줄 수 있다.
