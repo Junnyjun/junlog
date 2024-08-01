@@ -209,7 +209,7 @@
     * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
     * [Runtime Data Area](jvm/books/java-performance-fundamentals/runtime-data-area.md)
     * [Garbage Collection](jvm/books/java-performance-fundamentals/garbage-collection.md)
-    * [class loader](jvm/books/java-performance-fundamentals/class-loader.md)
+    * [Class loader](jvm/books/java-performance-fundamentals/class-loader.md)
 
 ## Spring
 
