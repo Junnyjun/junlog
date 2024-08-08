@@ -370,6 +370,7 @@
     * [계층화](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined.md)
     * [도메인 논리 구성](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1.md)
     * [관계형 데이터베이스 접근](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-2.md)
+    * [웹 프레젠테이션](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-3.md)
   * [DDD](computer-science/software-design/ddd/README.md)
     * [지식 탐구](computer-science/software-design/ddd/undefined.md)
     * [의사소통과 언어 사용](computer-science/software-design/ddd/undefined-1.md)
