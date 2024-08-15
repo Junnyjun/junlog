@@ -374,7 +374,7 @@
     * [웹 프레젠테이션](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-3.md)
     * [동시성](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-4.md)
     * [세션 상태](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-5.md)
-    * [Page 2](computer-science/software-design/pattern-of-enterprise-application-architecture/page-2.md)
+    * [종합](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-6.md)
   * [Clean Architecture](computer-science/software-design/readme-1/README.md)
     * [설계와 아키텍처란?](computer-science/software-design/readme-1/chap1-1.md)
     * [행위, 구조](computer-science/software-design/readme-1/undefined.md)
