@@ -378,6 +378,7 @@
       * [종합](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined/undefined-6.md)
     * [패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/README.md)
       * [도메인 논리 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined.md)
+      * [데이터 원본 아키텍처 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-1.md)
   * [Clean Architecture](computer-science/software-design/readme-1/README.md)
     * [설계와 아키텍처란?](computer-science/software-design/readme-1/chap1-1.md)
     * [행위, 구조](computer-science/software-design/readme-1/undefined.md)
