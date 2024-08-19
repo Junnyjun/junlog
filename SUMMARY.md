@@ -201,6 +201,7 @@
 ## Spring
 
 * [🌫️ Data](spring/data/README.md)
+  * [Data Rest](spring/data/data-rest.md)
   * [JDBC](spring/data/datasource/README.md)
     * [Datasource](spring/data/datasource/datasource.md)
   * [Neo4j](spring/data/neo4j.md)
