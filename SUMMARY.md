@@ -383,6 +383,7 @@
       * [객체 관계형 동작 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-2.md)
       * [객체 관계형 구조 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-3.md)
       * [웹 프레젠테이션 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-4.md)
+      * [Page 2](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/page-2.md)
   * [Clean Architecture](computer-science/software-design/readme-1/README.md)
     * [설계와 아키텍처란?](computer-science/software-design/readme-1/chap1-1.md)
     * [행위, 구조](computer-science/software-design/readme-1/undefined.md)
