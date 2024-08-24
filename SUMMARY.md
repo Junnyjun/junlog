@@ -384,6 +384,7 @@
       * [객체 관계형 구조 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-3.md)
       * [웹 프레젠테이션 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-4.md)
       * [분산 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-5.md)
+      * [오프라인 동시성 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-6.md)
   * [Clean Architecture](computer-science/software-design/readme-1/README.md)
     * [설계와 아키텍처란?](computer-science/software-design/readme-1/chap1-1.md)
     * [행위, 구조](computer-science/software-design/readme-1/undefined.md)
