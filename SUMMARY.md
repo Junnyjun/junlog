@@ -386,6 +386,7 @@
       * [분산 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-5.md)
       * [오프라인 동시성 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-6.md)
       * [세션 상태 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-7.md)
+      * [베이스 패턴](computer-science/software-design/pattern-of-enterprise-application-architecture/undefined-1/undefined-8.md)
   * [Clean Architecture](computer-science/software-design/readme-1/README.md)
     * [설계와 아키텍처란?](computer-science/software-design/readme-1/chap1-1.md)
     * [행위, 구조](computer-science/software-design/readme-1/undefined.md)
