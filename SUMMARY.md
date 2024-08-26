@@ -294,6 +294,8 @@
   * [🥭 MONGO](db/mongo.md)
   * [💎 ELASTIC](db/nosql/elastic.md)
 * [🗒️ RDB](db/db/README.md)
+  * [Mysql](db/db/mysql/README.md)
+    * [아키텍쳐](db/db/mysql/undefined.md)
   * [Execution Plan](db/db/execution-plan.md)
   * [default](db/db/default.md)
     * [Cardinality](db/db/default/cardinality.md)
