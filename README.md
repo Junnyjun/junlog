@@ -6,6 +6,7 @@ coverY: 0
 
 # 👻 JUNNYLAND BLOG
 
-{% @github-files/github-code-block url="https://github.com/Junnyjun" %}
+안녕하세요 2021년부터 개발자를 하고있는 Junny입니다\
+최근 가장 흥미있는 것은 Axon 입니다.
 
 <figure><img src=".gitbook/assets/Written-By-Human-Not-By-AI-Badge-black.svg" alt=""><figcaption></figcaption></figure>
