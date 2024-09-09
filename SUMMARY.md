@@ -197,7 +197,8 @@
     * [Garbage Collection](jvm/books/java-performance-fundamentals/garbage-collection.md)
     * [Class loader](jvm/books/java-performance-fundamentals/class-loader.md)
     * [Execution Engine](jvm/books/java-performance-fundamentals/execution-engine.md)
-  * [📘 JVM 밑바닥부터 파헤치기](jvm/books/jvm.md)
+  * [📘 JVM 밑바닥부터 파헤치기](jvm/books/jvm/README.md)
+    * [자바 메모리 영역과 메모리 오버플로](jvm/books/jvm/undefined.md)
 
 ## Spring
 
