@@ -290,18 +290,23 @@
     * [Oauth2 리소스 서버](spring/books/spring-security-in-action/oauth2-1.md)
     * [전역 메서드 보안](spring/books/spring-security-in-action/undefined-10.md)
 
-## DB
+## DATA
 
-* [🧮 NOSQL](db/nosql/README.md)
-  * [🥭 MONGO](db/mongo.md)
-  * [💎 ELASTIC](db/nosql/elastic.md)
-* [🗒️ RDB](db/db/README.md)
-  * [Mysql](db/db/mysql/README.md)
-    * [아키텍쳐](db/db/mysql/undefined.md)
-  * [Execution Plan](db/db/execution-plan.md)
-  * [default](db/db/default.md)
-    * [Cardinality](db/db/default/cardinality.md)
-    * [Covering Index](db/db/default/covering-index.md)
+* [📩 KAFKA](data/kafka/README.md)
+  * [Kafka](data/kafka/kafka.md)
+  * [Troubleshooting](data/kafka/troubleshooting.md)
+  * [Connector](data/kafka/connector/README.md)
+    * [Kafka Connector?](data/kafka/connector/kafka-connector.md)
+* [🧮 NOSQL](data/nosql/README.md)
+  * [🥭 MONGO](data/nosql/mongo.md)
+  * [💎 ELASTIC](data/nosql/elastic.md)
+* [🗒️ RDB](data/db/README.md)
+  * [Mysql](data/db/mysql/README.md)
+    * [아키텍쳐](data/db/mysql/undefined.md)
+  * [Execution Plan](data/db/execution-plan.md)
+  * [default](data/db/default/README.md)
+    * [Cardinality](data/db/default/cardinality.md)
+    * [Covering Index](data/db/default/covering-index.md)
 
 ## INFRA
 
