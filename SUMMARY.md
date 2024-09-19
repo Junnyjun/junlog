@@ -293,7 +293,8 @@
 ## DATA
 
 * [📩 KAFKA](data/kafka/README.md)
-  * [Kafka](data/kafka/kafka.md)
+  * [Kafka](data/kafka/kafka/README.md)
+    * [Topic](data/kafka/kafka/topic.md)
   * [Troubleshooting](data/kafka/troubleshooting.md)
   * [Connector](data/kafka/connector/README.md)
     * [Kafka Connector?](data/kafka/connector/kafka-connector.md)
