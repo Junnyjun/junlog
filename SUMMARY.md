@@ -216,6 +216,7 @@
     * [Eureka setting](spring/cloud/eureka/eureka-setting.md)
     * [TLS Authentication](spring/cloud/eureka/tls-authentication.md)
 * [🗝️ Core](spring/common/README.md)
+  * [Run Spring](spring/common/run-spring.md)
   * [Inversion of Control](spring/common/inversion-of-control/README.md)
     * [Introduce](spring/common/inversion-of-control/introduce.md)
     * [Container Context](spring/common/inversion-of-control/container-context.md)
