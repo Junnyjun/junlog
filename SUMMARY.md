@@ -220,6 +220,8 @@
   * [Inversion of Control](spring/common/inversion-of-control/README.md)
     * [Introduce](spring/common/inversion-of-control/introduce.md)
     * [Container Context](spring/common/inversion-of-control/container-context.md)
+    * [Bean Overview](spring/common/inversion-of-control/bean-overview.md)
+    * [Bean Scopes](spring/common/inversion-of-control/bean-scopes.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
