@@ -17,9 +17,9 @@ IoC 컨테이너는 빈을 생성할 때 이러한 의존성을 주입합니다.
 * 이벤트 발행
 * 웹 애플리케이션에서 사용할 수 있는 `WebApplicationContext`와 같은 애플리케이션 계층별 특정 컨텍스트
 
-간단히 말해서, `BeanFactory`는 구성 프레임워크와 기본 기능을 제공하고, `ApplicationContext`는 더 많은 엔터프라이즈 특정 기능을 추가합니다.&#x20;
+`BeanFactory`는 구성 프레임워크와 기본 기능을 제공하고, `ApplicationContext`는 더 많은 엔터프라이즈 특정 기능을 추가합니다. `ApplicationContext`는 `BeanFactory`의 완전한 상위 집합입니다
 
-`ApplicationContext`는 `BeanFactory`의 완전한 상위 집합이며, 이 장에서는 Spring의 IoC 컨테이너 설명에 `ApplicationContext`만 사용됩니다.&#x20;
+<img src="../../../.gitbook/assets/file.excalidraw (55).svg" alt="" class="gitbook-drawing">
 
 Spring에서 애플리케이션의 중추를 형성하고 Spring IoC 컨테이너에 의해 관리되는 객체를 빈(bean)이라고 합니다.&#x20;
 
