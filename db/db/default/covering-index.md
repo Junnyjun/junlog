@@ -16,7 +16,7 @@
 
 이를 통해 디스크 I/O 작업을 줄이고 쿼리의 성능을 향상시킵니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 조회할때 email, name이라는 index를 사용할 경우 그 해당 필드를 그대로 가져오게 되어\
 IO를 줄어들게하는 방법입니다.
