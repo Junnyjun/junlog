@@ -298,7 +298,7 @@
 
 * [📩 KAFKA](data/kafka/README.md)
   * [Kafka](data/kafka/kafka/README.md)
-    * [Kafka?](data/kafka/kafka/kafka.md)
+    * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
     * [Topic](data/kafka/kafka/topic.md)
   * [Troubleshooting](data/kafka/troubleshooting.md)
   * [Connector](data/kafka/connector/README.md)
