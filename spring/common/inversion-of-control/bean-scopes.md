@@ -275,10 +275,6 @@ Spring 컨테이너가 `<aop:scoped-proxy/>` 요소로 표시된 Bean에 대해 
 
 Spring은 일반 Bean과 마찬가지로 이러한 요청 및 세션 객체의 프록시를 주입하여, 싱글톤 Bean 및 직렬화 가능한 Bean에서도 안전하게 접근할 수 있도록 합니다.
 
-#### Custom Scopes (사용자 정의 스코프)
-
-Spring의 Bean 스코핑 메커니즘은 확장 가능합니다. 기본적으로 제공되는 스코프 외에 **사용자 정의 스코프**를 정의하거나, 기존 스코프를 재정의할 수도 있지만, 후자는 권장되지 않으며 기본 제공되는 싱글톤과 프로토타입 스코프는 재정의할 수 없습니다.
-
 **Creating a Custom Scope (사용자 정의 스코프 생성)**
 
 사용자 정의 스코프를 Spring 컨테이너에 통합하려면, `org.springframework.beans.factory.config.Scope` 인터페이스를 구현해야 합니다. Spring Framework 자체에서 제공하는 Scope 구현체와 Scope javadoc을 참고하여 필요한 메서드를 구현할 수 있습니다.
@@ -287,41 +283,7 @@ Spring의 Bean 스코핑 메커니즘은 확장 가능합니다. 기본적으로
 
 예를 들어, 세션 스코프 구현은 세션에 바인딩된 세션 스코프 Bean을 반환합니다. 다음은 객체를 반환하는 메서드의 예시입니다:
 
-```java
-@Override
-public Object get(String name, ObjectFactory<?> objectFactory) {
-    // 스코프에서 객체를 가져오거나, 없으면 새로 생성
-}
-```
-
-세션 스코프 구현은 스코프에서 Bean을 제거하는 메서드를 제공합니다:
-
-```java
-@Override
-public Object remove(String name) {
-    // 스코프에서 객체를 제거
-}
-```
-
-파괴 콜백을 등록하는 메서드 예시:
-
-```java
-@Override
-public void registerDestructionCallback(String name, Runnable destructionCallback) {
-    // 객체가 파괴될 때 호출할 콜백을 등록
-}
-```
-
-스코프의 대화 식별자를 얻는 메서드 예시:
-
-```java
-@Override
-public String getConversationId() {
-    // 스코프의 대화 식별자 반환
-}
-```
-
-**Using a Custom Scope (사용자 정의 스코프 사용)**
+### **Using a Custom Scope**
 
 사용자 정의 `Scope` 구현체를 작성하고 테스트한 후, Spring 컨테이너에 등록해야 합니다. 다음은 스코프를 등록하는 주요 메서드입니다:
 
