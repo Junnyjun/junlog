@@ -304,6 +304,8 @@
   * [Kafka](data/kafka/kafka/README.md)
     * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
     * [Topic](data/kafka/kafka/topic.md)
+    * [Producer](data/kafka/kafka/producer.md)
+    * [Consumer](data/kafka/kafka/consumer.md)
   * [Troubleshooting](data/kafka/troubleshooting.md)
   * [Connector](data/kafka/connector/README.md)
     * [Kafka Connector?](data/kafka/connector/kafka-connector.md)
