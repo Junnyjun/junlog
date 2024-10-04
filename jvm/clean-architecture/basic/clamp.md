@@ -8,7 +8,7 @@
 JAVA21 이전에는 Java에 값을 고정하는 내장 함수가 존재하지 않아\
 클램프함수를 직접 작성해야 했습니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (2) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 `최소값`보다 작은값은 `최소값`으로 `최대값`보다 큰 값은 `최대값`으로 설정됩니다\
 이 외는 스스로의 값을 가집니다

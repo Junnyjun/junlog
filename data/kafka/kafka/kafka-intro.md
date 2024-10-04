@@ -2,7 +2,7 @@
 
 **Apache Kafka**는 **분산형 스트리밍 플랫폼**으로, 대규모 데이터를 실시간으로 처리하는 데 최적화된 메시지 브로커 시스템입니다. Kafka는 **데이터 스트리밍**, **데이터 파이프라인**, **이벤트 소싱** 및 **분산 로그 저장소** 등 다양한 용도로 사용되며, 주로 실시간 데이터 처리와 관련된 환경에서 많이 활용됩니다. Kafka의 작동 원리와 구동 방식을 이해하면, 왜 Kafka가 대규모 실시간 데이터 처리에 최적화되어 있는지 알 수 있습니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 ## Data Replication
 
@@ -14,7 +14,7 @@ Kafka에서 데이터 복제(Replication)는 고가용성과 데이터 안전성
 
 이러한 복제와 싱크 구조는 Kafka가 **데이터의 내구성**과 **시스템 가용성**을 보장하는 데 중요한 역할을 합니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
 위와 같이 브로커가 장애가 발생해도 리더 파티션의 지위를 넘겨 받아 유실되지 않도록 해준다.\
 데이터가 중요한 데이터의 경우 복제 개수를 높게(3) 설정하여 최대 2개의 브로커가 다운되더라도 안정적으로 유지할 수 있도록 해야한다.

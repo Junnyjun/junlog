@@ -306,6 +306,7 @@
     * [Topic](data/kafka/kafka/topic.md)
     * [Producer](data/kafka/kafka/producer.md)
     * [Consumer](data/kafka/kafka/consumer.md)
+    * [Page 2](data/kafka/kafka/page-2.md)
   * [Troubleshooting](data/kafka/troubleshooting.md)
   * [Connector](data/kafka/connector/README.md)
     * [Kafka Connector?](data/kafka/connector/kafka-connector.md)
