@@ -10,7 +10,7 @@ Kafka 프로듀서는 Kafka 시스템에서 데이터를 생성하여 **Kafka �
 
 Kafka 프로듀서는 비동기 방식으로 데이터를 전송하며, 브로커와 상호작용하는 동안 **복제 설정** 및 **확인 응답**을 통해 메시지 전송의 성공 여부를 제어할 수 있습니다.
 
-<img src="../../../../.gitbook/assets/file.excalidraw (60).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (60).svg" alt="" class="gitbook-drawing">
 
 
 
