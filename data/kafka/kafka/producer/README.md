@@ -10,7 +10,7 @@ Kafka 프로듀서는 Kafka 시스템에서 데이터를 생성하여 **Kafka �
 
 Kafka 프로듀서는 비동기 방식으로 데이터를 전송하며, 브로커와 상호작용하는 동안 **복제 설정** 및 **확인 응답**을 통해 메시지 전송의 성공 여부를 제어할 수 있습니다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (60).svg" alt="" class="gitbook-drawing">
+<img src="../../../../.gitbook/assets/file.excalidraw (60).svg" alt="" class="gitbook-drawing">
 
 
 
@@ -70,6 +70,70 @@ class KafkaClientTest {
 **batch.size**
 
 한 번에 전송할 **배치 크기**를 설정합니다. 크기가 클수록 더 많은 데이터를 한 번에 전송하여 **성능 최적화**를 할 수 있지만, 메모리 사용량이 증가할 수 있습니다.
+
+맞습니다. Kafka에서 \*\*`ack` (acknowledgment)\*\*는 매우 중요한 개념이며, 메시지가 **안전하게 전송되고 처리되었는지 확인**하는 데 사용됩니다. **프로듀서**가 메시지를 브로커에 전송한 후, 브로커는 프로듀서에게 \*\*메시지가 성공적으로 처리되었는지 응답(acknowledgment)\*\*을 보냅니다. 이를 통해 **데이터 내구성**과 **신뢰성**을 보장할 수 있습니다.
+
+### `acks`란?
+
+`acks`는 **Kafka 프로듀서**가 메시지를 Kafka 브로커로 보낼 때, **브로커가 메시지를 정상적으로 수신했는지 확인하는 방식**을 설정하는 옵션입니다.&#x20;
+
+이 설정을 통해 **메시지가 브로커에서 안전하게 처리되었는지**에 대한 신뢰성을 보장할 수 있습니다.
+
+Kafka에서 제공하는 **`acks`** 설정은 세 가지 수준으로 나뉩니다:
+
+**`acks=0`**:
+
+* **브로커가 응답하지 않음**: 프로듀서는 **메시지를 브로커로 보낸 후** 확인 응답(ACK)을 기다리지 않고 바로 다음 메시지를 보냅니다.
+* **장점**: 매우 빠르게 메시지를 전송할 수 있습니다.
+* **단점**: **데이터 손실** 가능성이 있습니다. 브로커에 장애가 발생하거나 네트워크 문제가 생기면 메시지가 유실될 수 있지만, 프로듀서는 이를 알지 못합니다.
+
+**`acks=1`**:
+
+* **리더 파티션에서만 확인**: 프로듀서는 **리더 파티션**이 메시지를 수신하고 기록하면 확인 응답(ACK)을 받습니다. 하지만 **팔로워 파티션**이 이 메시지를 복제하지 않은 상태에서 리더가 장애를 일으키면 **데이터가 손실**될 수 있습니다.
+* **장점**: **빠른 성능**과 **어느 정도의 신뢰성**을 모두 제공합니다.
+* **단점**: 리더 파티션의 장애 시 **데이터 손실** 가능성이 있습니다.
+
+**`acks=all` (또는 `acks=-1`)**:
+
+* **모든 복제본에서 확인**: 프로듀서는 리더뿐만 아니라 **모든 팔로워 파티션**이 메시지를 복제하고 기록한 후에 확인 응답(ACK)을 받습니다. 이는 **가장 높은 수준의 내구성**을 제공합니다.
+* **장점**: **데이터 손실** 가능성이 거의 없습니다. 리더가 장애가 발생해도, **팔로워 파티션**이 메시지를 복제했기 때문에 데이터는 안전하게 저장됩니다.
+* **단점**: **성능이 느려질 수 있습니다**. 모든 팔로워 파티션이 메시지를 복제할 때까지 기다려야 하기 때문에 처리 속도가 느려질 수 있습니다.
+
+Kafka 프로듀서 설정에서 **`acks`** 옵션을 설정하여 메시지 전송의 신뢰성 수준을 조정할 수 있습니다. 예를 들어, 메시지 손실을 방지하고 싶다면 `acks=all`로 설정하고, 성능을 우선시할 경우 `acks=0` 또는 `acks=1`을 선택할 수 있습니다.
+
+다음은 **`acks`** 설정을 사용하는 예시입니다:
+
+```kotlin
+val props = Properties()
+props[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:9092"
+props[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java.name
+props[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java.name
+props[ProducerConfig.ACKS_CONFIG] = "all"  // 모든 복제본이 기록할 때까지 기다림
+
+val producer = KafkaProducer<String, String>(props)
+val record = ProducerRecord("my-topic", "key", "value")
+
+// 메시지 전송 후 콜백으로 결과 처리
+producer.send(record) { metadata, exception ->
+    if (exception != null) {
+        println("Error sending message: ${exception.message}")
+    } else {
+        println("Message sent successfully to partition ${metadata.partition()}, offset ${metadata.offset()}")
+    }
+}
+
+producer.close()
+```
+
+위 코드에서 \*\*`acks=all`\*\*로 설정하였기 때문에, 프로듀서는 **모든 복제본이 메시지를 기록**한 후에만 메시지 전송이 완료됩니다. 이는 **데이터의 내구성을 보장**하는 방법입니다.
+
+***
+
+### `acks`와 데이터 내구성의 관계
+
+* **내구성 보장**: \*\*`acks=all`\*\*은 데이터 내구성을 가장 강력하게 보장합니다. 프로듀서는 리더와 모든 팔로워가 메시지를 기록한 후에 응답을 받기 때문에, 장애가 발생하더라도 데이터가 손실되지 않습니다.
+* **성능과 신뢰성의 균형**: \*\*`acks=1`\*\*은 성능과 신뢰성 사이에서 **균형**을 찾는 설정입니다. 리더가 메시지를 수신하고 기록하면 곧바로 응답을 받으므로, 팔로워 복제가 완료되기 전에 리더가 장애가 발생하면 일부 데이터가 손실될 수 있습니다.
+* **빠른 성능, 낮은 신뢰성**: \*\*`acks=0`\*\*은 메시지 전송 속도를 극대화하지만, 메시지가 유실될 위험이 있습니다. 이 옵션은 매우 **빠른 성능**을 요구하지만, 메시지 손실에 대한 신뢰성은 필요하지 않은 환경에서 적합합니다.
 
 ## Partioner
 
