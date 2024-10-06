@@ -34,7 +34,7 @@ Kafka의 멱등성 프로듀서는 각 **프로듀서 인스턴스**에 고유�
 
 #### 멱등성 프로듀서 설정
 
-Kafka에서 멱등성 프로듀서를 활성화하려면 **`enable.idempotence`** 설정을 \*\*`true`\*\*로 설정해야 합니다. 이 설정을 통해 Kafka는 프로듀서에게 고유한 **Producer ID**를 할당하고, 메시지 전송 시 **중복 메시지를 방지**하는 기능을 활성화합니다.
+Kafka에서 멱등성 프로듀서를 활성화하려면 **`enable.idempotence`** 설정을 `true`로 설정해야 합니다. 이 설정을 통해 Kafka는 프로듀서에게 고유한 **Producer ID**를 할당하고, 메시지 전송 시 **중복 메시지를 방지**하는 기능을 활성화합니다.
 
 ```kotlin
 val props = Properties()
@@ -57,7 +57,7 @@ producer.send(record) { metadata, exception ->
 producer.close()
 ```
 
-위 코드를 보면 \*\*`enable.idempotence`\*\*가 \*\*`true`\*\*로 설정되어 있어 Kafka 프로듀서는 멱등성 모드로 동작합니다. 이를 통해 **메시지 중복 방지**와 \*\*정확히 한 번 전송(Exactly Once Delivery)\*\*이 보장됩니다.
+위 코드를 보면 `enable.idempotence`가 `true`로 설정되어 있어 Kafka 프로듀서는 멱등성 모드로 동작합니다. 이를 통해 **메시지 중복 방지**와 정확히 한 번 전송(Exactly Once Delivery)이 보장됩니다.
 
 ***
 
