@@ -230,6 +230,7 @@
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
 * [🚪 GateWay](spring/tools.md)
+  * [Kafka](spring/tools/kafka.md)
   * [Integration](spring/tools/integration/README.md)
     * [Component](spring/tools/integration/component.md)
   * [Http](spring/tools/http/README.md)
