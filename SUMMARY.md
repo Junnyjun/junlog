@@ -227,6 +227,8 @@
     * [Container Extension Points](spring/common/inversion-of-control/container-extension-points.md)
     * [Classpath Scanning and Managed Components](spring/common/inversion-of-control/classpath-scanning-and-managed-components.md)
     * [Environment Abstraction](spring/common/inversion-of-control/environment-abstraction.md)
+  * [Dependencies](spring/common/dependencies/README.md)
+    * [Dependency Injection](spring/common/dependencies/dependency-injection.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
