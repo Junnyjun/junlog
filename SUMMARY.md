@@ -226,6 +226,7 @@
     * [Bean definition inheritance](spring/common/inversion-of-control/bean-definition-inheritance.md)
     * [Container Extension Points](spring/common/inversion-of-control/container-extension-points.md)
     * [Classpath Scanning and Managed Components](spring/common/inversion-of-control/classpath-scanning-and-managed-components.md)
+    * [Environment Abstraction](spring/common/inversion-of-control/environment-abstraction.md)
   * [Servlet](spring/core/servlet.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
