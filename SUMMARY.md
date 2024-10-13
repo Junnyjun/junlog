@@ -234,7 +234,7 @@
   * [Async](spring/common/async.md)
 * [🚪 GateWay](spring/tools.md)
   * [Kafka](spring/tools/kafka/README.md)
-    * [Page 2](spring/tools/kafka/page-2.md)
+    * [Listener](spring/tools/kafka/listener.md)
   * [Integration](spring/tools/integration/README.md)
     * [Component](spring/tools/integration/component.md)
   * [Http](spring/tools/http/README.md)
