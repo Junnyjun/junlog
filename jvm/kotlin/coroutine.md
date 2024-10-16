@@ -145,8 +145,6 @@ fun fetchData(continuation: Continuation<String>): Any {
 
 다음은 `suspend` 함수가 상태 기계로 변환되는 과정을 보여주는 예시입니다.
 
-원본 코드:
-
 ```kotlin
 suspend fun simpleCoroutine() {
     println("코루틴 시작")
