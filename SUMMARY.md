@@ -320,6 +320,7 @@
   * [Producer](data/kafka/producer/README.md)
     * [Idempotent Producer](data/kafka/producer/idempotent-producer.md)
     * [Transaction Producer](data/kafka/producer/transaction-producer.md)
+    * [Patitioner](data/kafka/producer/patitioner.md)
   * [Consumer](data/kafka/consumer/README.md)
     * [Multi Thread Consumer](data/kafka/consumer/multi-thread-consumer.md)
     * [Consumer Lag](data/kafka/consumer/consumer-lag.md)
