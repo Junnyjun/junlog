@@ -202,6 +202,13 @@
   * [📘 JVM 밑바닥부터 파헤치기](jvm/books/jvm/README.md)
     * [자바 메모리 영역과 메모리 오버플로](jvm/books/jvm/undefined.md)
 
+## GO
+
+* [📚 Books](go/books/README.md)
+  * [Go in action](go/books/go-in-action/README.md)
+    * [Go 와의 첫 만남](go/books/go-in-action/go.md)
+    * [Go 간단히 살펴보기](go/books/go-in-action/go-1.md)
+
 ## Spring
 
 * [🌫️ Data](spring/data/README.md)
