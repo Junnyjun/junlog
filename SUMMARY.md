@@ -328,6 +328,7 @@
     * [Idempotent Producer](data/kafka/producer/idempotent-producer.md)
     * [Transaction Producer](data/kafka/producer/transaction-producer.md)
     * [Patitioner](data/kafka/producer/patitioner.md)
+    * [Exactly Once Semantics](data/kafka/producer/exactly-once-semantics.md)
   * [Consumer](data/kafka/consumer/README.md)
     * [Multi Thread Consumer](data/kafka/consumer/multi-thread-consumer.md)
     * [Consumer Lag](data/kafka/consumer/consumer-lag.md)
