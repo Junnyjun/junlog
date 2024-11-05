@@ -536,6 +536,8 @@
   * [Command](computer-science/design-pattern/command.md)
   * [Memento](computer-science/design-pattern/memento.md)
   * [Strategy](computer-science/design-pattern/strategy.md)
+* [📃 Coding Test](computer-science/coding-test/README.md)
+  * [가장 많이 받은 선물](computer-science/coding-test/undefined.md)
 * [📚 Books](computer-science/books/README.md)
   * [📓 Operating System](computer-science/books/operating-system/README.md)
     * [운영체제 개요](computer-science/books/operating-system/undefined.md)
