@@ -512,6 +512,7 @@
 * [🛠️ Network](computer-science/network/README.md)
   * [BASIC](computer-science/network/basic/README.md)
     * [MAC Address](computer-science/network/basic/mac-address.md)
+    * [PACKET](computer-science/network/basic/packet.md)
   * [TCP](computer-science/network/tcp/README.md)
     * [IP ?](computer-science/network/tcp/ip.md)
     * [Internet ?](computer-science/network/tcp/chap1.md)
