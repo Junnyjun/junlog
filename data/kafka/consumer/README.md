@@ -6,7 +6,7 @@ Kafka 컨슈머는 **Kafka 클러스터**에서 **토픽의 메시지를 읽고 
 
 Kafka는 **고성능 비동기 스트리밍**을 지원하며, 컨슈머는 데이터를 빠르게 소비할 수 있는 주요 구성 요소입니다.
 
-<img src="../../../../.gitbook/assets/file.excalidraw (61).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (61).svg" alt="" class="gitbook-drawing">
 
 
 
@@ -209,7 +209,7 @@ Fetcher는 **파티션의 리더 브로커**로부터 **메시지를 가져오�
 * **데이터 일관성 유지**: Fetcher는 **오프셋을 기반으로 메시지를 읽어오며**, Kafka의 일관성 모델을 따릅니다. 이를 통해, 데이터가 정확하게 처리되고, 메시지의 순서가 유지될 수 있도록 합니다.
 * **페칭 성능 최적화**: Kafka 컨슈머는 한 번에 여러 파티션에서 메시지를 가져오기 위해 **최적화된 병렬 처리 구조**를 사용합니다. Fetcher는 이 과정에서 **최적의 성능**을 보장하기 위해, **배치 크기**, **네트워크 상태** 등의 요소를 고려하여 메시지를 가져옵니다.
 
-<img src="../../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="" class="gitbook-drawing">
 
 ### 동작 원리
 
