@@ -241,6 +241,7 @@
   * [Dependencies](spring/common/dependencies/README.md)
     * [Dependency Injection](spring/common/dependencies/dependency-injection.md)
   * [Servlet](spring/core/servlet.md)
+  * [Resources](spring/common/resources.md)
   * [MVC](spring/core/mvc.md)
   * [Async](spring/common/async.md)
 * [🚪 GateWay](spring/tools.md)
