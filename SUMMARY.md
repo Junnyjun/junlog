@@ -194,6 +194,7 @@
     * [네트워킹](jvm/books/java-bible/undefined-10.md)
   * [📕 Optimizing java](jvm/books/optimizing-java/README.md)
     * [성능과 최적화](jvm/books/optimizing-java/undefined.md)
+    * [JVM Overview](jvm/books/optimizing-java/jvm-overview.md)
   * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals.md)
     * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
     * [Runtime Data Area](jvm/books/java-performance-fundamentals/runtime-data-area.md)
@@ -202,9 +203,7 @@
     * [Execution Engine](jvm/books/java-performance-fundamentals/execution-engine.md)
   * [📘 JVM 밑바닥부터 파헤치기](jvm/books/jvm/README.md)
     * [자바 메모리 영역과 메모리 오버플로](jvm/books/jvm/undefined.md)
-  * [📕 자바 최적화](jvm/books/undefined/README.md)
-    * [성능과 최적화](jvm/books/undefined/undefined.md)
-    * [JVM Overview](jvm/books/undefined/jvm-overview.md)
+  * [📕 자바 성능 튜닝](jvm/books/undefined.md)
 
 ## GO
 
@@ -348,6 +347,9 @@
   * [default](db/db/default.md)
     * [Cardinality](db/db/default/cardinality.md)
     * [Covering Index](db/db/default/covering-index.md)
+* [📚 Books](data/books/README.md)
+  * [Mysql 성능 최적화 선택과 집중](data/books/mysql/README.md)
+    * [쿼리 응답 시간](data/books/mysql/undefined.md)
 
 ## INFRA
 
