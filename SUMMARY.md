@@ -195,6 +195,7 @@
   * [📕 Optimizing java](jvm/books/optimizing-java/README.md)
     * [성능과 최적화](jvm/books/optimizing-java/undefined.md)
     * [JVM Overview](jvm/books/optimizing-java/jvm-overview.md)
+    * [하드웨어와 운영체제](jvm/books/optimizing-java/undefined-1.md)
   * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals.md)
     * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
     * [Runtime Data Area](jvm/books/java-performance-fundamentals/runtime-data-area.md)
