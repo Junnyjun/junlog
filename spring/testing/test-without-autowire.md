@@ -15,9 +15,15 @@
 
 ***
 
-####
+## How do Code?
 
-아래는 동작 과정을 코드로 설명한 예시입니다:
+```
+같이 활용 가능한 목록
+@RestClientTest
+@Data...Test
+@WebServiceClientTest
+@SpringBootTest
+```
 
 ```java
 @SpringBootTest
@@ -47,17 +53,6 @@ class ExampleTest {
 2. `SpringBootTestContextBootstrapper`가 `MyService`와 `MyRepository`를 스프링 컨텍스트에서 검색.
 3. 생성자 호출 시 각 의존성을 주입한 객체를 생성.
 4. 테스트 메서드(`testService`) 실행.
-
-***
-
-#### 왜 `@TestConstructor`가 유용한가?
-
-1. **명시적 의존성**
-   * 생성자 주입을 통해 의존성을 명시적으로 나타냄으로써 테스트 가독성과 유지보수성을 향상시킵니다.
-2. **Mock 객체와의 통합 용이**
-   * Spring Context 대신 Mock 객체를 주입하여 유닛 테스트를 수행하기에도 적합합니다.
-3. **스프링 테스트의 유연성**
-   * 기존의 `@Autowired`와 병행 사용 가능하며, 더 명확한 의존성 관리가 가능합니다.
 
 ***
 
