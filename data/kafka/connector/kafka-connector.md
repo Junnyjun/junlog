@@ -4,7 +4,7 @@
 
 ## Kafka Connect ?
 
-Kafka Connect는 **데이터 스트림의 연동**을 쉽게 구현할 수 있도록 설계된 프레임워크입니다. **커넥터**는 이 프레임워크 위에서 실행되며, **소스 커넥터(Source Connector)**와 **싱크 커넥터(Sink Connector)** 두 가지 종류로 나뉩니다.
+Kafka Connect는 **데이터 스트림의 연동**을 쉽게 구현할 수 있도록 설계된 프레임워크입니다. **커넥터**는 이 프레임워크 위에서 실행되며, **소스 커넥터(Source Connector)**&#xC640; **싱크 커넥터(Sink Connector)** 두 가지 종류로 나뉩니다.
 
 1. **소스 커넥터**: 외부 시스템에서 데이터를 카프카 토픽으로 보내는 역할을 합니다.
    * 예: MySQL, PostgreSQL, MongoDB, Elasticsearch 등에서 데이터를 가져와 Kafka로 전송.

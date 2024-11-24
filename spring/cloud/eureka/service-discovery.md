@@ -9,8 +9,6 @@ MSA와 같은 분산 환경에서의 동작은 서비스 간의 원격 호출(AP
 
 때문에 클라우드 환경에서는 서비스 클라이언트가 서비스를 호출할 때, 서비스의 위치(ip 주소와 port)를 알아낼 수 있는 기능이 필요한데, 이것을 바로 Service Discovery라고 하며, 서비스 디스커버리를 구현하는 방법으로는 크게 Client Side Discovery 방식과 Server Side Discovery 방식이 있습니다.
 
-&#x20;
-
 Service Discovery의 기본적인 기능은 서비스를 등록하고 등록된 서비스의 목록을 반환하는 기능이지만, 등록된 서비스들의 Health check를 통해 현재 서비스가 가능한 서비스의 목록만 리턴한다거나, 서비스 간의 부하 분산 비율을 조정하는 등의 기능을 추가할 수 있습니다.
 
 ## Client Side Discovery
@@ -20,7 +18,7 @@ Service Discovery의 기본적인 기능은 서비스를 등록하고 등록된 
 service client가 service registry에 query를 통해 서비스의 위치를 물어보고 호출하는 방식이며, 호출 시에는 로드밸런싱 알고리즘을 통해 서비스가 호출됩니다.
 
 service instance가 생성될 때(구동될 때) ip 주소, port, 서비스명 등이 service registry에 등록되며, service instance가 종료될 때 service registry에서 삭제됩니다.\
-_(service instance의 등록 및 삭제는 heartbeat mechanism에 따라서 주기적으로 refresh 됩니다.)_
+&#xNAN;_(service instance의 등록 및 삭제는 heartbeat mechanism에 따라서 주기적으로 refresh 됩니다.)_
 
 _E.g )_ Netflix Eureka
 
