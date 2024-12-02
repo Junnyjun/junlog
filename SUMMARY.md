@@ -66,6 +66,7 @@
 * [🆙 Testing](jvm/testing/README.md)
   * [Junit](jvm/testing/junit/README.md)
     * [소개](jvm/testing/junit/page-2.md)
+  * [JMH](jvm/testing/jmh.md)
 * [📚 Books](jvm/books/README.md)
   * [📕 Modern Java in Action](jvm/books/modern-java-in-action/README.md)
     * [자바 8, 9, 10, 11](jvm/books/modern-java-in-action/8-9-10-11.md)
