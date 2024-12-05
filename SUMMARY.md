@@ -198,7 +198,7 @@
     * [JVM Overview](jvm/books/optimizing-java/jvm-overview.md)
     * [하드웨어와 운영체제](jvm/books/optimizing-java/undefined-1.md)
     * [성능 테스트 패턴 및 안티패턴](jvm/books/optimizing-java/undefined-2.md)
-    * [가비지 수집 기초](jvm/books/optimizing-java/undefined-3.md)
+    * [마이크로벤치마킹과 통계](jvm/books/optimizing-java/undefined-3.md)
   * [📙 Java Performance Fundamentals](jvm/books/java-performance-fundamentals.md)
     * [Java Virtual Machine](jvm/books/java-performance-fundamentals/java-virtual-machine.md)
     * [Runtime Data Area](jvm/books/java-performance-fundamentals/runtime-data-area.md)
