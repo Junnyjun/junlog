@@ -614,6 +614,8 @@
     * [배포 시스템](computer-science/books/http/undefined-2.md)
   * [📓 도메인 주도 설계 구현](computer-science/books/undefined/README.md)
     * [DDD를 시작하며](computer-science/books/undefined/ddd.md)
+    * [도메인, 서브도메인, 바운디드 컨텍스트](computer-science/books/undefined/undefined.md)
+    * [Page 2](computer-science/books/undefined/page-2.md)
   * [📗 도메인 주도 설계](computer-science/books/ddd/README.md)
     * [지식 탐구](computer-science/books/ddd/undefined.md)
     * [의사소통과 언어 사용](computer-science/books/ddd/undefined-1.md)
