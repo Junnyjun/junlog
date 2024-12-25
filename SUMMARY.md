@@ -50,6 +50,7 @@
       * [Variable](jvm/kotlin/basic/grammer/variable.md)
       * [Array](jvm/kotlin/basic/grammer/array.md)
     * [10분 코틀린 기초떼기](jvm/kotlin/10.md)
+    * [Lazy](jvm/kotlin/basic/lazy.md)
   * [Coroutine](jvm/kotlin/coroutine.md)
     * [Job](jvm/kotlin/job.md)
 * [🤖 JVM](jvm/jvm/README.md)
