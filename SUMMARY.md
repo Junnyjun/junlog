@@ -367,6 +367,8 @@
 * [📚 Books](data/books/README.md)
   * [Real Mysql(2)](data/books/real-mysql-2/README.md)
     * [쿼리 작성 및 최적화](data/books/real-mysql-2/undefined.md)
+  * [실전 레디스](data/books/undefined/README.md)
+    * [기초](data/books/undefined/undefined.md)
   * [Mysql 성능 최적화 선택과 집중](data/books/mysql/README.md)
     * [쿼리 응답 시간](data/books/mysql/undefined.md)
 
