@@ -43,6 +43,7 @@
 * [🔮 KOTLIN](jvm/kotlin/README.md)
   * [Basic](jvm/kotlin/basic/README.md)
     * [Setting](jvm/kotlin/basic/setting.md)
+    * [Destructuring Declarations](jvm/kotlin/basic/destructuring-declarations.md)
     * [Recursive](jvm/kotlin/recursive.md)
     * [Functional Interface](jvm/kotlin/basic/functional-interface.md)
     * [Type Alias](jvm/kotlin/basic/type-alias.md)
@@ -369,6 +370,7 @@
     * [쿼리 작성 및 최적화](data/books/real-mysql-2/undefined.md)
   * [실전 레디스](data/books/undefined/README.md)
     * [기초](data/books/undefined/undefined.md)
+    * [자료형과 기능](data/books/undefined/undefined-1.md)
   * [Mysql 성능 최적화 선택과 집중](data/books/mysql/README.md)
     * [쿼리 응답 시간](data/books/mysql/undefined.md)
 
