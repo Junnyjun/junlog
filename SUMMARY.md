@@ -245,6 +245,8 @@
     * [Setting](spring/data/graphql/setting.md)
   * [MongoDB](spring/data/mongodb.md)
 * [☁️ Cloud](spring/cloud/README.md)
+  * [Dataflow](spring/cloud/dataflow/README.md)
+    * [Intro](spring/cloud/dataflow/intro.md)
   * [Eureka](spring/cloud/eureka/README.md)
     * [Service discovery](spring/cloud/eureka/service-discovery.md)
     * [Eureka setting](spring/cloud/eureka/eureka-setting.md)
