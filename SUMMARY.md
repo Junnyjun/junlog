@@ -377,6 +377,7 @@
     * [데이터 영속성](data/books/undefined/undefined-3.md)
     * [트러블 슈팅](data/books/undefined/undefined-4.md)
     * [레플리케이션](data/books/undefined/undefined-5.md)
+    * [Page 3](data/books/undefined/page-3.md)
   * [Mysql 성능 최적화 선택과 집중](data/books/mysql/README.md)
     * [쿼리 응답 시간](data/books/mysql/undefined.md)
 
