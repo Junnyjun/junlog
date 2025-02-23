@@ -338,6 +338,8 @@
 
 ## DATA
 
+* [📊 GraphQL](data/graphql/README.md)
+  * [introduce](data/graphql/introduce.md)
 * [📩 KAFKA](data/kafka/README.md)
   * [Kafka](data/kafka/kafka/README.md)
     * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
@@ -377,7 +379,6 @@
     * [데이터 영속성](data/books/undefined/undefined-3.md)
     * [트러블 슈팅](data/books/undefined/undefined-4.md)
     * [레플리케이션](data/books/undefined/undefined-5.md)
-    * [Page 3](data/books/undefined/page-3.md)
   * [Mysql 성능 최적화 선택과 집중](data/books/mysql/README.md)
     * [쿼리 응답 시간](data/books/mysql/undefined.md)
 
@@ -725,7 +726,6 @@
     * [쓰레드](study/books/undefined-8/undefined-3.md)
     * [CPU 스케줄링](study/books/undefined-8/cpu.md)
     * [동기화](study/books/undefined-8/undefined-4.md)
-    * [Page](study/books/undefined-8/page.md)
   * [📕 쿠버네티스 완벽가이드](study/books/undefined-9/README.md)
     * [도커 복습과 Kubernetes](study/books/undefined-9/kubernetes.md)
     * [왜 쿠버네티스가 필요할까?](study/books/undefined-9/undefined.md)
@@ -737,8 +737,7 @@
     * [카프카 빠르게 시작해보기](study/books/with/undefined-1.md)
     * [카프카 기본 개념 설명](study/books/with/undefined-2.md)
   * [📓 TCP/IP 완벽가이드](study/books/tcp-ip.md)
-  * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13/README.md)
-    * [Page 1](study/books/undefined-13/page-1.md)
+  * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13.md)
   * [📘 TCP/IP 쉽게 더 쉽게](study/books/tcp-ip-1/README.md)
     * [컴퓨터 네트워크](study/books/tcp-ip-1/undefined.md)
   * [📘 데이터 통신과 컴퓨터 네트워크](study/books/undefined-2/README.md)
