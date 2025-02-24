@@ -340,6 +340,7 @@
 
 * [📊 GraphQL](data/graphql/README.md)
   * [introduce](data/graphql/introduce.md)
+  * [기본 기능](data/graphql/undefined.md)
 * [📩 KAFKA](data/kafka/README.md)
   * [Kafka](data/kafka/kafka/README.md)
     * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
@@ -737,7 +738,7 @@
     * [카프카 빠르게 시작해보기](study/books/with/undefined-1.md)
     * [카프카 기본 개념 설명](study/books/with/undefined-2.md)
   * [📓 TCP/IP 완벽가이드](study/books/tcp-ip.md)
-  * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13.md)
+  * [📙 이펙티브 소프트웨어 테스팅](study/books/undefined-13/README.md)
   * [📘 TCP/IP 쉽게 더 쉽게](study/books/tcp-ip-1/README.md)
     * [컴퓨터 네트워크](study/books/tcp-ip-1/undefined.md)
   * [📘 데이터 통신과 컴퓨터 네트워크](study/books/undefined-2/README.md)
