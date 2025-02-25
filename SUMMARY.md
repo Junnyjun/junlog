@@ -533,6 +533,7 @@
   * [Memory Address](computer-science/os/memory-address.md)
   * [NAND & NOR](computer-science/os/nand-and-nor.md)
   * [Shell vs Kernel vs API](computer-science/os/shell-vs-kernel-vs-api.md)
+  * [Process VS Thread](computer-science/os/process-vs-thread.md)
   * [DMA Controller](computer-science/os/dma-controller.md)
 * [🛠️ Network](computer-science/network/README.md)
   * [BASIC](computer-science/network/basic/README.md)
