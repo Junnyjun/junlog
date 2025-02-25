@@ -341,6 +341,7 @@
 * [📊 GraphQL](data/graphql/README.md)
   * [introduce](data/graphql/introduce.md)
   * [기본 기능](data/graphql/undefined.md)
+  * [스키마](data/graphql/undefined-1.md)
 * [📩 KAFKA](data/kafka/README.md)
   * [Kafka](data/kafka/kafka/README.md)
     * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
