@@ -428,7 +428,7 @@
     * [Network CNI Error](infra/k8s/network-cni-error.md)
 * [🗯️ GIT](infra/git/README.md)
   * [gitignore](infra/git/gitignore.md)
-  * [Author 변경](infra/git/author.md)
+  * [author](infra/git/author.md)
 * [📚 Books](infra/books/README.md)
   * [📓 컨테이너 환경 구축을 위한 쿠버네티스&도커](infra/books/and/README.md)
     * [컨테이너 인프라 환경이란](infra/books/and/undefined.md)

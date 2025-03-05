@@ -1,4 +1,4 @@
-# Author 변경
+# author
 
 ### 전체 변경
 
@@ -21,8 +21,6 @@ fi
 ' --tag-name-filter cat -- --branches --tags
 ```
 
-###
-
 ### 개별 변경
 
 #### 범위 지정
@@ -30,4 +28,3 @@ fi
 ```bash
 > git rebase -i HEAD~{개수}
 ```
-
