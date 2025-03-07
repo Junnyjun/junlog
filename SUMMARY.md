@@ -427,6 +427,7 @@
     * [8080 refuse](infra/k8s/8080-refuse.md)
     * [Network CNI Error](infra/k8s/network-cni-error.md)
 * [🗯️ GIT](infra/git/README.md)
+  * [mailmap](infra/git/mailmap.md)
   * [gitmodules](infra/git/gitmodules.md)
   * [gitattributes](infra/git/gitattributes.md)
   * [gitignore](infra/git/gitignore.md)
