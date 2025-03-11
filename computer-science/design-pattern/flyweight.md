@@ -10,6 +10,10 @@ Flyweight 패턴은 수많은 객체를 생성해야 하는 상황에서 메모�
 기존의 id를 가진 값이 있으면 그값을 주고 없으면 새롭게 객체를 만들고 추가해서 주는(공유) 방식입니다.\
 Java의 여러 [Cache](../../jvm/clean-architecture/instance-cache.md) 에서 사용되고 있는 방식입니다.
 
+***
+
+### How do code
+
 {% tabs %}
 {% tab title="JAVA" %}
 ```java
@@ -30,10 +34,6 @@ public class ConcreteFlyweight implements Flyweight {
         System.out.println("Flyweight 객체 " + id + "의 작업 수행");
     }
 }
-
-// Flyweight 객체를 관리하는 팩토리 클래스
-import java.util.HashMap;
-import java.util.Map;
 
 public class FlyweightFactory {
     // 이미 생성된 객체들을 저장하는 캐시
