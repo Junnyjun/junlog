@@ -1,40 +1,163 @@
 # Singleton
 
-인스턴스가 하나만 존재하도록 하고 싶을때
+싱글톤 패턴은 애플리케이션 내에서 단 하나의 인스턴스만 생성되어 공유되어야 할 때 사용합니다. 대표적인 예로 로깅(Logger)이나 스프링빈이 있습니다.
 
-new를 사용한 객체생성을 딱 한번만 하고 싶은 경우 사용합니다.
+***
 
-<img src="../../.gitbook/assets/file.drawing (1) (3).svg" alt="" class="gitbook-drawing">
+### Default Singleton (Eager Initialization)
 
-### Default Singleton ( eger)
+클래스가 로딩될 때 미리 인스턴스를 생성합니다.
 
-가장 일반적으로 사용하는 싱글톤입니다.\
-사용하지 않아도 클래스를 생성하기 때문에 낭비가 있습니다
+* 장점: 구현이 간단하며 멀티스레드 환경에서도 안전합니다.
+* 단점: 사용하지 않더라도 인스턴스가 생성되어 메모리 낭비가 발생할 수 있습니다.
 
-{% embed url="https://gist.github.com/Junnyjun/8d1f5178de6ddfb322262bd4f2f27072" %}
+{% tabs %}
+{% tab title="JAVA" %}
+```java
+public class EagerSingleton {
+    private static final EagerSingleton instance = new EagerSingleton();
 
-### Instance field
+    private EagerSingleton() { }
 
-default와 똑같이 Class loading시점에 이미 인스턴스가 생성되어 낭비가 됩니다.
+    public static EagerSingleton getInstance() {
+        return instance;
+    }
+}
+```
+{% endtab %}
 
-{% embed url="https://gist.github.com/Junnyjun/ee988c735e2185146bb42e69ec2d310a" %}
+{% tab title="KOTLIN" %}
+```kotlin
+object EagerSingleton {
+    fun doSomething() {
+        println("EagerSingleton 작업 수행")
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+***
+
+### Instance Field 방식
+
+클래스 로딩 시점에 인스턴스가 생성되므로 Default 방식과 동일하게 메모리 사용이 불필요할 수 있습니다.
+
+{% tabs %}
+{% tab title="JAVA" %}
+```java
+public class InstanceFieldSingleton {
+    private static InstanceFieldSingleton instance = new InstanceFieldSingleton();
+
+    private InstanceFieldSingleton() { }
+
+    public static InstanceFieldSingleton getInstance() {
+        return instance;
+    }
+}
+```
+{% endtab %}
+
+{% tab title="KOTLIN" %}
+```kotlin
+class InstanceFieldSingleton private constructor() {
+
+    // 싱글톤 인스턴스는 클래스가 로딩될 때 바로 생성됨.
+    companion object {
+        private val instance = InstanceFieldSingleton()
+
+        // 외부에서 인스턴스에 접근할 때 사용하는 메서드
+        fun getInstance(): InstanceFieldSingleton = instance
+    }
+
+    // 싱글톤 객체의 기능을 정의하는 메서드 예제
+    fun doSomething() {
+        println("InstanceFieldSingleton 작업 수행")
+    }
+}
+
+```
+{% endtab %}
+{% endtabs %}
+
+***
 
 ### Lazy Loading
 
-인스턴스 접근 시점에 초기화 하여 낭비를 줄일 수 있습니다.\
-하지만 동기화 문제가 발생할 수도 있습니다\
-syncronized 로 접근제한을 할 수도 있습니다.
+클래스가 로딩될 때 인스턴스를 생성하지 않고, 실제로 필요할 때 생성하여 메모리 낭비를 줄입니다.
 
-{% embed url="https://gist.github.com/Junnyjun/589cc16ebf1830b96b537eeceb3e9f8a" %}
+* 장점: 실제 사용 시점에 인스턴스를 생성하므로 메모리 효율적입니다.
+* 단점: 멀티스레드 환경에서 동기화(synchronized) 처리가 필요합니다.
 
-### Standard
+{% tabs %}
+{% tab title="JAVA" %}
+```java
+public class LazySingleton {
+    private static LazySingleton instance;
 
-현재 가장 많이 쓰이는 방법입니다.
+    private LazySingleton() { }
 
-{% embed url="https://gist.github.com/Junnyjun/800fe277aeb4ad2b629f23df41391983" %}
+    public static synchronized LazySingleton getInstance() {
+        if (instance == null) {
+            instance = new LazySingleton();
+        }
+        return instance;
+    }
+}
+```
+{% endtab %}
 
-### Joshua
+{% tab title="KOTLIN" %}
+```kotlin
+class LazySingleton private constructor() {
+    companion object {
+        val instance: LazySingleton by lazy { LazySingleton() }
+    }
 
-조슈아 블로크가 제안한 방식입니다.
+    fun doSomething() {
+        println("LazySingleton 작업 수행")
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
-{% embed url="https://gist.github.com/Junnyjun/01dfcdba1aee855f8305dc0e8be113f2" %}
+***
+
+### Standard / Joshua 블록 방식
+
+Joshua Bloch가 제안한 방식으로, Bill Pugh의 내부 정적 클래스 방식을 사용합니다.\
+이 방법은 클래스 로딩 시점과 실제 사용 시점의 장점을 모두 취하며, 멀티스레드 환경에서 안전합니다.
+
+{% tabs %}
+{% tab title="JAVA" %}
+```java
+public class StandardSingleton {
+    private StandardSingleton() { }
+
+    private static class SingletonHelper {
+        private static final StandardSingleton INSTANCE = new StandardSingleton();
+    }
+
+    public static StandardSingleton getInstance() {
+        return SingletonHelper.INSTANCE;
+    }
+}
+```
+{% endtab %}
+
+{% tab title="KOTLIN" %}
+```kotlin
+// 코틀린 예제: 코틀린에서는 object로 간단하게 구현 가능
+object StandardSingleton {
+    fun doSomething() {
+        println("StandardSingleton 작업 수행")
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+* **Default/Instance Field 방식**: 클래스 로딩 시점에 인스턴스가 생성되어 간단하지만, 사용하지 않을 경우에도 인스턴스가 생성됩니다.
+* **Lazy Loading 방식**: 인스턴스가 실제로 필요할 때 생성하여 메모리를 효율적으로 사용하지만, 동기화 비용이 발생할 수 있습니다.
+* **Standard/Joshua 방식**: Bill Pugh의 내부 클래스 방식을 활용해 스레드 안전하면서도 지연 초기화를 구현할 수 있습니다.
