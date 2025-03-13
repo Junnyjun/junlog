@@ -154,11 +154,11 @@ fun main() {
 {% endtab %}
 {% endtabs %}
 
-* **템플릿 메서드(templateMethod())**:\
+* **템플릿 메서드(templateMethod())**\
   알고리즘의 전체 흐름을 정의합니다. 템플릿 메서드 내에서 공통으로 수행해야 하는 단계와, 서브클래스에서 각각 다르게 구현해야 하는 추상 메서드를 호출합니다.
-* **primitiveOperation1()와 primitiveOperation2()**:\
+* **primitiveOperation1()와 primitiveOperation2()**\
   서브클래스에서 구체적으로 구현할 메서드입니다. 이 메서드들이 알고리즘의 변경 가능한 부분을 담당합니다.
-* **concreteOperation()**:\
+* **concreteOperation()**\
   알고리즘에서 변경되지 않고 공통으로 수행되는 작업으로, 보통 private 메서드로 정의되어 서브클래스에서 오버라이딩하지 않습니다.
-* **장점**:\
+* **장점**\
   알고리즘의 공통 부분과 변화하는 부분을 분리함으로써 코드 재사용성을 높이고, 알고리즘의 구조를 일정하게 유지할 수 있습니다.

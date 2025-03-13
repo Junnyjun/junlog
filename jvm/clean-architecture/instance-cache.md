@@ -19,7 +19,7 @@ private static class IntegerCache {
         ...
 ```
 
-직접 Cache 사이즈를 지정해 두지 않는다면 `-127~128(1byte)` 만큼을[ 캐시](../../computer-science/design-pattern/flyweight.md)해둡니다.
+직접 Cache 사이즈를 지정해 두지 않는다면 `-127~128(1byte)` 만큼을[ 캐시](../../computer-science/design-pattern/structural/flyweight.md)해둡니다.
 
 ```java
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -40,7 +40,7 @@ private static class IntegerCache {
 캐시 범위 바깥에 있는 add3, add4는 다른 인스턴스인걸 확인 할 수 있습니다.
 
 {% hint style="info" %}
-`-XX:AutoBoxCacheMax=size` 를  사용하여, 범위(-127 \~ size)를 직접 지정해줄 수 있습니다
+`-XX:AutoBoxCacheMax=size` 를 사용하여, 범위(-127 \~ size)를 직접 지정해줄 수 있습니다
 {% endhint %}
 
 Integer cache 이외에도 ByteCache, ShortCache, LongCache, CharcaterCache가 같은 방식으로 존재합니다.

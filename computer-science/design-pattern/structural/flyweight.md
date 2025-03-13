@@ -22,7 +22,7 @@ Flyweight 패턴은 수많은 객체를 생성해야 하는 상황에서 메모�
 캐시(cache)나 풀(pool) 방식에서 이미 존재하는 id를 가진 객체가 있다면 새 객체를 생성하지 않고 해당 객체를 반환합니다. 만약 해당 객체가 없다면 새로 생성하여 저장한 후 반환하는 방식입니다.
 
 기존의 id를 가진 값이 있으면 그값을 주고 없으면 새롭게 객체를 만들고 추가해서 주는(공유) 방식입니다.\
-Java의 여러 [Cache](../../jvm/clean-architecture/instance-cache.md) 에서 사용되고 있는 방식입니다.
+Java의 여러 [Cache](../../../jvm/clean-architecture/instance-cache.md) 에서 사용되고 있는 방식입니다.
 
 ***
 
