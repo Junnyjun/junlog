@@ -93,6 +93,5 @@ eureka:
     prefer-ip-address: false
 ```
 
-> TIP \
-> 이와 같은 에러 발생시 인증서 확인 
-> PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException
+> TIP\
+> 이와 같은 에러 발생시 인증서 확인 PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException

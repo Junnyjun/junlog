@@ -22,13 +22,9 @@ B 20 : 10 = 20 - 10 : 10
 
 같은 수가 남았으면 최대 공약수 입니다.
 
-{% @mermaid/diagram content="flowchart LR
-    A[A] --> C;
-    B[B] --> C;
-    C{A == B ?} -->|Yes| RETURN;
-    C -->|A = A-B| C;
-    C -->|B = B-A| C;
-" %}
+\{% @mermaid/diagram content="flowchart LR A\[A] --> C; B\[B] --> C; C{A == B ?} -->|Yes| RETURN; C -->|A = A-B| C; C -->|B = B-A| C;
+
+" %\}
 
 ***
 
