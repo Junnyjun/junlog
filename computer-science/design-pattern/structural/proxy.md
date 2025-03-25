@@ -70,15 +70,6 @@ public class ServiceProxy implements Service {
         return result;
     }
 }
-
-// 사용 예제
-public class Main {
-    public static void main(String[] args) {
-        Service service = new ServiceProxy();
-        String result = service.operation();
-        System.out.println("결과: " + result);
-    }
-}
 ```
 {% endtab %}
 
@@ -110,13 +101,6 @@ class ServiceProxy(private val realService: Service = RealService()) : Service {
 
         return result
     }
-}
-
-// 사용 예제
-fun main() {
-    val service: Service = ServiceProxy()
-    val result = service.operation()
-    println("결과: $result")
 }
 ```
 {% endtab %}
