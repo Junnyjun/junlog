@@ -566,6 +566,7 @@
     * [Memento](computer-science/design-pattern/behavioral/memento.md)
     * [Strategy](computer-science/design-pattern/strategy.md)
   * [Structural](computer-science/design-pattern/structural/README.md)
+    * [Interpreter](computer-science/design-pattern/structural/interpreter.md)
     * [Adapter](computer-science/design-pattern/structural/adapter.md)
     * [Proxy](computer-science/design-pattern/structural/proxy.md)
     * [Flyweight](computer-science/design-pattern/structural/flyweight.md)
