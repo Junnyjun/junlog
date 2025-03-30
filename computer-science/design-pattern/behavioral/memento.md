@@ -82,28 +82,6 @@ public class Caretaker {
         return mementoList.get(index);
     }
 }
-
-// 클라이언트 코드
-public class MementoDemo {
-    public static void main(String[] args) {
-        Originator originator = new Originator();
-        Caretaker caretaker = new Caretaker();
-
-        originator.setState("State #1");
-        originator.setState("State #2");
-        caretaker.add(originator.saveStateToMemento());  // 상태 저장
-
-        originator.setState("State #3");
-        caretaker.add(originator.saveStateToMemento());  // 상태 저장
-
-        originator.setState("State #4");
-        System.out.println("현재 상태: " + originator.getState());
-
-        // 이전 상태 복원
-        originator.getStateFromMemento(caretaker.get(0));
-        System.out.println("복원된 상태: " + originator.getState());
-    }
-}
 ```
 {% endtab %}
 
@@ -145,27 +123,6 @@ class Caretaker {
 
     fun get(index: Int): Memento = mementoList[index]
 }
-
-// 클라이언트 코드
-fun main() {
-    val originator = Originator()
-    val caretaker = Caretaker()
-
-    originator.setState("State #1")
-    originator.setState("State #2")
-    caretaker.add(originator.saveStateToMemento())  // 상태 저장
-
-    originator.setState("State #3")
-    caretaker.add(originator.saveStateToMemento())  // 상태 저장
-
-    originator.setState("State #4")
-    println("현재 상태: ${originator.state}")
-
-    // 이전 상태 복원
-    originator.getStateFromMemento(caretaker.get(0))
-    println("복원된 상태: ${originator.state}")
-}
-
 ```
 {% endtab %}
 {% endtabs %}
