@@ -82,21 +82,6 @@ public class ConcreteObserver implements Observer {
         System.out.println(name + "이(가) 업데이트 받음: " + message);
     }
 }
-
-// 클라이언트 코드
-public class ObserverDemo {
-    public static void main(String[] args) {
-        ConcreteSubject subject = new ConcreteSubject();
-        Observer observer1 = new ConcreteObserver("Observer1");
-        Observer observer2 = new ConcreteObserver("Observer2");
-
-        subject.attach(observer1);
-        subject.attach(observer2);
-
-        subject.setMessage("새로운 데이터가 도착했습니다!");
-    }
-}
-
 ```
 {% endtab %}
 
@@ -143,18 +128,6 @@ class ConcreteObserver(private val name: String) : Observer {
     override fun update(message: String) {
         println("$name 이(가) 업데이트 받음: $message")
     }
-}
-
-// 클라이언트 코드
-fun main() {
-    val subject = ConcreteSubject()
-    val observer1: Observer = ConcreteObserver("Observer1")
-    val observer2: Observer = ConcreteObserver("Observer2")
-
-    subject.attach(observer1)
-    subject.attach(observer2)
-
-    subject.setMessage("새로운 데이터가 도착했습니다!")
 }
 ```
 {% endtab %}

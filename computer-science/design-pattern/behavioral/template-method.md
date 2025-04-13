@@ -76,21 +76,6 @@ public class ConcreteClass2 extends AbstractClass {
         System.out.println("ConcreteClass2: primitiveOperation2 수행");
     }
 }
-
-// 클라이언트 코드
-public class TemplateMethodDemo {
-    public static void main(String[] args) {
-        AbstractClass obj1 = new ConcreteClass1();
-        AbstractClass obj2 = new ConcreteClass2();
-        
-        System.out.println("ConcreteClass1 실행:");
-        obj1.templateMethod();
-        
-        System.out.println("\nConcreteClass2 실행:");
-        obj2.templateMethod();
-    }
-}
-
 ```
 {% endtab %}
 
@@ -137,19 +122,6 @@ class ConcreteClass2 : AbstractClass() {
         println("ConcreteClass2: primitiveOperation2 수행")
     }
 }
-
-// 클라이언트 코드
-fun main() {
-    val obj1: AbstractClass = ConcreteClass1()
-    val obj2: AbstractClass = ConcreteClass2()
-    
-    println("ConcreteClass1 실행:")
-    obj1.templateMethod()
-    
-    println("\nConcreteClass2 실행:")
-    obj2.templateMethod()
-}
-
 ```
 {% endtab %}
 {% endtabs %}

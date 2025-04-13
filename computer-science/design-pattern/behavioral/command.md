@@ -88,23 +88,6 @@ public class Invoker {
         }
     }
 }
-
-// 클라이언트 코드
-public class CommandDemo {
-    public static void main(String[] args) {
-        // 수신자 생성
-        Receiver receiver = new Receiver();
-
-        // 구체적인 명령 생성 (Receiver 전달)
-        Command command = new ConcreteCommand(receiver);
-
-        // 호출자(Invoker) 생성 후, 명령 설정 및 실행 요청
-        Invoker invoker = new Invoker();
-        invoker.setCommand(command);
-        invoker.invoke();
-    }
-}
-
 ```
 {% endtab %}
 
@@ -144,21 +127,6 @@ class Invoker {
         command?.execute()
     }
 }
-
-// 클라이언트 코드
-fun main() {
-    // 수신자 생성
-    val receiver = Receiver()
-
-    // 구체적인 명령 생성 (Receiver 전달)
-    val command: Command = ConcreteCommand(receiver)
-
-    // 호출자(Invoker) 생성 후, 명령 설정 및 실행 요청
-    val invoker = Invoker()
-    invoker.setCommand(command)
-    invoker.invoke()
-}
-
 ```
 {% endtab %}
 {% endtabs %}
