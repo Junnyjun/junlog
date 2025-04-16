@@ -39,7 +39,7 @@
 캡슐화는 정보 은닉을 통해 객체의 상태를 보호하는 개념이다. Java에서는 접근 제어자(Access Modifier)로 이를 구현한다.
 
 ```java
-java복사편집public class Wallet {
+public class Wallet {
   private String id;
   private BigDecimal balance;
 
@@ -71,7 +71,7 @@ java복사편집public class Wallet {
 주로 인터페이스와 추상 클래스를 이용해 구현한다.
 
 ```java
-java복사편집public interface Storage {
+public interface Storage {
   void save(String data);
 }
 
@@ -92,7 +92,7 @@ public class FileStorage implements Storage {
 상속은 클래스 간의 is-a 관계를 표현하며, 중복 코드를 제거하고 재사용성을 높인다.
 
 ```java
-java복사편집public class Animal {
+public class Animal {
   public void sound() {
     System.out.println("소리낸다");
   }
@@ -115,7 +115,7 @@ public class Dog extends Animal {
 다형성은 동일한 인터페이스를 통해 여러 다른 클래스의 객체를 다룰 수 있게 하는 기능이다.
 
 ```java
-java복사편집public interface Shape {
+public interface Shape {
   void draw();
 }
 
@@ -163,7 +163,7 @@ public class Demo {
 * 대표 언어: C, Pascal 등
 
 ```c
-c복사편집void print_user(User user) {
+void print_user(User user) {
   printf("이름:%s 나이:%d\n", user.name, user.age);
 }
 ```
@@ -174,7 +174,7 @@ c복사편집void print_user(User user) {
 * 대표 언어: Java, Kotlin, C++
 
 ```java
-java복사편집class User {
+class User {
   private String name;
   public void print() {
     System.out.println("이름: " + name);
@@ -188,7 +188,7 @@ java복사편집class User {
 * 대표 언어: Haskell, Scala(일부), Java8+(Stream, Lambda 지원)
 
 ```java
-java복사편집Stream.of("foo", "bar")
+Stream.of("foo", "bar")
       .map(String::toUpperCase)
       .forEach(System.out::println);
 ```
@@ -205,7 +205,7 @@ java복사편집Stream.of("foo", "bar")
 **상속 예시:**
 
 ```java
-java복사편집class Bird {
+class Bird {
   void fly() { System.out.println("날다"); }
 }
 
@@ -215,7 +215,7 @@ class Sparrow extends Bird {}
 **합성 예시(권장):**
 
 ```java
-java복사편집interface Flyable {
+interface Flyable {
   void fly();
 }
 
