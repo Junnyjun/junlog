@@ -586,7 +586,7 @@
   * [📘 디자인패턴의 아름다움](computer-science/books/undefined/README.md)
     * [개요](computer-science/books/undefined/undefined.md)
     * [객체지향 프로그래밍 패러다임 이해하기](computer-science/books/undefined/undefined-1.md)
-    * [Page](computer-science/books/undefined/page.md)
+    * [설계원칙](computer-science/books/undefined/undefined-2.md)
   * [📓 Operating System](computer-science/books/operating-system/README.md)
     * [운영체제 개요](computer-science/books/operating-system/undefined.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
