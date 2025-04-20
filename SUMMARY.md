@@ -238,6 +238,8 @@
 ## Spring
 
 * [🌫️ Data](spring/data/README.md)
+  * [Hikari](spring/data/hikari/README.md)
+    * [커넥션 풀링의 필요성과 기본 개념](spring/data/hikari/undefined.md)
   * [Data Rest](spring/data/data-rest.md)
   * [JDBC](spring/data/datasource/README.md)
     * [Datasource](spring/data/datasource/datasource.md)
