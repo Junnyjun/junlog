@@ -48,10 +48,10 @@ ConcurrentBag의 내부는 여러 최적화된 데이터 구조를 사용하여 
 
 ConcurrentBag은 다음과 같은 상태 값을 사용하여 각 항목의 상태를 추적합니다:
 
-* : 항목이 유휴 상태이며 사용 가능함 `STATE_NOT_IN_USE`
-* : 항목이 현재 사용 중임 `STATE_IN_USE`
-* : 항목이 제거되었음 `STATE_REMOVED`
-* : 항목이 예약됨 (다른 스레드가 곧 사용할 예정) `STATE_RESERVED`
+* `STATE_NOT_IN_USE`: 항목이 유휴 상태이며 사용 가능함&#x20;
+* `STATE_IN_USE`: 항목이 현재 사용 중임&#x20;
+* `STATE_REMOVED`: 항목이 제거되었음&#x20;
+* `STATE_RESERVED`: 항목이 예약됨 (다른 스레드가 곧 사용할 예정)&#x20;
 
 #### 내부 컬렉션
 
@@ -65,10 +65,10 @@ private final AtomicInteger waiters;
 private final SynchronousQueue<T> handoffQueue;
 ```
 
-* : 모든 항목을 저장하는 스레드 안전한 리스트 `sharedList`
+* `sharedList`: 모든 항목을 저장하는 스레드 안전한 리스트&#x20;
 * `threadList`: 스레드 로컬 캐시로, 각 스레드가 자신이 사용한 항목을 추적
-* : 현재 대기 중인 스레드 수를 추적하는 원자적 카운터 `waiters`
-* : 항목을 대기 중인 스레드에게 직접 전달하기 위한 동기화 큐 `handoffQueue`
+* `waiters`: 현재 대기 중인 스레드 수를 추적하는 원자적 카운터&#x20;
+* `handoffQueue`: 항목을 대기 중인 스레드에게 직접 전달하기 위한 동기화 큐&#x20;
 
 ### 핵심 알고리즘: borrow()
 
