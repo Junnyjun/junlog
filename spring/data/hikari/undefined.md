@@ -79,38 +79,44 @@ try (Connection conn = ds.getConnection()) {
 
 ```mermaid
 flowchart LR
-  subgraph 앱
-    A[스레드 요청]
+
+  %% Thread 영역
+  subgraph Thread
+    T["스레드 요청: getConnection() 호출"]
   end
 
-  subgraph "커넥션 풀 (DataSource)"
-    P{유휴 존재?}
-    I[유휴 커넥션]
-    C[신규 커넥션 생성]
-    W[대기(타임아웃)]
-    R[커넥션 정리]
+  %% Pool 영역
+  subgraph Pool
+    P{"유휴 커넥션 존재? idleConnections &gt; 0"}
+    Idle["유휴 커넥션 할당"]
+    New["신규 커넥션 생성 (total &lt; maxPoolSize)"]
+    Wait["대기 (connectionTimeout)"]
+    Error["타임아웃 예외 발생"]
+    Cleanup["커넥션 종료 처리 (idleTimeout 경과)"]
   end
 
-  subgraph DB
-    D[(데이터베이스)]
+  %% Database 영역
+  subgraph Database
+    D[(DB)]
   end
 
-  A -->|getConnection()| P
-  P -->|Yes| I
-  P -->|No\n(풀 < 최대)| C
-  P -->|No\n(풀 == 최대)| W
-  I --> A
-  C --> A
+  %% 연결 흐름
+  T --> P
+  P -->|예| Idle
+  P -->|아니오: 풀 &lt; 최대| New
+  P -->|아니오: 풀 == 최대| Wait
 
-  A -->|쿼리 실행| D
-  D -->|결과 반환| A
+  %% 커넥션 반환 및 예외 흐름
+  Idle -->|Connection 반환| T
+  New  -->|Connection 반환| T
+  Wait -->|Timeout 발생| Error
 
-  A -->|close() 호출| I
-  I -.->|idleTimeout 경과| R
+  %% idleTimeout 종료 처리
+  Idle -.->|idleTimeout 경과| Cleanup
 
-```
-
-```mermaid
+  %% 쿼리 실행 흐름
+  T -->|쿼리 실행| D
+  D -->|결과 반환| T
 ```
 
 ***
