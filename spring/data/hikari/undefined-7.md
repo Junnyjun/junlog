@@ -205,8 +205,7 @@ private class HouseKeeper implements Runnable {
 
 애플리케이션이 커넥션을 명시적으로 닫지 않는 경우, HikariCP는 이를 감지하고 필요한 경우 회수할 수 있습니다:
 
-```
-
+```java
 private class LeakDetector implements Runnable {
    @Override
    public void run() {
@@ -241,8 +240,7 @@ private class LeakDetector implements Runnable {
 
 네트워크 중단이나 데이터베이스 재시작 같은 이벤트는 풀의 모든 커넥션을 한 번에 무효화할 수 있습니다. HikariCP는 이러한 상황을 감지하고 풀을 효율적으로 복구하는 메커니즘을 갖추고 있습니다:
 
-```
-
+```java
 private void checkFailFast() {
    if (failFastEnabled) {
       final long startTime = currentTime();
@@ -282,8 +280,7 @@ HikariCP는 커넥션 문제 발생 시 관리자에게 알리기 위한 다양�
 
 문제가 있는 커넥션은 자세한 정보와 함께 로그에 기록됩니다:
 
-```
-
+```java
 private void handleBrokenConnection(PoolEntry poolEntry, String reason, Throwable cause) {
    final String connectionId = poolEntry.connection.toString();
    logger.warn("Connection {} marked as broken: {}", connectionId, reason, cause);
@@ -297,8 +294,7 @@ private void handleBrokenConnection(PoolEntry poolEntry, String reason, Throwabl
 
 HikariCP는 JMX를 통해 풀 상태와 관련된 다양한 메트릭을 노출합니다:
 
-```
-
+```java
 public class HikariPool implements HikariPoolMXBean {
    @Override
    public int getActiveConnections() {
@@ -331,8 +327,7 @@ public class HikariPool implements HikariPoolMXBean {
 
 HikariCP는 풀 상태를 외부 모니터링 시스템에 노출하기 위한 헬스체크 인터페이스를 제공할 수 있습니다:
 
-```
-
+```java
 public class HikariPoolHealthCheck implements HealthCheck {
    private final HikariDataSource dataSource;
    
@@ -364,8 +359,7 @@ HikariCP는 다양한 데이터베이스 벤더에 맞게 커넥션 검증 전�
 
 #### MySQL 최적화
 
-```
-
+```java
 private void configureValidationForMySql(HikariConfig config) {
    // MySQL은 JDBC4 isValid()를 효율적으로 구현함
    config.setConnectionValidationMethod("JDBC4");
@@ -384,8 +378,7 @@ private void configureValidationForMySql(HikariConfig config) {
 
 #### PostgreSQL 최적화
 
-```
-
+```java
 private void configureValidationForPostgreSQL(HikariConfig config) {
    // PostgreSQL은 JDBC4 isValid()를 효율적으로 구현함
    config.setConnectionValidationMethod("JDBC4");
@@ -404,10 +397,8 @@ private void configureValidationForPostgreSQL(HikariConfig config) {
 
 #### Oracle 최적화
 
-```
-
-private void configureValidationForOracle(HikariConfig config) {
-   // Oracle 드라이버는 isValid()가 느릴 수 있으므로 간단한 쿼리 사용
+<pre class="language-java"><code class="lang-java"><strong>private void configureValidationForOracle(HikariConfig config) {
+</strong>   // Oracle 드라이버는 isValid()가 느릴 수 있으므로 간단한 쿼리 사용
    config.setConnectionValidationMethod("QUERY");
    
    // 기본 검증 쿼리 설정
@@ -420,7 +411,7 @@ private void configureValidationForOracle(HikariConfig config) {
       config.addDataSourceProperty("oracle.net.CONNECT_TIMEOUT", String.valueOf(validationTimeout));
    }
 }
-```
+</code></pre>
 
 ### 고급 검증 기법
 
@@ -430,8 +421,7 @@ HikariCP는 일반적인 검증 이외에도 몇 가지 고급 검증 기법을 
 
 HikariCP는 자체적으로 풀의 건전성을 주기적으로 진단하고 필요한 조치를 취합니다:
 
-```
-
+```java
 private void performPoolHealthCheck() {
    final int totalConnections = getTotalConnections();
    final int idleConnections = getIdleConnections();
@@ -458,8 +448,7 @@ private void performPoolHealthCheck() {
 
 HikariCP는 커넥션의 수명 주기를 관리하여 오래된 커넥션을 자동으로 교체합니다:
 
-```
-
+```java
 private void manageConnectionLifecycle() {
    final long now = currentTime();
    final List<PoolEntry> allEntries = connectionBag.values();
@@ -485,10 +474,8 @@ private void manageConnectionLifecycle() {
 
 데이터베이스 재시작 같은 이벤트 이후 모든 커넥션을 한 번에 재생성하면 성능에 영향을 줄 수 있습니다. HikariCP는 커넥션을 점진적으로 교체하여 이러한 문제를 방지합니다:
 
-```
-
-private void softEvictConnections(Collection<PoolEntry> connections, String reason) {
-   for (PoolEntry poolEntry : connections) {
+<pre class="language-java"><code class="lang-java"><strong>private void softEvictConnections(Collection&#x3C;PoolEntry> connections, String reason) {
+</strong>   for (PoolEntry poolEntry : connections) {
       // 소프트 제거 플래그 설정
       poolEntry.markEvicted();
       
@@ -498,33 +485,9 @@ private void softEvictConnections(Collection<PoolEntry> connections, String reas
       }
    }
 }
-```
+</code></pre>
 
-### 결론: 신뢰성과 성능의 균형
 
-HikariCP의 커넥션 테스트와 유효성 검사 메커니즘은 고성능 커넥션 풀링의 또 다른 중요한 측면을 보여줍니다. 단순히 빠른 커넥션 관리를 넘어 신뢰성과 안정성이 실제 운영 환경에서 얼마나 중요한지 강조합니다. 이러한 메커니즘은 다음과 같은 이점을 제공합니다:
 
-#### 사용자 경험 향상
+HikariCP의 커넥션 테스트와 유효성 검사 메커니즘은 고성능 커넥션 풀링의 또 다른 중요한 측면을 보여줍니다. 단순히 빠른 커넥션 관리를 넘어 신뢰성과 안정성이 실제 운영 환경에서 얼마나 중요한지 강조합니다
 
-끊긴 커넥션이나 무효화된 커넥션으로 인한 오류를 최소화하여 최종 사용자 경험을 향상시킵니다. 사용자는 "데이터베이스 연결 오류" 같은 메시지 대신 애플리케이션이 항상 원활하게 작동하는 것을 경험하게 됩니다.
-
-#### 시스템 복원력 강화
-
-네트워크 불안정성, 데이터베이스 재시작, 일시적인 장애와 같은 상황에서도 시스템이 자동으로 복구될 수 있도록 합니다. 이는 현대적인 클라우드 환경이나 마이크로서비스 아키텍처에서 특히 중요합니다.
-
-#### 운영 부담 감소
-
-자동화된 검증 및 복구 메커니즘은 운영팀의 수작업 개입 필요성을 줄이고, 심야에 발생하는 긴급 상황을 최소화합니다. 시스템이 자체적으로 많은 일반적인 문제를 해결할 수 있기 때문입니다.
-
-#### 성능과 신뢰성의 균형
-
-HikariCP의 접근 방식은 불필요한 검증을 최소화하면서도 필요한 시점에 적절한 검증을 수행하여 신뢰성과 성능 사이의 이상적인 균형을 찾는 방법을 보여줍니다. 이는 다음과 같은 설계 원칙을 통해 달성됩니다:
-
-1. **선택적 검증**: 모든 커넥션을 항상 검사하는 대신, 구성 가능한 조건에 따라 필요할 때만 검사합니다.
-2. **효율적인 검증 방법**: 데이터베이스 드라이버가 제공하는 가장 효율적인 방법(일반적으로 `isValid()`)을 우선적으로 사용합니다.
-3. **지능적인 백그라운드 처리**: 사용자 작업을 차단하지 않고 백그라운드에서 대부분의 유지 관리 작업을 수행합니다.
-4. **점진적 복구**: 장애 발생 시 시스템에 갑작스러운 부하를 주지 않도록 점진적인 복구 전략을 사용합니다.
-
-HikariCP의 커넥션 검증 접근 방식은 고성능 라이브러리가 실제 운영 환경의 요구 사항을 어떻게 균형 있게 충족시켜야 하는지에 대한 중요한 교훈을 제공합니다. 극단적인 성능 최적화만을 추구하는 것이 아니라, 실제 사용 환경에서의 안정성과 장애 허용성을 고려한 설계가 진정한 고품질 소프트웨어의 핵심입니다.
-
-다음 챕터에서는 HikariCP의 전체적인 아키텍처와 구현 철학을 종합적으로 분석하고, 이러한 설계 결정이 모던 자바 애플리케이션 개발에 주는 시사점과 교훈을 살펴보겠습니다.
