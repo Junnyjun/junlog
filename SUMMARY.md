@@ -284,7 +284,7 @@
   * [Kafka](spring/tools/kafka/README.md)
     * [Listener](spring/tools/kafka/listener.md)
   * [Integration](spring/tools/integration/README.md)
-    * [Component](spring/tools/integration/component.md)
+    * [개요](spring/tools/integration/component.md)
   * [Http](spring/tools/http/README.md)
     * [RestTemplate Logging](spring/tools/http/api-call.md)
     * [Okhttp](spring/tools/http/okhttp.md)
