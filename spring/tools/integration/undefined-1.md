@@ -15,7 +15,7 @@
 
 가장 간단한 형태의 트랜스포머는 메시지를 받아 새로운 페이로드로 변환하는 것입니다:
 
-```java
+```
 @Bean
 public IntegrationFlow simpleTransformFlow() {
     return IntegrationFlows
@@ -35,7 +35,7 @@ Spring Integration은 일반적인 변환 작업을 위한 다양한 표준 트�
 
 **객체-JSON 변환**
 
-```java
+```
 @Bean
 public IntegrationFlow jsonTransformFlow() {
     return IntegrationFlows
@@ -57,7 +57,7 @@ public IntegrationFlow jsonToObjectFlow() {
 
 **XML 변환**
 
-```java
+```
 @Bean
 public IntegrationFlow xmlTransformFlow() {
     return IntegrationFlows
@@ -79,7 +79,7 @@ public IntegrationFlow xmlToObjectFlow() {
 
 **파일 내용 변환**
 
-```java
+```
 @Bean
 public IntegrationFlow fileContentTransformFlow() {
     return IntegrationFlows
@@ -94,7 +94,7 @@ public IntegrationFlow fileContentTransformFlow() {
 
 자바 메서드에 `@Transformer` 어노테이션을 사용하여 트랜스포머를 구현할 수 있습니다:
 
-```java
+```
 @Component
 public class OrderTransformer {
     
@@ -122,7 +122,7 @@ public class OrderTransformer {
 
 트랜스포머는 메시지 페이로드뿐만 아니라 헤더도 변경할 수 있습니다:
 
-```java
+```
 @Bean
 public IntegrationFlow headerEnrichmentFlow() {
     return IntegrationFlows
@@ -141,7 +141,7 @@ public IntegrationFlow headerEnrichmentFlow() {
 
 메시지를 외부 시스템에서 가져온 추가 데이터로 보강할 수 있습니다:
 
-```java
+```
 @Bean
 public IntegrationFlow orderEnrichmentFlow() {
     return IntegrationFlows
@@ -178,7 +178,7 @@ public IntegrationFlow orderEnrichmentFlow() {
 
 복잡한 메시지를 여러 개의 작은 메시지로 분할하거나, 여러 메시지를 하나로 집계하는 변환 작업도 가능합니다:
 
-```java
+```
 // 분할기: 주문을 개별 주문 항목으로 분할
 @Bean
 public IntegrationFlow orderSplitterFlow() {
@@ -246,7 +246,7 @@ public IntegrationFlow orderAggregatorFlow() {
 
 메시지 페이로드의 내용에 따라 라우팅합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow orderRoutingFlow() {
     return IntegrationFlows
@@ -263,7 +263,7 @@ public IntegrationFlow orderRoutingFlow() {
 
 좀 더 복잡한 라우팅 로직을 구현할 수도 있습니다:
 
-```java
+```
 @Bean
 public IntegrationFlow complexRoutingFlow() {
     return IntegrationFlows
@@ -298,7 +298,7 @@ public IntegrationFlow complexRoutingFlow() {
 
 메시지 헤더의 값을 기준으로 라우팅합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow headerValueRoutingFlow() {
     return IntegrationFlows
@@ -317,7 +317,7 @@ public IntegrationFlow headerValueRoutingFlow() {
 
 메시지 페이로드의 타입에 따라 라우팅합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow payloadTypeRoutingFlow() {
     return IntegrationFlows
@@ -329,27 +329,13 @@ public IntegrationFlow payloadTypeRoutingFlow() {
             .defaultOutputChannel("defaultChannel"))
         .get();
 }
-
-// 또는 DSL 사용하여 구현
-@Bean
-public IntegrationFlow payloadTypeRoutingDslFlow() {
-    return IntegrationFlows
-        .from("inputChannel")
-        .route(Message.class, m -> m.getPayload().getClass().getName(),
-            mapping -> mapping
-                .channelMapping(String.class.getName(), "stringChannel")
-                .channelMapping(Integer.class.getName(), "integerChannel")
-                .channelMapping(Order.class.getName(), "orderChannel")
-                .defaultOutputChannel("defaultChannel"))
-        .get();
-}
 ```
 
 #### 4. 수신자 목록 라우터(Recipient List Router)
 
 하나의 메시지를 여러 채널로 동시에 라우팅합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow recipientListRoutingFlow() {
     return IntegrationFlows
@@ -369,7 +355,7 @@ public IntegrationFlow recipientListRoutingFlow() {
 
 `@Router` 어노테이션을 사용하여 라우터를 구현할 수 있습니다:
 
-```java
+```
 @Component
 public class OrderRouter {
     
@@ -415,7 +401,7 @@ public class OrderRouter {
 
 다양한 형식의 입력을 표준 형식으로 변환합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow orderNormalizerFlow() {
     return IntegrationFlows
@@ -463,32 +449,13 @@ public IntegrationFlow orderNormalizerFlow() {
             }))
         .get();
 }
-
-private Order convertCsvToOrder(String csv) {
-    // CSV 문자열을 주문 객체로 변환하는 로직
-    String[] fields = csv.split(",");
-    Order order = new Order();
-    order.setId(fields[0]);
-    // ... 나머지 필드 처리
-    return order;
-}
-
-private Order deserializeBinaryOrder(byte[] data) {
-    // 바이너리 데이터를 주문 객체로 역직렬화하는 로직
-    try (ByteArrayInputStream bis = new ByteArrayInputStream(data);
-         ObjectInputStream ois = new ObjectInputStream(bis)) {
-        return (Order) ois.readObject();
-    } catch (Exception e) {
-        throw new RuntimeException("Failed to deserialize order", e);
-    }
-}
 ```
 
 #### 2. 클레임 체크 트랜스포머(Claim Check Transformer)
 
 큰 페이로드를 일시적으로 저장소에 보관하고 참조만 전달합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow claimCheckFlow() {
     return IntegrationFlows
@@ -514,38 +481,11 @@ public MessageStore messageStore() {
 }
 ```
 
-#### 3. 컨텐츠 필터(Content Filter)
-
-메시지에서 불필요한 정보를 제거합니다:
-
-```java
-@Bean
-public IntegrationFlow contentFilterFlow() {
-    return IntegrationFlows
-        .from("rawOrderChannel")
-        .transform(order -> {
-            Order filteredOrder = (Order) ((Order) order).clone();
-            
-            // 민감한 정보 제거
-            filteredOrder.getCustomer().setCardDetails(null);
-            filteredOrder.getCustomer().setSsn(null);
-            
-            // 파트너에게 불필요한 내부 필드 제거
-            filteredOrder.setInternalNotes(null);
-            filteredOrder.setProfitMargin(null);
-            
-            return filteredOrder;
-        })
-        .channel("partnerOrderChannel")
-        .get();
-}
-```
-
 ### 통합 주문 처리 파이프라인
 
-이제 복잡한 주문 처리 시스템의 변환 및 라우팅 로직을 구현해 보겠습니다.
+통합적인 주문 처리 시스템의 변환 및 라우팅 로직을 구현한 예제입니다:
 
-```java
+```
 @Configuration
 @EnableIntegration
 public class OrderProcessingIntegrationConfig {
@@ -588,11 +528,7 @@ public class OrderProcessingIntegrationConfig {
                     .transform(new XmlToObjectTransformer(orderUnmarshaller)))
                 .subFlowMapping("jsonOrder", sf -> sf
                     .transform(new JsonToObjectTransformer(PartnerOrderDTO.class))
-                    .transform(this::convertPartnerOrder))
-                .defaultSubFlowMapping(sf -> sf
-                    .handle(message -> {
-                        throw new IllegalArgumentException("Unknown order format");
-                    })))
+                    .transform(this::convertPartnerOrder)))
             .channel("normalizedOrderChannel")
             .get();
     }
@@ -638,26 +574,6 @@ public class OrderProcessingIntegrationConfig {
                 }))
             // 주문 유효성 검사
             .filter(this::validateOrder, f -> f.discardChannel("invalidOrdersChannel"))
-            // 주문 가격 계산
-            .transform(order -> {
-                Order validatedOrder = (Order) order;
-                // 상품 가격 합계 계산
-                BigDecimal subtotal = validatedOrder.getItems().stream()
-                    .map(item -> item.getUnitPrice().multiply(new BigDecimal(item.getQuantity())))
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
-                
-                // 세금 및 배송비 추가
-                BigDecimal tax = pricingService.calculateTax(subtotal, validatedOrder.getShippingAddress());
-                BigDecimal shippingCost = pricingService.calculateShippingCost(
-                    validatedOrder.getItems(), validatedOrder.getShippingAddress());
-                
-                validatedOrder.setSubtotal(subtotal);
-                validatedOrder.setTax(tax);
-                validatedOrder.setShippingCost(shippingCost);
-                validatedOrder.setTotalAmount(subtotal.add(tax).add(shippingCost));
-                
-                return validatedOrder;
-            })
             .channel("validatedOrderChannel")
             .get();
     }
@@ -696,7 +612,6 @@ public class OrderProcessingIntegrationConfig {
                 return "standardFlow";
             }, mapping -> mapping
                 .subFlowMapping("backorderFlow", sf -> sf
-                    .transform(this::prepareBackorder)
                     .channel("backorderChannel"))
                 .subFlowMapping("highValueFlow", sf -> sf
                     .enrichHeaders(h -> h.header("requiresApproval", true))
@@ -705,14 +620,13 @@ public class OrderProcessingIntegrationConfig {
                     .enrichHeaders(h -> h.header("expediteDelivery", true))
                     .channel("vipOrderChannel"))
                 .subFlowMapping("internationalFlow", sf -> sf
-                    .transform(this::prepareInternationalOrder)
                     .channel("internationalOrderChannel"))
                 .defaultSubFlowMapping(sf -> sf
                     .channel("standardOrderChannel")))
             .get();
     }
     
-    // 4. 고객 조회 서브플로우
+    // 고객 조회 서브플로우 구현
     @Bean
     public IntegrationFlow customerLookupFlow() {
         return IntegrationFlows
@@ -725,49 +639,7 @@ public class OrderProcessingIntegrationConfig {
             .channel("customerResponseChannel")
             .get();
     }
-    
-    // 5. 제품 조회 서브플로우
-    @Bean
-    public IntegrationFlow productLookupFlow() {
-        return IntegrationFlows
-            .from("productLookupChannel")
-            .handle(message -> {
-                @SuppressWarnings("unchecked")
-                List<String> productIds = (List<String>) message.getPayload();
-                return productRepository.findAllById(productIds);
-            })
-            .channel("productResponseChannel")
-            .get();
-    }
-    
-    // 6. 유효하지 않은 주문 처리 플로우
-    @Bean
-    public IntegrationFlow invalidOrderFlow() {
-        return IntegrationFlows
-            .from("invalidOrdersChannel")
-            .transform(order -> {
-                Order invalidOrder = (Order) order;
-                // 오류 세부 정보 수집
-                List<String> errors = validateOrderWithDetails(invalidOrder);
-                
-                // 오류 보고서 생성
-                ValidationReport report = new ValidationReport();
-                report.setOrderId(invalidOrder.getId());
-                report.setCustomerId(invalidOrder.getCustomerId());
-                report.setErrors(errors);
-                report.setTimestamp(new Date());
-                
-                return report;
-            })
-            .routeToRecipients(r -> r
-                // 오류 로깅
-                .recipient("validationErrorLogChannel")
-                // 고객 알림
-                .recipient("customerNotificationChannel", 
-                    m -> ((ValidationReport) m.getPayload()).getErrors().size() <= 3)
-                // 관리자 검토가 필요한 심각한 오류
-                .recipient("manualReviewChannel", 
-                    m -> ((ValidationReport) m.getPayload()).getErrors().size() > 3))
-            .get();
-    }
+}
 ```
+
+Spring Integration의 변환 및 라우팅 기능을 활용하면 복잡한 기업 통합 시나리오를 선언적이고 유연한 방식으로 구현할 수 있습니다. 다양한 시스템에서 오는 메시지를 표준화하고, 메시지의 특성에 따라 적절한 처리 경로로 라우팅함으로써 확장 가능하고 유지보수가 용이한 통합 솔루션을 개발할 수 있습니다.

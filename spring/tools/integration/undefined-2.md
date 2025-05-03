@@ -1,8 +1,6 @@
 # 메시지 흐름 제어와 오류 처리
 
-기업 애플리케이션에서는 메시지 처리 과정에서 다양한 상황이 발생할 수 있습니다. 처리량이 갑자기 증가하거나, 외부 시스템이 응답하지 않거나, 예상치 못한 데이터가 유입될 수 있습니다. 따라서 메시지 흐름을 효과적으로 제어하고 오류 상황에 적절히 대응하는 것은 안정적인 통합 시스템 구축의 핵심입니다.
-
-Spring Integration은 이러한 상황을 처리하기 위한 다양한 메커니즘을 제공합니다. 이번 챕터에서는 메시지 흐름 제어와 오류 처리 전략에 대해 자세히 알아보겠습니다.
+기업 애플리케이션에서는 메시지 처리 과정에서 다양한 상황이 발생할 수 있습니다. 처리량이 갑자기 증가하거나, 외부 시스템이 응답하지 않거나, 예상치 못한 데이터가 유입될 수 있습니다. Spring Integration은 이러한 상황을 효과적으로 처리하기 위한 다양한 메커니즘을 제공합니다.
 
 ### 메시지 흐름 제어 메커니즘
 
@@ -10,7 +8,7 @@ Spring Integration은 이러한 상황을 처리하기 위한 다양한 메커�
 
 폴러는 채널에서 메시지를 가져오는 빈도와 방식을 제어합니다. 특히 과 같은 폴링 채널을 사용할 때 중요합니다. `QueueChannel`
 
-```java
+```
 @Bean
 public IntegrationFlow pollingFlow() {
     return IntegrationFlows
@@ -42,7 +40,7 @@ public TaskExecutor taskExecutor() {
 
 메시지 처리 속도를 제한하여 시스템 과부하를 방지합니다:
 
-```java
+```
 @Bean
 public MessageChannelInterceptor throttlingInterceptor() {
     ChannelInterceptorAdapter interceptor = new ChannelInterceptorAdapter() {
@@ -69,44 +67,23 @@ public DirectChannel throttledChannel() {
 
 외부 시스템에 문제가 발생했을 때 지속적인 연결 시도를 방지합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow circuitBreakerFlow() {
     return IntegrationFlows
         .from("requestChannel")
-        .handle(new CircuitBreakerHandlerAdapter(
-            new HttpRequestExecutingMessageHandler("https://api.example.com/process"),
-            circuitBreakerFactory()))
+        .handle("externalService", "process", 
+                e -> e.advice(circuitBreakerAdvice()))
         .channel("responseChannel")
         .get();
 }
 
-// CircuitBreaker 어댑터 구현
-public class CircuitBreakerHandlerAdapter extends AbstractReplyProducingMessageHandler {
-    
-    private final AbstractReplyProducingMessageHandler delegate;
-    private final CircuitBreaker circuitBreaker;
-    
-    public CircuitBreakerHandlerAdapter(
-            AbstractReplyProducingMessageHandler delegate, 
-            CircuitBreakerFactory circuitBreakerFactory) {
-        this.delegate = delegate;
-        this.circuitBreaker = circuitBreakerFactory.create("apiService");
-    }
-    
-    @Override
-    protected Object handleRequestMessage(Message<?> message) {
-        return circuitBreaker.run(() -> delegate.handleRequestMessage(message),
-                throwable -> handleFailure(throwable, message));
-    }
-    
-    private Object handleFailure(Throwable throwable, Message<?> message) {
-        // 대체 응답 생성 또는 오류 처리
-        log.error("Circuit breaker triggered for message: {}", message, throwable);
-        return MessageBuilder.withPayload(new ServiceUnavailableResponse())
-                .copyHeaders(message.getHeaders())
-                .build();
-    }
+@Bean
+public RequestHandlerCircuitBreakerAdvice circuitBreakerAdvice() {
+    RequestHandlerCircuitBreakerAdvice advice = new RequestHandlerCircuitBreakerAdvice();
+    advice.setThreshold(5);  // 5번 실패하면 회로 개방
+    advice.setHalfOpenAfter(30000);  // 30초 후 반개방 상태로 변경
+    return advice;
 }
 ```
 
@@ -114,7 +91,7 @@ public class CircuitBreakerHandlerAdapter extends AbstractReplyProducingMessageH
 
 조건에 따라 메시지 흐름을 동적으로 제어할 수 있습니다:
 
-```java
+```
 @Bean
 public IntegrationFlow dynamicControlFlow() {
     return IntegrationFlows
@@ -162,9 +139,9 @@ Spring Integration은 메시지 처리 과정에서 발생하는 다양한 오�
 
 #### 오류 채널(Error Channel)
 
-기본적으로 모든 처리 오류는 `errorChannel`이라는 이름의 글로벌 오류 채널로 전송됩니다:
+기본적으로 모든 처리 오류는 errorChannel이라는 이름의 글로벌 오류 채널로 전송됩니다:
 
-```java
+```
 @Bean
 public IntegrationFlow errorHandlingFlow() {
     return IntegrationFlows
@@ -227,7 +204,7 @@ public IntegrationFlow errorRoutingFlow() {
 
 특정 메시지 처리에 대한 오류 채널을 지정할 수 있습니다:
 
-```java
+```
 @Bean
 public IntegrationFlow customErrorChannelFlow() {
     return IntegrationFlows
@@ -266,7 +243,7 @@ public IntegrationFlow orderErrorHandlingFlow() {
 
 일시적인 오류에 대응하기 위해 재시도 전략을 구현할 수 있습니다:
 
-```java
+```
 @Bean
 public RequestHandlerRetryAdvice retryAdvice() {
     RequestHandlerRetryAdvice advice = new RequestHandlerRetryAdvice();
@@ -314,7 +291,7 @@ public IntegrationFlow retryableFlow() {
 
 외부 서비스 호출에 문제가 있을 때 대체 전략을 사용합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow serviceCallWithFallbackFlow() {
     return IntegrationFlows
@@ -338,7 +315,7 @@ public IntegrationFlow serviceCallWithFallbackFlow() {
 
 처리할 수 없는 메시지를 별도로 관리합니다:
 
-```java
+```
 @Bean
 public IntegrationFlow deadLetterChannelFlow() {
     return IntegrationFlows
@@ -396,7 +373,7 @@ Spring Integration은 메시지 처리 흐름에서 트랜잭션을 지원합니
 
 #### 기본 트랜잭션 구성
 
-```java
+```
 @Bean
 public IntegrationFlow transactionalFlow() {
     return IntegrationFlows
@@ -415,7 +392,7 @@ public PlatformTransactionManager transactionManager() {
 
 #### 다양한 트랜잭션 속성 설정
 
-```java
+```
 @Bean
 public IntegrationFlow advancedTransactionalFlow() {
     return IntegrationFlows
@@ -439,7 +416,7 @@ public IntegrationFlow advancedTransactionalFlow() {
 
 여러 리소스(JMS, 데이터베이스 등)에 걸친 트랜잭션을 관리합니다:
 
-```java
+```
 @Bean
 public PlatformTransactionManager jtaTransactionManager() {
     JtaTransactionManager transactionManager = new JtaTransactionManager();
@@ -468,7 +445,7 @@ public IntegrationFlow jtaTransactionalFlow() {
 
 #### 메시지 헤더를 통한 만료 시간 설정
 
-```java
+```
 @Bean
 public IntegrationFlow expiringMessageFlow() {
     return IntegrationFlows
@@ -497,7 +474,7 @@ public IntegrationFlow expiringMessageFlow() {
 
 #### 요청-응답 시나리오의 타임아웃 설정
 
-```java
+```
 @MessagingGateway(defaultRequestTimeout = 5000,  // 기본 5초 타임아웃
                  defaultReplyTimeout = 5000)
 public interface OrderService {
@@ -514,7 +491,7 @@ public interface OrderService {
 
 복잡한 주문 처리 시스템의 오류 처리와 흐름 제어를 종합적으로 구현해 보겠습니다.
 
-```java
+```
 @Configuration
 @EnableIntegration
 public class OrderProcessingIntegrationConfig {
@@ -615,33 +592,14 @@ public class OrderProcessingIntegrationConfig {
     
     // 서킷브레이커 어드바이스
     @Bean
-    public CircuitBreakerFactoryBean circuitBreakerAdvice() {
-        CircuitBreakerFactoryBean circuitBreakerFactoryBean = new CircuitBreakerFactoryBean();
+    public RequestHandlerCircuitBreakerAdvice circuitBreakerAdvice() {
+        RequestHandlerCircuitBreakerAdvice advice = new RequestHandlerCircuitBreakerAdvice();
         
         // 서킷 브레이커 구성
-        circuitBreakerFactoryBean.setThreshold(5);  // 5번 실패하면 회로 개방
-        circuitBreakerFactoryBean.setHalfOpenAfter(30000);  // 30초 후 반개방 상태로 변경
+        advice.setThreshold(5);  // 5번 실패하면 회로 개방
+        advice.setHalfOpenAfter(30000);  // 30초 후 반개방 상태로 변경
         
-        // 회로 개방 시 대체 응답 생성
-        circuitBreakerFactoryBean.setRecoveryCallback(context -> {
-            Order order = (Order) context.getAttribute("message");
-            
-            log.warn("Circuit open, using fallback for fulfillment: {}", order.getId());
-            
-            // 대체 처리 로직
-            DelayedFulfillmentRequest fallback = new DelayedFulfillmentRequest(order);
-            fallback.setScheduledTime(new Date(System.currentTimeMillis() + 3600000)); // 1시간 후
-            
-            // 지연 큐에 저장
-            delayedFulfillmentQueue.add(fallback);
-            
-            // 고객에게 지연 알림
-            notificationService.sendFulfillmentDelayNotification(order);
-            
-            return fallback;
-        });
-        
-        return circuitBreakerFactoryBean;
+        return advice;
     }
     
     // 메인 오류 처리 플로우
@@ -674,19 +632,17 @@ public class OrderProcessingIntegrationConfig {
             })
             .<ErrorDetail, String>route(errorDetail -> {
                 // 에러 유형에 따라 라우팅
-                Throwable cause = errorDetail.getException() != null 
-                    ? (Throwable) errorDetail.getException() 
-                    : new RuntimeException(errorDetail.getMessage());
+                String exceptionType = errorDetail.getException();
                 
-                if (cause instanceof PaymentException) {
+                if (exceptionType.contains("PaymentException")) {
                     return "payment";
-                } else if (cause instanceof InventoryException) {
+                } else if (exceptionType.contains("InventoryException")) {
                     return "inventory";
-                } else if (cause instanceof FulfillmentException) {
+                } else if (exceptionType.contains("FulfillmentException")) {
                     return "fulfillment";
-                } else if (cause instanceof DataAccessException) {
+                } else if (exceptionType.contains("DataAccessException")) {
                     return "database";
-                } else if (cause instanceof ValidationException) {
+                } else if (exceptionType.contains("ValidationException")) {
                     return "validation";
                 } else {
                     return "general";
@@ -710,11 +666,13 @@ public class OrderProcessingIntegrationConfig {
                 log.error("Payment error: {}", errorDetail);
                 
                 // 원본 주문 추출
+                Object payload = ((ErrorDetail) errorDetail).getPayload();
                 Order order = null;
-                if (errorDetail.getPayload() instanceof Order) {
-                    order = (Order) errorDetail.getPayload();
-                } else if (errorDetail.getPayload() instanceof PaymentResult) {
-                    order = ((PaymentResult) errorDetail.getPayload()).getOrder();
+                
+                if (payload instanceof Order) {
+                    order = (Order) payload;
+                } else if (payload instanceof PaymentResult) {
+                    order = ((PaymentResult) payload).getOrder();
                 }
                 
                 if (order != null) {
@@ -724,17 +682,18 @@ public class OrderProcessingIntegrationConfig {
                     // 오류 로그 저장
                     paymentErrorRepository.save(new PaymentError(
                         order.getId(), 
-                        errorDetail.getMessage(),
+                        ((ErrorDetail) errorDetail).getMessage(),
                         new Date()
                     ));
                     
                     // 알림 메시지 전송
-                    notificationService.sendPaymentErrorNotification(order, errorDetail.getMessage());
-                    
-                    // 운영팀에 알림
-                    if (isWorkingHours()) {
-                        alertService.sendOperationalAlert(
-                            "Payment Error", 
-                            String.format("Order %s failed: %s
-                    ...
+                    notificationService.sendPaymentErrorNotification(
+                        order, ((ErrorDetail) errorDetail).getMessage());
+                }
+                
+                return null;
+            })
+            .get();
+    }
+}
 ```
