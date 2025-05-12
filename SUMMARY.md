@@ -289,6 +289,7 @@
     * [메시지 변환과 라우팅](spring/tools/integration/undefined-1.md)
     * [메시지 흐름 제어와 오류 처리](spring/tools/integration/undefined-2.md)
     * [메시징 엔드포인트](spring/tools/integration/undefined-3.md)
+    * [고급 기능](spring/tools/integration/undefined-4.md)
   * [Http](spring/tools/http/README.md)
     * [RestTemplate Logging](spring/tools/http/api-call.md)
     * [Okhttp](spring/tools/http/okhttp.md)
