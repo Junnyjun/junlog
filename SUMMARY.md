@@ -687,6 +687,9 @@
 
 ## AI
 
+* [Koog](ai/koog/README.md)
+  * [Intro](ai/koog/intro.md)
+  * [Page 1](ai/koog/page-1.md)
 * [Books](ai/books.md)
 
 ## ETC
