@@ -608,6 +608,8 @@
       * [보안 및 보호](computer-science/books/operating-system/undefined/undefined-4.md)
       * [가상화](computer-science/books/operating-system/undefined/undefined-5.md)
       * [분산 시스템](computer-science/books/operating-system/undefined/undefined-6.md)
+      * [커널 데이터 구조](computer-science/books/operating-system/undefined/undefined-7.md)
+    * [운영체제 서비스](computer-science/books/operating-system/undefined-1.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
