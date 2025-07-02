@@ -625,7 +625,7 @@
       * [공유 메모리](computer-science/books/operating-system/undefined-2/undefined-4.md)
       * [POSIX 공유 메모리](computer-science/books/operating-system/undefined-2/posix.md)
     * [스레드와 동시성](computer-science/books/operating-system/undefined-3/README.md)
-      * [Page 3](computer-science/books/operating-system/undefined-3/page-3.md)
+      * [멀티코어 프로그래밍](computer-science/books/operating-system/undefined-3/undefined.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
