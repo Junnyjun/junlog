@@ -628,7 +628,7 @@
       * [멀티코어 프로그래밍](computer-science/books/operating-system/undefined-3/undefined.md)
       * [스레드 모델](computer-science/books/operating-system/undefined-3/undefined-1.md)
       * [스레드 라이브러리](computer-science/books/operating-system/undefined-3/undefined-2.md)
-      * [Page 3](computer-science/books/operating-system/undefined-3/page-3.md)
+      * [암시적 스레딩](computer-science/books/operating-system/undefined-3/undefined-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
