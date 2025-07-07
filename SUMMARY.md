@@ -631,6 +631,8 @@
       * [암시적 스레딩](computer-science/books/operating-system/undefined-3/undefined-3.md)
       * [스레딩 이슈](computer-science/books/operating-system/undefined-3/undefined-4.md)
       * [운영체제 사례](computer-science/books/operating-system/undefined-3/undefined-5.md)
+    * [CPU 스케줄링](computer-science/books/operating-system/cpu/README.md)
+      * [Page 3](computer-science/books/operating-system/cpu/page-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
