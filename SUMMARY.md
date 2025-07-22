@@ -634,6 +634,8 @@
     * [CPU 스케줄링](computer-science/books/operating-system/cpu/README.md)
       * [스케줄링 기준](computer-science/books/operating-system/cpu/undefined.md)
       * [스케줄링 알고리즘](computer-science/books/operating-system/cpu/undefined-1.md)
+      * [스레드 스케줄링](computer-science/books/operating-system/cpu/undefined-2.md)
+      * [다중 프로세서 스케줄링](computer-science/books/operating-system/cpu/undefined-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
