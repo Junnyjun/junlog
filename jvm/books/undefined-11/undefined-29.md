@@ -63,7 +63,7 @@ interface Timer {
 
 프론트엔드 개발에서는 px, mm, dp 등 다양한 단위를 사용하는데 이러한 단위를 제한할 때 활용하면 좋다
 
-또한 객체 생서을 위해서 DSL-like 확장 프로퍼티를 만들어 두어도 좋다
+또한 객체 생성을 위해서 DSL-like 확장 프로퍼티를 만들어 두어도 좋다
 
 **타입 오용으로 발생하는 문제를 막을 때**
 
@@ -76,17 +76,17 @@ interface Timer {
 value class StudentId(val studentId: Int)
 
 @JvmInline
-value class TeacherId(val TeacherId: Int)
+value class TeacherId(val teacherId: Int)
 
 @JvmInline
 value class SchoolId(val schoolId: Int)
 
 class Grades(
         val studentId: StudentId,
-        val TeacherId: TeacherId,
+        val teacherId: TeacherId,
         val schoolId: SchoolId
 ) {
-    
+
 }
 ```
 
@@ -125,9 +125,9 @@ fun main() {
 
 하지만 이 코드는 클래스가 inline으로 동작하지 않는다.&#x20;
 
-따라서 해당 콛는 클래스를 inline으로 만들었을 때 얻을 수 있는 장점이 없다
+따라서 해당 코드는 클래스를 inline으로 만들었을 때 얻을 수 있는 장점이 없다
 
-인터페이스를 통해서 타입을 나타내려면, 객체를 래핑해서 사용해야하기 때문
+인터페이스를 통해서 타입을 나타내려면, 객체를 래핑해서 사용해야하기 때문이다.
 
 **typealias**
 

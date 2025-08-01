@@ -2,7 +2,7 @@
 
 ### 1. 날짜와 시간 <a href="#1" id="1"></a>
 
-#### Calender와 GregorianCalendar <a href="#calender-gregoriancalendar" id="calender-gregoriancalendar"></a>
+#### Calendar와 GregorianCalendar <a href="#calendar-gregoriancalendar" id="calendar-gregoriancalendar"></a>
 
 Calendar는 추상클래스이기 때문에 직접 객체를 생성할 수 없고, 메서드를 통해서 완전히 구현된 클래스의 인스턴스를 얻어야 한다.
 
@@ -36,7 +36,7 @@ cal.setTime(d);
 
 ### 2. 형식화 클래스 <a href="#2" id="2"></a>
 
-#### DeciamlFormat <a href="#deciamlformat" id="deciamlformat"></a>
+#### DecimalFormat <a href="#decimalformat" id="decimalformat"></a>
 
 숫자를 형식화 하는데 사용된다.
 
@@ -57,7 +57,7 @@ String result = df.format(number);
 
 ```java
 Date today = new Date();
-SimpleDateFormat df = new SimpleDateFormat("yyy-MM-dd");
+SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 String result = df.format(today);
 ```
 
@@ -74,7 +74,7 @@ String result = df.format(today);
 ### 3. java.time패키지 <a href="#3-javatime" id="3-javatime"></a>
 
 LocalDate + LocalTime -> LocalDateTime\
-LocalDateTime + 시간대 -> ZpnedDateTime
+LocalDateTime + 시간대 -> ZonedDateTime
 
 #### Period와 Duration <a href="#period-duration" id="period-duration"></a>
 
