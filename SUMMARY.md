@@ -642,6 +642,7 @@
       * [임계 구역 문제](computer-science/books/operating-system/undefined-4/undefined.md)
       * [동기화 도구](computer-science/books/operating-system/undefined-4/undefined-1.md)
       * [뮤텍스 락](computer-science/books/operating-system/undefined-4/undefined-2.md)
+      * [세마포](computer-science/books/operating-system/undefined-4/undefined-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
