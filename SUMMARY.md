@@ -649,6 +649,8 @@
       * [동시성](computer-science/books/operating-system/undefined-4/undefined-5.md)
     * [동기화 예제](computer-science/books/operating-system/undefined-5/README.md)
       * [고전적인 동기화 문제](computer-science/books/operating-system/undefined-5/undefined.md)
+      * [커널 내에서의 동기화](computer-science/books/operating-system/undefined-5/undefined-1.md)
+      * [POSIX 동기화](computer-science/books/operating-system/undefined-5/posix.md)
       * [Page 3](computer-science/books/operating-system/undefined-5/page-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
