@@ -569,6 +569,7 @@
   * [TCP](computer-science/network/tcp/README.md)
     * [IP ?](computer-science/network/tcp/ip.md)
     * [Internet ?](computer-science/network/tcp/chap1.md)
+    * [Stream\&Datagram](computer-science/network/tcp/stream-and-datagram.md)
   * [UDP](computer-science/network/udp.md)
 * [🎁 Architectural Patterns](computer-science/architectural-patterns/README.md)
   * [Peer-to-peer pattern](computer-science/architectural-patterns/peer-to-peer-pattern.md)
