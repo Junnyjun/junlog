@@ -42,6 +42,7 @@
     * [병렬 처리와 커스텀 스레드 풀](jvm/clean-architecture/stream/undefined.md)
 * [🔮 KOTLIN](jvm/kotlin/README.md)
   * [Structure](jvm/kotlin/structure/README.md)
+    * [property](jvm/kotlin/structure/property.md)
     * [associate](jvm/kotlin/structure/associate.md)
   * [Basic](jvm/kotlin/basic/README.md)
     * [Setting](jvm/kotlin/basic/setting.md)
