@@ -55,6 +55,7 @@
     * [10분 코틀린 기초떼기](jvm/kotlin/10.md)
     * [Lazy](jvm/kotlin/basic/lazy.md)
     * [Inline](jvm/kotlin/basic/inline.md)
+    * [reified](jvm/kotlin/basic/reified.md)
   * [Coroutine](jvm/kotlin/coroutine.md)
     * [병렬처리](jvm/kotlin/coroutine/undefined.md)
     * [Job](jvm/kotlin/job.md)
