@@ -660,6 +660,8 @@
       * [멀티스레드 애플리케이션의 교착 상태](computer-science/books/operating-system/undefined-6/undefined.md)
       * [교착 상태를 위한 필요 조건](computer-science/books/operating-system/undefined-6/undefined-1.md)
       * [교착 상태 처리 방법](computer-science/books/operating-system/undefined-6/undefined-2.md)
+      * [실제 시스템에서의 교착 상태](computer-science/books/operating-system/undefined-6/undefined-3.md)
+    * [가상 메모리](computer-science/books/operating-system/undefined-7.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
