@@ -63,20 +63,6 @@ public final class MyClass {
 
 #### `LazyKt.lazy`의 컴파일 과정
 
-다음과 같은 코틀린 코드를 예로 들어보겠습니다.
-
-```
-// 원본 코틀린 코드
-class MyClass {
-    val myValue: String by lazy {
-        println("Initializing...")
-        "Initialized!"
-    }
-}
-```
-
-이 코드는 컴파일러에 의해 다음과 유사한 자바 바이트코드로 변환됩니다.
-
 ```kotlin
 // SynchronizedLazyImpl (기본값)
 // 스레드 안전성을 보장하기 위해 synchronized 블록을 사용합니다.
