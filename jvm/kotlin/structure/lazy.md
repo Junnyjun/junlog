@@ -77,32 +77,82 @@ class MyClass {
 
 이 코드는 컴파일러에 의해 다음과 유사한 자바 바이트코드로 변환됩니다.
 
-```
-// 컴파일된 자바 의사 코드
-public final class MyClass {
-   // 1. Lazy 객체를 저장하기 위한 보조 필드
-   private final Lazy myValue$delegate;
+```kotlin
+// SynchronizedLazyImpl (기본값)
+// 스레드 안전성을 보장하기 위해 synchronized 블록을 사용합니다.
+private class SynchronizedLazyImpl<T>(initializer: () -> T, lock: Any? = null) : Lazy<T>, Serializable {
+    private var initializer: (() -> T)? = initializer // 초기화 람다
+    @Volatile private var _value: Any? = UNINITIALIZED_VALUE // 실제 값을 저장하는 필드
+    private val lock = lock ?: this
 
-   // 2. myValue 프로퍼티의 게터(getter) 메서드
-   public final String getMyValue() {
-      // 델리게이트 객체의 value 속성을 통해 실제 값에 접근
-      return (String)this.myValue$delegate.getValue();
-   }
+    override val value: T
+        get() {
+            // 이 블록에서만 초기화가 진행되도록 동기화
+            val _v1 = _value
+            if (_v1 !== UNINITIALIZED_VALUE) {
+                return _v1 as T
+            }
 
-   public MyClass() {
-      // 3. 생성자에서 LazyKt.lazy() 함수 호출
-      //    (null)은 기본 스레드 안전성 모드 (SYNCHRONIZED)를 의미
-      //    (Function0)null.INSTANCE는 초기화 람다식에 대한 참조
-      this.myValue$delegate = LazyKt.lazy(null.INSTANCE);
-   }
+            return synchronized(lock) {
+                val _v2 = _value
+                if (_v2 !== UNINITIALIZED_VALUE) {
+                    _v2 as T
+                } else {
+                    val typedValue = initializer!!()
+                    _value = typedValue
+                    initializer = null // 초기화 후 람다를 GC 대상으로 만듦
+                    typedValue
+                }
+            }
+        }
+}
 
-   // 4. 초기화 람다식은 별도의 익명 클래스로 컴파일됨
-   public static final class MyClass$myValue$2 extends Lambda implements Function0 {
-      public final String invoke() {
-         System.out.println("Initializing...");
-         return "Initialized!";
-      }
-   }
+// SafePublicationLazyImpl (PUBLICATION 모드)
+// 동기화 오버헤드를 줄이기 위해 잠금 없는(lock-free) 알고리즘을 사용합니다.
+private class SafePublicationLazyImpl<T>(initializer: () -> T) : Lazy<T> {
+    @Volatile private var initializer: (() -> T)? = initializer
+    @Volatile private var _value: Any? = UNINITIALIZED_VALUE
+
+    override val value: T
+        get() {
+            val value = _value
+            if (value !== UNINITIALIZED_VALUE) {
+                return value as T
+            }
+
+            // 여러 스레드가 동시에 이 블록에 진입할 수 있음
+            val initializer = this.initializer
+            if (initializer != null) {
+                val typedValue = initializer()
+                // CAS(Compare-and-Swap) 연산과 유사한 로직으로
+                // _value가 UNINITIALIZED_VALUE일 때만 값을 덮어씀
+                if (valueUpdater.compareAndSet(this, UNINITIALIZED_VALUE, typedValue)) {
+                    this.initializer = null
+                    return typedValue
+                }
+            }
+            // 다른 스레드가 먼저 초기화했을 경우
+            return _value as T
+        }
+}
+
+// UnsafeLazyImpl (NONE 모드)
+// 동기화 로직이 전혀 없어 단일 스레드 환경에서 가장 빠릅니다.
+private class UnsafeLazyImpl<T>(initializer: () -> T) : Lazy<T>, Serializable {
+    private var initializer: (() -> T)? = initializer
+    private var _value: Any? = UNINITIALIZED_VALUE
+
+    override val value: T
+        get() {
+            val initializer = initializer
+            if (initializer != null) {
+                val typedValue = initializer()
+                _value = typedValue
+                this.initializer = null
+                return typedValue
+            }
+            return _value as T
+        }
 }
 ```
 
