@@ -89,7 +89,7 @@ class CustomAuthenticationProvider(
 `SecurityContext`는 `Authentication`을 저장하고 관리하는 인터페이스이다.\
 요청이 유지되는 동안 인증된 사용자의 정보를 저장한다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 SecurityContext는 다음과 같이 정의되어 있다.
 

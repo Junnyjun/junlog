@@ -64,7 +64,7 @@ interface UserDetailsService {
 
 loadUserByUsername()는 사용자의 이름을 받아서 UserDetails를 반환하고 존재하지 않는다면 UsernameNotFoundException을 발생시킨다.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).svg" alt="" class="gitbook-drawing">
 
 Security구현에서 사용할 User를 새롭게 구현한다
 

@@ -128,7 +128,7 @@ BGP는 설계 당시 보안에 대한 고려가 부족하여 다음과 같은 �
 
 ### **AS, BGP, IXP 간의 상호 관계**
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
 **AS와 BGP의 관계**
 
