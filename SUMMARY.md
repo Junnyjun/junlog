@@ -565,6 +565,7 @@
   * [DMA Controller](computer-science/os/dma-controller.md)
 * [🛠️ Network](computer-science/network/README.md)
   * [BASIC](computer-science/network/basic/README.md)
+    * [TIME\_WAITs](computer-science/network/basic/time_waits.md)
     * [MAC Address](computer-science/network/basic/mac-address.md)
     * [PACKET](computer-science/network/basic/packet.md)
     * [Protocol](computer-science/network/basic/protocol.md)
