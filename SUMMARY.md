@@ -243,6 +243,7 @@
 
 ## Spring
 
+* [AI](spring/ai.md)
 * [🌫️ Data](spring/data/README.md)
   * [Hikari](spring/data/hikari/README.md)
     * [커넥션 풀링의 필요성과 기본 개념](spring/data/hikari/undefined.md)
@@ -667,7 +668,8 @@
       * [교착 상태를 위한 필요 조건](computer-science/books/operating-system/undefined-6/undefined-1.md)
       * [교착 상태 처리 방법](computer-science/books/operating-system/undefined-6/undefined-2.md)
       * [실제 시스템에서의 교착 상태](computer-science/books/operating-system/undefined-6/undefined-3.md)
-    * [가상 메모리](computer-science/books/operating-system/undefined-7.md)
+    * [가상 메모리](computer-science/books/operating-system/undefined-7/README.md)
+      * [연속 메모리 할당](computer-science/books/operating-system/undefined-7/undefined.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
