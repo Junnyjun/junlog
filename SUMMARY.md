@@ -671,6 +671,7 @@
     * [가상 메모리](computer-science/books/operating-system/undefined-7/README.md)
       * [연속 메모리 할당](computer-science/books/operating-system/undefined-7/undefined.md)
       * [페이징](computer-science/books/operating-system/undefined-7/undefined-1.md)
+      * [페이지 테이블의 구조](computer-science/books/operating-system/undefined-7/undefined-2.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
