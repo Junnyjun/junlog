@@ -1,6 +1,10 @@
 # Table of contents
 
 * [👻 JUNNYLAND BLOG](README.md)
+  * [☕ 커피 연구소](readme/undefined/README.md)
+    * [콜드브루](readme/undefined/undefined/README.md)
+      * [2025 10.01](readme/undefined/undefined/2025-10.01.md)
+      * [2025 10.02](readme/undefined/undefined/2025-10.02.md)
 
 ## JVM
 
@@ -670,6 +674,9 @@
       * [실제 시스템에서의 교착 상태](computer-science/books/operating-system/undefined-6/undefined-3.md)
     * [가상 메모리](computer-science/books/operating-system/undefined-7/README.md)
       * [연속 메모리 할당](computer-science/books/operating-system/undefined-7/undefined.md)
+      * [페이징](computer-science/books/operating-system/undefined-7/undefined-1.md)
+      * [페이지 테이블의 구조](computer-science/books/operating-system/undefined-7/undefined-2.md)
+      * [스와핑](computer-science/books/operating-system/undefined-7/undefined-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
