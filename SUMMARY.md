@@ -376,6 +376,7 @@
   * [Structure](data/kafka/structure/README.md)
     * [File System](data/kafka/structure/file-system.md)
     * [Topic\&Partition](data/kafka/structure/topic-and-partition.md)
+    * [Record](data/kafka/structure/record.md)
   * [Kafka](data/kafka/kafka/README.md)
     * [Kafka intro ?](data/kafka/kafka/kafka-intro.md)
     * [ISR](data/kafka/kafka/isr.md)
