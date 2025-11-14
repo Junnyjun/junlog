@@ -692,6 +692,8 @@
     * [파일 시스템 구조](computer-science/books/operating-system/undefined-9/README.md)
       * [파일 시스템 계층 구조](computer-science/books/operating-system/undefined-9/undefined.md)
       * [온-디스크 및 인-메모리 구조](computer-science/books/operating-system/undefined-9/undefined-1.md)
+      * [디렉터리 구현](computer-science/books/operating-system/undefined-9/undefined-2.md)
+      * [파일 할당](computer-science/books/operating-system/undefined-9/undefined-3.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
