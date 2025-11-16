@@ -186,4 +186,4 @@ public TaskDecorator loggingDecorator() {
 
 Spring Boot 4.0은 Spring Framework 7에 도입된 JmsClient를 자동으로 구성합니다. 이는 JdbcClient 및 RestClient의 익숙한 패턴과 일치하며, JMS 메시징 작업을 위한 유연하고 빌더 패턴 스타일의 최신 API를 제공합니다. **JmsTemplate** 및 **JmsMessagingTemplate** 과도 여전히 공존합니다 .
 
-이를 통해 JMS는 접근성이 뛰어나고 사용하기가 더 깔끔해집니다. 특히 메시징 시스템에 의존하는 마이크로서비스의 경우 더욱 그렇습니다.\
+이를 통해 JMS는 접근성이 뛰어나고 사용하기가 더 깔끔해집니다. 특히 메시징 시스템에 의존하는 마이크로서비스의 경우 더욱 그렇습니다.<br>
