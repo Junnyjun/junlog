@@ -689,6 +689,7 @@
       * [스레싱](computer-science/books/operating-system/undefined-8/undefined-2.md)
       * [메모리 매핑 파일](computer-science/books/operating-system/undefined-8/undefined-3.md)
       * [기타 고려 사항](computer-science/books/operating-system/undefined-8/undefined-4.md)
+    * [파일 시스템 구조](computer-science/books/operating-system/undefined-9.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
