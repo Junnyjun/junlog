@@ -696,6 +696,7 @@
       * [파일 할당](computer-science/books/operating-system/undefined-9/undefined-3.md)
       * [빈 공간 관리](computer-science/books/operating-system/undefined-9/undefined-4.md)
       * [효율성과 성능](computer-science/books/operating-system/undefined-9/undefined-5.md)
+      * [복구](computer-science/books/operating-system/undefined-9/undefined-6.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
