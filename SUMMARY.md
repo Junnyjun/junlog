@@ -699,6 +699,7 @@
       * [복구](computer-science/books/operating-system/undefined-9/undefined-6.md)
     * [하드웨어](computer-science/books/operating-system/undefined-10/README.md)
       * [응용 I/O 인터페이스](computer-science/books/operating-system/undefined-10/i-o.md)
+      * [커널 I/O 서브시스템](computer-science/books/operating-system/undefined-10/i-o-1.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
