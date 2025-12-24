@@ -702,6 +702,7 @@
       * [커널 I/O 서브시스템](computer-science/books/operating-system/undefined-10/i-o-1.md)
       * [I/O 요청을 하드웨어 동작](computer-science/books/operating-system/undefined-10/i-o-2.md)
       * [스트림](computer-science/books/operating-system/undefined-10/undefined.md)
+      * [성능](computer-science/books/operating-system/undefined-10/undefined-1.md)
   * [📙 DNS 실전 교과서](computer-science/books/dns/README.md)
     * [IP주소와 이름의 관계](computer-science/books/dns/ip.md)
   * [📕 쉽게 배우는 운영체제](computer-science/books/undefined-4/README.md)
