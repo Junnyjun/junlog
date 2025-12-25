@@ -783,6 +783,7 @@
     * [더 심층적인 통찰을 위한 리팩터링](computer-science/books/ddd/undefined-11.md)
     * [전략적 설계](computer-science/books/ddd/undefined-12.md)
     * [디스틸레이션](computer-science/books/ddd/undefined-13.md)
+  * [📙 카프카핵심가이드](computer-science/books/undefined-1.md)
 
 ## FINTECH
 
